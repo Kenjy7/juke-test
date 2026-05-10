@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Blokkeer niet-publieke paden
+Disallow: /.netlify/
+Disallow: /api/
+
+# Sitemap locaties
+Sitemap: https://jukecoding.be/sitemap.xml
+Sitemap: https://www.jukecoding.be/sitemap.xml

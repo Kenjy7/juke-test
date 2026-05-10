@@ -1,0 +1,42 @@
+{
+  "name": "juke",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "scripts": {
+    "dev": "vite",
+    "prebuild": "node scripts/generate-sitemap.mjs",
+    "build": "vite-ssg build",
+    "preview": "vite preview",
+    "format": "prettier --write src/",
+    "postbuild": "node scripts/fix-lang.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.82.0",
+    "tweetnacl": "^1.0.3",
+    "@emailjs/browser": "^4.4.1",
+    "@heroicons/react": "^2.2.0",
+    "@unhead/addons": "^2.1.1",
+    "@unhead/ssr": "^2.1.1",
+    "@unhead/vue": "^2.1.1",
+    "@vueuse/head": "^2.0.0",
+    "lucide-vue-next": "^0.562.0",
+    "pinia": "^3.0.3",
+    "sass": "^1.93.2",
+    "sass-embedded": "^1.93.2",
+    "unhead": "^2.1.1",
+    "vue": "^3.5.18",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.1",
+    "prettier": "3.6.2",
+    "replace-in-file": "^8.4.0",
+    "vite": "^7.0.6",
+    "vite-plugin-vue-devtools": "^8.0.0",
+    "vite-ssg": "^28.2.2"
+  }
+}

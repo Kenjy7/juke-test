@@ -1,0 +1,121 @@
+/* ============================================================
+   JUKECODING DESIGN TOKENS — Refined Dark (Premium Tier)
+   Vibe: Ethereal Glass (SaaS / AI / Tech)
+   ============================================================ */
+:root {
+  /* ---- Backgrounds ---- */
+  --color-bg-primary: #050508;
+  --color-bg-elevated: rgba(255, 255, 255, 0.03);
+  --color-bg-surface: rgba(255, 255, 255, 0.06);
+  --color-bg-overlay: rgba(5, 5, 8, 0.85);
+  --color-bg-card-outer: rgba(255, 255, 255, 0.02);
+  --color-bg-card-inner: rgba(255, 255, 255, 0.04);
+
+  /* ---- Brand ---- */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-subtle: rgba(59, 130, 246, 0.08);
+  --color-primary-border: rgba(59, 130, 246, 0.15);
+  --color-primary-glow: rgba(59, 130, 246, 0.25);
+
+  /* ---- Accent (CTA) ---- */
+  --color-accent: #f59e0b;
+  --color-accent-hover: #d97706;
+  --color-accent-subtle: rgba(245, 158, 11, 0.08);
+  --color-accent-glow: rgba(245, 158, 11, 0.2);
+
+  /* ---- Text ---- */
+  --color-text-primary: #f0f0f3;
+  --color-text-secondary: rgba(240, 240, 243, 0.6);
+  --color-text-tertiary: rgba(240, 240, 243, 0.35);
+  --color-text-on-accent: #0a0a0f;
+
+  /* ---- Borders (hairlines only) ---- */
+  --color-border: rgba(255, 255, 255, 0.06);
+  --color-border-hover: rgba(255, 255, 255, 0.12);
+  --color-border-active: rgba(59, 130, 246, 0.3);
+
+  /* ---- Semantic ---- */
+  --color-success: #22c55e;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  /* ---- Typography ---- */
+  --font-display: 'Clash Display', 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+
+  --text-hero: clamp(3rem, 7vw, 5.5rem);
+  --text-h1: clamp(2.25rem, 4.5vw, 3.5rem);
+  --text-h2: clamp(1.75rem, 3.5vw, 2.75rem);
+  --text-h3: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-small: 0.875rem;
+  --text-xs: 0.6875rem;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 800;
+
+  --leading-tight: 1.0;
+  --leading-snug: 1.12;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+
+  --tracking-tight: -0.035em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.12em;
+
+  /* ---- Spacing (heavy breathing) ---- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  --space-40: 10rem;
+
+  /* ---- Radius (squircle) ---- */
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-2xl: 2rem;
+  --radius-full: 999px;
+
+  /* ---- Shadows (ambient, diffused) ---- */
+  --shadow-ambient: 0 4px 32px rgba(0, 0, 0, 0.12);
+  --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.2);
+  --shadow-inner-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.08);
+  --shadow-glow-primary: 0 0 40px rgba(59, 130, 246, 0.15);
+  --shadow-glow-accent: 0 0 40px rgba(245, 158, 11, 0.15);
+
+  /* ---- Blur ---- */
+  --blur-sm: blur(8px);
+  --blur-md: blur(20px);
+  --blur-lg: blur(40px);
+  --blur-heavy: blur(64px);
+
+  /* ---- Motion (spring physics) ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  --duration-fast: 200ms;
+  --duration-base: 400ms;
+  --duration-slow: 700ms;
+  --duration-reveal: 900ms;
+
+  /* ---- Layout ---- */
+  --max-width: 1200px;
+  --max-width-narrow: 800px;
+  --max-width-wide: 1400px;
+}

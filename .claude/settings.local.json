@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /c/Users/paren/OneDrive/Bureaublad/weba/Juke/.claude/worktrees/fervent-germain/netlify/functions/*.mjs /c/Users/paren/OneDrive/Bureaublad/weba/Juke/.claude/worktrees/fervent-germain/netlify/lib/*.mjs /c/Users/paren/OneDrive/Bureaublad/weba/Juke/.claude/worktrees/fervent-germain/scripts/*.mjs)",
+      "Bash(wc -l /Users/kenjyparent/Desktop/Juke-coding/Juke/src/views/*.vue)",
+      "Bash(node scripts/generate-sitemap.mjs)",
+      "Bash(node --input-type=module)"
+    ]
+  }
+}

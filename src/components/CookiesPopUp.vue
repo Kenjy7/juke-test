@@ -1,11 +1,16 @@
 <template>
   <transition name="fade">
     <div v-if="showBanner" class="cookie-banner-overlay">
-      <div class="cookie-banner">
+      <div
+        class="cookie-banner"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="cookie-title"
+      >
         <div class="cookie-content">
           <div class="cookie-header">
             <div class="cookie-icon">🍪</div>
-            <h3>Cookievoorkeuren</h3>
+            <h3 id="cookie-title">Cookievoorkeuren</h3>
           </div>
 
           <p class="cookie-description">
@@ -100,6 +105,7 @@
             </button>
 
             <button
+                ref="primaryBtnRef"
                 @click="handleAcceptAll"
                 class="btn btn-primary"
             >
@@ -120,7 +126,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useCookieConsent } from '../composables/useCookieConsent'
 
 // Gebruik de composable
@@ -133,12 +139,19 @@ const {
 
 const showBanner = ref(false)
 const showDetails = ref(false)
+const primaryBtnRef = ref(null)
 
 const preferences = ref({
   functional: true,
   analytics: true,
   marketing: false
 })
+
+const handleKeyDown = (e) => {
+  if (e.key === 'Escape' && showBanner.value) {
+    handleRejectAll()
+  }
+}
 
 onMounted(() => {
   // Check of gebruiker al een keuze heeft gemaakt
@@ -148,11 +161,20 @@ onMounted(() => {
     // Geen bestaande voorkeuren, toon banner
     setTimeout(() => {
       showBanner.value = true
+      nextTick(() => {
+        primaryBtnRef.value?.focus()
+      })
     }, 1000)
   } else {
     // Gebruiker heeft al gekozen, banner blijft weg
     console.log('Gebruiker heeft al cookie voorkeuren ingesteld')
   }
+
+  document.addEventListener('keydown', handleKeyDown)
+})
+
+onUnmounted(() => {
+  document.removeEventListener('keydown', handleKeyDown)
 })
 
 const toggleDetails = () => {

@@ -1,121 +1,132 @@
 /* ============================================================
-   JUKECODING DESIGN TOKENS — Refined Dark (Premium Tier)
-   Vibe: Ethereal Glass (SaaS / AI / Tech)
+   JUKECODING DESIGN TOKENS — Refined Studio
+   Luxe-editorial × modern-minimalist.
+   North star: "quietly confident, expensive silence."
+   Warm cream canvas · one blue accent · serif display
+   · flat (hairlines, no shadow) · slow, unhurried motion.
    ============================================================ */
 :root {
-  /* ---- Backgrounds ---- */
-  --color-bg-primary: #050508;
-  --color-bg-elevated: rgba(255, 255, 255, 0.03);
-  --color-bg-surface: rgba(255, 255, 255, 0.06);
-  --color-bg-overlay: rgba(5, 5, 8, 0.85);
-  --color-bg-card-outer: rgba(255, 255, 255, 0.02);
-  --color-bg-card-inner: rgba(255, 255, 255, 0.04);
+  /* ---- Backgrounds / surfaces (warm tints) ---- */
+  --color-bg-primary: #f5f1e8;       /* canvas: cream */
+  --color-bg-elevated: #faf7f2;      /* raised: bone */
+  --color-bg-surface: #faf7f2;       /* card / panel: bone */
+  --color-bg-overlay: rgba(26, 24, 20, 0.45);
+  --color-bg-card-outer: #f5f1e8;
+  --color-bg-card-inner: #faf7f2;
+  --color-bg-sunken: #ede7da;        /* recessed band: sand */
 
-  /* ---- Brand ---- */
-  --color-primary: #3b82f6;
-  --color-primary-hover: #2563eb;
-  --color-primary-subtle: rgba(59, 130, 246, 0.08);
-  --color-primary-border: rgba(59, 130, 246, 0.15);
-  --color-primary-glow: rgba(59, 130, 246, 0.25);
+  /* ---- Brand accent (ONE — blue on warm cream) ---- */
+  --color-primary: #2a6cff;
+  --color-primary-hover: #1d5ae6;
+  --color-primary-subtle: rgba(42, 108, 255, 0.08);
+  --color-primary-border: rgba(42, 108, 255, 0.22);
+  --color-primary-glow: rgba(42, 108, 255, 0.14);
 
-  /* ---- Accent (CTA) ---- */
-  --color-accent: #f59e0b;
-  --color-accent-hover: #d97706;
-  --color-accent-subtle: rgba(245, 158, 11, 0.08);
-  --color-accent-glow: rgba(245, 158, 11, 0.2);
+  /* ---- Accent aliases (unified to the single accent) ---- */
+  --color-accent: #2a6cff;
+  --color-accent-hover: #1d5ae6;
+  --color-accent-subtle: rgba(42, 108, 255, 0.08);
+  --color-accent-glow: rgba(42, 108, 255, 0.14);
 
-  /* ---- Text ---- */
-  --color-text-primary: #f0f0f3;
-  --color-text-secondary: rgba(240, 240, 243, 0.6);
-  --color-text-tertiary: rgba(240, 240, 243, 0.35);
-  --color-text-on-accent: #0a0a0f;
+  /* ---- Text / ink (warm, never pure black) ---- */
+  --color-text-primary: #1a1814;
+  --color-text-secondary: #5c544a;
+  --color-text-tertiary: #736b5e;   /* darkened from #8b8378 for AA contrast on cream */
+  --color-text-on-accent: #faf7f2;
 
-  /* ---- Borders (hairlines only) ---- */
-  --color-border: rgba(255, 255, 255, 0.06);
-  --color-border-hover: rgba(255, 255, 255, 0.12);
-  --color-border-active: rgba(59, 130, 246, 0.3);
+  /* ---- Borders (warm hairlines) ---- */
+  --color-border: #d9d2c5;
+  --color-border-hover: #c4bbab;
+  --color-border-active: #2a6cff;
 
-  /* ---- Semantic ---- */
-  --color-success: #22c55e;
-  --color-error: #ef4444;
-  --color-warning: #f59e0b;
+  /* ---- Semantic (muted to fit the warm palette) ---- */
+  --color-success: #3f6b4f;
+  --color-error: #a13a2a;
+  --color-warning: #9a6b1f;
 
-  /* ---- Typography ---- */
-  --font-display: 'Clash Display', 'Plus Jakarta Sans', -apple-system, sans-serif;
-  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  /* ---- Typography: serif display + grotesque body ---- */
+  --font-display: 'Fraunces', 'Tiempos Headline', Georgia, serif;
+  --font-sans: 'Geist', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
 
-  --text-hero: clamp(3rem, 7vw, 5.5rem);
-  --text-h1: clamp(2.25rem, 4.5vw, 3.5rem);
-  --text-h2: clamp(1.75rem, 3.5vw, 2.75rem);
-  --text-h3: 1.25rem;
-  --text-body-lg: 1.125rem;
-  --text-body: 1rem;
-  --text-small: 0.875rem;
-  --text-xs: 0.6875rem;
+  /* ramp — oversized contrast (luxe), tasteful */
+  --text-hero: clamp(2.75rem, 6vw, 4.5rem);    /* 44–72 */
+  --text-h1: clamp(2.25rem, 4vw, 3.25rem);      /* 36–52 */
+  --text-h2: clamp(1.75rem, 3vw, 2.5rem);       /* 28–40 */
+  --text-h3: 1.25rem;                           /* 20 */
+  --text-body-lg: 1.125rem;                     /* 18 */
+  --text-body: 1rem;                            /* 16 */
+  --text-small: 0.875rem;                       /* 14 */
+  --text-xs: 0.75rem;                           /* 12 */
 
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
-  --weight-bold: 700;
-  --weight-extrabold: 800;
+  --weight-bold: 600;
+  --weight-extrabold: 600;
 
-  --leading-tight: 1.0;
+  --leading-tight: 1.05;
   --leading-snug: 1.12;
   --leading-normal: 1.5;
-  --leading-relaxed: 1.75;
+  --leading-relaxed: 1.65;
 
-  --tracking-tight: -0.035em;
+  --tracking-tight: -0.02em;
   --tracking-normal: 0;
-  --tracking-wide: 0.12em;
+  --tracking-wide: 0.08em;       /* editorial caps */
 
-  /* ---- Spacing (heavy breathing) ---- */
+  /* ---- Spacing (8px base; theatrical sections) ---- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
   --space-4: 1rem;
+  --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
   --space-12: 3rem;
   --space-16: 4rem;
-  --space-20: 5rem;
-  --space-24: 6rem;
-  --space-32: 8rem;
-  --space-40: 10rem;
+  --space-20: 5.5rem;
+  --space-24: 7rem;
+  --space-32: 9rem;     /* desktop section ≈ 144 */
+  --space-40: 12rem;
 
-  /* ---- Radius (squircle) ---- */
-  --radius-sm: 10px;
-  --radius-md: 14px;
-  --radius-lg: 20px;
-  --radius-xl: 28px;
-  --radius-2xl: 2rem;
-  --radius-full: 999px;
+  /* ---- Radius (near-square, editorial) ---- */
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 8px;
+  --radius-xl: 12px;
+  --radius-2xl: 14px;
+  --radius-full: 9999px;
 
-  /* ---- Shadows (ambient, diffused) ---- */
-  --shadow-ambient: 0 4px 32px rgba(0, 0, 0, 0.12);
-  --shadow-elevated: 0 12px 48px rgba(0, 0, 0, 0.2);
-  --shadow-inner-highlight: inset 0 1px 1px rgba(255, 255, 255, 0.08);
-  --shadow-glow-primary: 0 0 40px rgba(59, 130, 246, 0.15);
-  --shadow-glow-accent: 0 0 40px rgba(245, 158, 11, 0.15);
+  /* ---- Shadows (FLAT — hairlines do the work) ---- */
+  --shadow-ambient: none;
+  --shadow-elevated: 0 12px 40px rgba(26, 24, 20, 0.08);
+  --shadow-overlay: 0 24px 64px rgba(26, 24, 20, 0.12);
+  --shadow-inner-highlight: none;
+  --shadow-glow-primary: none;
+  --shadow-glow-accent: none;
 
-  /* ---- Blur ---- */
+  /* ---- Blur (legacy) ---- */
   --blur-sm: blur(8px);
   --blur-md: blur(20px);
   --blur-lg: blur(40px);
   --blur-heavy: blur(64px);
 
-  /* ---- Motion (spring physics) ---- */
-  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.32, 0.72, 0, 1);
-  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  /* ---- Motion (slow, unhurried, no spring) ---- */
+  --ease-out-expo: cubic-bezier(0, 0, 0.2, 1);
+  --ease-spring: cubic-bezier(0, 0, 0.2, 1);
+  --ease-smooth: cubic-bezier(0, 0, 0.2, 1);
 
   --duration-fast: 200ms;
-  --duration-base: 400ms;
-  --duration-slow: 700ms;
-  --duration-reveal: 900ms;
+  --duration-base: 320ms;
+  --duration-slow: 600ms;
+  --duration-reveal: 800ms;
+
+  --transition-fast: 200ms var(--ease-smooth);
+  --transition-base: 320ms var(--ease-smooth);
+  --transition-smooth: 600ms var(--ease-smooth);
 
   /* ---- Layout ---- */
   --max-width: 1200px;
   --max-width-narrow: 800px;
-  --max-width-wide: 1400px;
+  --max-width-wide: 1320px;
 }

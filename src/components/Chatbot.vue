@@ -3,18 +3,28 @@
     <!-- Toggle Button -->
     <button
         id="chatToggle"
+        ref="toggleBtn"
         @click="toggleChat"
         @mouseenter="toggleHover = true"
         @mouseleave="toggleHover = false"
         :style="toggleButtonStyle"
+        :aria-label="open ? 'Sluit chat' : 'Open chat'"
+        :aria-expanded="open"
+        aria-controls="chatbox"
     >
-      <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+      <svg viewBox="0 0 24 24" width="28" height="28" fill="white" aria-hidden="true" focusable="false">
         <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
       </svg>
     </button>
 
     <!-- Chat Window -->
-    <div v-if="open" id="chatbox" :style="chatboxStyle">
+    <div
+        v-if="open"
+        id="chatbox"
+        role="dialog"
+        aria-label="Chat met JukeCoding"
+        :style="chatboxStyle"
+    >
       <!-- Header -->
       <div id="chatHeader">
         <div class="header-content">
@@ -33,13 +43,14 @@
             @mouseenter="closeHover = true"
             @mouseleave="closeHover = false"
             :style="closeBtnStyle"
+            aria-label="Sluit chat"
         >
-          ✕
+          <span aria-hidden="true">✕</span>
         </button>
       </div>
 
       <!-- Messages -->
-      <div id="chatlog" ref="chatlog">
+      <div id="chatlog" ref="chatlog" aria-live="polite" aria-atomic="false">
         <div v-if="messages.length === 0" class="welcome-message">
           <div class="welcome-icon">
             <div class="welcome-logo-container">
@@ -81,12 +92,12 @@
           </div>
         </div>
 
-        <div v-if="isTyping" class="msg-container bot">
+        <div v-if="isTyping" class="msg-container bot" aria-live="polite" aria-label="JUKE typt…" role="status">
           <div class="bot-avatar">
             <img src="../../src/assets/logo.webp" alt="JUKE Logo" class="bot-avatar-img" />
           </div>
           <div class="msg-wrapper">
-            <div class="msg bot typing-indicator">
+            <div class="msg bot typing-indicator" aria-hidden="true">
               <div class="typing-dot"></div>
               <div class="typing-dot"></div>
               <div class="typing-dot"></div>
@@ -97,7 +108,10 @@
 
       <!-- Input Area -->
       <div id="inputArea">
+        <label for="chatInput" class="sr-only">Jouw bericht</label>
         <input
+            id="chatInput"
+            ref="chatInput"
             v-model="input"
             @keyup.enter="sendMessage"
             @focus="inputFocus = true"
@@ -111,8 +125,9 @@
             @mouseenter="sendHover = true"
             @mouseleave="sendHover = false"
             :style="sendButtonStyle"
+            aria-label="Verstuur bericht"
         >
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" focusable="false">
             <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
           </svg>
         </button>
@@ -184,6 +199,19 @@ export default {
     } catch (e) {
       this.sessionId = newSessionId();
     }
+    this._escHandler = (e) => {
+      if (e.key === "Escape" && this.open) {
+        this.open = false;
+        this.$nextTick(() => {
+          if (this.$refs.toggleBtn) this.$refs.toggleBtn.focus();
+        });
+      }
+    };
+    document.addEventListener("keydown", this._escHandler);
+  },
+
+  beforeUnmount() {
+    document.removeEventListener("keydown", this._escHandler);
   },
 
   watch: {
@@ -251,6 +279,15 @@ export default {
 
     toggleChat() {
       this.open = !this.open;
+      if (this.open) {
+        this.$nextTick(() => {
+          if (this.$refs.chatInput) this.$refs.chatInput.focus();
+        });
+      } else {
+        this.$nextTick(() => {
+          if (this.$refs.toggleBtn) this.$refs.toggleBtn.focus();
+        });
+      }
     },
 
     closeChat() {
@@ -259,6 +296,9 @@ export default {
       this.messages = [];
       this.sessionId = newSessionId();
       localStorage.removeItem(STORAGE_KEY);
+      this.$nextTick(() => {
+        if (this.$refs.toggleBtn) this.$refs.toggleBtn.focus();
+      });
     },
 
     sendQuickQuestion(question) {
@@ -359,6 +399,19 @@ export default {
 </script>
 
 <style scoped>
+/* Screen-reader only utility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Toggle Button */
 #chatToggle {
   position: fixed;

@@ -23,7 +23,14 @@
         </svg>
       </router-link>
 
-      <button class="hamburger" @click="toggleMenu" :class="{ active: isMenuOpen }" aria-label="Menu">
+      <button
+        class="hamburger"
+        @click="toggleMenu"
+        :class="{ active: isMenuOpen }"
+        :aria-expanded="isMenuOpen"
+        aria-controls="mobile-menu"
+        aria-label="Menu"
+      >
         <span class="bar bar-1"></span>
         <span class="bar bar-2"></span>
         <span class="bar bar-3"></span>
@@ -32,7 +39,15 @@
 
     <!-- Full-screen mobile menu -->
     <transition name="menu-reveal">
-      <div v-if="isMenuOpen" class="mobile-menu" @click="closeMenu">
+      <div
+        v-if="isMenuOpen"
+        id="mobile-menu"
+        class="mobile-menu"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Hoofdmenu"
+        @click="closeMenu"
+      >
         <div class="mobile-menu-inner" @click.stop>
           <nav class="mobile-nav-links">
             <router-link
@@ -68,8 +83,8 @@ import logoUrl from "@/assets/logo.webp";
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const navLinks = [
-  { to: '/ai-projecten', label: 'AI-projecten' },
-  { to: '/saas-development', label: 'SaaS' },
+  { to: '/ai-projecten', label: 'AI & automatisering' },
+  { to: '/saas-development', label: 'SaaS & apps' },
   { to: '/webdesign', label: 'Webdesign' },
   { to: '/blog', label: 'Blog' },
   { to: '/contact', label: 'Contact' },
@@ -96,15 +111,21 @@ const handleResize = () => {
   if (window.innerWidth > 900 && isMenuOpen.value) closeMenu();
 };
 
+const onKeydown = (e) => {
+  if (e.key === 'Escape' && isMenuOpen.value) closeMenu();
+};
+
 onMounted(() => {
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', handleResize);
+  window.addEventListener('keydown', onKeydown);
   onScroll();
 });
 
 onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll);
   window.removeEventListener('resize', handleResize);
+  window.removeEventListener('keydown', onKeydown);
   document.body.style.overflow = '';
 });
 </script>
@@ -124,7 +145,9 @@ onBeforeUnmount(() => {
 }
 
 .navbar-wrap.scrolled {
-  background: rgba(5, 5, 8, 0.92);
+  background: rgba(250, 250, 249, 0.8);
+  backdrop-filter: saturate(180%) blur(12px);
+  -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom-color: var(--color-border);
 }
 
@@ -211,29 +234,24 @@ onBeforeUnmount(() => {
   align-items: center;
   gap: 0.5rem;
   margin-left: var(--space-6);
-  background: var(--color-text-primary);
-  color: var(--color-bg-primary);
-  font-weight: var(--weight-semibold);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--weight-medium);
   font-size: 0.8125rem;
-  padding: 0.5rem 1.125rem;
-  border-radius: var(--radius-full);
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-md);
   text-decoration: none;
-  transition: all var(--duration-slow) var(--ease-spring);
-  letter-spacing: -0.01em;
+  transition: background var(--transition-base);
 
   .cta-arrow {
-    transition: transform var(--duration-base) var(--ease-spring);
-    opacity: 0.7;
+    transition: transform var(--transition-base);
+    opacity: 0.85;
   }
 
   &:hover {
-    background: #fff;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+    background: var(--color-accent-hover);
     .cta-arrow { transform: translate(2px, -2px); opacity: 1; }
   }
-
-  &:active { transform: scale(0.97); }
 }
 
 /* ─── Hamburger (3 lines → X) ─── */
@@ -332,16 +350,16 @@ onBeforeUnmount(() => {
   display: inline-flex;
   align-items: center;
   gap: 0.625rem;
-  background: var(--color-text-primary);
-  color: var(--color-bg-primary);
-  font-weight: var(--weight-semibold);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  font-weight: var(--weight-medium);
   font-size: 1rem;
   padding: 0.875rem 1.75rem;
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   text-decoration: none;
   margin-bottom: var(--space-6);
 
-  svg { opacity: 0.6; }
+  svg { opacity: 0.85; }
 }
 
 .mobile-contact {

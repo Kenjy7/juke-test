@@ -3,45 +3,59 @@
     <div class="hero-content">
       <div class="eyebrow reveal-on-load delay-0">
         <span class="eyebrow-dot"></span>
-        AI & SaaS Development Studio
+        AI &amp; digitalisering voor bedrijven
       </div>
 
       <h1 class="reveal-on-load delay-1">
-        AI-first development voor<br />
-        <span class="highlight">bedrijven die vooruit denken.</span>
+        AI die je bedrijf
+        <span class="highlight">echt vooruit helpt.</span>
       </h1>
 
       <p class="subtitle reveal-on-load delay-2">
-        SaaS-platformen, AI-agents en slimme workflows &mdash;
-        gebouwd om jouw bedrijf te laten schalen.
+        Van automatisering en digitalisering tot SaaS, app-ontwikkeling en webdesign —
+        wij bouwen wat je bedrijf efficiënter, slimmer en sterker maakt.
       </p>
 
       <div class="hero-buttons reveal-on-load delay-3">
-        <router-link to="/offerte-aanvraag" class="btn-accent">
-          <span>Start je project</span>
-          <span class="btn-icon">
-            <svg width="15" height="15" viewBox="0 0 16 16" fill="none">
-              <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+        <router-link to="/offerte-aanvraag" class="btn btn--accent btn--lg">
+          Start je project
+          <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 12L12 4M12 4H5M12 4V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </router-link>
 
-        <router-link to="/ai-projecten" class="btn-ghost">
-          <span>Bekijk onze diensten</span>
-          <svg width="18" height="18" viewBox="0 0 20 20" fill="none">
-            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+        <router-link to="/ai-projecten" class="btn btn--secondary btn--lg">
+          Bekijk onze diensten
         </router-link>
       </div>
     </div>
 
-    <!-- Hero-specific glow (layered on top of global atmosphere) -->
-    <div class="hero-glow" aria-hidden="true"></div>
+    <div class="hero-pillars reveal-on-load delay-4">
+      <router-link
+        v-for="pillar in pillars"
+        :key="pillar.title"
+        :to="pillar.to"
+        class="pillar"
+      >
+        <span class="pillar__icon"><component :is="pillar.icon" :size="20" :stroke-width="1.5" /></span>
+        <span class="pillar__title">{{ pillar.title }}</span>
+        <span class="pillar__desc">{{ pillar.desc }}</span>
+        <ArrowUpRight class="pillar__arrow" :size="16" :stroke-width="1.5" />
+      </router-link>
+    </div>
   </section>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
+import { Cpu, Workflow, AppWindow, Globe, ArrowUpRight } from 'lucide-vue-next';
+
+const pillars = [
+  { title: 'AI & automatisering', desc: 'Agents en workflows die werk uit handen nemen.', icon: Cpu, to: '/ai-projecten' },
+  { title: 'Digitalisering', desc: 'Processen digitaliseren en stroomlijnen.', icon: Workflow, to: '/ai-projecten' },
+  { title: 'SaaS & apps', desc: 'Platformen en applicaties op maat.', icon: AppWindow, to: '/saas-development' },
+  { title: 'Webdesign', desc: 'Snelle, conversiegerichte websites.', icon: Globe, to: '/webdesign' },
+];
 
 onMounted(() => {
   requestAnimationFrame(() => {
@@ -56,208 +70,172 @@ onMounted(() => {
 .hero {
   position: relative;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  min-height: 100dvh;
-  padding: var(--space-40) var(--space-8) var(--space-24);
+  justify-content: center;
+  min-height: 92dvh;
+  padding: var(--space-32) var(--space-8) var(--space-20);
   text-align: center;
-  overflow: hidden;
 }
 
 .hero-content {
   position: relative;
-  max-width: 860px;
+  max-width: 800px;
   width: 100%;
   z-index: 1;
 }
 
-/* Staggered reveal */
+/* Quiet staggered reveal — fade + small lift, no blur */
 .reveal-on-load {
   opacity: 0;
-  transform: translateY(2rem);
-  filter: blur(6px);
+  transform: translateY(0.75rem);
   transition:
-    opacity var(--duration-reveal) var(--ease-out-expo),
-    transform var(--duration-reveal) var(--ease-out-expo),
-    filter var(--duration-reveal) var(--ease-out-expo);
+    opacity var(--duration-reveal) var(--ease-smooth),
+    transform var(--duration-reveal) var(--ease-smooth);
 
-  &.visible { opacity: 1; transform: translateY(0); filter: blur(0); }
+  &.visible { opacity: 1; transform: translateY(0); }
 }
 .delay-0 { transition-delay: 0ms; }
-.delay-1 { transition-delay: 120ms; }
-.delay-2 { transition-delay: 240ms; }
-.delay-3 { transition-delay: 380ms; }
+.delay-1 { transition-delay: 80ms; }
+.delay-2 { transition-delay: 160ms; }
+.delay-3 { transition-delay: 240ms; }
+.delay-4 { transition-delay: 340ms; }
 
-/* Eyebrow pill */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
-  color: var(--color-text-tertiary);
-  background: var(--color-bg-card-inner);
-  padding: 0.4rem 1.125rem;
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-8);
+  color: var(--color-text-secondary);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-6);
 }
 
 .eyebrow-dot {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 8px var(--color-primary-glow);
-  animation: pulse 2.5s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.5; transform: scale(0.8); }
+  background: var(--color-accent);
 }
 
 h1 {
   font-family: var(--font-display);
   font-size: var(--text-hero);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
-  line-height: var(--leading-tight);
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  margin: 0 0 var(--space-8) 0;
+  margin: 0 0 var(--space-6) 0;
 }
 
-.highlight {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #93c5fd 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
+.highlight { color: var(--color-accent); }
 
 .subtitle {
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
-  margin: 0 auto var(--space-12);
+  margin: 0 auto var(--space-8);
   line-height: var(--leading-relaxed);
-  max-width: 560px;
+  max-width: 580px;
 }
 
 .hero-buttons {
   display: flex;
   justify-content: center;
-  gap: var(--space-4);
+  gap: var(--space-3);
   flex-wrap: wrap;
 }
 
-/* Button-in-button accent CTA */
-.btn-accent {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.75rem 0.75rem 0.75rem 1.5rem;
-  border-radius: var(--radius-full);
-  font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
-  font-family: var(--font-sans);
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  text-decoration: none;
-  box-shadow: var(--shadow-glow-accent);
-  transition: all var(--duration-slow) var(--ease-spring);
-
-  .btn-icon {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--duration-base) var(--ease-spring);
-  }
-
-  &:hover {
-    background: var(--color-accent-hover);
-    box-shadow: 0 0 60px var(--color-accent-glow);
-    transform: translateY(-2px);
-    .btn-icon { transform: translate(1px, -1px) scale(1.08); }
-  }
-
-  &:active { transform: scale(0.97); }
+/* Service bento — the four pillars */
+.hero-pillars {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 1040px;
+  margin-top: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  text-align: left;
 }
 
-/* Ghost button */
-.btn-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.875rem 1.5rem;
-  border-radius: var(--radius-full);
-  font-size: var(--text-small);
-  font-weight: var(--weight-medium);
-  font-family: var(--font-sans);
-  color: var(--color-text-secondary);
-  text-decoration: none;
+.pillar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  background: transparent;
-  transition: all var(--duration-slow) var(--ease-spring);
-
-  svg { transition: transform var(--duration-base) var(--ease-spring); }
+  border-radius: var(--radius-lg);
+  color: var(--color-text-primary);
+  transition: border-color var(--transition-base), transform var(--transition-base);
 
   &:hover {
-    color: var(--color-text-primary);
     border-color: var(--color-border-hover);
-    background: var(--color-bg-card-inner);
-    transform: translateY(-2px);
-    svg { transform: translateX(3px); }
+    transform: translateY(-3px);
+    .pillar__arrow { opacity: 1; transform: translate(2px, -2px); }
   }
-
-  &:active { transform: scale(0.97); }
 }
 
-/* Hero-specific focused glow */
-.hero-glow {
+.pillar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-subtle);
+  color: var(--color-accent);
+  margin-bottom: var(--space-1);
+}
+
+.pillar__title {
+  font-weight: var(--weight-semibold);
+  font-size: var(--text-small);
+  color: var(--color-text-primary);
+}
+
+.pillar__desc {
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-secondary);
+}
+
+.pillar__arrow {
   position: absolute;
-  top: -100px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 800px;
-  height: 500px;
-  background: radial-gradient(
-    ellipse,
-    rgba(59, 130, 246, 0.07) 0%,
-    rgba(59, 130, 246, 0.02) 50%,
-    transparent 80%
-  );
-  filter: blur(40px);
-  pointer-events: none;
+  top: var(--space-5);
+  right: var(--space-5);
+  color: var(--color-text-tertiary);
+  opacity: 0;
+  transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+@media (max-width: 900px) {
+  .hero-pillars { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 768px) {
   .hero {
-    min-height: 80dvh;
-    padding: var(--space-32) var(--space-6) var(--space-16);
+    min-height: auto;
+    padding: var(--space-24) var(--space-5) var(--space-16);
   }
 
-  .subtitle {
-    font-size: var(--text-body);
-    margin-bottom: var(--space-8);
-  }
+  .subtitle { font-size: var(--text-body); }
 
   .hero-buttons {
     flex-direction: column;
     width: 100%;
     max-width: 320px;
     margin: 0 auto;
-    .btn-accent, .btn-ghost { width: 100%; justify-content: center; }
+    .btn { width: 100%; }
   }
 
-  .hero-glow { width: 400px; height: 300px; }
+  .hero-pillars { margin-top: var(--space-12); }
 }
 
-@media (max-width: 480px) {
-  .hero { padding: var(--space-24) var(--space-4) var(--space-12); }
+@media (max-width: 460px) {
+  .hero-pillars { grid-template-columns: 1fr; }
 }
 </style>

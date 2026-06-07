@@ -104,7 +104,7 @@ const alleProvincies = computed(() =>
   font-size: clamp(2rem, 5vw, 3.5rem);
   line-height: 1.2;
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
@@ -112,7 +112,7 @@ const alleProvincies = computed(() =>
 .hero__subtitle {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto;
 }
@@ -122,15 +122,15 @@ const alleProvincies = computed(() =>
   margin-top: 1.5rem;
   padding: 0.85rem 1.4rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
   text-decoration: none;
   font-weight: 600;
   transition: background 0.2s ease, transform 0.2s ease;
 }
 
 .hero__cta:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: var(--color-accent-hover);
   transform: translateY(-1px);
 }
 
@@ -151,9 +151,9 @@ const alleProvincies = computed(() =>
 }
 
 .city {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-bg-surface);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--color-border);
   border-radius: 16px;
   padding: 1.5rem;
   display: flex;
@@ -166,8 +166,8 @@ const alleProvincies = computed(() =>
 
 .city:hover {
   transform: translateY(-4px);
-  border-color: rgba(96, 165, 250, 0.3);
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--color-accent);
+  background: var(--color-bg-sunken);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
@@ -179,7 +179,7 @@ const alleProvincies = computed(() =>
   width: 40px;
   height: 40px;
   min-width: 40px;
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 .city__content {
@@ -189,19 +189,19 @@ const alleProvincies = computed(() =>
 .city__title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 0.25rem;
 }
 
 .city__text {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--color-text-secondary);
 }
 
 .city__arrow {
   width: 20px;
   height: 20px;
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--color-text-tertiary);
   transition: all 0.3s ease;
 }
 

@@ -53,7 +53,7 @@
             </div>
 
             <div class="hero__actions">
-              <router-link to="/offerte-aanvraag" class="btn btn--primary">
+              <router-link to="/offerte-aanvraag" class="btn btn--accent">
                 Gratis Offerte
                 <svg class="btn__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -181,7 +181,7 @@
         </div>
 
         <div class="process__cta">
-          <router-link to="/webdesign#stappen-webdesign" class="btn btn--primary btn--large">
+          <router-link to="/webdesign#stappen-webdesign" class="btn btn--accent btn--lg">
             Ontdek onze volledige werkwijze
             <svg class="btn__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -265,7 +265,7 @@
               Je krijgt 3 verbeterpunten die je meteen kan toepassen of door ons kan laten uitvoeren.
             </p>
 
-            <router-link to="/contact" class="btn btn--primary">
+            <router-link to="/contact" class="btn btn--accent">
               Start gratis check
               <svg class="btn__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -416,14 +416,14 @@
           </p>
 
           <div class="cta__buttons">
-            <router-link to="/contact" class="btn btn--primary btn--large">
+            <router-link to="/contact" class="btn btn--accent btn--lg">
               Website laten maken in {{ city.naam }}
               <svg class="btn__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </router-link>
 
-            <router-link to="/webdesign#pakketten" class="btn btn--secondary btn--large">
+            <router-link to="/webdesign#pakketten" class="btn btn--secondary btn--lg">
               Bekijk pakketten & prijzen
               <svg class="btn__icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
@@ -692,65 +692,12 @@ onMounted(() => {
   text-transform: uppercase;
 }
 
-/* Buttons */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-}
-
-.btn__icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
+/* Buttons — canonical .btn system comes from base.css.
+   Only the WhatsApp-specific icon override stays local. */
 .btn__icon-whatsapp {
   width: 16px;
   height: 16px;
   margin-right: 0.25rem;
-}
-
-.btn--primary {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-primary);
-  box-shadow: var(--shadow-glow-primary);
-}
-
-.btn--primary:hover {
-  background: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-primary);
-}
-
-.btn--primary:hover .btn__icon {
-  transform: translateX(2px);
-}
-
-.btn--secondary {
-  border: 2px solid var(--color-primary-glow);
-  color: white;
-  background: var(--color-bg-surface);
-}
-
-.btn--secondary:hover {
-  background: var(--color-border-hover);
-  border-color: var(--color-border-active);
-  transform: translateY(-2px);
-}
-
-.btn--large {
-  padding: 1rem 2rem;
-  font-size: 1rem;
 }
 
 /* Hero Section */
@@ -758,7 +705,7 @@ onMounted(() => {
   padding: 0;
   position: relative;
   overflow: hidden;
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 .hero__overlay {
@@ -874,7 +821,7 @@ onMounted(() => {
 }
 
 .hero__answer strong {
-  color: #fff;
+  color: var(--color-text-primary);
 }
 
 @media (min-width: 768px) {
@@ -951,13 +898,13 @@ onMounted(() => {
 .stat__number {
   font-size: 2rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 0.25rem;
 }
 
 .stat__label {
   font-size: 0.875rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
 }
 
 /* Pain Points Section */
@@ -979,7 +926,7 @@ onMounted(() => {
 .pain-points__title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   letter-spacing: -0.02em;
 }
 
@@ -993,7 +940,7 @@ onMounted(() => {
 .pain-point {
   background: var(--color-bg-card-inner);
   border: 1px solid var(--color-border);
-  border-left: 4px solid #f59e0b;
+  border-left: 4px solid var(--color-accent);
   border-radius: 16px;
   padding: 1.75rem;
   display: flex;
@@ -1004,7 +951,7 @@ onMounted(() => {
 
 .pain-point:hover {
   border-color: var(--color-primary-border);
-  border-left-color: #f59e0b;
+  border-left-color: var(--color-accent);
   transform: translateX(4px);
   background: var(--color-bg-surface);
 }
@@ -1023,13 +970,13 @@ onMounted(() => {
 .pain-point__icon svg {
   width: 24px;
   height: 24px;
-  color: #f59e0b;
+  color: var(--color-accent);
 }
 
 .pain-point__text {
   font-size: 1.0625rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   padding-top: 0.5rem;
 }
 
@@ -1043,7 +990,7 @@ onMounted(() => {
 .pain-points__cta-text {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
 }
 
 /* Process Section */
@@ -1109,7 +1056,7 @@ onMounted(() => {
 .process-step__title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
 }
@@ -1117,7 +1064,7 @@ onMounted(() => {
 .process-step__description {
   font-size: 0.9375rem;
   line-height: 1.6;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
 }
 
 .process__cta {
@@ -1140,7 +1087,7 @@ onMounted(() => {
 .section-title {
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 800;
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
 }
@@ -1156,7 +1103,7 @@ onMounted(() => {
 .section-header__title {
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   width: 100%;
@@ -1164,7 +1111,7 @@ onMounted(() => {
 
 .section-header__subtitle {
   font-size: 1.125rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
@@ -1213,7 +1160,7 @@ onMounted(() => {
 .about__title {
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 1.5rem;
   line-height: 1.2;
 }
@@ -1221,7 +1168,7 @@ onMounted(() => {
 .about__text {
   font-size: 1rem;
   line-height: 1.8;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
 }
 
 .about__text--business {
@@ -1229,7 +1176,7 @@ onMounted(() => {
   padding-top: 1.25rem;
   border-top: 1px solid var(--color-border);
   font-weight: 500;
-  color: rgba(248, 250, 252, 0.85);
+  color: var(--color-text-primary);
 }
 
 /* Services */
@@ -1300,13 +1247,17 @@ onMounted(() => {
 .service-card__icon :deep(svg) {
   width: 40px;
   height: 40px;
-  color: white;
+  color: var(--color-accent);
+}
+
+.service-card:hover .service-card__icon :deep(svg) {
+  color: #fff;
 }
 
 .service-card__title {
   font-size: 1.375rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 0.875rem;
   letter-spacing: -0.01em;
 }
@@ -1314,7 +1265,7 @@ onMounted(() => {
 .service-card__description {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   flex-grow: 1;
 }
 
@@ -1356,7 +1307,7 @@ onMounted(() => {
   border: 1px solid var(--color-border);
   border-radius: 12px;
   font-size: 0.9375rem;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1422,7 +1373,7 @@ onMounted(() => {
   width: 40px;
   height: 40px;
   min-width: 40px;
-  color: #60a5fa;
+  color: var(--color-primary);
 }
 
 .city__content {
@@ -1432,7 +1383,7 @@ onMounted(() => {
 .city__title {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin-bottom: 0.25rem;
 }
 
@@ -1478,7 +1429,7 @@ onMounted(() => {
 .cta__title {
   font-size: clamp(1.75rem, 4vw, 2.25rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 0.75rem;
   letter-spacing: -0.02em;
 }
@@ -1486,7 +1437,7 @@ onMounted(() => {
 .cta__text {
   font-size: 1rem;
   line-height: 1.6;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   margin-bottom: 2rem;
   max-width: 600px;
   margin-left: auto;
@@ -1538,7 +1489,7 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   text-decoration: none;
   font-size: 0.9375rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1644,13 +1595,13 @@ onMounted(() => {
 .local-proof__title {
   font-size: 1.125rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 0.75rem;
   letter-spacing: -0.01em;
 }
 
 .local-proof__text {
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   font-size: 0.975rem;
   white-space: pre-line;
@@ -1709,18 +1660,18 @@ onMounted(() => {
 .local-card__icon svg {
   width: 28px;
   height: 28px;
-  color: #ffffff;
+  color: var(--color-text-primary);
 }
 
 .local-card__title {
   font-size: 1.25rem;
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
 }
 
 .local-card__text,
 .local-card__note {
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   font-size: 0.975rem;
 }
@@ -1729,7 +1680,7 @@ onMounted(() => {
   margin-left: 1rem;
   display: grid;
   gap: 0.5rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 
@@ -1762,7 +1713,7 @@ onMounted(() => {
 }
 
 .local-offer__footerText {
-  color: rgba(248, 250, 252, 0.65);
+  color: var(--color-text-secondary);
   line-height: 1.7;
 }
 

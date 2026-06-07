@@ -327,7 +327,7 @@ useHead({
     { name: 'language', content: 'nl' },
 
     // Mobile Optimization
-    { name: 'theme-color', content: '#1a1a1a' }, // Vervang met jouw brand color
+    { name: 'theme-color', content: '#f5f1e8' },
     { name: 'mobile-web-app-capable', content: 'yes' },
 
     // Open Graph / Facebook

@@ -328,7 +328,7 @@ p {
 .element-3 {
   width: 250px;
   height: 250px;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(42, 108, 255, 0.10) 0%, transparent 70%);
   top: 50%;
   left: 50%;
   animation: float 30s ease-in-out infinite;

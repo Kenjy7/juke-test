@@ -212,7 +212,7 @@ const features = [
   gap: 0.75rem;
   font-size: 1.125rem;
   font-weight: 700;
-  color: #ffffff;
+  color: var(--color-text-primary);
   margin: 0 0 1.5rem 0;
 
   svg {

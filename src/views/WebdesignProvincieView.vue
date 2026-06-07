@@ -353,13 +353,13 @@ useHead(() => ({
 }
 
 .section-header h2 {
-  color: #fff;
+  color: var(--color-text-primary);
   font-size: clamp(2rem, 4vw, 3rem);
   margin: 0 0 14px;
 }
 
 .section-header p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   margin: 0;
 }
@@ -373,14 +373,14 @@ useHead(() => ({
 }
 
 .hero__title {
-  color: #fff;
+  color: var(--color-text-primary);
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   line-height: 1.1;
   margin: 0 0 18px;
 }
 
 .hero__lead {
-  color: rgba(255, 255, 255, 0.78);
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.8;
   max-width: 720px;
@@ -391,9 +391,9 @@ useHead(() => ({
   display: inline-flex;
   padding: 0.45rem 0.85rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.85);
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
   font-size: 0.82rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -411,9 +411,9 @@ useHead(() => ({
 .hero__badges span {
   padding: 0.55rem 0.9rem;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: rgba(255, 255, 255, 0.86);
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -435,7 +435,7 @@ useHead(() => ({
   align-items: center;
   justify-content: center;
   padding: 0.95rem 1.35rem;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
   text-decoration: none;
   font-weight: 700;
   transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
@@ -453,14 +453,15 @@ useHead(() => ({
 }
 
 .btn--primary {
-  background: #fff;
-  color: #101322;
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+  box-shadow: var(--shadow-glow-accent);
 }
 
 .btn--secondary {
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  color: #fff;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border-hover);
+  color: var(--color-text-primary);
 }
 
 .card-grid,
@@ -482,9 +483,9 @@ useHead(() => ({
 .cta,
 .city-card,
 .province-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
 }
 
 .card,
@@ -497,7 +498,7 @@ useHead(() => ({
 .city-card h3,
 .province-card h3,
 .cta h2 {
-  color: #fff;
+  color: var(--color-text-primary);
   margin: 0 0 12px;
 }
 
@@ -506,7 +507,7 @@ useHead(() => ({
 .city-card p,
 .province-card p,
 .cta p {
-  color: rgba(255, 255, 255, 0.72);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   margin: 0;
 }
@@ -518,8 +519,8 @@ useHead(() => ({
   align-items: center;
   justify-content: center;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--color-bg-sunken);
+  color: var(--color-text-primary);
   font-weight: 700;
   margin-bottom: 14px;
 }
@@ -534,14 +535,14 @@ useHead(() => ({
 .city-card:hover,
 .province-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--color-text-tertiary);
 }
 
 .city-card span,
 .province-card span {
   display: inline-block;
   margin-top: 14px;
-  color: #fff;
+  color: var(--color-accent);
   font-weight: 600;
 }
 
@@ -644,7 +645,7 @@ useHead(() => ({
 
   .cta {
     padding: 24px 16px;
-    border-radius: 18px;
+    border-radius: var(--radius-lg);
   }
 
   .cta h2 {

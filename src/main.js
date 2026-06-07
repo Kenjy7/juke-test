@@ -28,6 +28,10 @@ export const createApp = ViteSSG(
       router.afterEach((to) => {
         if (!to.hash) {
           window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+          // SPA focus management: move focus to the main landmark so
+          // keyboard / screen-reader users land on the new route's content.
+          const main = document.getElementById('main')
+          if (main) main.focus({ preventScroll: true })
           return
         }
 

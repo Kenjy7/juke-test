@@ -142,13 +142,13 @@ useHead(() => ({
 .blog-hero__title {
   font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 16px;
 }
 
 .blog-hero__sub {
   font-size: 1.125rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto 18px;
 }
@@ -156,7 +156,7 @@ useHead(() => ({
 .blog-hero__intro {
   font-size: 1rem;
   line-height: 1.75;
-  color: rgba(255, 255, 255, 0.68);
+  color: var(--color-text-secondary);
   max-width: 760px;
   margin: 0 auto;
 }
@@ -171,9 +171,9 @@ useHead(() => ({
 }
 
 .blog-card {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 32px;
   display: flex;
   flex-direction: column;
@@ -182,7 +182,7 @@ useHead(() => ({
 }
 
 .blog-card:hover {
-  border-color: rgba(255, 255, 255, 0.3);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -197,15 +197,15 @@ useHead(() => ({
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.12);
+  color: var(--color-accent);
+  background: var(--color-bg-sunken);
   padding: 4px 10px;
   border-radius: 999px;
 }
 
 .blog-card__time {
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-tertiary);
 }
 
 .blog-card__title {
@@ -216,7 +216,7 @@ useHead(() => ({
 }
 
 .blog-card__title a {
-  color: #fff;
+  color: var(--color-text-primary);
   text-decoration: none;
 }
 
@@ -226,7 +226,7 @@ useHead(() => ({
 
 .blog-card__excerpt {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.65);
+  color: var(--color-text-secondary);
   line-height: 1.6;
   flex: 1;
 }
@@ -234,7 +234,7 @@ useHead(() => ({
 .blog-card__cta {
   font-size: 0.9rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--color-accent);
   text-decoration: none;
   margin-top: 8px;
 }

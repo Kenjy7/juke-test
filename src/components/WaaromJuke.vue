@@ -1,22 +1,39 @@
 <template>
-  <section class="why-us" ref="sectionRef">
+  <section class="why-us band--sunken" ref="sectionRef">
     <div class="container">
-      <div class="section-header reveal">
-        <h2>Waarom bedrijven met ons bouwen.</h2>
-        <p class="subtitle">Technische expertise gecombineerd met een pragmatische aanpak.</p>
-      </div>
 
-      <div class="features-grid">
-        <div v-for="(feature, index) in features" :key="index"
-             class="feature-shell reveal" :class="[`reveal-delay-${index + 1}`]">
-          <div class="feature-inner">
-            <div class="feature-icon">
+      <!-- Asymmetric two-column: sticky lead heading + reasons list -->
+      <div class="why-us__layout">
+
+        <!-- Left column: editorial lead -->
+        <aside class="why-us__lead reveal">
+          <span class="eyebrow">
+            <span class="eyebrow__dot" aria-hidden="true"></span>
+            Waarom Juke
+          </span>
+          <h2>Waarom bedrijven met ons bouwen.</h2>
+          <p class="lead">Technische expertise gecombineerd met een pragmatische aanpak.</p>
+        </aside>
+
+        <!-- Right column: numbered hairline reason rows -->
+        <ol class="why-us__list" role="list">
+          <li
+            v-for="(feature, index) in features"
+            :key="index"
+            class="reason-row reveal"
+            :class="[`reveal-delay-${index + 1}`]"
+          >
+            <div class="reason-row__icon" aria-hidden="true">
               <component :is="feature.icon" />
             </div>
-            <h3>{{ feature.title }}</h3>
-            <p>{{ feature.description }}</p>
-          </div>
-        </div>
+            <div class="reason-row__body">
+              <h3>{{ feature.title }}</h3>
+              <p>{{ feature.description }}</p>
+            </div>
+            <span class="reason-row__index" aria-hidden="true">0{{ index + 1 }}</span>
+          </li>
+        </ol>
+
       </div>
     </div>
   </section>
@@ -82,102 +99,170 @@ const features = [
 </script>
 
 <style scoped lang="scss">
+/* ── Section shell ── */
 .why-us {
-  padding: var(--space-24) 0 var(--space-16);
+  padding: var(--space-24) var(--space-8);
 }
 
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 var(--space-8);
 }
 
-.section-header {
-  text-align: center;
-  margin-bottom: var(--space-16);
-
-  h2 {
-    font-family: var(--font-display);
-    font-size: var(--text-h1);
-    font-weight: var(--weight-bold);
-    color: var(--color-text-primary);
-    letter-spacing: var(--tracking-tight);
-    margin: 0 0 var(--space-3) 0;
-  }
-}
-
-.subtitle {
-  font-size: var(--text-body-lg);
-  color: var(--color-text-tertiary);
-  margin: 0 auto;
-  max-width: 500px;
-}
-
-.features-grid {
+/* ── Asymmetric two-column layout ── */
+.why-us__layout {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+  grid-template-columns: 1fr 1.6fr;
+  gap: var(--space-20);
+  align-items: start;
 }
 
-/* Double-Bezel feature cards */
-.feature-shell {
-  background: var(--color-bg-card-outer);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-2xl);
-  padding: 6px;
-  transition: all var(--duration-slow) var(--ease-spring);
+/* ── Left: sticky editorial lead ── */
+.why-us__lead {
+  position: sticky;
+  top: var(--space-8);
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
+}
+
+.eyebrow__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
+  margin: 0;
+}
+
+.lead {
+  margin: var(--space-5) 0 0;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 42ch;
+}
+
+/* ── Right: numbered hairline reason rows ── */
+.why-us__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.reason-row {
+  display: grid;
+  grid-template-columns: 44px 1fr auto;
+  gap: var(--space-6);
+  align-items: start;
+  padding: var(--space-8) 0;
+  border-top: 1px solid var(--color-border);
+  transition: border-color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+
+  &:last-child {
+    border-bottom: 1px solid var(--color-border);
+  }
 
   &:hover {
     border-color: var(--color-border-hover);
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-elevated);
+    transform: translateX(4px);
+    box-shadow: none;
 
-    .feature-icon { box-shadow: var(--shadow-glow-primary); }
+    .reason-row__icon {
+      border-color: var(--color-primary-border);
+      background: var(--color-primary-subtle);
+    }
   }
 }
 
-.feature-inner {
-  background: var(--color-bg-card-inner);
-  border-radius: calc(var(--radius-2xl) - 6px);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-inner-highlight);
-}
-
-.feature-icon {
+.reason-row__icon {
   width: 44px;
   height: 44px;
-  background: var(--color-primary-subtle);
-  border: 1px solid var(--color-primary-border);
-  border-radius: var(--radius-sm);
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
-  margin-bottom: var(--space-6);
-  transition: box-shadow var(--duration-base) var(--ease-smooth);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: var(--color-bg-surface);
+  color: var(--color-accent);
+  transition: border-color var(--transition-base),
+              background var(--transition-base);
 
   svg { width: 22px; height: 22px; }
 }
 
-h3 {
-  font-family: var(--font-display);
-  font-size: var(--text-h3);
-  font-weight: var(--weight-semibold);
-  color: var(--color-text-primary);
-  margin: 0 0 var(--space-3) 0;
-  letter-spacing: -0.01em;
+.reason-row__body {
+  h3 {
+    font-family: var(--font-display);
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-3) 0;
+    letter-spacing: -0.01em;
+    line-height: var(--leading-snug);
+  }
+
+  p {
+    font-size: var(--text-small);
+    line-height: var(--leading-relaxed);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
 }
 
-p {
-  font-size: var(--text-small);
-  line-height: var(--leading-relaxed);
-  color: var(--color-text-secondary);
-  margin: 0;
+.reason-row__index {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-tertiary);
+  letter-spacing: var(--tracking-wide);
+  margin-top: 0.25rem;
+  user-select: none;
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .why-us__layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
+  }
+
+  .why-us__lead {
+    position: static;
+  }
 }
 
 @media (max-width: 768px) {
-  .why-us { padding: var(--space-16) 0 var(--space-8); }
-  .container { padding: 0 var(--space-4); }
-  .features-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .why-us {
+    padding: var(--space-16) var(--space-5);
+  }
+
+  .reason-row {
+    grid-template-columns: 44px 1fr;
+
+    .reason-row__index { display: none; }
+  }
 }
 </style>

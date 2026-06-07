@@ -205,7 +205,7 @@ onMounted(() => {
   z-index: 1;
 
   &:not(:last-child) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid var(--color-border);
   }
 }
 
@@ -300,7 +300,7 @@ onMounted(() => {
   h4 {
     font-size: 1.125rem;
     font-weight: 700;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin: 0 0 1.25rem 0;
     display: flex;
     align-items: center;
@@ -449,7 +449,7 @@ onMounted(() => {
   h4 {
     font-size: 1.125rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin: 0 0 0.75rem 0;
   }
 

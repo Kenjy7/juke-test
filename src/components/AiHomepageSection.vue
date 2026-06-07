@@ -1,5 +1,5 @@
 <template>
-  <section class="stats-section" ref="sectionRef">
+  <section class="stats-section band--sunken" ref="sectionRef">
     <div class="container">
       <h2 class="reveal">
         Technologie die meetbaar

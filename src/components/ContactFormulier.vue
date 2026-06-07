@@ -998,7 +998,7 @@ export default {
 
   &:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-elevated);
   }
 
   &:active { transform: scale(0.97); }

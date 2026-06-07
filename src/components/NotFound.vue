@@ -217,7 +217,7 @@ const goBack = () => {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 
   &::before {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(10, 10, 10, 0.04);
     opacity: 0;
   }
 

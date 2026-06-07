@@ -1,36 +1,41 @@
 <template>
   <section class="process" ref="sectionRef">
     <div class="container">
-      <div class="process-header reveal">
+
+      <header class="section-head reveal">
         <span class="eyebrow">
-          <span class="dot"></span>
+          <span class="eyebrow__dot"></span>
           Onze aanpak
         </span>
         <h2>Van vraag tot werkende AI<br />in vijf stappen.</h2>
-      </div>
+      </header>
 
-      <div class="timeline">
-        <div v-for="(step, i) in steps" :key="i"
-             class="step-shell reveal"
-             :class="[`reveal-delay-${i + 1}`]">
-          <div class="step-inner">
-            <div class="step-number">{{ String(i + 1).padStart(2, '0') }}</div>
+      <ol class="timeline" aria-label="Hoe we werken">
+        <li
+          v-for="(step, i) in steps"
+          :key="i"
+          class="step-card reveal"
+          :class="[`reveal-delay-${i + 1}`]"
+        >
+          <span class="step-index" aria-hidden="true">{{ String(i + 1).padStart(2, '0') }}</span>
+          <div class="step-body">
             <h3>{{ step.title }}</h3>
             <p>{{ step.desc }}</p>
           </div>
-        </div>
-      </div>
+          <!-- connector line between steps (hidden on last) -->
+          <span class="step-connector" aria-hidden="true"></span>
+        </li>
+      </ol>
 
       <div class="process-cta reveal">
-        <router-link to="/offerte-aanvraag" class="cta-btn">
+        <router-link to="/offerte-aanvraag" class="btn btn--accent">
           <span>Start met stap 1</span>
-          <span class="cta-icon">
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
         </router-link>
       </div>
+
     </div>
   </section>
 </template>
@@ -60,6 +65,7 @@ onMounted(() => {
 </script>
 
 <style scoped lang="scss">
+/* ── Section shell ── */
 .process {
   padding: var(--space-24) var(--space-8) var(--space-16);
 }
@@ -69,8 +75,9 @@ onMounted(() => {
   margin: 0 auto;
 }
 
-.process-header {
-  text-align: center;
+/* ── Editorial section head (matches ServiceSection pattern) ── */
+.section-head {
+  max-width: 760px;
   margin-bottom: var(--space-16);
 }
 
@@ -80,178 +87,165 @@ onMounted(() => {
   gap: 0.5rem;
   font-size: var(--text-xs);
   font-weight: var(--weight-medium);
-  color: var(--color-text-tertiary);
-  background: var(--color-bg-card-inner);
-  padding: 0.4rem 1.125rem;
-  border-radius: var(--radius-full);
-  margin-bottom: var(--space-6);
+  color: var(--color-text-secondary);
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  border: 1px solid var(--color-border);
+  margin-bottom: var(--space-5);
 }
 
-.dot {
+.eyebrow__dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: var(--color-primary);
-  box-shadow: 0 0 6px var(--color-primary-glow);
+  background: var(--color-accent);
+  flex-shrink: 0;
 }
 
 h2 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
   margin: 0;
+  text-wrap: balance;
 }
 
-/* Timeline grid */
+/* ── Process timeline ── */
 .timeline {
+  list-style: none;
+  margin: 0 0 var(--space-16);
+  padding: 0;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  gap: var(--space-3);
+  gap: var(--space-5);
   position: relative;
-  margin-bottom: var(--space-16);
-
-  /* Connecting line behind cards */
-  &::before {
-    content: '';
-    position: absolute;
-    top: 48px;
-    left: 10%;
-    right: 10%;
-    height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      var(--color-border-hover) 20%,
-      var(--color-primary-border) 50%,
-      var(--color-border-hover) 80%,
-      transparent
-    );
-    z-index: 0;
-  }
 }
 
-.step-shell {
-  background: var(--color-bg-card-outer);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: 4px;
-  transition: all var(--duration-slow) var(--ease-spring);
+.step-card {
   position: relative;
-  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:hover {
     border-color: var(--color-border-hover);
     transform: translateY(-4px);
     box-shadow: var(--shadow-elevated);
 
-    .step-number { color: var(--color-primary); }
+    .step-index { color: var(--color-accent); }
   }
+
+  /* Hide connector on last child */
+  &:last-child .step-connector { display: none; }
 }
 
-.step-inner {
-  background: var(--color-bg-card-inner);
-  border-radius: calc(var(--radius-xl) - 4px);
-  box-shadow: var(--shadow-inner-highlight);
-  padding: var(--space-6);
-  text-align: center;
-}
-
-.step-number {
-  font-family: var(--font-mono);
-  font-size: var(--text-xs);
+/* Large editorial step number */
+.step-index {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-tertiary);
-  font-weight: var(--weight-medium);
-  margin-bottom: var(--space-4);
-  transition: color var(--duration-base) var(--ease-smooth);
-  letter-spacing: 0.04em;
+  line-height: 1;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: var(--space-5);
+  transition: color var(--transition-base);
+}
+
+.step-body {
+  flex: 1;
 }
 
 h3 {
   font-family: var(--font-display);
-  font-size: var(--text-body);
+  font-size: var(--text-h3);
   font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
-  margin: 0 0 var(--space-2) 0;
-  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3) 0;
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
 }
 
 p {
-  font-size: var(--text-xs);
-  color: var(--color-text-tertiary);
-  line-height: var(--leading-normal);
+  font-size: var(--text-small);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
   margin: 0;
 }
 
+/* Hairline connector — sits at the top-right edge, links to next card */
+.step-connector {
+  position: absolute;
+  top: calc(var(--space-8) + 1.4rem); /* vertically aligns with step-index midline */
+  right: calc(-1 * var(--space-5) / 2 - 0.5px);
+  width: var(--space-5);
+  height: 1px;
+  background: var(--color-border);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── CTA ── */
 .process-cta {
-  text-align: center;
+  display: flex;
+  justify-content: flex-start;
 }
 
-.cta-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.625rem;
-  padding: 0.75rem 0.75rem 0.75rem 1.5rem;
-  border-radius: var(--radius-full);
-  font-size: var(--text-small);
-  font-weight: var(--weight-semibold);
-  font-family: var(--font-sans);
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  text-decoration: none;
-  box-shadow: var(--shadow-glow-accent);
-  transition: all var(--duration-slow) var(--ease-spring);
+/* ── Reveal animation (coordinated with IntersectionObserver) ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity var(--duration-reveal) var(--ease-out-expo),
+              transform var(--duration-reveal) var(--ease-out-expo);
 
-  .cta-icon {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background: rgba(0, 0, 0, 0.12);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all var(--duration-base) var(--ease-spring);
+  &.visible {
+    opacity: 1;
+    transform: none;
   }
-
-  &:hover {
-    background: var(--color-accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 0 50px var(--color-accent-glow);
-    .cta-icon { transform: translate(1px, -1px) scale(1.08); }
-  }
-
-  &:active { transform: scale(0.97); }
 }
 
-@media (max-width: 900px) {
+@for $i from 1 through 6 {
+  .reveal-delay-#{$i} { transition-delay: #{$i * 80}ms; }
+}
+
+/* ── Responsive ── */
+@media (max-width: 1100px) {
   .timeline {
     grid-template-columns: repeat(3, 1fr);
-    &::before { display: none; }
   }
+  /* hide connectors that cross row boundaries */
+  .step-card:nth-child(3) .step-connector,
+  .step-card:last-child .step-connector { display: none; }
 }
 
-@media (max-width: 600px) {
-  .process { padding: var(--space-16) var(--space-4) var(--space-12); }
+@media (max-width: 768px) {
+  .process {
+    padding: var(--space-16) var(--space-5) var(--space-12);
+  }
 
   .timeline {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-3);
+    gap: var(--space-4);
   }
 
-  .step-inner { padding: var(--space-4); }
+  /* hide all connectors in 2-col layout */
+  .step-connector { display: none; }
 
-  .cta-btn {
-    width: 100%;
-    justify-content: center;
-  }
+  .step-index { font-size: 2rem; }
 }
 
-@media (max-width: 400px) {
-  .timeline { grid-template-columns: 1fr; }
+@media (max-width: 480px) {
+  .timeline {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

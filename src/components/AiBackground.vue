@@ -27,12 +27,12 @@ defineProps({
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
+  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-sunken) 50%, var(--color-bg-primary) 100%);
   overflow: hidden;
 }
 
-.ai-background.dark {
-  background: linear-gradient(180deg, #0a0a0a 0%, #000000 50%, #0a0a0a 100%);
+.ai-background.light {
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 50%, #f8f9fa 100%);
 }
 
 /* =========================================================

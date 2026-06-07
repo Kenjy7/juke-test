@@ -218,7 +218,7 @@ h1 {
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin-bottom: 1.25rem;
     letter-spacing: -0.01em;
   }
@@ -239,7 +239,7 @@ h1 {
   h3 {
     font-size: 1.25rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-primary);
     margin-bottom: 0.75rem;
   }
 
@@ -272,7 +272,7 @@ h1 {
 
   .party-name {
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 
   .party-purpose {
@@ -295,7 +295,7 @@ h1 {
 
   .duration-type {
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 
   .duration-time {
@@ -357,7 +357,7 @@ h1 {
   }
 
   &:hover .contact-value {
-    color: #ffffff;
+    color: var(--color-text-primary);
   }
 }
 
@@ -373,7 +373,7 @@ h1 {
   transition: all 0.3s ease;
 
   &:hover {
-    color: #ffffff;
+    color: var(--color-text-primary);
     border-color: var(--color-border-active);
     background: var(--color-primary-subtle);
     transform: translateX(-4px);

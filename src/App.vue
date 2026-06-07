@@ -1,9 +1,12 @@
 <template>
   <div id="app">
+    <a href="#main" class="skip-link">Naar hoofdinhoud</a>
     <Navbar />
     <Chatbot />
     <CookiesPopUp />
-    <router-view />
+    <main id="main" tabindex="-1">
+      <router-view />
+    </main>
     <Footer />
   </div>
 </template>
@@ -11,6 +14,7 @@
 <script setup>
 import { useHead } from '@unhead/vue'
 import '@/assets/tokens.css'
+import '@/assets/base.css'
 
 import Navbar from '@/components/Navbar.vue'
 import Chatbot from '@/components/Chatbot.vue'
@@ -46,7 +50,7 @@ html, body {
   padding: 0;
   font-family: var(--font-sans);
   background: var(--color-bg-primary);
-  color: var(--color-text-secondary);
+  color: var(--color-text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,41 +67,25 @@ a {
 
 ::selection {
   background: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-text-on-accent);
 }
 
-/* ---- Noise grain overlay (fixed, pointer-events-none) ---- */
-#app::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  pointer-events: none;
-  opacity: 0.025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-repeat: repeat;
-  background-size: 128px 128px;
-}
-
-/* ---- Scroll reveal system ---- */
+/* ---- Scroll reveal — quiet fade, no blur, minimal movement ---- */
 .reveal {
   opacity: 0;
-  transform: translateY(2.5rem);
-  filter: blur(6px);
+  transform: translateY(0.75rem);
   transition:
-    opacity var(--duration-reveal) var(--ease-out-expo),
-    transform var(--duration-reveal) var(--ease-out-expo),
-    filter var(--duration-reveal) var(--ease-out-expo);
+    opacity var(--duration-reveal) var(--ease-smooth),
+    transform var(--duration-reveal) var(--ease-smooth);
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
-  filter: blur(0);
 }
 
-.reveal-delay-1 { transition-delay: 100ms; }
-.reveal-delay-2 { transition-delay: 200ms; }
-.reveal-delay-3 { transition-delay: 300ms; }
-.reveal-delay-4 { transition-delay: 400ms; }
+.reveal-delay-1 { transition-delay: 60ms; }
+.reveal-delay-2 { transition-delay: 120ms; }
+.reveal-delay-3 { transition-delay: 180ms; }
+.reveal-delay-4 { transition-delay: 240ms; }
 </style>

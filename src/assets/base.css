@@ -1,0 +1,285 @@
+/* ============================================================
+   JUKECODING — SHARED DESIGN SYSTEM (Modern Minimalist)
+   Canonical, token-driven components. Import AFTER tokens.css.
+   Flat surfaces, hairline borders, restraint. No glass/glow.
+   ============================================================ */
+
+/* ---------------------------------------------------------------
+   1. LAYOUT PRIMITIVES
+   --------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-8);
+}
+.container--narrow { max-width: var(--max-width-narrow); }
+.container--wide { max-width: var(--max-width-wide); }
+
+/* Section rhythm — desktop 120 / tablet 80 / mobile 48 */
+.section { position: relative; padding-block: var(--space-32); }
+.section--tight { padding-block: var(--space-20); }
+.section--loose { padding-block: var(--space-40); }
+
+@media (max-width: 1024px) {
+  .section { padding-block: var(--space-20); }
+}
+@media (max-width: 768px) {
+  .container { padding-inline: var(--space-5); }
+  .section { padding-block: var(--space-12); }
+  .section--tight { padding-block: var(--space-12); }
+  .section--loose { padding-block: var(--space-16); }
+}
+
+/* ---------------------------------------------------------------
+   1b. HEADINGS — editorial serif (Fraunces). Body stays grotesque.
+   A scoped component rule that sets font-family wins where needed.
+   --------------------------------------------------------------- */
+h1, h2 {
+  font-family: var(--font-display);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  text-wrap: balance; /* balanced multi-line headings */
+}
+
+/* Better orphan/widow control for prose */
+p { text-wrap: pretty; }
+
+/* ---------------------------------------------------------------
+   2. EYEBROW / LABEL
+   Quiet uppercase micro-label. No pill background by default.
+   --------------------------------------------------------------- */
+.eyebrow,
+.u-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+}
+
+.eyebrow__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* ---------------------------------------------------------------
+   3. SECTION HEADER
+   --------------------------------------------------------------- */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  text-align: center;
+  max-width: 680px;
+  margin-inline: auto;
+  margin-bottom: var(--space-16);
+}
+
+.section-header__title {
+  font-family: var(--font-display);
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+.section-header__subtitle {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .section-header { margin-bottom: var(--space-12); }
+}
+
+/* ---------------------------------------------------------------
+   4. BUTTON SYSTEM
+   Flat. radius 8. weight 500. No shadow, no gradient, no lift.
+   Hover = subtle color shift only.
+   - .btn--accent / .btn--primary : solid accent (the CTA)
+   - .btn--secondary / .btn--ghost : ink text, hairline border
+   --------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  height: 40px;
+  padding: 0 var(--space-4);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  line-height: 1;
+  letter-spacing: 0;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  transition: background var(--transition-base),
+              border-color var(--transition-base),
+              color var(--transition-base);
+}
+
+.btn__icon {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-base);
+}
+.btn:hover .btn__icon { transform: translateX(2px); }
+
+/* Accent / primary — solid */
+.btn--accent,
+.btn--primary {
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
+}
+.btn--accent:hover,
+.btn--primary:hover { background: var(--color-accent-hover); }
+
+/* Secondary / ghost — hairline */
+.btn--ghost,
+.btn--secondary {
+  background: var(--color-bg-surface);
+  color: var(--color-text-primary);
+  border-color: var(--color-border);
+}
+.btn--ghost:hover,
+.btn--secondary:hover {
+  background: var(--color-bg-sunken);
+  border-color: var(--color-border-hover);
+}
+
+/* Sizes */
+.btn--lg { height: 44px; padding: 0 var(--space-5); font-size: var(--text-body); }
+.btn--sm { height: 32px; padding: 0 var(--space-3); font-size: var(--text-xs); }
+.btn--block { width: 100%; }
+
+/* ---------------------------------------------------------------
+   5. SURFACE / CARD — hairline border, no shadow by default
+   --------------------------------------------------------------- */
+.card {
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base);
+}
+.card--interactive:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-ambient);
+}
+
+/* ---------------------------------------------------------------
+   5b. SECTION BANDS — vertical rhythm via alternating backgrounds.
+   Add to a full-width <section> root. The dark band re-scopes the
+   ink/surface tokens locally, so any token-driven content inside
+   flips to light automatically (no per-component restyle needed).
+   --------------------------------------------------------------- */
+.band--surface { background: var(--color-bg-surface); }
+.band--sunken { background: var(--color-bg-sunken); }
+
+.band--dark {
+  background: #1a1814;
+  color: var(--color-text-secondary);
+  --color-bg-primary: #1a1814;
+  --color-bg-surface: #211e19;
+  --color-bg-elevated: #2a261f;
+  --color-bg-sunken: #211e19;
+  --color-bg-card-outer: #1a1814;
+  --color-bg-card-inner: #211e19;
+  --color-text-primary: #faf7f2;
+  --color-text-secondary: #b5ab9c;
+  --color-text-tertiary: #8b8378;
+  --color-text-on-accent: #faf7f2;
+  --color-border: #3c342b;
+  --color-border-hover: #4a4136;
+  --color-primary: #5b8cff;
+  --color-accent: #5b8cff;
+  --color-primary-subtle: rgba(91, 140, 255, 0.18);
+  --color-primary-border: rgba(91, 140, 255, 0.34);
+}
+
+/* Hairline divider between same-colour bands when needed */
+.band--divider-top { border-top: 1px solid var(--color-border); }
+
+/* ---------------------------------------------------------------
+   6. CHROME DETAILS
+   --------------------------------------------------------------- */
+/* Focus ring — solid accent, ≥3:1 contrast, ≥2px (WCAG 2.4.11).
+   Keyboard-only via :focus-visible (no sticky ring on mouse click). */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Custom scrollbar (desktop, light) */
+@media (pointer: fine) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-border-hover) transparent;
+  }
+  *::-webkit-scrollbar { width: 10px; height: 10px; }
+  *::-webkit-scrollbar-track { background: transparent; }
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-border-hover);
+    border-radius: var(--radius-full);
+    border: 2px solid var(--color-bg-primary);
+  }
+  *::-webkit-scrollbar-thumb:hover { background: var(--color-text-tertiary); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  /* Never leave scroll-reveal content hidden when motion is off */
+  .reveal, .reveal-on-load {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   7. SKIP LINK — first tab stop, jumps to main content
+   --------------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: var(--space-4);
+  top: -120%;
+  z-index: 1000;
+  padding: 0.625rem 1rem;
+  background: var(--color-text-primary);
+  color: var(--color-bg-primary);
+  border-radius: var(--radius-md);
+  font-size: var(--text-small);
+  font-weight: var(--weight-medium);
+  text-decoration: none;
+  transition: top var(--transition-fast);
+}
+.skip-link:focus-visible {
+  top: var(--space-4);
+}
+
+/* The main landmark receives programmatic focus on route change —
+   it's a scroll/SR target, not an interactive control, so no ring. */
+#main:focus,
+#main:focus-visible { outline: none; }

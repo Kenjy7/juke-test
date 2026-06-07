@@ -22,7 +22,7 @@
             </p>
 
             <div class="hero-buttons">
-              <router-link to="/contact" class="btn btn--primary">
+              <router-link to="/contact" class="btn btn--accent">
                 Gratis kennismaking
                 <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -356,7 +356,7 @@
         </div>
 
         <div class="inline-cta">
-          <router-link :to="{ path: '/webdesign', hash: '#stappen-webdesign' }" class="btn btn--primary btn--large">
+          <router-link :to="{ path: '/webdesign', hash: '#stappen-webdesign' }" class="btn btn--accent btn--lg">
             Ontdek onze volledige werkwijze →
           </router-link>
         </div>
@@ -480,7 +480,7 @@
         </div>
 
         <div class="cta-row">
-          <router-link :to="{ path: '/webdesign', hash: '#pakketten' }" class="btn btn--primary btn--large">
+          <router-link :to="{ path: '/webdesign', hash: '#pakketten' }" class="btn btn--accent btn--lg">
             Bekijk opties &amp; prijzen
             <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path
@@ -492,7 +492,7 @@
             </svg>
           </router-link>
 
-          <router-link to="/contact" class="btn btn--secondary btn--large">
+          <router-link to="/contact" class="btn btn--secondary btn--lg">
             Vraag advies
           </router-link>
         </div>
@@ -513,7 +513,7 @@
             </p>
 
             <div class="cta-row">
-              <router-link to="/contact" class="btn btn--primary btn--large">
+              <router-link to="/contact" class="btn btn--accent btn--lg">
                 Gratis kennismaking
                 <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -577,65 +577,13 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   font-size: 0.8125rem;
 }
 
-/* ─── Buttons ─── */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 600;
-  font-size: 0.9375rem;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  border: none;
-  white-space: nowrap;
-}
-
-.btn__icon {
-  width: 16px;
-  height: 16px;
-  transition: transform 0.3s ease;
-}
-
-.btn--primary {
-  background: rgba(255, 255, 255, 0.95);
-  color: var(--color-primary);
-}
-
-.btn--primary:hover {
-  background: #ffffff;
-  transform: translateY(-2px);
-}
-
-.btn--primary:hover .btn__icon {
-  transform: translateX(2px);
-}
-
-.btn--secondary {
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  color: white;
-  background: rgba(255, 255, 255, 0.05);
-}
-
-.btn--secondary:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.5);
-  transform: translateY(-2px);
-}
-
-.btn--large {
-  padding: 1rem 2rem;
-  font-size: 1rem;
-}
+/* ─── Buttons — canonical .btn system comes from base.css ─── */
 
 /* ─── Hero ─── */
 .hero {
   position: relative;
   overflow: hidden;
-  color: #fff;
+  color: var(--color-text-primary);
   padding: 0;
 }
 
@@ -680,7 +628,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .hero__title {
   font-size: clamp(2.25rem, 5vw, 3.5rem);
   font-weight: 900;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   line-height: 1.1;
   letter-spacing: -0.03em;
   margin: 0 0 1.25rem;
@@ -702,15 +650,15 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .highlight-glow {
   position: absolute;
   inset: -10px;
-  background: radial-gradient(circle, rgba(129, 140, 248, 0.3) 0%, transparent 70%);
-  filter: blur(20px);
+  background: none;
+  filter: none;
   z-index: 1;
   pointer-events: none;
 }
 
 .hero__subtitle {
   font-size: clamp(1rem, 1.5vw, 1.125rem);
-  color: rgba(248, 250, 252, 0.9);
+  color: var(--color-text-primary);
   margin: 0 0 1.5rem;
   line-height: 1.7;
   max-width: 44ch;
@@ -732,7 +680,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .micro {
   margin: 0 0 1.5rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -758,7 +706,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem 1rem;
-  color: rgba(248, 250, 252, 0.75);
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
 }
 
@@ -767,8 +715,8 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   align-items: center;
   gap: 0.55rem;
   padding: 0.5rem 0.85rem;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border);
   border-radius: 999px;
 }
 
@@ -776,14 +724,14 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   width: 8px;
   height: 8px;
   border-radius: 999px;
-  background: rgba(129, 140, 248, 0.9);
+  background: var(--color-accent);
 }
 
 /* Floating elements */
 .floating-element {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.15;
+  opacity: 1;
   filter: blur(80px);
   pointer-events: none;
   animation: float 20s ease-in-out infinite;
@@ -792,7 +740,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-1 {
   width: 400px;
   height: 400px;
-  background: var(--color-primary);
+  background: rgba(42, 108, 255, 0.06);
   top: 10%;
   left: -10%;
   animation-delay: 0s;
@@ -801,7 +749,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-2 {
   width: 300px;
   height: 300px;
-  background: var(--color-primary);
+  background: rgba(42, 108, 255, 0.06);
   bottom: 20%;
   right: -5%;
   animation-delay: 7s;
@@ -810,7 +758,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-3 {
   width: 250px;
   height: 250px;
-  background: var(--color-primary);
+  background: rgba(42, 108, 255, 0.06);
   top: 50%;
   left: 50%;
   animation-delay: 14s;
@@ -831,7 +779,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 @media (max-width: 768px) {
   .floating-element {
-    opacity: 0.08;
+    opacity: 0.5;
   }
 }
 
@@ -857,7 +805,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .section-title {
   font-size: clamp(1.75rem, 4vw, 2.75rem);
   font-weight: 800;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
   letter-spacing: -0.02em;
   line-height: 1.2;
@@ -866,7 +814,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .section-subtitle {
   font-size: 1.125rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   max-width: 950px;
   margin: 0 auto;
   line-height: 1.7;
@@ -874,7 +822,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .section-subtitle1 {
   font-size: 1.125rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   max-width: 650px;
   margin: 0 auto;
   line-height: 1.7;
@@ -892,9 +840,9 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .problem-card {
   backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 20px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 2rem 1.75rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -915,7 +863,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .problem-card:hover {
   transform: translateY(-4px);
-  border-color: rgba(129, 140, 248, 0.3);
+  border-color: var(--color-accent);
 }
 
 .problem-card:hover::before {
@@ -925,18 +873,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .problem-icon {
   width: 52px;
   height: 52px;
-  background: rgba(129, 140, 248, 0.1);
+  background: var(--color-bg-sunken);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
-  color: var(--color-primary);
+  color: var(--color-accent);
   transition: all 0.4s ease;
 }
 
 .problem-card:hover .problem-icon {
-  background: rgba(129, 140, 248, 0.15);
+  background: var(--color-bg-sunken);
   transform: scale(1.05);
 }
 
@@ -948,7 +896,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .problem-card h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin: 0 0 0.75rem;
   letter-spacing: -0.01em;
 }
@@ -957,7 +905,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   margin: 0;
   font-size: 0.95rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.65);
+  color: var(--color-text-secondary);
 }
 
 /* ─── SECTION 2: Approach - Horizontal Cards ─── */
@@ -973,16 +921,16 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 1.75rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .approach-card:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: var(--color-primary-glow);
+  background: var(--color-bg-sunken);
+  border-color: var(--color-accent);
   transform: translateX(6px);
 }
 
@@ -1000,7 +948,8 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 }
 
 .approach-card:hover .approach-icon {
-  background: #FFFFFF;
+  background: var(--color-accent);
+  color: #ffffff;
   transform: rotate(-5deg) scale(1.05);
 }
 
@@ -1012,7 +961,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .approach-content h3 {
   font-size: 1.125rem;
   font-weight: 700;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   margin: 0 0 0.5rem;
   letter-spacing: -0.01em;
 }
@@ -1021,7 +970,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   margin: 0;
   font-size: 0.9375rem;
   line-height: 1.7;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
 }
 
 /* ─── SECTION 3: Results - Modern Cards ─── */
@@ -1044,9 +993,9 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 }
 
 .result-card {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.01);
-  border-radius: 20px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 2rem;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
@@ -1067,7 +1016,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .result-card:hover {
   transform: translateY(-6px);
-  border-color: var(--color-primary-glow);
+  border-color: var(--color-accent);
 }
 
 .result-card:hover::before {
@@ -1100,7 +1049,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: rgba(129, 140, 248, 0.8);
+  color: var(--color-accent);
 }
 
 .result-badge {
@@ -1123,7 +1072,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .result-card h3 {
   margin: 0 0 0.75rem;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   font-size: 1.25rem;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -1132,7 +1081,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .result-card > p {
   margin: 0 0 1.5rem;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   font-size: 0.9375rem;
 }
@@ -1149,7 +1098,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   display: flex;
   align-items: center;
   gap: 0.65rem;
-  color: rgba(248, 250, 252, 0.75);
+  color: var(--color-text-secondary);
   font-size: 0.875rem;
   line-height: 1.5;
 }
@@ -1158,7 +1107,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   width: 18px;
   height: 18px;
   flex-shrink: 0;
-  color: #10b981;
+  color: var(--color-success);
 }
 
 /* ─── SECTION 4: Timeline ─── */
@@ -1204,33 +1153,33 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: var(--color-primary);
+  background: var(--color-accent);
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: 900;
   font-size: 1.25rem;
-  color: #fff;
+  color: #ffffff;
   position: relative;
   z-index: 2;
 }
 
 .timeline-content {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   transition: all 0.3s ease;
 }
 
 .timeline-item:hover .timeline-content {
-  border-color: var(--color-primary-glow);
+  border-color: var(--color-accent);
   transform: translateX(4px);
 }
 
 .timeline-content h3 {
   margin: 0 0 0.5rem;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   font-weight: 800;
   font-size: 1.125rem;
   letter-spacing: -0.01em;
@@ -1238,7 +1187,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 .timeline-content p {
   margin: 0;
-  color: rgba(248, 250, 252, 0.7);
+  color: var(--color-text-secondary);
   line-height: 1.7;
   font-size: 0.9375rem;
 }
@@ -1260,18 +1209,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   align-items: center;
   gap: 1.25rem;
   padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
   font-size: 1rem;
-  color: #f8fafc;
+  color: var(--color-text-primary);
   line-height: 1.6;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .checklist-item:hover {
-  background: rgba(255, 255, 255, 0.04);
-  border-color: rgba(16, 185, 129, 0.3);
+  background: var(--color-bg-sunken);
+  border-color: var(--color-success);
   transform: translateX(6px);
 }
 
@@ -1279,18 +1228,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   flex-shrink: 0;
   width: 32px;
   height: 32px;
-  background: rgba(16, 185, 129, 0.15);
+  background: var(--color-bg-sunken);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #10b981;
+  color: var(--color-success);
   transition: all 0.3s ease;
 }
 
 .checklist-item:hover .checklist-icon {
-  background: #10b981;
-  color: #fff;
+  background: var(--color-success);
+  color: #ffffff;
   transform: scale(1.1);
 }
 
@@ -1307,18 +1256,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 }
 
 .packages-feature {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
   max-width: 900px;
   margin: 0 auto 3rem;
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   padding: 2.5rem;
   transition: all 0.3s ease;
 }
 
 .packages-feature:hover {
-  border-color: var(--color-primary-border);
-  background: rgba(255, 255, 255, 0.04);
+  border-color: var(--color-accent);
+  background: var(--color-bg-sunken);
 }
 
 .packages-features-grid {
@@ -1332,18 +1281,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   align-items: center;
   gap: 1rem;
   padding: 1.25rem;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--color-bg-sunken);
+  border: 1px solid var(--color-border);
   border-radius: 12px;
-  color: rgba(248, 250, 252, 0.85);
+  color: var(--color-text-primary);
   font-size: 0.9375rem;
   font-weight: 500;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .feature-item:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--color-primary-glow);
+  background: var(--color-bg-surface);
+  border-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -1351,18 +1300,18 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   flex-shrink: 0;
   width: 40px;
   height: 40px;
-  background: rgba(129, 140, 248, 0.1);
+  background: var(--color-bg-surface);
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
+  color: var(--color-accent);
   transition: all 0.3s ease;
 }
 
 .feature-item:hover .feature-icon {
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--color-accent);
+  color: #ffffff;
   transform: scale(1.05);
 }
 
@@ -1452,8 +1401,8 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 /* ─── Final CTA ─── */
 .final-cta {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--color-primary-border);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
   border-radius: 24px;
   padding: 2rem 3rem;
   text-align: center;

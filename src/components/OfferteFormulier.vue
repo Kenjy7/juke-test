@@ -533,7 +533,7 @@ export default {
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    color: #fff;
+    color: var(--color-text-primary);
     font-size: 0.9375rem;
 
     svg {
@@ -621,7 +621,7 @@ export default {
 .form-section {
   margin-bottom: 2rem;
   padding-bottom: 2rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--color-border);
 
   &:last-of-type {
     border-bottom: none;
@@ -636,7 +636,7 @@ export default {
   gap: 0.625rem;
   font-size: 1.25rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-text-primary);
   margin-bottom: 1rem;
 
   svg {
@@ -717,7 +717,7 @@ export default {
   select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='rgba(255,255,255,0.5)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%23a8a29e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 0.75rem center;
     padding-right: 2.5rem;
@@ -836,7 +836,7 @@ export default {
   .radio-title {
     font-size: 0.9375rem;
     font-weight: 700;
-    color: #fff;
+    color: var(--color-text-primary);
   }
 
   .radio-description {
@@ -913,10 +913,10 @@ export default {
   justify-content: center;
   gap: 0.625rem;
   padding: 1rem 2rem;
-  background: var(--color-primary);
+  background: var(--color-accent);
   border: none;
   border-radius: 0.875rem;
-  color: var(--color-text-primary);
+  color: var(--color-text-on-accent);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -946,7 +946,7 @@ export default {
 .trust-message {
   margin-top: 1.5rem;
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-top: 1px solid var(--color-border);
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
@@ -1074,7 +1074,7 @@ export default {
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 
   &.error .modal-icon {
-    color: #ef4444;
+    color: var(--color-error);
     background: rgba(239, 68, 68, 0.1);
   }
 }
@@ -1138,8 +1138,8 @@ export default {
   align-items: center;
   justify-content: center;
   padding: 0.875rem 2.5rem;
-  background: var(--color-primary);
-  color: var(--color-text-primary);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
   font-weight: 600;
   font-size: 1rem;
   border: none;

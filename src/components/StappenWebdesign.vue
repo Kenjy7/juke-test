@@ -60,7 +60,7 @@
                   class="image-wrapper"
                   :class="`image-${l + 1}`"
               >
-                <img :src="img" :alt="`${service.title} afbeelding ${l + 1}`" />
+                <img :src="img" :alt="`${service.title} afbeelding ${l + 1}`" width="900" height="900" loading="lazy" decoding="async" />
                 <div class="image-overlay"></div>
               </div>
             </div>
@@ -75,10 +75,10 @@
 import { onMounted } from 'vue'
 
 // Importeer alle images bovenaan
-import DesignJukeAgent from '@/assets/JukeCodingAIDesign.png'
-import KleurpaletJuke from '@/assets/TekenbordHuis.png'
-import NazorgWeb from '@/assets/JukeCodingAINazorg.png'
-import ITservices from '@/assets/ITServicesJuke.png'
+import DesignJukeAgent from '@/assets/JukeCodingAIDesign.webp'
+import KleurpaletJuke from '@/assets/TekenbordHuis.webp'
+import NazorgWeb from '@/assets/JukeCodingAINazorg.webp'
+import ITservices from '@/assets/ITServicesJuke.webp'
 
 const services = [
   {

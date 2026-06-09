@@ -66,7 +66,7 @@
           <!-- Right: Image -->
           <div class="hero__image">
             <img
-                src="../assets/CTR.png"
+                src="../assets/CTR-hero.webp"
                 alt="Preview van een conversiegerichte bedrijfswebsite op maat"
                 width="900"
                 height="675"
@@ -740,7 +740,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-1 {
   width: 400px;
   height: 400px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   top: 10%;
   left: -10%;
   animation-delay: 0s;
@@ -749,7 +749,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-2 {
   width: 300px;
   height: 300px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   bottom: 20%;
   right: -5%;
   animation-delay: 7s;
@@ -758,7 +758,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-3 {
   width: 250px;
   height: 250px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   top: 50%;
   left: 50%;
   animation-delay: 14s;

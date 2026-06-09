@@ -29,7 +29,7 @@
       <div id="chatHeader">
         <div class="header-content">
           <div class="header-logo">
-            <img src="../../src/assets/img/logo.png" alt="JUKE Logo" width="32" height="32" />
+            <img src="../../src/assets/img/logo.webp" alt="JUKE Logo" width="32" height="32" />
             <div class="status-indicator"></div>
           </div>
           <div>
@@ -54,7 +54,7 @@
         <div v-if="messages.length === 0" class="welcome-message">
           <div class="welcome-icon">
             <div class="welcome-logo-container">
-              <img src="../../src/assets/img/logo.png" alt="JUKE Logo" class="welcome-logo" />
+              <img src="../../src/assets/img/logo.webp" alt="JUKE Logo" class="welcome-logo" width="50" height="50" />
             </div>
           </div>
           <div class="welcome-title">Welkom bij JUKE Coding!</div>
@@ -81,7 +81,7 @@
         >
           <!-- Bot Avatar -->
           <div v-if="msg.sender === 'bot'" class="bot-avatar">
-            <img src="../../src/assets/img/logo.png" alt="JUKE Logo" class="bot-avatar-img" />
+            <img src="../../src/assets/img/logo.webp" alt="JUKE Logo" class="bot-avatar-img" width="32" height="32" />
           </div>
 
           <div class="msg-wrapper">

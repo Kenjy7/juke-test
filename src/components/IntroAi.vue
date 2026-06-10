@@ -1,351 +1,227 @@
 <!-- IntroAi.vue -->
 <template>
-  <section class="intro-ai" :class="{ 'dark-section': dark }">
-    <div class="bg-elements">
-      <div class="gradient-orb orb-1"></div>
-      <div class="gradient-orb orb-2"></div>
-      <div class="gradient-orb orb-3"></div>
-      <div class="grid-pattern"></div>
-      <div class="spotlight"></div>
-    </div>
-
-    <div class="intro-content">
-      <!-- Animated badge -->
-      <div class="eyebrow-wrapper">
-        <span class="eyebrow">
-          AI Automatisatie & Agents
-        </span>
+  <section class="intro-ai" :class="{ 'is-dark': dark }">
+    <div class="container intro-content">
+      <div class="eyebrow">
+        <span class="eyebrow__dot"></span>
+        {{ t('introAi.eyebrow') }}
       </div>
 
-      <!-- Gradient title with animation -->
-      <h1 class="gradient-title">
-        <span class="title-line">Automatiseer met AI</span>
-        <span class="title-sub">en win tijd in je dagelijkse processen</span>
+      <h1>
+        {{ t('introAi.head.title') }}
+        <span class="highlight">{{ t('introAi.head.titleHighlight') }}</span>
       </h1>
 
       <p class="description">
-        Van AI-agents die sales, support en e-mail automatiseren
-        tot maatwerk workflows voor bedrijven in België die tijd besparen en fouten elimineren.
+        {{ t('introAi.head.lead') }}
       </p>
 
-      <!-- Modern CTA buttons - EXACT ZOALS HERO -->
       <div class="cta-group">
-        <button class="btn btn-outline">
-          <router-link to="/contact" class="nav-link">
-          <span>Start met AI</span>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <router-link to="/contact" class="btn btn--accent btn--lg">
+          {{ t('introAi.cta.start') }}
+          <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path
+              d="M4 12L12 4M12 4H5M12 4V11"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
-          </router-link>
-        </button>
-        <button class="btn btn-filled">
-            <router-link
-                :to="{ path: '/ai-automatisatie', hash: '#faqlistai' }"
-                class="nav-link"
-            >
-              <span>Veel gestelde vragen rond AI</span>
-            </router-link>
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
+        </router-link>
+        <router-link
+          :to="{ path: '/ai-projecten', hash: '#faqlistai' }"
+          class="btn btn--secondary btn--lg"
+        >
+          {{ t('introAi.cta.faq') }}
+        </router-link>
+      </div>
+
+      <!-- AI workflow terminal -->
+      <div class="terminal" aria-hidden="true">
+        <div class="terminal__bar">
+          <span class="td"></span><span class="td"></span><span class="td"></span>
+          <span class="terminal__name">juke · e-mail-workflow</span>
+        </div>
+        <div class="terminal__body">
+          <p class="line"><span class="prompt">$</span> juke run e-mailflow</p>
+          <p class="line out">{{ t('introAi.terminal.line1') }}</p>
+          <p class="line out">{{ t('introAi.terminal.line2') }}</p>
+          <p class="line out">{{ t('introAi.terminal.line3') }}</p>
+          <p class="line ok">{{ t('introAi.terminal.done') }}<span class="cursor"></span></p>
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-defineProps({
-  dark: { type: Boolean, default: false }
-});
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+defineProps({ dark: { type: Boolean, default: false } })
 </script>
 
-<style scoped>
-/* =========================================================
-   SECTION BASE
-   ========================================================= */
-
+<style scoped lang="scss">
 .intro-ai {
   position: relative;
-  min-height: 68vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: calc(var(--space-32) + 2rem) 0 var(--space-20);
   text-align: center;
-  padding: 0 5rem 3.2rem;
-  margin-top: 4rem;
-  color: var(--color-text-primary);
   overflow: hidden;
 }
 
-/* =========================================================
-   CONTENT
-   ========================================================= */
 .intro-content {
-  position: relative;
-  z-index: 1;
-  max-width: 1000px;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes fadeInDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =========================================================
-   EYEBROW BADGE
-   ========================================================= */
-.eyebrow-wrapper {
-  margin-bottom: 32px;
-  animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
-  padding-bottom: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  font-size: 0.875rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  font-weight: 600;
-  color: var(--color-primary);
-  background: var(--color-primary-subtle);
-  border: 1px solid var(--color-primary-border);
-  border-radius: 999px;
-  transition: all 0.3s ease;
+  margin-bottom: var(--space-6);
+  animation: fade-up 0.7s var(--ease-out-expo) both;
 }
 
-.dark-section .eyebrow {
-  color: var(--color-primary);
-  background: var(--color-primary-border);
-  border-color: var(--color-primary-glow);
-}
-
-.eyebrow:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-glow-primary);
-}
-
-
-.nav-link {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
+h1 {
+  font-size: var(--text-hero);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary);
-  text-decoration: none;
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  position: relative;
+  margin: 0 0 var(--space-5);
+  max-width: 18ch;
+  animation: fade-up 0.7s var(--ease-out-expo) 0.08s both;
+}
+.highlight {
+  color: var(--color-accent);
 }
 
-/* =========================================================
-   GRADIENT TITLE
-   ========================================================= */
-.gradient-title {
-  margin-bottom: 32px;
-  animation: fadeInUp 1s ease-out 0.3s backwards;
-}
-
-.title-line {
-  display: block;
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  font-weight: 800;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  color: var(--color-text-primary);
-  font-family: var(--font-display);
-  margin-bottom: 16px;
-}
-
-.dark-section .title-line {
-  color: var(--color-text-primary);
-}
-
-.title-sub {
-  display: block;
-  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  opacity: 0.85;
-  color: inherit;
-}
-
-/* =========================================================
-   DESCRIPTION
-   ========================================================= */
 .description {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  max-width: 760px;
-  margin: 0 auto 48px;
-  font-weight: 400;
-  opacity: 0.8;
-  animation: fadeInUp 1s ease-out 0.4s backwards;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  max-width: 62ch;
+  margin: 0 0 var(--space-8);
+  animation: fade-up 0.7s var(--ease-out-expo) 0.16s both;
 }
 
-/* =========================================================
-   CTA BUTTONS - EXACT ZOALS HERO SECTION
-   ========================================================= */
 .cta-group {
   display: flex;
-  justify-content: center;
-  gap: 1.25rem;
+  gap: var(--space-3);
   flex-wrap: wrap;
-  animation: fadeInUp 1s ease-out 0.5s backwards;
+  justify-content: center;
+  animation: fade-up 0.7s var(--ease-out-expo) 0.24s both;
 }
 
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 1rem 2rem;
-  border-radius: 3rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: none;
-  position: relative;
-  overflow: hidden;
-  white-space: nowrap;
-  font-family: inherit;
-
-  span {
-    position: relative;
-    z-index: 2;
-  }
-
-  svg {
-    position: relative;
-    z-index: 2;
-    transition: transform 0.3s ease;
-  }
-
-  &:hover svg {
-    transform: translateX(4px);
-  }
-
-  &:active {
-    transform: scale(0.98);
-  }
-}
-
-.btn-outline {
-  background: var(--color-bg-surface);
-  border: 1.5px solid var(--color-primary-border);
-  color: var(--color-text-primary);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-border);
+@keyframes fade-up {
+  from {
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transform: translateY(1rem);
   }
-
-  &:hover {
-    border-color: var(--color-border-active);
-    box-shadow: var(--shadow-glow-primary);
-    transform: translateY(-2px);
-
-    &::before {
-      opacity: 1;
-    }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 
-.btn-filled {
-  background: var(--color-primary);
-  color: var(--color-text-primary);
-  box-shadow: var(--shadow-glow-primary);
+/* ── Terminal ── */
+.terminal {
+  width: 100%;
+  max-width: 620px;
+  margin: var(--space-20) auto 0;
+  text-align: left;
   border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: #0b1813;
+  box-shadow: var(--shadow-elevated);
+  animation: fade-up 0.7s var(--ease-out-expo) 0.32s both;
+}
+.terminal__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: #11221b;
+  border-bottom: 1px solid #233830;
+}
+.td {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #2f5a47;
+}
+.terminal__name {
+  margin-left: var(--space-3);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #76847b;
+}
 
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--color-primary-hover);
+.terminal__body {
+  padding: var(--space-5);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  line-height: 1.9;
+}
+.line {
+  margin: 0;
+  color: #a7b5ac;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.prompt {
+  color: #34c98e;
+  margin-right: var(--space-2);
+}
+.out {
+  color: #8aa89a;
+}
+.ok {
+  color: #34c98e;
+}
+
+.cursor {
+  display: inline-block;
+  width: 7px;
+  height: 14px;
+  margin-left: 6px;
+  vertical-align: -2px;
+  background: #34c98e;
+  animation: blink 1.1s step-end infinite;
+}
+@keyframes blink {
+  50% {
     opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  &:hover {
-    box-shadow: var(--shadow-glow-primary);
-    transform: translateY(-2px);
-
-    &::before {
-      opacity: 1;
-    }
   }
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
 @media (max-width: 768px) {
   .intro-ai {
-    min-height: 40vh;
-    padding: 3em 1.5rem;
+    padding: var(--space-32) 0 var(--space-16);
   }
-
-  .eyebrow {
-    font-size: 0.75rem;
-    padding: 8px 20px;
-  }
-
-  .description {
-    font-size: 1.05rem;
-    margin-bottom: 36px;
-  }
-
   .cta-group {
     flex-direction: column;
     width: 100%;
-    max-width: 350px;
-    margin: 0 auto;
+    max-width: 340px;
+    .btn {
+      width: 100%;
+    }
   }
-
-  .btn {
-    width: 100%;
-    justify-content: center;
+  .terminal {
+    margin-top: var(--space-12);
   }
-
-  .gradient-orb {
-    filter: blur(80px);
+  .terminal__body {
+    font-size: 0.72rem;
+  }
+  .line {
+    white-space: normal;
   }
 }
 
-@media (max-width: 480px) {
-  .btn {
-    font-size: 0.9375rem;
-    padding: 0.875rem 1.75rem;
+@media (prefers-reduced-motion: reduce) {
+  .cursor {
+    animation: none;
   }
 }
 </style>

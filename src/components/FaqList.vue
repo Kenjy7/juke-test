@@ -2,18 +2,18 @@
   <section ref="rootEl" class="faq-section">
     <div class="container">
       <div class="faq-header">
-        <span class="label">{{ label }}</span>
-        <h2>{{ title }}</h2>
-        <p>{{ description }}</p>
+        <span class="label">{{ labelText }}</span>
+        <h2>{{ titleText }}</h2>
+        <p>{{ descriptionText }}</p>
       </div>
 
       <div class="faq-list">
         <FaqItem
-            v-for="(item, index) in faqs"
-            :key="index"
-            :question="item.question"
-            :answer="item.answer"
-            :index="index"
+          v-for="(item, index) in faqs"
+          :key="index"
+          :question="item.question"
+          :answer="item.answer"
+          :index="index"
         />
       </div>
     </div>
@@ -21,10 +21,13 @@
 </template>
 
 <script setup>
-import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { onMounted, onBeforeUnmount, ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FaqItem from './FaqItem.vue'
 
-defineProps({
+const { t } = useI18n()
+
+const props = defineProps({
   faqs: {
     type: Array,
     required: true,
@@ -32,29 +35,33 @@ defineProps({
   },
   label: {
     type: String,
-    default: 'Veelgestelde vragen',
+    default: '',
   },
   title: {
     type: String,
-    default: 'Vragen over webdesign?',
+    default: '',
   },
   description: {
     type: String,
-    default: 'Alle antwoorden over jouw website project op een rij',
+    default: '',
   },
 })
+
+const labelText = computed(() => props.label || t('faqList.header.label'))
+const titleText = computed(() => props.title || t('faqList.header.title'))
+const descriptionText = computed(() => props.description || t('faqList.header.description'))
 
 const rootEl = ref(null)
 let observer = null
 
 onMounted(() => {
   observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
   )
 
   // Observe only FAQ items inside this component

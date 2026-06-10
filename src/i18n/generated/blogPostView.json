@@ -1,0 +1,38 @@
+{
+  "nl": {
+    "notFound": {
+      "title": "Post niet gevonden",
+      "back": "← Terug naar blog"
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "readingTime": "min leestijd",
+    "cta": {
+      "title": "Klaar om te starten?",
+      "text": "Ontdek wat JukeCoding voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.",
+      "button": "Gratis offerte aanvragen →"
+    },
+    "allPosts": "← Alle blogposts"
+  },
+  "en": {
+    "notFound": {
+      "title": "Post not found",
+      "back": "← Back to blog"
+    },
+    "breadcrumb": {
+      "label": "Breadcrumb",
+      "home": "Home",
+      "blog": "Blog"
+    },
+    "readingTime": "min read",
+    "cta": {
+      "title": "Ready to get started?",
+      "text": "Discover what JukeCoding can do for your business. Request a free quote.",
+      "button": "Request a free quote →"
+    },
+    "allPosts": "← All blog posts"
+  }
+}

@@ -1,0 +1,314 @@
+{
+  "nl": {
+    "header": {
+      "title": "Vraag je offerte aan",
+      "subtitle": "Vertel ons over je project en ontvang een vrijblijvend voorstel."
+    },
+    "modal": {
+      "close": "Sluiten"
+    },
+    "packageNotification": {
+      "prefix": "Je hebt",
+      "suffix": "geselecteerd"
+    },
+    "honeypot": {
+      "label": "Laat dit veld leeg"
+    },
+    "common": {
+      "optional": "(optioneel)"
+    },
+    "sections": {
+      "basics": {
+        "title": "Basisgegevens"
+      },
+      "projectType": {
+        "title": "Type project"
+      },
+      "packageChoice": {
+        "title": "Welk pakket past bij jou?"
+      },
+      "features": {
+        "title": "Functionaliteiten"
+      },
+      "aiAutomation": {
+        "title": "AI Automatisation"
+      },
+      "design": {
+        "title": "Design & inspiratie"
+      },
+      "timingBudget": {
+        "title": "Timing & budget"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Naam"
+      },
+      "companyName": {
+        "label": "Bedrijfsnaam",
+        "placeholder": "Je bedrijf"
+      },
+      "email": {
+        "label": "E-mailadres"
+      },
+      "phone": {
+        "label": "Telefoonnummer"
+      },
+      "aiDescription": {
+        "label": "Toelichting AI-oplossing",
+        "placeholder": "Beschrijf wat je graag geautomatiseerd wilt zien..."
+      },
+      "hasIdentity": {
+        "label": "Heb je al een huisstijl of logo?",
+        "yes": "Ja",
+        "no": "Nee"
+      },
+      "inspirationLinks": {
+        "label": "Inspiratie websites",
+        "placeholder": "Link(s) naar websites die je mooi vindt..."
+      },
+      "timeline": {
+        "label": "Wanneer wil je live gaan?",
+        "placeholder": "Selecteer timing",
+        "options": {
+          "asap": "Zo snel mogelijk",
+          "within1Month": "Binnen 1 maand",
+          "1to3Months": "1-3 maanden",
+          "noDeadline": "Geen deadline"
+        }
+      },
+      "budget": {
+        "label": "Indicatie budget",
+        "placeholder": "Selecteer budget",
+        "options": {
+          "unknown": "Weet ik nog niet"
+        }
+      },
+      "description": {
+        "label": "Vertel ons over je project",
+        "placeholder": "Beschrijf kort je idee of doel..."
+      }
+    },
+    "submit": {
+      "loading": "Versturen...",
+      "label": "Ontvang mijn voorstel"
+    },
+    "trust": {
+      "responseTime": "Reactie binnen",
+      "responseValue": "24h"
+    },
+    "projectTypes": {
+      "newWebsite": "Nieuwe website",
+      "redesign": "Redesign van bestaande website",
+      "webshop": "Webshop",
+      "webapp": "Webapp / maatwerk",
+      "seo": "SEO-optimalisatie",
+      "maintenance": "Onderhoud & hosting",
+      "other": "Anders"
+    },
+    "packages": {
+      "lite": {
+        "description": "Perfect voor starters"
+      },
+      "groove": {
+        "description": "Meest gekozen"
+      },
+      "amplify": {
+        "description": "All-in premium"
+      },
+      "advies": {
+        "label": "Ik weet het nog niet",
+        "description": "Graag advies"
+      }
+    },
+    "features": {
+      "contactForm": "Contactformulier",
+      "multilingual": "Meertalige website (NL/EN/FR)",
+      "cms": "CMS (zelf teksten aanpassen)",
+      "seoBasic": "SEO-basis",
+      "animations": "Animaties / interacties",
+      "blog": "Blog / nieuws",
+      "login": "Login / accounts",
+      "payments": "Betalingen (webshop)"
+    },
+    "aiServices": {
+      "chatbot": "AI Chatbot voor klantenservice",
+      "emailAutomation": "E-mail automatisering",
+      "contentGeneration": "Content generatie",
+      "dataAnalysis": "Data-analyse & rapportage",
+      "workflow": "Workflow automatisering",
+      "voiceAssistant": "Voice assistant",
+      "other": "Andere AI-oplossing"
+    },
+    "messages": {
+      "success": {
+        "title": "Offerte aanvraag verzonden!",
+        "body": "Bedankt! We nemen binnen 1-2 werkdagen persoonlijk contact met je op."
+      },
+      "error": {
+        "title": "Oeps, er ging iets mis",
+        "body": "Het verzenden is mislukt. Probeer het later opnieuw of neem direct contact op via email."
+      },
+      "validation": {
+        "title": "Vul verplichte velden in",
+        "body": "Gelieve minstens je naam en e-mailadres in te vullen."
+      }
+    }
+  },
+  "en": {
+    "header": {
+      "title": "Request your quote",
+      "subtitle": "Tell us about your project and receive a no-obligation proposal."
+    },
+    "modal": {
+      "close": "Close"
+    },
+    "packageNotification": {
+      "prefix": "You selected",
+      "suffix": ""
+    },
+    "honeypot": {
+      "label": "Leave this field empty"
+    },
+    "common": {
+      "optional": "(optional)"
+    },
+    "sections": {
+      "basics": {
+        "title": "Basic details"
+      },
+      "projectType": {
+        "title": "Project type"
+      },
+      "packageChoice": {
+        "title": "Which package suits you?"
+      },
+      "features": {
+        "title": "Functionality"
+      },
+      "aiAutomation": {
+        "title": "AI Automation"
+      },
+      "design": {
+        "title": "Design & inspiration"
+      },
+      "timingBudget": {
+        "title": "Timing & budget"
+      }
+    },
+    "fields": {
+      "name": {
+        "label": "Name"
+      },
+      "companyName": {
+        "label": "Company name",
+        "placeholder": "Your company"
+      },
+      "email": {
+        "label": "Email address"
+      },
+      "phone": {
+        "label": "Phone number"
+      },
+      "aiDescription": {
+        "label": "AI solution details",
+        "placeholder": "Describe what you'd like to automate..."
+      },
+      "hasIdentity": {
+        "label": "Do you already have a brand identity or logo?",
+        "yes": "Yes",
+        "no": "No"
+      },
+      "inspirationLinks": {
+        "label": "Inspiration websites",
+        "placeholder": "Link(s) to websites you like..."
+      },
+      "timeline": {
+        "label": "When do you want to go live?",
+        "placeholder": "Select timing",
+        "options": {
+          "asap": "As soon as possible",
+          "within1Month": "Within 1 month",
+          "1to3Months": "1-3 months",
+          "noDeadline": "No deadline"
+        }
+      },
+      "budget": {
+        "label": "Indicative budget",
+        "placeholder": "Select budget",
+        "options": {
+          "unknown": "Not sure yet"
+        }
+      },
+      "description": {
+        "label": "Tell us about your project",
+        "placeholder": "Briefly describe your idea or goal..."
+      }
+    },
+    "submit": {
+      "loading": "Sending...",
+      "label": "Get my proposal"
+    },
+    "trust": {
+      "responseTime": "Reply within",
+      "responseValue": "24h"
+    },
+    "projectTypes": {
+      "newWebsite": "New website",
+      "redesign": "Redesign of an existing website",
+      "webshop": "Webshop",
+      "webapp": "Web app / custom build",
+      "seo": "SEO optimisation",
+      "maintenance": "Maintenance & hosting",
+      "other": "Other"
+    },
+    "packages": {
+      "lite": {
+        "description": "Perfect for starters"
+      },
+      "groove": {
+        "description": "Most popular"
+      },
+      "amplify": {
+        "description": "All-in premium"
+      },
+      "advies": {
+        "label": "I'm not sure yet",
+        "description": "I'd like advice"
+      }
+    },
+    "features": {
+      "contactForm": "Contact form",
+      "multilingual": "Multilingual website (NL/EN/FR)",
+      "cms": "CMS (edit content yourself)",
+      "seoBasic": "SEO basics",
+      "animations": "Animations / interactions",
+      "blog": "Blog / news",
+      "login": "Login / accounts",
+      "payments": "Payments (webshop)"
+    },
+    "aiServices": {
+      "chatbot": "AI chatbot for customer service",
+      "emailAutomation": "Email automation",
+      "contentGeneration": "Content generation",
+      "dataAnalysis": "Data analysis & reporting",
+      "workflow": "Workflow automation",
+      "voiceAssistant": "Voice assistant",
+      "other": "Other AI solution"
+    },
+    "messages": {
+      "success": {
+        "title": "Quote request sent!",
+        "body": "Thank you! We'll get in touch with you personally within 1-2 business days."
+      },
+      "error": {
+        "title": "Oops, something went wrong",
+        "body": "Sending failed. Please try again later or contact us directly by email."
+      },
+      "validation": {
+        "title": "Fill in the required fields",
+        "body": "Please fill in at least your name and email address."
+      }
+    }
+  }
+}

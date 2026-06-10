@@ -1,0 +1,40 @@
+{
+  "nl": {
+    "title": "Cookievoorkeuren",
+    "description": "We gebruiken cookies om je ervaring te verbeteren. Pas je voorkeuren aan of accepteer alles.",
+    "options": {
+      "necessary": "Noodzakelijk",
+      "required": "(Verplicht)",
+      "functional": "Functioneel",
+      "analytics": "Analytisch",
+      "marketing": "Marketing"
+    },
+    "actions": {
+      "customize": "Aanpassen",
+      "save": "Opslaan",
+      "reject": "Weigeren",
+      "acceptAll": "Alles accepteren",
+      "accept": "Accepteren"
+    },
+    "policyLink": "Meer info over ons cookiebeleid"
+  },
+  "en": {
+    "title": "Cookie preferences",
+    "description": "We use cookies to improve your experience. Adjust your preferences or accept all.",
+    "options": {
+      "necessary": "Necessary",
+      "required": "(Required)",
+      "functional": "Functional",
+      "analytics": "Analytics",
+      "marketing": "Marketing"
+    },
+    "actions": {
+      "customize": "Customise",
+      "save": "Save",
+      "reject": "Reject",
+      "acceptAll": "Accept all",
+      "accept": "Accept"
+    },
+    "policyLink": "More info about our cookie policy"
+  }
+}

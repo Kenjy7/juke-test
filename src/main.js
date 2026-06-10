@@ -1,13 +1,14 @@
 import { blogPosts } from './data/blogs'
-import { provincieSlugs } from './data/provincies'
-import { stadSlugs } from './data/steden'
 import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
 import App from './App.vue'
 import { routes } from './router/routes'
 
 import { createHeadCore, createUnhead } from '@unhead/vue'
-import { renderSSRHead } from '@unhead/ssr'
+
+import { createAppI18n, LOCALE_META } from './i18n/index.js'
+import { localeFromPath } from './i18n/routing.js'
+import LocaleLink from './components/LocaleLink.vue'
 
 export const createApp = ViteSSG(
   App,
@@ -15,13 +16,31 @@ export const createApp = ViteSSG(
   ({ app, router, isClient }) => {
     app.use(createPinia())
 
+    // Per-app i18n (see createAppI18n) — avoids locale bleed between concurrent
+    // SSG renders.
+    const i18n = createAppI18n()
+    app.use(i18n)
+
     const unhead = createUnhead()
     const head = createHeadCore(unhead)
     app.use(head)
     app.config.globalProperties.$unhead = unhead
 
-    unhead.push({
-      htmlAttrs: { lang: 'nl' },
+    // Globally override <router-link> with LocaleLink so every existing link
+    // auto-prefixes the active locale's path (prerendered /en pages link to /en
+    // internally — essential for SEO). vite-ssg installs vue-router *after* this
+    // setup fn runs, so registering here directly would be clobbered by the
+    // built-in RouterLink. Doing it on the first guard run lands after install.
+    let linkRegistered = false
+
+    // Single source of truth for the active locale: derived from the URL.
+    // Runs on the server during prerender and on the client during navigation.
+    router.beforeEach((to) => {
+      if (!linkRegistered) {
+        app.component('RouterLink', LocaleLink)
+        linkRegistered = true
+      }
+      i18n.global.locale.value = to.meta.locale || localeFromPath(to.path)
     })
 
     if (isClient) {
@@ -60,36 +79,31 @@ export const createApp = ViteSSG(
     }
   },
   {
-    async onRendered(ctx) {
-      const unhead = ctx.app.config.globalProperties.$unhead
-      const { headTags, htmlAttrs, bodyAttrs } = await renderSSRHead(unhead)
-
-      const fixedHtmlAttrs = /lang="[^"]*"/.test(htmlAttrs)
-        ? htmlAttrs.replace(/lang="[^"]*"/, 'lang="nl"')
-        : `${htmlAttrs} lang="nl"`
-
-      ctx.html = ctx.html
-        .replace('<html', `<html${fixedHtmlAttrs}`)
-        .replace('<body', `<body${bodyAttrs}`)
-        .replace('</head>', `${headTags}</head>`)
+    // Authoritative <html lang> per prerendered route — derived from the URL
+    // prefix so it always matches the page's content locale (SEO + a11y).
+    onPageRendered(route, html) {
+      const lang = LOCALE_META[localeFromPath(route)].htmlLang
+      return /<html[^>]*\slang=/.test(html)
+        ? html.replace(/(<html[^>]*\slang=")[^"]*(")/, `$1${lang}$2`)
+        : html.replace('<html', `<html lang="${lang}"`)
     },
-  }
+  },
 )
 
 export function includedRoutes() {
-  return [
+  const nlPaths = [
     '/',
     '/webdesign',
     '/ai-automatisatie',
     '/contact',
     '/cookies',
     '/offerte-aanvraag',
-    '/locaties',
     '/website-die-klanten-oplevert',
     '/gratis-seo-scan',
     '/blog',
-    ...provincieSlugs.map((provincie) => `/webdesign-${provincie}`),
-    ...stadSlugs.map((stad) => `/webdesign-${stad}`),
     ...blogPosts.filter((post) => post.published).map((post) => `/blog/${post.slug}`),
   ]
+  // Prerender every page in both locales: nl unprefixed, en under /en.
+  const enPaths = nlPaths.map((p) => (p === '/' ? '/en' : `/en${p}`))
+  return [...nlPaths, ...enPaths]
 }

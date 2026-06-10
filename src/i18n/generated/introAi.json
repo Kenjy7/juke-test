@@ -1,0 +1,38 @@
+{
+  "nl": {
+    "eyebrow": "AI-automatisering",
+    "head": {
+      "title": "Laat AI het repetitieve werk doen,",
+      "titleHighlight": "zodat je team kan focussen.",
+      "lead": "Van AI die sales, support en e-mail afhandelt tot workflows op maat — we bouwen AI die tijd bespaart, fouten elimineert en meeschaalt met je bedrijf."
+    },
+    "cta": {
+      "start": "Start met AI",
+      "faq": "Veelgestelde vragen"
+    },
+    "terminal": {
+      "line1": "→ 142 inkomende e-mails geclassificeerd",
+      "line2": "→ 7 offerteaanvragen herkend & doorgestuurd",
+      "line3": "→ 3 antwoorden opgesteld & gepland",
+      "done": "✓ workflow voltooid · 1.2s · 0 fouten"
+    }
+  },
+  "en": {
+    "eyebrow": "AI automation",
+    "head": {
+      "title": "Let AI handle the repetitive work,",
+      "titleHighlight": "so your team can focus.",
+      "lead": "From AI that handles sales, support and email to custom workflows — we build AI that saves time, eliminates errors and scales with your business."
+    },
+    "cta": {
+      "start": "Get started with AI",
+      "faq": "Frequently asked questions"
+    },
+    "terminal": {
+      "line1": "→ 142 incoming emails classified",
+      "line2": "→ 7 quote requests detected & forwarded",
+      "line3": "→ 3 replies drafted & scheduled",
+      "done": "✓ workflow completed · 1.2s · 0 errors"
+    }
+  }
+}

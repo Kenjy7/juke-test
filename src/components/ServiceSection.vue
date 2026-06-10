@@ -4,12 +4,11 @@
       <header class="section-head reveal">
         <span class="eyebrow">
           <span class="eyebrow__dot"></span>
-          Wat we bouwen
+          {{ t('serviceSection.head.eyebrow') }}
         </span>
-        <h2>Van AI-agents tot complete platformen.</h2>
+        <h2>{{ t('serviceSection.head.title') }}</h2>
         <p class="lead">
-          Eén partner voor je hele digitale traject — van slimme automatisering
-          tot software en web, telkens op maat van je bedrijf.
+          {{ t('serviceSection.head.lead') }}
         </p>
       </header>
 
@@ -29,7 +28,13 @@
           <ul class="feature-card__list">
             <li v-for="(point, i) in service.points" :key="i">
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M13.3337 4L6.00033 11.3333L2.66699 8" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M13.3337 4L6.00033 11.3333L2.66699 8"
+                  stroke="currentColor"
+                  stroke-width="1.75"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
               {{ point }}
             </li>
@@ -38,7 +43,13 @@
           <router-link :to="service.linkUrl" class="card-link">
             <span>{{ service.linkText }}</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M4 12L12 4M12 4H6M12 4V10"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </router-link>
         </article>
@@ -48,86 +59,124 @@
 </template>
 
 <script setup>
-import { h, ref, onMounted } from 'vue';
+import { h, ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
+
+const sectionRef = ref(null)
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -60px 0px' },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 
-const AiIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [
-  h('path', { d: 'M12 2a4 4 0 0 1 4 4v1a1 1 0 0 0 1 1h1a4 4 0 0 1 0 8h-1a1 1 0 0 0-1 1v1a4 4 0 0 1-8 0v-1a1 1 0 0 0-1-1H6a4 4 0 0 1 0-8h1a1 1 0 0 0 1-1V6a4 4 0 0 1 4-4z' }),
-  h('circle', { cx: '12', cy: '12', r: '2' })
-]);
+const AiIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [
+      h('path', {
+        d: 'M12 2a4 4 0 0 1 4 4v1a1 1 0 0 0 1 1h1a4 4 0 0 1 0 8h-1a1 1 0 0 0-1 1v1a4 4 0 0 1-8 0v-1a1 1 0 0 0-1-1H6a4 4 0 0 1 0-8h1a1 1 0 0 0 1-1V6a4 4 0 0 1 4-4z',
+      }),
+      h('circle', { cx: '12', cy: '12', r: '2' }),
+    ],
+  )
 
-const SaasIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [
-  h('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2' }),
-  h('path', { d: 'M3 9h18' }),
-  h('path', { d: 'M9 21V9' })
-]);
+const SaasIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [
+      h('rect', { x: '3', y: '3', width: '18', height: '18', rx: '2' }),
+      h('path', { d: 'M3 9h18' }),
+      h('path', { d: 'M9 21V9' }),
+    ],
+  )
 
-const WebIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [
-  h('rect', { x: '2', y: '3', width: '20', height: '14', rx: '2' }),
-  h('path', { d: 'M8 21h8' }),
-  h('path', { d: 'M12 17v4' }),
-  h('path', { d: 'M7 8l3 3-3 3' }),
-  h('path', { d: 'M13 14h4' })
-]);
+const WebIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [
+      h('rect', { x: '2', y: '3', width: '20', height: '14', rx: '2' }),
+      h('path', { d: 'M8 21h8' }),
+      h('path', { d: 'M12 17v4' }),
+      h('path', { d: 'M7 8l3 3-3 3' }),
+      h('path', { d: 'M13 14h4' }),
+    ],
+  )
 
-const services = [
+const services = computed(() => [
   {
     icon: AiIcon,
-    title: "AI-oplossingen op maat",
+    title: t('serviceSection.cards.ai.title'),
     points: [
-      "AI-agents voor sales, support & opvolging",
-      "Chatbots voor 24/7 klantenservice",
-      "Slimme workflows & automatisering",
-      "API-koppelingen & integraties"
+      t('serviceSection.cards.ai.points.0'),
+      t('serviceSection.cards.ai.points.1'),
+      t('serviceSection.cards.ai.points.2'),
+      t('serviceSection.cards.ai.points.3'),
     ],
-    linkText: "Meer over AI",
-    linkUrl: "/ai-projecten"
+    linkText: t('serviceSection.cards.ai.linkText'),
+    linkUrl: '/ai-projecten',
   },
   {
     icon: SaasIcon,
-    title: "SaaS-platformen bouwen",
+    title: t('serviceSection.cards.saas.title'),
     points: [
-      "Custom dashboards & portalen",
-      "Gebruikersbeheer & authenticatie",
-      "Schaalbare architectuur",
-      "Van concept tot live product"
+      t('serviceSection.cards.saas.points.0'),
+      t('serviceSection.cards.saas.points.1'),
+      t('serviceSection.cards.saas.points.2'),
+      t('serviceSection.cards.saas.points.3'),
     ],
-    linkText: "Meer over SaaS",
-    linkUrl: "/saas-development"
+    linkText: t('serviceSection.cards.saas.linkText'),
+    linkUrl: '/saas-development',
   },
   {
     icon: WebIcon,
-    title: "Websites die converteren",
+    title: t('serviceSection.cards.web.title'),
     points: [
-      "Websites op maat vanaf EUR 600",
-      "Mobielvriendelijk & snel",
-      "SEO-geoptimaliseerd",
-      "Conversiegerichte structuur"
+      t('serviceSection.cards.web.points.0'),
+      t('serviceSection.cards.web.points.1'),
+      t('serviceSection.cards.web.points.2'),
+      t('serviceSection.cards.web.points.3'),
     ],
-    linkText: "Bekijk pakketten",
-    linkUrl: "/webdesign"
-  }
-];
+    linkText: t('serviceSection.cards.web.linkText'),
+    linkUrl: '/webdesign',
+  },
+])
 </script>
 
 <style scoped lang="scss">
@@ -199,9 +248,10 @@ h2 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
-  transition: border-color var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:hover {
     border-color: var(--color-border-hover);
@@ -222,7 +272,10 @@ h2 {
   color: var(--color-accent);
   margin-bottom: var(--space-6);
 
-  svg { width: 22px; height: 22px; }
+  svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 h3 {
@@ -249,8 +302,14 @@ h3 {
     line-height: var(--leading-normal);
     margin-bottom: 0.75rem;
 
-    svg { flex-shrink: 0; margin-top: 0.2rem; color: var(--color-accent); }
-    &:last-child { margin-bottom: 0; }
+    svg {
+      flex-shrink: 0;
+      margin-top: 0.2rem;
+      color: var(--color-accent);
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 
@@ -264,15 +323,25 @@ h3 {
   color: var(--color-accent);
   text-decoration: none;
 
-  svg { transition: transform var(--transition-base); }
-  &:hover svg { transform: translate(2px, -2px); }
+  svg {
+    transition: transform var(--transition-base);
+  }
+  &:hover svg {
+    transform: translate(2px, -2px);
+  }
 }
 
 @media (max-width: 900px) {
-  .cards-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+  .cards-grid {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 
 @media (max-width: 768px) {
-  .services { padding: var(--space-16) var(--space-5); }
+  .services {
+    padding: var(--space-16) var(--space-5);
+  }
 }
 </style>

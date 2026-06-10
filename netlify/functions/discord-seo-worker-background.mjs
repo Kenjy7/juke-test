@@ -12,7 +12,18 @@
  * ─────────────────────────────────────────────────────────────────────
  */
 
+import crypto from 'node:crypto'
+import { isPublicHttpUrl } from '../lib/request-guard.mjs'
+
 const DEFAULT_SITE_URL = 'https://jukecoding.be'
+
+// Constant-time string compare for the internal shared secret.
+function timingSafeEqualStr(a, b) {
+  const ab = Buffer.from(String(a))
+  const bb = Buffer.from(String(b))
+  if (ab.length !== bb.length) return false
+  return crypto.timingSafeEqual(ab, bb)
+}
 
 const DEFAULT_PAGES = [
   '/webdesign',
@@ -46,9 +57,12 @@ function buildPageList(rawUrl) {
 
 // ── Helpers ───────────────────────────────────────────────────────────
 async function fetchPage(url) {
+  // SSRF guard: only fetch public http(s) targets.
+  if (!isPublicHttpUrl(url)) return null
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'JukeCoding-SEO-Bot/1.0' },
+      redirect: 'error',
       signal: AbortSignal.timeout(8000),
     })
     return res.ok ? await res.text() : null
@@ -451,7 +465,7 @@ Geef UITSLUITEND een geldig JSON-object:
     keywords: ${JSON.stringify(parsed.keywords)},
     readingTime: ${parsed.readingTime || 5},
     ogImage: '/og-image.jpg',
-    content: \`${parsed.content.replace(/`/g, '\\`')}\`,
+    content: ${JSON.stringify(parsed.content)},
   },`
 
       const insertPoint = currentContent.lastIndexOf(']')
@@ -1301,10 +1315,21 @@ Uitgebreid, strategisch, concreet. Nederlands.`, apiKey, 2500)
 
 // ── Main handler ───────────────────────────────────────────────────────
 export default async function handler(req) {
-  const { ANTHROPIC_API_KEY, DISCORD_APPLICATION_ID } = process.env
+  const { ANTHROPIC_API_KEY, DISCORD_APPLICATION_ID, INTERNAL_WORKER_SECRET } = process.env
 
   if (!ANTHROPIC_API_KEY || !DISCORD_APPLICATION_ID) {
     return new Response('Env vars ontbreken', { status: 500 })
+  }
+
+  // This worker is an internal-only endpoint: it is triggered server-to-server
+  // by discord-bot.mjs and burns ANTHROPIC_API_KEY + does outbound fetches.
+  // Require a shared secret so it cannot be invoked directly by the public.
+  // Fail closed: if the secret is not configured, refuse everything.
+  if (
+    !INTERNAL_WORKER_SECRET ||
+    !timingSafeEqualStr(req.headers.get('x-internal-secret') || '', INTERNAL_WORKER_SECRET)
+  ) {
+    return new Response('Unauthorized', { status: 401 })
   }
 
   let body

@@ -8,16 +8,18 @@
     <CasesCta />
     <WaaromJuke />
     <FaqList
-      :faqs="homeFaqs"
-      label="FAQ"
-      title="Veelgestelde vragen"
-      description="Heldere antwoorden over AI, SaaS, webdesign en samenwerking."
+      :faqs="homeFaqsDisplay"
+      :label="t('homeView.faq.label')"
+      :title="t('homeView.faq.title')"
+      :description="t('homeView.faq.description')"
     />
     <ContactComponent />
   </BackgroundWeb>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import HeroSectionHome from '@/components/HeroSectionHome.vue'
 import AiShowcase from '@/components/AiShowcase.vue'
@@ -30,26 +32,28 @@ import ContactComponent from '@/components/ContactFormulier.vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import FaqList from '@/components/FaqList.vue'
 
+const { t } = useI18n()
+
 const homeFaqs = [
   {
     question: 'Wat doet JukeCoding precies?',
     answer:
-      'JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO\'s om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan.',
+      "JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan.",
   },
   {
     question: 'Wat kosten AI-projecten of SaaS-development?',
     answer:
-      'AI-projecten starten vanaf EUR 800 voor kleinere automatiseringen. SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We maken altijd een heldere offerte vooraf.',
+      'AI-projecten en SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope.',
   },
   {
     question: 'Bieden jullie ook webdesign aan?',
     answer:
-      'Ja. Naast AI en SaaS bouwen we professionele websites op maat vanaf EUR 600. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO.',
+      'Ja. Naast AI en SaaS bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO.',
   },
   {
     question: 'Voor wie zijn jullie diensten bedoeld?',
     answer:
-      'Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO\'s en zelfstandigen in heel Belgie.',
+      "Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie.",
   },
   {
     question: 'Hoe ziet een samenwerking eruit?',
@@ -57,6 +61,14 @@ const homeFaqs = [
       'We starten met een vrijblijvend gesprek om je situatie te begrijpen. Daarna maken we een voorstel met scope, planning en prijs. We werken in korte sprints zodat je snel resultaat ziet en tussentijds kunt bijsturen.',
   },
 ]
+
+const homeFaqsDisplay = computed(() => [
+  { question: t('homeView.faqs.what.question'), answer: t('homeView.faqs.what.answer') },
+  { question: t('homeView.faqs.pricing.question'), answer: t('homeView.faqs.pricing.answer') },
+  { question: t('homeView.faqs.webdesign.question'), answer: t('homeView.faqs.webdesign.answer') },
+  { question: t('homeView.faqs.audience.question'), answer: t('homeView.faqs.audience.answer') },
+  { question: t('homeView.faqs.process.question'), answer: t('homeView.faqs.process.answer') },
+])
 
 useHead({
   title: 'AI & SaaS Development Studio Hasselt | JukeCoding',
@@ -66,11 +78,14 @@ useHead({
       content:
         'JukeCoding bouwt AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
     },
-    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    {
+      name: 'robots',
+      content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    },
     {
       name: 'keywords',
       content:
-        'JukeCoding, AI development Belgie, SaaS development, AI-agents, custom software, webdesign Hasselt, development studio Belgie',
+        'JukeCoding, AI development Belgie, SaaS development, AI-automatisering, custom software, webdesign Hasselt, development studio Belgie',
     },
     { name: 'geo.region', content: 'BE-VLG' },
     { name: 'geo.placename', content: 'Hasselt' },
@@ -110,9 +125,7 @@ useHead({
       content: 'JukeCoding - AI & SaaS development studio in Hasselt',
     },
   ],
-  link: [
-    { rel: 'canonical', href: 'https://jukecoding.be/' },
-  ],
+  link: [{ rel: 'canonical', href: 'https://jukecoding.be/' }],
   script: [
     {
       type: 'application/ld+json',
@@ -130,7 +143,8 @@ useHead({
           height: 60,
         },
         image: 'https://jukecoding.be/og-image.jpg',
-        description: 'AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
+        description:
+          'AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Hasselt',
@@ -145,7 +159,6 @@ useHead({
         },
         telephone: '+32479131715',
         email: 'contact@jukecoding.be',
-        priceRange: 'EUR 600 - EUR 25000+',
         currenciesAccepted: 'EUR',
         openingHoursSpecification: [
           {
@@ -160,8 +173,14 @@ useHead({
           'https://www.instagram.com/jukecoding',
         ],
         knowsAbout: [
-          'AI Development', 'AI Agents', 'SaaS Development', 'Chatbots',
-          'Workflow Automatisatie', 'Webdesign', 'Web Development', 'SEO',
+          'AI Development',
+          'AI Automatisering',
+          'SaaS Development',
+          'Chatbots',
+          'Workflow Automatisatie',
+          'Webdesign',
+          'Web Development',
+          'SEO',
         ],
         areaServed: [
           { '@type': 'City', name: 'Hasselt', addressCountry: 'BE' },
@@ -175,18 +194,15 @@ useHead({
           itemListElement: [
             {
               '@type': 'Offer',
-              price: '800',
-              priceCurrency: 'EUR',
               availability: 'https://schema.org/InStock',
               itemOffered: {
                 '@type': 'Service',
                 name: 'AI-projecten',
-                description: 'AI-agents, chatbots en slimme workflows op maat',
+                description: 'AI-automatisering, chatbots en slimme workflows op maat',
               },
             },
             {
               '@type': 'Offer',
-              priceCurrency: 'EUR',
               availability: 'https://schema.org/InStock',
               itemOffered: {
                 '@type': 'Service',
@@ -196,13 +212,11 @@ useHead({
             },
             {
               '@type': 'Offer',
-              price: '600',
-              priceCurrency: 'EUR',
               availability: 'https://schema.org/InStock',
               itemOffered: {
                 '@type': 'Service',
                 name: 'Webdesign',
-                description: 'Professionele websites op maat voor KMO\'s en zelfstandigen',
+                description: "Professionele websites op maat voor KMO's en zelfstandigen",
               },
             },
           ],

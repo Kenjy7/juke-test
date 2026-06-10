@@ -1,58 +1,58 @@
 /* ============================================================
-   JUKECODING DESIGN TOKENS — Refined Studio
-   Luxe-editorial × modern-minimalist.
-   North star: "quietly confident, expensive silence."
-   Warm cream canvas · one blue accent · serif display
-   · flat (hairlines, no shadow) · slow, unhurried motion.
+   JUKECODING DESIGN TOKENS — Clean Studio
+   Modern SaaS / developer-platform clarity (recommand-style).
+   North star: "clean, confident, built to scale."
+   Bright white canvas · one art-deco emerald accent · Geist sans
+   · soft corners · hairline borders + whisper shadows · calm motion.
    ============================================================ */
 :root {
-  /* ---- Backgrounds / surfaces (warm tints) ---- */
-  --color-bg-primary: #f5f1e8;       /* canvas: cream */
-  --color-bg-elevated: #faf7f2;      /* raised: bone */
-  --color-bg-surface: #faf7f2;       /* card / panel: bone */
-  --color-bg-overlay: rgba(26, 24, 20, 0.45);
-  --color-bg-card-outer: #f5f1e8;
-  --color-bg-card-inner: #faf7f2;
-  --color-bg-sunken: #ede7da;        /* recessed band: sand */
+  /* ---- Backgrounds / surfaces (cool, near-white) ---- */
+  --color-bg-primary: #fbfcfb;       /* canvas: clean off-white */
+  --color-bg-elevated: #ffffff;      /* raised: pure white */
+  --color-bg-surface: #ffffff;       /* card / panel: pure white */
+  --color-bg-overlay: rgba(9, 24, 18, 0.45);
+  --color-bg-card-outer: #f3f7f5;
+  --color-bg-card-inner: #ffffff;
+  --color-bg-sunken: #f3f7f5;        /* recessed band: faint emerald-grey */
 
-  /* ---- Brand accent (ONE — blue on warm cream) ---- */
-  --color-primary: #2a6cff;
-  --color-primary-hover: #1d5ae6;
-  --color-primary-subtle: rgba(42, 108, 255, 0.08);
-  --color-primary-border: rgba(42, 108, 255, 0.22);
-  --color-primary-glow: rgba(42, 108, 255, 0.14);
+  /* ---- Brand accent (ONE — art-deco emerald on white) ---- */
+  --color-primary: #0c6b50;
+  --color-primary-hover: #095840;
+  --color-primary-subtle: rgba(12, 107, 80, 0.07);
+  --color-primary-border: rgba(12, 107, 80, 0.22);
+  --color-primary-glow: rgba(12, 107, 80, 0.14);
 
   /* ---- Accent aliases (unified to the single accent) ---- */
-  --color-accent: #2a6cff;
-  --color-accent-hover: #1d5ae6;
-  --color-accent-subtle: rgba(42, 108, 255, 0.08);
-  --color-accent-glow: rgba(42, 108, 255, 0.14);
+  --color-accent: #0c6b50;
+  --color-accent-hover: #095840;
+  --color-accent-subtle: rgba(12, 107, 80, 0.07);
+  --color-accent-glow: rgba(12, 107, 80, 0.14);
 
-  /* ---- Text / ink (warm, never pure black) ---- */
-  --color-text-primary: #1a1814;
-  --color-text-secondary: #5c544a;
-  --color-text-tertiary: #736b5e;   /* darkened from #8b8378 for AA contrast on cream */
-  --color-text-on-accent: #faf7f2;
+  /* ---- Text / ink (deep green-charcoal, never pure black) ---- */
+  --color-text-primary: #0e1c16;
+  --color-text-secondary: #45524b;
+  --color-text-tertiary: #67746c;
+  --color-text-on-accent: #ffffff;
 
-  /* ---- Borders (warm hairlines) ---- */
-  --color-border: #d9d2c5;
-  --color-border-hover: #c4bbab;
-  --color-border-active: #2a6cff;
+  /* ---- Borders (cool hairlines) ---- */
+  --color-border: #e5eae7;
+  --color-border-hover: #d2dbd6;
+  --color-border-active: #0c6b50;
 
-  /* ---- Semantic (muted to fit the warm palette) ---- */
-  --color-success: #3f6b4f;
-  --color-error: #a13a2a;
-  --color-warning: #9a6b1f;
+  /* ---- Semantic (tuned to the clean palette) ---- */
+  --color-success: #0c6b50;
+  --color-error: #c63a2b;
+  --color-warning: #b7791f;
 
-  /* ---- Typography: serif display + grotesque body ---- */
-  --font-display: 'Fraunces', 'Tiempos Headline', Georgia, serif;
-  --font-sans: 'Geist', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* ---- Typography: clean grotesque sans throughout ---- */
+  --font-display: 'Geist', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-sans: 'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
 
-  /* ramp — oversized contrast (luxe), tasteful */
-  --text-hero: clamp(2.75rem, 6vw, 4.5rem);    /* 44–72 */
-  --text-h1: clamp(2.25rem, 4vw, 3.25rem);      /* 36–52 */
-  --text-h2: clamp(1.75rem, 3vw, 2.5rem);       /* 28–40 */
+  /* ramp — confident, modern-SaaS scale */
+  --text-hero: clamp(2.75rem, 5.5vw, 4.25rem);  /* 44–68 */
+  --text-h1: clamp(2.1rem, 4vw, 3rem);          /* 34–48 */
+  --text-h2: clamp(1.6rem, 3vw, 2.35rem);       /* 26–38 */
   --text-h3: 1.25rem;                           /* 20 */
   --text-body-lg: 1.125rem;                     /* 18 */
   --text-body: 1rem;                            /* 16 */
@@ -62,19 +62,19 @@
   --weight-regular: 400;
   --weight-medium: 500;
   --weight-semibold: 600;
-  --weight-bold: 600;
-  --weight-extrabold: 600;
+  --weight-bold: 700;
+  --weight-extrabold: 700;
 
-  --leading-tight: 1.05;
-  --leading-snug: 1.12;
+  --leading-tight: 1.08;
+  --leading-snug: 1.15;
   --leading-normal: 1.5;
   --leading-relaxed: 1.65;
 
   --tracking-tight: -0.02em;
   --tracking-normal: 0;
-  --tracking-wide: 0.08em;       /* editorial caps */
+  --tracking-wide: 0.08em;       /* uppercase micro-labels */
 
-  /* ---- Spacing (8px base; theatrical sections) ---- */
+  /* ---- Spacing (8px base; generous SaaS sections) ---- */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -89,18 +89,18 @@
   --space-32: 9rem;     /* desktop section ≈ 144 */
   --space-40: 12rem;
 
-  /* ---- Radius (near-square, editorial) ---- */
-  --radius-sm: 2px;
-  --radius-md: 4px;
-  --radius-lg: 8px;
-  --radius-xl: 12px;
-  --radius-2xl: 14px;
+  /* ---- Radius (soft, modern SaaS) ---- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
   --radius-full: 9999px;
 
-  /* ---- Shadows (FLAT — hairlines do the work) ---- */
-  --shadow-ambient: none;
-  --shadow-elevated: 0 12px 40px rgba(26, 24, 20, 0.08);
-  --shadow-overlay: 0 24px 64px rgba(26, 24, 20, 0.12);
+  /* ---- Shadows (whisper-soft; hairlines still lead) ---- */
+  --shadow-ambient: 0 1px 2px rgba(14, 28, 22, 0.04), 0 2px 6px rgba(14, 28, 22, 0.05);
+  --shadow-elevated: 0 6px 24px rgba(14, 28, 22, 0.08);
+  --shadow-overlay: 0 24px 64px rgba(14, 28, 22, 0.12);
   --shadow-inner-highlight: none;
   --shadow-glow-primary: none;
   --shadow-glow-accent: none;
@@ -111,19 +111,19 @@
   --blur-lg: blur(40px);
   --blur-heavy: blur(64px);
 
-  /* ---- Motion (slow, unhurried, no spring) ---- */
-  --ease-out-expo: cubic-bezier(0, 0, 0.2, 1);
-  --ease-spring: cubic-bezier(0, 0, 0.2, 1);
-  --ease-smooth: cubic-bezier(0, 0, 0.2, 1);
+  /* ---- Motion (calm, modern, no spring overshoot) ---- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 
-  --duration-fast: 200ms;
-  --duration-base: 320ms;
-  --duration-slow: 600ms;
-  --duration-reveal: 800ms;
+  --duration-fast: 180ms;
+  --duration-base: 280ms;
+  --duration-slow: 500ms;
+  --duration-reveal: 700ms;
 
-  --transition-fast: 200ms var(--ease-smooth);
-  --transition-base: 320ms var(--ease-smooth);
-  --transition-smooth: 600ms var(--ease-smooth);
+  --transition-fast: 180ms var(--ease-smooth);
+  --transition-base: 280ms var(--ease-smooth);
+  --transition-smooth: 500ms var(--ease-smooth);
 
   /* ---- Layout ---- */
   --max-width: 1200px;

@@ -10,10 +10,9 @@
 
         <!-- Error message -->
         <div class="error-message">
-          <h2 class="message-title">Pagina niet gevonden</h2>
+          <h2 class="message-title">{{ t('notFound.title') }}</h2>
           <p class="message-description">
-            Oeps! De pagina die je zoekt bestaat niet of is verplaatst.
-            Geen zorgen, we helpen je graag verder.
+            {{ t('notFound.description') }}
           </p>
         </div>
 
@@ -21,16 +20,28 @@
         <div class="error-actions">
           <button class="btn-primary" @click="goHome">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M3 10L10 3L17 10M10 3V17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M3 10L10 3L17 10M10 3V17"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <span>Terug naar home</span>
+            <span>{{ t('notFound.backHome') }}</span>
           </button>
 
           <button class="btn-secondary" @click="goBack">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M12.5 5L7.5 10L12.5 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M12.5 5L7.5 10L12.5 15"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <span>Ga terug</span>
+            <span>{{ t('notFound.goBack') }}</span>
           </button>
         </div>
       </div>
@@ -40,6 +51,9 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const router = useRouter()
 
@@ -50,7 +64,6 @@ const goHome = () => {
 const goBack = () => {
   router.back()
 }
-
 </script>
 
 <style scoped lang="scss">
@@ -109,7 +122,8 @@ const goBack = () => {
 }
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
     transform: translate(-50%, -50%) scale(1);
   }
@@ -173,7 +187,7 @@ const goBack = () => {
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
@@ -257,7 +271,8 @@ const goBack = () => {
 }
 
 @keyframes particle-float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translate(0, 0);
     opacity: 0.3;
   }

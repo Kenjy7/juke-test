@@ -1,0 +1,68 @@
+{
+  "nl": {
+    "head": {
+      "eyebrow": "Onze aanpak",
+      "titleLine1": "Van vraag tot werkende AI",
+      "titleLine2": "in vijf stappen."
+    },
+    "timelineLabel": "Hoe we werken",
+    "cta": {
+      "label": "Start met stap 1"
+    },
+    "steps": {
+      "analyse": {
+        "title": "Analyse",
+        "desc": "We brengen je processen in kaart en identificeren waar AI het meeste impact heeft."
+      },
+      "ontwerp": {
+        "title": "Ontwerp",
+        "desc": "We ontwerpen de AI-oplossing: welke workflows, welke integraties, welke koppelingen."
+      },
+      "bouw": {
+        "title": "Bouw",
+        "desc": "We ontwikkelen en trainen de AI op jouw data en processen. Iteratief en transparant."
+      },
+      "integratie": {
+        "title": "Integratie",
+        "desc": "We koppelen de AI aan je bestaande tools en systemen. Geen verstoring van je workflow."
+      },
+      "optimalisatie": {
+        "title": "Optimalisatie",
+        "desc": "We monitoren, meten en verbeteren. De AI wordt elke week slimmer."
+      }
+    }
+  },
+  "en": {
+    "head": {
+      "eyebrow": "Our approach",
+      "titleLine1": "From question to working AI",
+      "titleLine2": "in five steps."
+    },
+    "timelineLabel": "How we work",
+    "cta": {
+      "label": "Start with step 1"
+    },
+    "steps": {
+      "analyse": {
+        "title": "Analysis",
+        "desc": "We map out your processes and identify where AI delivers the most impact."
+      },
+      "ontwerp": {
+        "title": "Design",
+        "desc": "We design the AI solution: which workflows, which integrations, which connections."
+      },
+      "bouw": {
+        "title": "Build",
+        "desc": "We develop and train the AI on your data and processes. Iterative and transparent."
+      },
+      "integratie": {
+        "title": "Integration",
+        "desc": "We connect the AI to your existing tools and systems. No disruption to your workflow."
+      },
+      "optimalisatie": {
+        "title": "Optimisation",
+        "desc": "We monitor, measure and improve. The AI gets smarter every week."
+      }
+    }
+  }
+}

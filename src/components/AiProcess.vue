@@ -1,16 +1,15 @@
 <template>
   <section class="process" ref="sectionRef">
     <div class="container">
-
       <header class="section-head reveal">
         <span class="eyebrow">
           <span class="eyebrow__dot"></span>
-          Onze aanpak
+          {{ t('aiProcess.head.eyebrow') }}
         </span>
-        <h2>Van vraag tot werkende AI<br />in vijf stappen.</h2>
+        <h2>{{ t('aiProcess.head.titleLine1') }}<br />{{ t('aiProcess.head.titleLine2') }}</h2>
       </header>
 
-      <ol class="timeline" aria-label="Hoe we werken">
+      <ol class="timeline" :aria-label="t('aiProcess.timelineLabel')">
         <li
           v-for="(step, i) in steps"
           :key="i"
@@ -29,39 +28,53 @@
 
       <div class="process-cta reveal">
         <router-link to="/offerte-aanvraag" class="btn btn--accent">
-          <span>Start met stap 1</span>
+          <span>{{ t('aiProcess.cta.label') }}</span>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path
+              d="M4 12L12 4M12 4H6M12 4V10"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
           </svg>
         </router-link>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
 
-const steps = [
-  { title: 'Analyse', desc: 'We brengen je processen in kaart en identificeren waar AI het meeste impact heeft.' },
-  { title: 'Ontwerp', desc: 'We ontwerpen de AI-oplossing: welke agents, welke workflows, welke integraties.' },
-  { title: 'Bouw', desc: 'We ontwikkelen en trainen de AI op jouw data en processen. Iteratief en transparant.' },
-  { title: 'Integratie', desc: 'We koppelen de AI aan je bestaande tools en systemen. Geen verstoring van je workflow.' },
-  { title: 'Optimalisatie', desc: 'We monitoren, meten en verbeteren. De AI wordt elke week slimmer.' },
-];
+const sectionRef = ref(null)
+
+const steps = computed(() => [
+  { title: t('aiProcess.steps.analyse.title'), desc: t('aiProcess.steps.analyse.desc') },
+  { title: t('aiProcess.steps.ontwerp.title'), desc: t('aiProcess.steps.ontwerp.desc') },
+  { title: t('aiProcess.steps.bouw.title'), desc: t('aiProcess.steps.bouw.desc') },
+  { title: t('aiProcess.steps.integratie.title'), desc: t('aiProcess.steps.integratie.desc') },
+  {
+    title: t('aiProcess.steps.optimalisatie.title'),
+    desc: t('aiProcess.steps.optimalisatie.desc'),
+  },
+])
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped lang="scss">
@@ -141,11 +154,15 @@ h2 {
     transform: translateY(-4px);
     box-shadow: var(--shadow-elevated);
 
-    .step-index { color: var(--color-accent); }
+    .step-index {
+      color: var(--color-accent);
+    }
   }
 
   /* Hide connector on last child */
-  &:last-child .step-connector { display: none; }
+  &:last-child .step-connector {
+    display: none;
+  }
 }
 
 /* Large editorial step number */
@@ -204,8 +221,9 @@ p {
 .reveal {
   opacity: 0;
   transform: translateY(18px);
-  transition: opacity var(--duration-reveal) var(--ease-out-expo),
-              transform var(--duration-reveal) var(--ease-out-expo);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out-expo),
+    transform var(--duration-reveal) var(--ease-out-expo);
 
   &.visible {
     opacity: 1;
@@ -214,7 +232,9 @@ p {
 }
 
 @for $i from 1 through 6 {
-  .reveal-delay-#{$i} { transition-delay: #{$i * 80}ms; }
+  .reveal-delay-#{$i} {
+    transition-delay: #{$i * 80}ms;
+  }
 }
 
 /* ── Responsive ── */
@@ -224,7 +244,9 @@ p {
   }
   /* hide connectors that cross row boundaries */
   .step-card:nth-child(3) .step-connector,
-  .step-card:last-child .step-connector { display: none; }
+  .step-card:last-child .step-connector {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {
@@ -238,9 +260,13 @@ p {
   }
 
   /* hide all connectors in 2-col layout */
-  .step-connector { display: none; }
+  .step-connector {
+    display: none;
+  }
 
-  .step-index { font-size: 2rem; }
+  .step-index {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 480px) {

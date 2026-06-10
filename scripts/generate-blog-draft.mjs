@@ -135,7 +135,7 @@ function appendPostToFile(postData, slug) {
     keywords: ${JSON.stringify(postData.keywords)},
     readingTime: ${postData.readingTime || 5},
     ogImage: '/og-image.jpg',
-    content: \`${postData.content.replace(/`/g, '\\`')}\`,
+    content: ${JSON.stringify(postData.content)},
   },`
 
   // Voeg toe voor de sluitende `]` van blogPosts array
@@ -143,10 +143,7 @@ function appendPostToFile(postData, slug) {
   if (insertPoint === -1) throw new Error('Kan geen ] vinden in blogs/index.js')
 
   const updatedContent =
-    currentContent.slice(0, insertPoint) +
-    newPostCode +
-    '\n' +
-    currentContent.slice(insertPoint)
+    currentContent.slice(0, insertPoint) + newPostCode + '\n' + currentContent.slice(insertPoint)
 
   fs.writeFileSync(BLOGS_FILE, updatedContent, 'utf8')
 }

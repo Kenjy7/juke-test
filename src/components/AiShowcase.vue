@@ -1,15 +1,14 @@
 <template>
   <section class="showcase" ref="sectionRef">
     <div class="container">
-
       <!-- Editorial header: left-aligned, generous whitespace -->
       <header class="showcase-header reveal">
         <span class="eyebrow">
           <span class="eyebrow__dot"></span>
-          Wat AI voor jouw bedrijf doet
+          {{ t('aiShowcase.head.eyebrow') }}
         </span>
-        <h2>Eén AI-agent vervangt<br />uren handmatig werk.</h2>
-        <p class="lead">We bouwen AI die daadwerkelijk taken overneemt — niet alleen adviseert.</p>
+        <h2>{{ t('aiShowcase.head.titleLine1') }}<br />{{ t('aiShowcase.head.titleLine2') }}</h2>
+        <p class="lead">{{ t('aiShowcase.head.lead') }}</p>
       </header>
 
       <!-- Featured full-width card: split layout -->
@@ -18,38 +17,64 @@
           <div class="flow-diagram">
             <div class="flow-node">
               <div class="node-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
                 </svg>
               </div>
-              <span>Klant stuurt bericht</span>
+              <span>{{ t('aiShowcase.flow.step1') }}</span>
             </div>
             <div class="flow-connector"></div>
             <div class="flow-node">
               <div class="node-icon node-icon--accent">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 0 1 1h1a4 4 0 0 1 0 8h-1a1 1 0 0 0-1 1v1a4 4 0 0 1-8 0v-1a1 1 0 0 0-1-1H6a4 4 0 0 1 0-8h1a1 1 0 0 0 1-1V6a4 4 0 0 1 4-4z"/>
-                  <circle cx="12" cy="12" r="2"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M12 2a4 4 0 0 1 4 4v1a1 1 0 0 0 1 1h1a4 4 0 0 1 0 8h-1a1 1 0 0 0-1 1v1a4 4 0 0 1-8 0v-1a1 1 0 0 0-1-1H6a4 4 0 0 1 0-8h1a1 1 0 0 0 1-1V6a4 4 0 0 1 4-4z"
+                  />
+                  <circle cx="12" cy="12" r="2" />
                 </svg>
               </div>
-              <span>AI-agent verwerkt</span>
+              <span>{{ t('aiShowcase.flow.step2') }}</span>
             </div>
             <div class="flow-connector"></div>
             <div class="flow-node">
               <div class="node-icon">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
-                  <path d="M22 4L12 14.01l-3-3"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  aria-hidden="true"
+                >
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                  <path d="M22 4L12 14.01l-3-3" />
                 </svg>
               </div>
-              <span>Automatisch afgehandeld</span>
+              <span>{{ t('aiShowcase.flow.step3') }}</span>
             </div>
           </div>
         </div>
 
         <div class="featured-body">
-          <h3>Sales &amp; Support Automatisering</h3>
-          <p>AI-agents die inkomende leads kwalificeren, vragen beantwoorden en opvolging automatiseren. Van eerste contact tot afspraak — zonder handmatig werk.</p>
+          <h3>{{ t('aiShowcase.featured.title') }}</h3>
+          <p>{{ t('aiShowcase.featured.description') }}</p>
         </div>
       </div>
 
@@ -57,63 +82,92 @@
       <div class="showcase-grid">
         <article class="feature-card reveal reveal-delay-2">
           <div class="feature-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-              <path d="M14 2v6h6"/>
-              <path d="M16 13H8"/>
-              <path d="M16 17H8"/>
-              <path d="M10 9H8"/>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <path d="M14 2v6h6" />
+              <path d="M16 13H8" />
+              <path d="M16 17H8" />
+              <path d="M10 9H8" />
             </svg>
           </div>
-          <h3>Automatische Contentcreatie</h3>
-          <p>Blogposts, social media, rapportages — AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd.</p>
+          <h3>{{ t('aiShowcase.cards.content.title') }}</h3>
+          <p>{{ t('aiShowcase.cards.content.description') }}</p>
         </article>
 
         <article class="feature-card reveal reveal-delay-3">
           <div class="feature-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <path d="M18 20V10"/>
-              <path d="M12 20V4"/>
-              <path d="M6 20v-6"/>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <path d="M18 20V10" />
+              <path d="M12 20V4" />
+              <path d="M6 20v-6" />
             </svg>
           </div>
-          <h3>Data &amp; Inzichten</h3>
-          <p>AI die patronen herkent in je data, rapportages genereert en anomalieën detecteert. Beslissingen op basis van feiten, niet gevoel.</p>
+          <h3>{{ t('aiShowcase.cards.data.title') }}</h3>
+          <p>{{ t('aiShowcase.cards.data.description') }}</p>
         </article>
 
         <article class="feature-card reveal reveal-delay-4">
           <div class="feature-card__icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-              <rect x="2" y="2" width="20" height="20" rx="2"/>
-              <path d="M7 2v20"/>
-              <path d="M2 12h5"/>
-              <path d="M2 7h5"/>
-              <path d="M2 17h5"/>
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              aria-hidden="true"
+            >
+              <rect x="2" y="2" width="20" height="20" rx="2" />
+              <path d="M7 2v20" />
+              <path d="M2 12h5" />
+              <path d="M2 7h5" />
+              <path d="M2 17h5" />
             </svg>
           </div>
-          <h3>Workflow Integraties</h3>
-          <p>Koppel AI aan je bestaande tools — CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren.</p>
+          <h3>{{ t('aiShowcase.cards.workflow.title') }}</h3>
+          <p>{{ t('aiShowcase.cards.workflow.description') }}</p>
         </article>
       </div>
-
     </div>
   </section>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
+
+const sectionRef = ref(null)
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -40px 0px' },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped lang="scss">
@@ -182,9 +236,10 @@ h2 {
   border-radius: var(--radius-lg);
   padding: var(--space-12) var(--space-12);
   margin-bottom: var(--space-5);
-  transition: border-color var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:hover {
     border-color: var(--color-border-hover);
@@ -281,9 +336,10 @@ h2 {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   padding: var(--space-8);
-  transition: border-color var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:hover {
     border-color: var(--color-border-hover);
@@ -305,7 +361,10 @@ h2 {
   margin-bottom: var(--space-6);
   flex-shrink: 0;
 
-  svg { width: 22px; height: 22px; }
+  svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .feature-card h3 {
@@ -352,7 +411,13 @@ h2 {
     padding: var(--space-5) var(--space-4);
   }
 
-  .flow-node span { font-size: 0.65rem; }
-  .node-icon { width: 40px; height: 40px; min-height: 40px; }
+  .flow-node span {
+    font-size: 0.65rem;
+  }
+  .node-icon {
+    width: 40px;
+    height: 40px;
+    min-height: 40px;
+  }
 }
 </style>

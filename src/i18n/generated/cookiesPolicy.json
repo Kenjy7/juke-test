@@ -1,0 +1,164 @@
+{
+  "nl": {
+    "header": {
+      "title": "Cookiebeleid",
+      "subtitle": "Transparantie over hoe wij cookies gebruiken",
+      "lastUpdated": "Laatst bijgewerkt: December 2025"
+    },
+    "intro": "Wij gebruiken cookies en vergelijkbare technologieën op onze website. Dit cookiebeleid legt uit wat cookies zijn, hoe we ze gebruiken, en hoe u uw voorkeuren kunt beheren.",
+    "whatAreCookies": {
+      "title": "Wat zijn cookies?",
+      "text": "Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst wanneer u onze website bezoekt. Ze helpen ons om de website goed te laten functioneren, veiliger te maken, een betere gebruikerservaring te bieden en te begrijpen hoe de website presteert."
+    },
+    "whichCookies": {
+      "title": "Welke cookies gebruiken wij?",
+      "necessary": {
+        "title": "Noodzakelijke cookies",
+        "text": "Deze cookies zijn essentieel voor het functioneren van de website. Zonder deze cookies kunnen bepaalde delen van de website niet werken.",
+        "examples": "Voorbeelden: Sessie-cookies, beveiligingscookies, cookie-voorkeuren"
+      },
+      "functional": {
+        "title": "Functionele cookies",
+        "text": "Deze cookies onthouden uw voorkeuren en keuzes om uw ervaring te verbeteren.",
+        "examples": "Voorbeelden: Taalvoorkeur, regio-instellingen, voorkeursinstellingen"
+      },
+      "analytical": {
+        "title": "Analytische cookies",
+        "text": "Deze cookies helpen ons begrijpen hoe bezoekers omgaan met de website door informatie anoniem te verzamelen en te rapporteren.",
+        "examples": "Voorbeelden: Google Analytics, bezoekersstatistieken, pagina-interacties"
+      },
+      "marketing": {
+        "title": "Marketing cookies",
+        "text": "Deze cookies worden gebruikt om bezoekers te volgen op websites. De bedoeling is om advertenties te tonen die relevant en aantrekkelijk zijn voor de individuele gebruiker.",
+        "examples": "Voorbeelden: Social media cookies, advertentiecookies, tracking pixels"
+      }
+    },
+    "manage": {
+      "title": "Cookies beheren",
+      "text": "U kunt uw cookie-instellingen op elk moment wijzigen via uw browserinstellingen. Houd er rekening mee dat het uitschakelen van bepaalde cookies de functionaliteit van onze website kan beïnvloeden. De meeste browsers accepteren cookies automatisch, maar u kunt uw browserinstellingen meestal aanpassen om cookies te weigeren als u dat wenst."
+    },
+    "thirdParties": {
+      "title": "Cookies van derde partijen",
+      "text": "Sommige cookies worden geplaatst door diensten van derden die op onze pagina's verschijnen. Wij hebben geen controle over deze cookies. Raadpleeg de privacyverklaring van deze diensten voor meer informatie over hun cookies en hoe u deze kunt beheren.",
+      "googleAnalytics": "Websiteanalyse en statistieken",
+      "googleFonts": "Lettertype weergave",
+      "socialMedia": "Social media integratie"
+    },
+    "retention": {
+      "title": "Bewaartermijn",
+      "intro": "De bewaartermijn van cookies verschilt per type:",
+      "session": {
+        "type": "Sessiecookies",
+        "time": "Worden verwijderd na het sluiten van uw browser"
+      },
+      "permanent": {
+        "type": "Permanente cookies",
+        "time": "Blijven 1 maand tot 2 jaar bewaard"
+      },
+      "analytical": {
+        "type": "Analytische cookies",
+        "time": "Worden na 26 maanden automatisch verwijderd"
+      }
+    },
+    "rights": {
+      "title": "Uw rechten",
+      "intro": "U heeft het recht om:",
+      "withdraw": "Uw toestemming voor cookies in te trekken",
+      "delete": "Cookies te verwijderen via uw browserinstellingen",
+      "object": "Bezwaar te maken tegen tracking",
+      "access": "Inzage te krijgen in verzamelde gegevens"
+    },
+    "changes": {
+      "title": "Wijzigingen in dit cookiebeleid",
+      "text": "Dit cookiebeleid kan van tijd tot tijd worden bijgewerkt. We raden u aan deze pagina regelmatig te bekijken om op de hoogte te blijven van eventuele wijzigingen. Wijzigingen in dit cookiebeleid zijn van kracht vanaf het moment dat ze op deze pagina worden gepubliceerd."
+    },
+    "contact": {
+      "title": "Vragen?",
+      "intro": "Heeft u vragen over ons cookiebeleid? Neem gerust contact met ons op:",
+      "emailLabel": "Email:",
+      "phoneLabel": "Telefoon:"
+    },
+    "backLink": "← Terug naar home"
+  },
+  "en": {
+    "header": {
+      "title": "Cookie Policy",
+      "subtitle": "Transparency about how we use cookies",
+      "lastUpdated": "Last updated: December 2025"
+    },
+    "intro": "We use cookies and similar technologies on our website. This cookie policy explains what cookies are, how we use them, and how you can manage your preferences.",
+    "whatAreCookies": {
+      "title": "What are cookies?",
+      "text": "Cookies are small text files placed on your device when you visit our website. They help us make the website function properly, keep it secure, provide a better user experience, and understand how the website performs."
+    },
+    "whichCookies": {
+      "title": "Which cookies do we use?",
+      "necessary": {
+        "title": "Necessary cookies",
+        "text": "These cookies are essential for the website to function. Without these cookies, certain parts of the website cannot work.",
+        "examples": "Examples: Session cookies, security cookies, cookie preferences"
+      },
+      "functional": {
+        "title": "Functional cookies",
+        "text": "These cookies remember your preferences and choices to improve your experience.",
+        "examples": "Examples: Language preference, region settings, preference settings"
+      },
+      "analytical": {
+        "title": "Analytical cookies",
+        "text": "These cookies help us understand how visitors interact with the website by collecting and reporting information anonymously.",
+        "examples": "Examples: Google Analytics, visitor statistics, page interactions"
+      },
+      "marketing": {
+        "title": "Marketing cookies",
+        "text": "These cookies are used to track visitors across websites. The aim is to display advertisements that are relevant and appealing to the individual user.",
+        "examples": "Examples: Social media cookies, advertising cookies, tracking pixels"
+      }
+    },
+    "manage": {
+      "title": "Managing cookies",
+      "text": "You can change your cookie settings at any time through your browser settings. Please note that disabling certain cookies may affect the functionality of our website. Most browsers accept cookies automatically, but you can usually adjust your browser settings to refuse cookies if you prefer."
+    },
+    "thirdParties": {
+      "title": "Third-party cookies",
+      "text": "Some cookies are placed by third-party services that appear on our pages. We have no control over these cookies. Please consult the privacy policy of these services for more information about their cookies and how you can manage them.",
+      "googleAnalytics": "Website analytics and statistics",
+      "googleFonts": "Font display",
+      "socialMedia": "Social media integration"
+    },
+    "retention": {
+      "title": "Retention period",
+      "intro": "The retention period of cookies varies by type:",
+      "session": {
+        "type": "Session cookies",
+        "time": "Are deleted after you close your browser"
+      },
+      "permanent": {
+        "type": "Permanent cookies",
+        "time": "Remain stored for 1 month to 2 years"
+      },
+      "analytical": {
+        "type": "Analytical cookies",
+        "time": "Are automatically deleted after 26 months"
+      }
+    },
+    "rights": {
+      "title": "Your rights",
+      "intro": "You have the right to:",
+      "withdraw": "Withdraw your consent for cookies",
+      "delete": "Delete cookies through your browser settings",
+      "object": "Object to tracking",
+      "access": "Access the data collected"
+    },
+    "changes": {
+      "title": "Changes to this cookie policy",
+      "text": "This cookie policy may be updated from time to time. We recommend reviewing this page regularly to stay informed of any changes. Changes to this cookie policy take effect from the moment they are published on this page."
+    },
+    "contact": {
+      "title": "Questions?",
+      "intro": "Do you have questions about our cookie policy? Feel free to get in touch:",
+      "emailLabel": "Email:",
+      "phoneLabel": "Phone:"
+    },
+    "backLink": "← Back to home"
+  }
+}

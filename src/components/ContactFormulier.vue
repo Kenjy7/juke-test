@@ -3,10 +3,11 @@
   <section class="contact-section" id="contact">
     <div class="container">
       <div class="contact-header">
-        <h2><span>Stuur ons een bericht</span></h2>
+        <h2>
+          <span>{{ t('contactFormulier.header.title') }}</span>
+        </h2>
         <p>
-          Heb je vragen over AI, SaaS of webdesign?
-          Laat van je horen.
+          {{ t('contactFormulier.header.lead') }}
         </p>
       </div>
 
@@ -16,29 +17,29 @@
           <div class="modal-content" @click.stop :class="{ error: modalType === 'error' }">
             <div class="modal-icon">
               <svg
-                  v-if="modalType === 'success'"
-                  width="48"
-                  height="48"
-                  viewBox="0 0 48 48"
-                  fill="none"
+                v-if="modalType === 'success'"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
               >
                 <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
                 <path
-                    d="M14 24L20 30L34 16"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                  d="M14 24L20 30L34 16"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
 
               <svg v-else width="48" height="48" viewBox="0 0 48 48" fill="none">
                 <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
                 <path
-                    d="M16 16L32 32M32 16L16 32"
-                    stroke="currentColor"
-                    stroke-width="3"
-                    stroke-linecap="round"
+                  d="M16 16L32 32M32 16L16 32"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
                 />
               </svg>
             </div>
@@ -46,7 +47,9 @@
             <h3>{{ modalTitle }}</h3>
             <p>{{ modalMessage }}</p>
 
-            <button @click="closeModal" class="modal-btn">Sluiten</button>
+            <button @click="closeModal" class="modal-btn">
+              {{ t('contactFormulier.modal.close') }}
+            </button>
           </div>
         </div>
       </transition>
@@ -59,23 +62,23 @@
               <div class="icon-wrapper">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
-                      d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                    d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                   <path
-                      d="M22 6L12 13L2 6"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                    d="M22 6L12 13L2 6"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
               </div>
               <div class="info-content">
-                <span class="info-label">E-mail</span>
+                <span class="info-label">{{ t('contactFormulier.info.emailLabel') }}</span>
                 <a href="mailto:contact@jukecoding.be" class="info-value">contact@jukecoding.be</a>
               </div>
             </div>
@@ -84,37 +87,52 @@
               <div class="icon-wrapper">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                   <path
-                      d="M22 16.92V19.92C22 20.4696 21.7893 20.9969 21.4142 21.3871C21.0391 21.7773 20.5304 21.9992 20 22C16.7428 21.7634 13.5869 20.7269 10.8 19C8.20183 17.425 5.97223 15.3041 4.25 12.75C2.49998 9.91504 1.45726 6.69859 1.22 3.38C1.21998 2.84954 1.42983 2.33853 1.80837 1.95547C2.18691 1.57241 2.70511 1.34632 3.25 1.34H6.25C7.02697 1.33292 7.76838 1.61918 8.31943 2.13837C8.87048 2.65756 9.18673 3.36681 9.2 4.12C9.22509 5.62818 9.47656 7.12316 9.94 8.56C10.1556 9.22443 10.1709 9.94039 9.98402 10.6129C9.79716 11.2854 9.40593 11.8822 8.86 12.32L7.58 13.57C9.09076 16.2356 11.3644 18.4648 14.08 19.94L15.33 18.68C15.7777 18.1457 16.3852 17.7619 17.0707 17.5793C17.7561 17.3967 18.4847 17.4242 19.155 17.658C20.6063 18.1147 22.1158 18.3617 23.638 18.387C24.4053 18.4006 25.1252 18.7231 25.6513 19.2849C26.1775 19.8467 26.4658 20.6005 26.458 21.379V21.379Z"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                    d="M22 16.92V19.92C22 20.4696 21.7893 20.9969 21.4142 21.3871C21.0391 21.7773 20.5304 21.9992 20 22C16.7428 21.7634 13.5869 20.7269 10.8 19C8.20183 17.425 5.97223 15.3041 4.25 12.75C2.49998 9.91504 1.45726 6.69859 1.22 3.38C1.21998 2.84954 1.42983 2.33853 1.80837 1.95547C2.18691 1.57241 2.70511 1.34632 3.25 1.34H6.25C7.02697 1.33292 7.76838 1.61918 8.31943 2.13837C8.87048 2.65756 9.18673 3.36681 9.2 4.12C9.22509 5.62818 9.47656 7.12316 9.94 8.56C10.1556 9.22443 10.1709 9.94039 9.98402 10.6129C9.79716 11.2854 9.40593 11.8822 8.86 12.32L7.58 13.57C9.09076 16.2356 11.3644 18.4648 14.08 19.94L15.33 18.68C15.7777 18.1457 16.3852 17.7619 17.0707 17.5793C17.7561 17.3967 18.4847 17.4242 19.155 17.658C20.6063 18.1147 22.1158 18.3617 23.638 18.387C24.4053 18.4006 25.1252 18.7231 25.6513 19.2849C26.1775 19.8467 26.4658 20.6005 26.458 21.379V21.379Z"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
               </div>
               <div class="info-content">
-                <span class="info-label">Telefoon</span>
+                <span class="info-label">{{ t('contactFormulier.info.phoneLabel') }}</span>
                 <a href="tel:+32479131715" class="info-value">(+32) 0479 13 17 15</a>
               </div>
             </div>
           </div>
 
           <div class="social-links">
-            <h4>Vind ons op</h4>
+            <h4>{{ t('contactFormulier.social.title') }}</h4>
             <div class="social-icons">
-              <a href="https://www.linkedin.com/company/jukecoding" class="social-icon" aria-label="LinkedIn">
+              <a
+                href="https://www.linkedin.com/company/jukecoding"
+                class="social-icon"
+                aria-label="LinkedIn"
+              >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                   <path
-                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
                   />
                 </svg>
               </a>
 
-              <a href="https://www.instagram.com/jukecoding/" class="social-icon" aria-label="Instagram">
+              <a
+                href="https://www.instagram.com/jukecoding/"
+                class="social-icon"
+                aria-label="Instagram"
+              >
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2" />
                   <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" stroke-width="2" />
-                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke-width="2" stroke-linecap="round" />
+                  <line
+                    x1="17.5"
+                    y1="6.5"
+                    x2="17.51"
+                    y2="6.5"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
                 </svg>
               </a>
             </div>
@@ -128,18 +146,31 @@
             <div class="notification-content">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                 <path
-                    d="M16.6663 5L7.49967 14.1667L3.33301 10"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                  d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
-              <span>Je hebt <strong>{{ selectedPackage }}</strong> geselecteerd</span>
+              <span
+                >{{ t('contactFormulier.package.prefix') }} <strong>{{ selectedPackage }}</strong>
+                {{ t('contactFormulier.package.suffix') }}</span
+              >
             </div>
-            <button @click="clearPackage" class="clear-btn" type="button" aria-label="Verwijder pakket">
+            <button
+              @click="clearPackage"
+              class="clear-btn"
+              type="button"
+              :aria-label="t('contactFormulier.package.clearAria')"
+            >
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path
+                  d="M12 4L4 12M4 4L12 12"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
               </svg>
             </button>
           </div>
@@ -149,34 +180,70 @@
           </div>
 
           <form @submit.prevent="sendEmail">
+            <!-- Honeypot: hidden from real users, bots fill it → submit is dropped -->
+            <div
+              aria-hidden="true"
+              style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden"
+            >
+              <label
+                >{{ t('contactFormulier.form.honeypotLabel') }}
+                <input type="text" v-model="honeypot" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
             <!-- Service Selection -->
             <div class="form-group">
-              <label>Waar ben je in geïnteresseerd? <span class="required">*</span></label>
+              <label
+                >{{ t('contactFormulier.form.serviceLabel') }}
+                <span class="required">*</span></label
+              >
               <div class="service-options">
                 <label class="service-option" :class="{ active: formData.service === 'webdesign' }">
-                  <input type="radio" name="service" value="webdesign" v-model="formData.service" required />
+                  <input
+                    type="radio"
+                    name="service"
+                    value="webdesign"
+                    v-model="formData.service"
+                    required
+                  />
                   <div class="option-content">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
                       <line x1="8" y1="21" x2="16" y2="21" />
                       <line x1="12" y1="17" x2="12" y2="21" />
                     </svg>
-                    <span>Webdesign</span>
+                    <span>{{ t('contactFormulier.form.serviceWebdesign') }}</span>
                   </div>
                 </label>
 
-                <label class="service-option" :class="{ active: formData.service === 'ai-automatisation' }">
+                <label
+                  class="service-option"
+                  :class="{ active: formData.service === 'ai-automatisation' }"
+                >
                   <input
-                      type="radio"
-                      name="service"
-                      value="ai-automatisation"
-                      v-model="formData.service"
-                      required
+                    type="radio"
+                    name="service"
+                    value="ai-automatisation"
+                    v-model="formData.service"
+                    required
                   />
                   <div class="option-content">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                    >
                       <path
-                          d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
+                        d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
                       />
                       <polyline points="7.5 4.21 12 6.81 16.5 4.21" />
                       <polyline points="7.5 19.79 7.5 14.6 3 12" />
@@ -184,7 +251,7 @@
                       <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
                       <line x1="12" y1="22.08" x2="12" y2="12" />
                     </svg>
-                    <span>AI Automatisation</span>
+                    <span>{{ t('contactFormulier.form.serviceAi') }}</span>
                   </div>
                 </label>
               </div>
@@ -192,96 +259,141 @@
 
             <div class="form-row">
               <div class="form-group">
-                <label for="name">Voornaam <span class="required">*</span></label>
+                <label for="name"
+                  >{{ t('contactFormulier.form.firstNameLabel') }}
+                  <span class="required">*</span></label
+                >
                 <input type="text" id="name" v-model="formData.name" required placeholder="John" />
               </div>
 
               <div class="form-group">
-                <label for="lastname">Achternaam <span class="required">*</span></label>
-                <input type="text" id="lastname" v-model="formData.lastname" required placeholder="Doe" />
+                <label for="lastname"
+                  >{{ t('contactFormulier.form.lastNameLabel') }}
+                  <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="lastname"
+                  v-model="formData.lastname"
+                  required
+                  placeholder="Doe"
+                />
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="email">E-mailadres <span class="required">*</span></label>
-                <input type="email" id="email" v-model="formData.email" required placeholder="john@example.com" />
+                <label for="email"
+                  >{{ t('contactFormulier.form.emailLabel') }}
+                  <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  v-model="formData.email"
+                  required
+                  placeholder="john@example.com"
+                />
               </div>
 
               <div class="form-group">
-                <label for="phone">Telefoonnummer <span class="required">*</span></label>
-                <input type="tel" id="phone" v-model="formData.phone" placeholder="+32 470 12 34 56" />
+                <label for="phone"
+                  >{{ t('contactFormulier.form.phoneLabel') }}
+                  <span class="required">*</span></label
+                >
+                <input
+                  type="tel"
+                  id="phone"
+                  v-model="formData.phone"
+                  placeholder="+32 470 12 34 56"
+                />
               </div>
             </div>
 
             <div class="form-group">
-              <label for="subject">Onderwerp</label>
+              <label for="subject">{{ t('contactFormulier.form.subjectLabel') }}</label>
               <input
-                  type="text"
-                  id="subject"
-                  v-model="formData.subject"
-                  placeholder="Waar kan ik je mee helpen?"
-                  :readonly="!!selectedPackage"
+                type="text"
+                id="subject"
+                v-model="formData.subject"
+                :placeholder="t('contactFormulier.form.subjectPlaceholder')"
+                :readonly="!!selectedPackage"
               />
             </div>
 
             <div class="form-group" id="bericht">
-              <label for="message">Bericht</label>
-              <textarea id="message" v-model="formData.message" placeholder="Vertel ons over je project..." rows="5" />
+              <label for="message">{{ t('contactFormulier.form.messageLabel') }}</label>
+              <textarea
+                id="message"
+                v-model="formData.message"
+                :placeholder="t('contactFormulier.form.messagePlaceholder')"
+                rows="5"
+              />
             </div>
 
             <button type="submit" class="submit-btn" :disabled="isLoading">
-              <span>{{ isLoading ? "Versturen..." : "Verstuur bericht" }}</span>
-              <svg v-if="!isLoading" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+              <span>{{
+                isLoading
+                  ? t('contactFormulier.form.submitSending')
+                  : t('contactFormulier.form.submit')
+              }}</span>
+              <svg
+                v-if="!isLoading"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                aria-hidden="true"
+              >
                 <path
-                    d="M18.3346 1.66669L9.16797 10.8334M18.3346 1.66669L12.5013 18.3334L9.16797 10.8334M18.3346 1.66669L1.66797 7.50002L9.16797 10.8334"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
+                  d="M18.3346 1.66669L9.16797 10.8334M18.3346 1.66669L12.5013 18.3334L9.16797 10.8334M18.3346 1.66669L1.66797 7.50002L9.16797 10.8334"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
                 />
               </svg>
             </button>
 
-            <div class="form-backlinks" aria-label="Gerelateerde pagina’s">
-              <span class="form-backlinks-label">Ook interessant:</span>
+            <div class="form-backlinks" :aria-label="t('contactFormulier.backlinks.aria')">
+              <span class="form-backlinks-label">{{ t('contactFormulier.backlinks.label') }}</span>
 
               <div class="form-backlinks-links">
                 <RouterLink to="/offerte-aanvraag" class="form-link secondary">
-                  Offerte-aanvraag
+                  {{ t('contactFormulier.backlinks.quote') }}
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
-                        d="M7.5 15L12.5 10L7.5 5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
                   </svg>
                 </RouterLink>
 
                 <RouterLink to="/webdesign" class="form-link">
-                  Webdesign op maat
+                  {{ t('contactFormulier.backlinks.webdesign') }}
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
-                        d="M7.5 15L12.5 10L7.5 5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
                   </svg>
                 </RouterLink>
 
                 <RouterLink to="/ai-automatisatie" class="form-link secondary">
-                  AI Automatisatie
+                  {{ t('contactFormulier.backlinks.ai') }}
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
-                        d="M7.5 15L12.5 10L7.5 5"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
                   </svg>
                 </RouterLink>
@@ -295,130 +407,156 @@
 </template>
 
 <script>
-import emailjs from "@emailjs/browser";
-import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
+import emailjs from '@emailjs/browser'
+import { trackEvent } from '@/composables/useAnalytics'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 export default {
-  name: "ContactComponent",
+  name: 'ContactComponent',
   setup() {
-    const route = useRoute();
-    const selectedPackage = ref(null);
+    const route = useRoute()
+    const { t } = useI18n()
+    const selectedPackage = ref(null)
 
     const formData = ref({
-      service: "",
-      name: "",
-      lastname: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    });
+      service: '',
+      name: '',
+      lastname: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    })
 
-    const isLoading = ref(false);
+    // Spam honeypot — must stay empty for a genuine human submission.
+    const honeypot = ref('')
+
+    const isLoading = ref(false)
 
     // modal state (FIX: netjes binnen setup)
-    const showModal = ref(false);
-    const modalType = ref("success");
-    const modalTitle = ref("");
-    const modalMessage = ref("");
+    const showModal = ref(false)
+    const modalType = ref('success')
+    const modalTitle = ref('')
+    const modalMessage = ref('')
 
     const closeModal = () => {
-      showModal.value = false;
-    };
+      showModal.value = false
+    }
 
     const checkForPackage = () => {
-      const packageFromUrl = route.query.pakket;
+      const packageFromUrl = route.query.pakket
       if (packageFromUrl) {
-        selectedPackage.value = packageFromUrl;
-        formData.value.subject = `Interesse in ${packageFromUrl}`;
-        formData.value.service = "webdesign";
+        selectedPackage.value = packageFromUrl
+        formData.value.subject = t('contactFormulier.form.subjectInterest', {
+          package: packageFromUrl,
+        })
+        formData.value.service = 'webdesign'
       }
-    };
+    }
 
     watch(
-        () => route.query.pakket,
-        (newPackage) => {
-          if (newPackage) {
-            selectedPackage.value = newPackage;
-            formData.value.subject = `Interesse in ${newPackage}`;
-            formData.value.service = "webdesign";
-          }
+      () => route.query.pakket,
+      (newPackage) => {
+        if (newPackage) {
+          selectedPackage.value = newPackage
+          formData.value.subject = t('contactFormulier.form.subjectInterest', {
+            package: newPackage,
+          })
+          formData.value.service = 'webdesign'
         }
-    );
+      },
+    )
 
     const clearPackage = () => {
-      selectedPackage.value = null;
-      formData.value.subject = "";
-    };
+      selectedPackage.value = null
+      formData.value.subject = ''
+    }
 
     const validateForm = () => {
       if (!formData.value.service) {
-        alert("Gelieve een dienst te selecteren.");
-        return false;
+        alert(t('contactFormulier.validation.selectService'))
+        return false
       }
       if (!formData.value.email || !formData.value.name || !formData.value.lastname) {
-        alert("Gelieve minstens je naam en e-mailadres in te vullen.");
-        return false;
+        alert(t('contactFormulier.validation.nameEmailRequired'))
+        return false
       }
-      return true;
-    };
+      return true
+    }
 
     const resetForm = () => {
       formData.value = {
-        service: "",
-        name: "",
-        lastname: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      };
-    };
+        service: '',
+        name: '',
+        lastname: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      }
+    }
 
     const sendEmail = async () => {
-      isLoading.value = true;
+      // Bot filled the honeypot → silently pretend success, send nothing.
+      if (honeypot.value) {
+        modalType.value = 'success'
+        modalTitle.value = t('contactFormulier.modal.successTitle')
+        modalMessage.value = t('contactFormulier.modal.successMessage')
+        showModal.value = true
+        resetForm()
+        return
+      }
+
+      isLoading.value = true
 
       try {
         if (!validateForm()) {
-          isLoading.value = false;
-          return;
+          isLoading.value = false
+          return
         }
 
-        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID;
-        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+        const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-        const templateParams = { ...formData.value };
+        const templateParams = { ...formData.value }
 
-        const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
         if (response.status === 200) {
-          modalType.value = "success";
-          modalTitle.value = "Bericht verzonden!";
-          modalMessage.value = "Bedankt voor je bericht. We nemen zo snel mogelijk contact met je op.";
-          showModal.value = true;
-          resetForm();
-          selectedPackage.value = null;
+          // Conversion event (consent-gated, no PII) — read before resetForm() clears it
+          trackEvent('lead_submitted', {
+            source_form: 'contact',
+            service: formData.value.service || 'onbekend',
+          })
+          modalType.value = 'success'
+          modalTitle.value = t('contactFormulier.modal.successTitle')
+          modalMessage.value = t('contactFormulier.modal.successMessage')
+          showModal.value = true
+          resetForm()
+          selectedPackage.value = null
         }
       } catch (error) {
-        console.error("EmailJS error:", error);
-        modalType.value = "error";
-        modalTitle.value = "Oeps, er ging iets mis";
-        modalMessage.value =
-            "Het verzenden is mislukt. Probeer het later opnieuw of neem direct contact op via email.";
-        showModal.value = true;
+        console.error('EmailJS error:', error)
+        modalType.value = 'error'
+        modalTitle.value = t('contactFormulier.modal.errorTitle')
+        modalMessage.value = t('contactFormulier.modal.errorMessage')
+        showModal.value = true
       } finally {
-        isLoading.value = false;
+        isLoading.value = false
       }
-    };
+    }
 
     onMounted(() => {
-      checkForPackage();
-    });
+      checkForPackage()
+    })
 
     return {
+      t,
       formData,
+      honeypot,
       isLoading,
       selectedPackage,
       sendEmail,
@@ -429,9 +567,9 @@ export default {
       modalTitle,
       modalMessage,
       closeModal,
-    };
+    }
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
@@ -497,8 +635,14 @@ export default {
     color: var(--color-text-primary);
     font-size: var(--text-small);
 
-    svg { flex-shrink: 0; color: var(--color-primary); }
-    strong { color: var(--color-primary); font-weight: var(--weight-bold); }
+    svg {
+      flex-shrink: 0;
+      color: var(--color-primary);
+    }
+    strong {
+      color: var(--color-primary);
+      font-weight: var(--weight-bold);
+    }
   }
 
   .clear-btn {
@@ -513,7 +657,10 @@ export default {
     align-items: center;
     justify-content: center;
 
-    &:hover { background: var(--color-bg-card-inner); color: var(--color-text-primary); }
+    &:hover {
+      background: var(--color-bg-card-inner);
+      color: var(--color-text-primary);
+    }
   }
 }
 
@@ -583,10 +730,14 @@ export default {
   text-decoration: none;
   transition: color var(--duration-fast) var(--ease-smooth);
 
-  &:hover { color: var(--color-primary); }
+  &:hover {
+    color: var(--color-primary);
+  }
 }
 
-#bericht label { padding-top: var(--space-6); }
+#bericht label {
+  padding-top: var(--space-6);
+}
 
 .social-links {
   h4 {
@@ -668,7 +819,9 @@ export default {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* ========= Service Selection ========= */
@@ -683,7 +836,7 @@ export default {
   cursor: pointer;
   position: relative;
 
-  input[type="radio"] {
+  input[type='radio'] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -724,8 +877,12 @@ export default {
     border-color: var(--color-border-active);
     background: var(--color-primary-subtle);
 
-    svg { color: var(--color-primary); }
-    span { color: var(--color-text-primary); }
+    svg {
+      color: var(--color-primary);
+    }
+    span {
+      color: var(--color-text-primary);
+    }
   }
 }
 
@@ -747,7 +904,9 @@ export default {
     font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
 
-    .required { color: var(--color-accent); }
+    .required {
+      color: var(--color-accent);
+    }
   }
 
   input,
@@ -761,7 +920,9 @@ export default {
     font-family: var(--font-sans);
     transition: all var(--duration-base) var(--ease-spring);
 
-    &::placeholder { color: var(--color-text-tertiary); }
+    &::placeholder {
+      color: var(--color-text-tertiary);
+    }
 
     &:focus {
       outline: none;
@@ -812,10 +973,14 @@ export default {
     transform: translateY(-2px);
     box-shadow: 0 0 50px var(--color-accent-glow);
 
-    svg { transform: translateX(4px); }
+    svg {
+      transform: translateX(4px);
+    }
   }
 
-  &:active:not(:disabled) { transform: scale(0.98); }
+  &:active:not(:disabled) {
+    transform: scale(0.98);
+  }
 
   &:disabled {
     opacity: 0.4;
@@ -871,7 +1036,10 @@ export default {
   &:hover {
     border-color: var(--color-border-hover);
     color: var(--color-text-primary);
-    svg { transform: translateX(2px); opacity: 1; }
+    svg {
+      transform: translateX(2px);
+      opacity: 1;
+    }
   }
 }
 
@@ -881,28 +1049,48 @@ export default {
 
 /* ========= Responsive ========= */
 @media (max-width: 900px) {
-  .contact-section { padding: var(--space-8) var(--space-6) var(--space-12); }
-  .contact-wrapper { grid-template-columns: 1fr; gap: var(--space-8); }
-  .contact-header { margin-bottom: var(--space-12); }
-  .form-row { grid-template-columns: 1fr; }
-  .service-options { grid-template-columns: 1fr; }
+  .contact-section {
+    padding: var(--space-8) var(--space-6) var(--space-12);
+  }
+  .contact-wrapper {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .contact-header {
+    margin-bottom: var(--space-12);
+  }
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .service-options {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
-  .contact-section { padding: var(--space-4) var(--space-4) var(--space-8); }
+  .contact-section {
+    padding: var(--space-4) var(--space-4) var(--space-8);
+  }
 
-  .contact-form > form { padding: var(--space-8) var(--space-6); }
+  .contact-form > form {
+    padding: var(--space-8) var(--space-6);
+  }
 
   .form-backlinks-links {
     flex-direction: column;
-    .form-link { width: 100%; justify-content: center; }
+    .form-link {
+      width: 100%;
+      justify-content: center;
+    }
   }
 
   .package-notification {
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-4);
-    .clear-btn { align-self: flex-end; }
+    .clear-btn {
+      align-self: flex-end;
+    }
   }
 
   .modal-content {
@@ -918,7 +1106,9 @@ export default {
 }
 
 .modal-fade-enter-from,
-.modal-fade-leave-to { opacity: 0; }
+.modal-fade-leave-to {
+  opacity: 0;
+}
 
 .modal-overlay {
   position: fixed;
@@ -950,8 +1140,14 @@ export default {
 }
 
 @keyframes modalSlideUp {
-  from { opacity: 0; transform: translateY(20px) scale(0.96); }
-  to { opacity: 1; transform: translateY(0) scale(1); }
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .modal-icon {
@@ -1001,6 +1197,8 @@ export default {
     box-shadow: var(--shadow-elevated);
   }
 
-  &:active { transform: scale(0.97); }
+  &:active {
+    transform: scale(0.97);
+  }
 }
 </style>

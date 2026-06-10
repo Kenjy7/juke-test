@@ -2,17 +2,17 @@
   <BackgroundWeb>
     <!-- Post niet gevonden -->
     <div v-if="!post" class="blog-not-found">
-      <h1>Post niet gevonden</h1>
-      <RouterLink to="/blog">← Terug naar blog</RouterLink>
+      <h1>{{ t('blogPostView.notFound.title') }}</h1>
+      <RouterLink to="/blog">{{ t('blogPostView.notFound.back') }}</RouterLink>
     </div>
 
     <!-- Post gevonden -->
     <article v-else class="blog-post">
       <!-- Breadcrumb -->
-      <nav class="blog-post__breadcrumb" aria-label="Breadcrumb">
-        <RouterLink to="/">Home</RouterLink>
+      <nav class="blog-post__breadcrumb" :aria-label="t('blogPostView.breadcrumb.label')">
+        <RouterLink to="/">{{ t('blogPostView.breadcrumb.home') }}</RouterLink>
         <span>›</span>
-        <RouterLink to="/blog">Blog</RouterLink>
+        <RouterLink to="/blog">{{ t('blogPostView.breadcrumb.blog') }}</RouterLink>
         <span>›</span>
         <span>{{ post.title }}</span>
       </nav>
@@ -22,40 +22,48 @@
         <div class="blog-post__meta">
           <span class="blog-post__category">{{ post.category }}</span>
           <span class="blog-post__date">{{ formatDate(post.publishedAt) }}</span>
-          <span class="blog-post__time">{{ post.readingTime }} min leestijd</span>
+          <span class="blog-post__time"
+            >{{ post.readingTime }} {{ t('blogPostView.readingTime') }}</span
+          >
         </div>
         <h1 class="blog-post__title">{{ post.title }}</h1>
         <p class="blog-post__excerpt">{{ post.excerpt }}</p>
       </header>
 
       <!-- Content -->
-      <div class="blog-post__content" v-html="post.content"></div>
+      <div class="blog-post__content" v-html="safeContent"></div>
 
       <!-- CTA onderaan -->
       <div class="blog-post__cta-block">
-        <h3>Klaar om te starten?</h3>
-        <p>Ontdek wat JukeCoding voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.</p>
+        <h3>{{ t('blogPostView.cta.title') }}</h3>
+        <p>{{ t('blogPostView.cta.text') }}</p>
         <RouterLink to="/offerte-aanvraag" class="blog-post__cta-btn">
-          Gratis offerte aanvragen →
+          {{ t('blogPostView.cta.button') }}
         </RouterLink>
       </div>
 
       <!-- Terug -->
-      <RouterLink to="/blog" class="blog-post__back">← Alle blogposts</RouterLink>
+      <RouterLink to="/blog" class="blog-post__back">{{ t('blogPostView.allPosts') }}</RouterLink>
     </article>
   </BackgroundWeb>
 </template>
 
 <script setup>
 import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRoute, RouterLink } from 'vue-router'
 import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import { blogPosts } from '@/data/blogs/index.js'
+import { sanitizeBlogContent } from '@/utils/sanitizeHtml.js'
 
+const { t } = useI18n()
 const route = useRoute()
 const slug = computed(() => route.params.slug)
-const post = computed(() => blogPosts.find(p => p.slug === slug.value && p.published) || null)
+const post = computed(() => blogPosts.find((p) => p.slug === slug.value && p.published) || null)
+
+// Sanitise blog HTML before v-html — see src/utils/sanitizeHtml.js.
+const safeContent = computed(() => sanitizeBlogContent(post.value?.content))
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('nl-BE', {
@@ -79,15 +87,26 @@ useHead(() => {
     title: post.value.metaTitle || post.value.title,
     meta: [
       { name: 'description', content: post.value.metaDescription },
-      { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+      {
+        name: 'robots',
+        content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+      },
       { name: 'author', content: 'JukeCoding' },
-      { name: 'keywords', content: Array.isArray(post.value.keywords) ? post.value.keywords.join(', ') : (post.value.keywords || '') },
+      {
+        name: 'keywords',
+        content: Array.isArray(post.value.keywords)
+          ? post.value.keywords.join(', ')
+          : post.value.keywords || '',
+      },
       // OG
       { property: 'og:title', content: post.value.metaTitle || post.value.title },
       { property: 'og:description', content: post.value.metaDescription },
       { property: 'og:type', content: 'article' },
       { property: 'og:url', content: canonicalUrl.value },
-      { property: 'og:image', content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}` },
+      {
+        property: 'og:image',
+        content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}`,
+      },
       { property: 'og:image:alt', content: post.value.title },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
@@ -95,15 +114,23 @@ useHead(() => {
       { property: 'og:site_name', content: 'JukeCoding' },
       // Article specific
       { property: 'article:published_time', content: post.value.publishedAt },
-      { property: 'article:modified_time', content: post.value.updatedAt || post.value.publishedAt },
+      {
+        property: 'article:modified_time',
+        content: post.value.updatedAt || post.value.publishedAt,
+      },
       { property: 'article:author', content: 'JukeCoding' },
       { property: 'article:section', content: post.value.category },
-      ...(Array.isArray(post.value.keywords) ? post.value.keywords.map(kw => ({ property: 'article:tag', content: kw })) : []),
+      ...(Array.isArray(post.value.keywords)
+        ? post.value.keywords.map((kw) => ({ property: 'article:tag', content: kw }))
+        : []),
       // Twitter
       { name: 'twitter:card', content: 'summary_large_image' },
       { name: 'twitter:title', content: post.value.metaTitle || post.value.title },
       { name: 'twitter:description', content: post.value.metaDescription },
-      { name: 'twitter:image', content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}` },
+      {
+        name: 'twitter:image',
+        content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}`,
+      },
       { name: 'twitter:image:alt', content: post.value.title },
     ],
     link: [{ rel: 'canonical', href: canonicalUrl.value }],
@@ -366,9 +393,10 @@ useHead(() => {
   border-radius: var(--radius-full);
   text-decoration: none;
   box-shadow: var(--shadow-glow-accent);
-  transition: background var(--duration-base) var(--ease-smooth),
-              box-shadow var(--duration-base) var(--ease-smooth),
-              transform var(--duration-base) var(--ease-spring);
+  transition:
+    background var(--duration-base) var(--ease-smooth),
+    box-shadow var(--duration-base) var(--ease-smooth),
+    transform var(--duration-base) var(--ease-spring);
 }
 
 .blog-post__cta-btn:hover {

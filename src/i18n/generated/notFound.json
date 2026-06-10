@@ -1,0 +1,14 @@
+{
+  "nl": {
+    "title": "Pagina niet gevonden",
+    "description": "Oeps! De pagina die je zoekt bestaat niet of is verplaatst. Geen zorgen, we helpen je graag verder.",
+    "backHome": "Terug naar home",
+    "goBack": "Ga terug"
+  },
+  "en": {
+    "title": "Page not found",
+    "description": "Oops! The page you're looking for doesn't exist or has been moved. No worries, we're happy to help you out.",
+    "backHome": "Back to home",
+    "goBack": "Go back"
+  }
+}

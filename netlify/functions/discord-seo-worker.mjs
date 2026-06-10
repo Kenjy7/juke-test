@@ -12,7 +12,17 @@
  * ─────────────────────────────────────────────────────────────────────
  */
 
+import crypto from 'node:crypto'
+import { isPublicHttpUrl } from '../lib/request-guard.mjs'
+
 const SITE_URL = 'https://jukecoding.be'
+
+function timingSafeEqualStr(a, b) {
+  const ab = Buffer.from(String(a))
+  const bb = Buffer.from(String(b))
+  if (ab.length !== bb.length) return false
+  return crypto.timingSafeEqual(ab, bb)
+}
 
 const PAGES_TO_AUDIT = [
   { url: `${SITE_URL}/`, name: 'Homepage' },
@@ -24,9 +34,11 @@ const PAGES_TO_AUDIT = [
 
 // ── Helpers ───────────────────────────────────────────────────────────
 async function fetchPage(url) {
+  if (!isPublicHttpUrl(url)) return null
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': 'JukeCoding-SEO-Bot/1.0' },
+      redirect: 'error',
       signal: AbortSignal.timeout(8000),
     })
     return res.ok ? await res.text() : null
@@ -378,7 +390,15 @@ Geef UITSLUITEND een geldig JSON-object:
 
 // ── Main handler ───────────────────────────────────────────────────────
 export default async function handler(req) {
-  const { ANTHROPIC_API_KEY, DISCORD_APPLICATION_ID } = process.env
+  const { ANTHROPIC_API_KEY, DISCORD_APPLICATION_ID, INTERNAL_WORKER_SECRET } = process.env
+
+  // Internal-only endpoint — require the shared secret (fail closed).
+  if (
+    !INTERNAL_WORKER_SECRET ||
+    !timingSafeEqualStr(req.headers.get('x-internal-secret') || '', INTERNAL_WORKER_SECRET)
+  ) {
+    return new Response('Unauthorized', { status: 401 })
+  }
 
   if (!ANTHROPIC_API_KEY || !DISCORD_APPLICATION_ID) {
     return new Response('Env vars ontbreken', { status: 500 })

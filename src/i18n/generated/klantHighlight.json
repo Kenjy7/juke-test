@@ -1,0 +1,32 @@
+{
+  "nl": {
+    "head": {
+      "title": "Eén van onze digitale oplossingen",
+      "subtitle": "AI en webdesign gecombineerd voor maximaal resultaat"
+    },
+    "mockupAlt": "Laptop mockup IMMO SADS",
+    "description": "Voor <span class=\"dik\">Immo Sads</span> bouwden we een strakke en professionele website die hun expertise in plaatsbeschrijvingen en vastgoedmarketing helder presenteert. Met een gebruiksvriendelijk design en sterke visuele elementen brengen we hun diensten perfect tot hun recht.",
+    "featuresTitle": "Wat wij deden voor deze klant",
+    "features": {
+      "aiOptimized": "AI-geoptimaliseerde website",
+      "mobileFriendly": "Mobielvriendelijk webdesign",
+      "conversionFocused": "Conversiegericht ontwerp",
+      "seoOptimized": "SEO-geoptimaliseerd"
+    }
+  },
+  "en": {
+    "head": {
+      "title": "One of our digital solutions",
+      "subtitle": "AI and web design combined for maximum impact"
+    },
+    "mockupAlt": "Laptop mockup IMMO SADS",
+    "description": "For <span class=\"dik\">Immo Sads</span> we built a sleek, professional website that clearly showcases their expertise in property surveys and real estate marketing. With a user-friendly design and strong visual elements, we present their services in the best possible light.",
+    "featuresTitle": "What we did for this client",
+    "features": {
+      "aiOptimized": "AI-optimised website",
+      "mobileFriendly": "Mobile-friendly web design",
+      "conversionFocused": "Conversion-focused design",
+      "seoOptimized": "SEO-optimised"
+    }
+  }
+}

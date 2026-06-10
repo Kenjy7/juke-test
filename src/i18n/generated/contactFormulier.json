@@ -1,0 +1,108 @@
+{
+  "nl": {
+    "header": {
+      "title": "Stuur ons een bericht",
+      "lead": "Heb je vragen over AI, SaaS of webdesign? Laat van je horen."
+    },
+    "modal": {
+      "close": "Sluiten",
+      "successTitle": "Bericht verzonden!",
+      "successMessage": "Bedankt voor je bericht. We nemen zo snel mogelijk contact met je op.",
+      "errorTitle": "Oeps, er ging iets mis",
+      "errorMessage": "Het verzenden is mislukt. Probeer het later opnieuw of neem direct contact op via email."
+    },
+    "info": {
+      "emailLabel": "E-mail",
+      "phoneLabel": "Telefoon"
+    },
+    "social": {
+      "title": "Vind ons op"
+    },
+    "package": {
+      "prefix": "Je hebt",
+      "suffix": "geselecteerd",
+      "clearAria": "Verwijder pakket"
+    },
+    "form": {
+      "honeypotLabel": "Laat dit veld leeg",
+      "serviceLabel": "Waar ben je in geïnteresseerd?",
+      "serviceWebdesign": "Webdesign",
+      "serviceAi": "AI Automatisation",
+      "firstNameLabel": "Voornaam",
+      "lastNameLabel": "Achternaam",
+      "emailLabel": "E-mailadres",
+      "phoneLabel": "Telefoonnummer",
+      "subjectLabel": "Onderwerp",
+      "subjectPlaceholder": "Waar kan ik je mee helpen?",
+      "subjectInterest": "Interesse in {package}",
+      "messageLabel": "Bericht",
+      "messagePlaceholder": "Vertel ons over je project...",
+      "submit": "Verstuur bericht",
+      "submitSending": "Versturen..."
+    },
+    "backlinks": {
+      "aria": "Gerelateerde pagina’s",
+      "label": "Ook interessant:",
+      "quote": "Offerte-aanvraag",
+      "webdesign": "Webdesign op maat",
+      "ai": "AI Automatisatie"
+    },
+    "validation": {
+      "selectService": "Gelieve een dienst te selecteren.",
+      "nameEmailRequired": "Gelieve minstens je naam en e-mailadres in te vullen."
+    }
+  },
+  "en": {
+    "header": {
+      "title": "Send us a message",
+      "lead": "Do you have questions about AI, SaaS or web design? Get in touch."
+    },
+    "modal": {
+      "close": "Close",
+      "successTitle": "Message sent!",
+      "successMessage": "Thanks for your message. We'll get back to you as soon as possible.",
+      "errorTitle": "Oops, something went wrong",
+      "errorMessage": "Sending failed. Please try again later or contact us directly by email."
+    },
+    "info": {
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
+    },
+    "social": {
+      "title": "Find us on"
+    },
+    "package": {
+      "prefix": "You selected",
+      "suffix": "",
+      "clearAria": "Remove package"
+    },
+    "form": {
+      "honeypotLabel": "Leave this field empty",
+      "serviceLabel": "What are you interested in?",
+      "serviceWebdesign": "Web design",
+      "serviceAi": "AI Automation",
+      "firstNameLabel": "First name",
+      "lastNameLabel": "Last name",
+      "emailLabel": "Email address",
+      "phoneLabel": "Phone number",
+      "subjectLabel": "Subject",
+      "subjectPlaceholder": "How can we help you?",
+      "subjectInterest": "Interested in {package}",
+      "messageLabel": "Message",
+      "messagePlaceholder": "Tell us about your project...",
+      "submit": "Send message",
+      "submitSending": "Sending..."
+    },
+    "backlinks": {
+      "aria": "Related pages",
+      "label": "Also interesting:",
+      "quote": "Request a quote",
+      "webdesign": "Custom web design",
+      "ai": "AI Automation"
+    },
+    "validation": {
+      "selectService": "Please select a service.",
+      "nameEmailRequired": "Please fill in at least your name and email address."
+    }
+  }
+}

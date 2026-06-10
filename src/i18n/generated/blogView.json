@@ -1,0 +1,24 @@
+{
+  "nl": {
+    "hero": {
+      "title": "Blog over Webdesign & AI Automatisatie voor KMO's in Belgie",
+      "sub": "Inzichten over webdesign, AI-automatisering en online groeien als KMO in Belgie.",
+      "intro": "In deze blog delen we praktische tips voor KMO en zelfstandigen die online sterker willen staan. Je vindt hier advies over webdesign, lokale SEO, AI-automatisatie en conversie, telkens met voorbeelden die relevant zijn voor bedrijven in Hasselt, Limburg en de rest van Belgie. Zo haal je sneller meer zichtbaarheid, vertrouwen en aanvragen uit je website."
+    },
+    "card": {
+      "readingTime": "min leestijd",
+      "readMore": "Lees meer ->"
+    }
+  },
+  "en": {
+    "hero": {
+      "title": "Blog on Web Design & AI Automation for SMEs in Belgium",
+      "sub": "Insights on web design, AI automation and growing online as an SME in Belgium.",
+      "intro": "On this blog we share practical tips for SMEs and freelancers who want a stronger online presence. You'll find advice here on web design, local SEO, AI automation and conversion, always with examples that are relevant for businesses in Hasselt, Limburg and the rest of Belgium. That way you get more visibility, trust and enquiries from your website faster."
+    },
+    "card": {
+      "readingTime": "min read",
+      "readMore": "Read more ->"
+    }
+  }
+}

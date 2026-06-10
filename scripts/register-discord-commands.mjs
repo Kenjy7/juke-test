@@ -27,7 +27,8 @@ const commands = [
       {
         type: 1, // SUB_COMMAND
         name: 'full',
-        description: '🔬 Uitgebreide agency-scan: alle pagina\'s, concurrenten, keyword gaps, actieplan',
+        description:
+          "🔬 Uitgebreide agency-scan: alle pagina's, concurrenten, keyword gaps, actieplan",
         options: [
           {
             type: 3, // STRING
@@ -79,7 +80,8 @@ const commands = [
       {
         type: 1, // SUB_COMMAND
         name: 'check',
-        description: 'Snelle technische scan: titles, descriptions, H1 en canonical (geen AI, direct klaar)',
+        description:
+          'Snelle technische scan: titles, descriptions, H1 en canonical (geen AI, direct klaar)',
         options: [
           {
             type: 3, // STRING
@@ -131,7 +133,7 @@ const commands = [
       {
         type: 1, // SUB_COMMAND
         name: 'cro',
-        description: '💰 CRO — Conversie optimalisatie, CTA\'s, vertrouwen, UX',
+        description: "💰 CRO — Conversie optimalisatie, CTA's, vertrouwen, UX",
         options: [
           {
             type: 3, // STRING
@@ -185,13 +187,13 @@ const res = await fetch(
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(commands),
-  }
+  },
 )
 
 if (res.ok) {
   const data = await res.json()
   console.log(`✅ ${data.length} command(s) geregistreerd!`)
-  data.forEach(cmd => console.log(`   /${cmd.name} — ${cmd.description}`))
+  data.forEach((cmd) => console.log(`   /${cmd.name} — ${cmd.description}`))
   console.log('\n🎉 Klaar! Je kan nu /seo gebruiken in Discord.')
 } else {
   const err = await res.text()

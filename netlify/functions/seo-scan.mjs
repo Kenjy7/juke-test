@@ -4,9 +4,10 @@ import {
   getClientIp,
   getUserAgent,
   isAllowedSiteRequest,
+  isPublicHttpUrl,
   isSuspiciousAgent,
   jsonResponse,
-  takeRateLimit,
+  takeRateLimitShared,
   withRateLimitHeaders,
 } from '../lib/request-guard.mjs'
 
@@ -132,7 +133,10 @@ function normaliseUrl(rawUrl) {
     const parsed = new URL(prefixed)
     if (!['http:', 'https:'].includes(parsed.protocol)) return null
     parsed.hash = ''
-    return parsed.toString().replace(/\/$/, '')
+    const normalised = parsed.toString().replace(/\/$/, '')
+    // SSRF guard: refuse internal / loopback / metadata targets.
+    if (!isPublicHttpUrl(normalised)) return null
+    return normalised
   } catch {
     return null
   }
@@ -158,11 +162,16 @@ export default async function handler(request) {
 
   const userAgent = getUserAgent(request.headers)
   const clientIp = getClientIp(request.headers)
-  const limitDecision = takeRateLimit(rateLimitStore, `seo-scan:${clientIp}`, {
-    limit: isSuspiciousAgent(userAgent) ? 2 : 5,
-    windowMs: 15 * 60 * 1000,
-    blockMs: 30 * 60 * 1000,
-  })
+  const limitDecision = await takeRateLimitShared(
+    'seo-scan',
+    `seo-scan:${clientIp}`,
+    {
+      limit: isSuspiciousAgent(userAgent) ? 2 : 5,
+      windowMs: 15 * 60 * 1000,
+      blockMs: 30 * 60 * 1000,
+    },
+    rateLimitStore,
+  )
   const headers = withRateLimitHeaders(baseHeaders, limitDecision)
 
   if (!limitDecision.allowed) {

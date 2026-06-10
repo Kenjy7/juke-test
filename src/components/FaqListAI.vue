@@ -2,18 +2,18 @@
   <section ref="rootEl" id="faqlistai" class="faq-section">
     <div class="container">
       <div class="faq-header">
-        <span class="label">Veelgestelde vragen</span>
-        <h2>AI simpel uitgelegd</h2>
-        <p>Ontdek hoe AI-agents jouw bedrijf slimmer laten werken</p>
+        <span class="label">{{ t('faqListAI.head.label') }}</span>
+        <h2>{{ t('faqListAI.head.title') }}</h2>
+        <p>{{ t('faqListAI.head.lead') }}</p>
       </div>
 
       <div class="faq-list">
         <FaqItem
-            v-for="(item, index) in faqs"
-            :key="index"
-            :question="item.question"
-            :answer="item.answer"
-            :index="index"
+          v-for="(item, index) in faqs"
+          :key="index"
+          :question="item.question"
+          :answer="item.answer"
+          :index="index"
         />
       </div>
     </div>
@@ -22,7 +22,10 @@
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FaqItem from './FaqItem.vue'
+
+const { t } = useI18n()
 
 defineProps({
   faqs: {
@@ -37,12 +40,12 @@ let observer = null
 
 onMounted(() => {
   observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
   )
 
   const items = rootEl.value?.querySelectorAll('.faq-item') ?? []

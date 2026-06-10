@@ -128,7 +128,7 @@ async function createGithubPR({ postData, slug, githubToken, githubRepo }) {
     keywords: ${JSON.stringify(postData.keywords)},
     readingTime: ${postData.readingTime || 5},
     ogImage: '/og-image.jpg',
-    content: \`${postData.content.replace(/`/g, '\\`')}\`,
+    content: ${JSON.stringify(postData.content)},
   },`
 
   const insertPoint = currentContent.lastIndexOf(']')

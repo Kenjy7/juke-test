@@ -1,11 +1,8 @@
 ﻿<template>
   <BackgroundWeb>
     <HeroSectionAanbod />
-    <ShortAnswer class=”stylewebdesign” title=”Webdesign naast onze AI-expertise”>
-      Naast AI-automatisering bouwt JukeCoding ook professionele websites op maat voor KMO's en zelfstandigen in Belgi&euml;.
-      Elke website is snel, mobielvriendelijk en ontworpen om bezoekers om te zetten in aanvragen of klanten.
-      We begeleiden je van strategie en structuur tot design, ontwikkeling en livegang &mdash; met focus op duidelijkheid,
-      vertrouwen en meetbaar resultaat.
+    <ShortAnswer class="”stylewebdesign”" :title="t('aanbodView.shortAnswer.title')">
+      {{ t('aanbodView.shortAnswer.body') }}
     </ShortAnswer>
 
     <section id="stappen-webdesign">
@@ -15,13 +12,17 @@
     <AIAutomatisationCTA />
 
     <!-- âœ… FAQ's via props -->
-    <FaqList :faqs="faqsWebdesign" />
+    <FaqList :faqs="webdesignFaqs" />
     <WebsiteKlantenCta />
   </BackgroundWeb>
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
+
+const { t, locale } = useI18n()
 
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import HeroSectionAanbod from '@/components/HeroSectionAanbod.vue'
@@ -32,7 +33,9 @@ import FaqList from '@/components/FaqList.vue'
 import ShortAnswer from '@/components/ShortAnswer.vue'
 
 import { faqsWebdesign } from '@/data/faqs.webdesign'
-import WebsiteKlantenCta from "@/components/WebsiteKlantenCTA.vue";
+import WebsiteKlantenCta from '@/components/WebsiteKlantenCTA.vue'
+
+const webdesignFaqs = computed(() => faqsWebdesign[locale.value] ?? faqsWebdesign.nl)
 
 // ============================================================================
 // CONFIGURATIE
@@ -49,12 +52,12 @@ const SITE_CONFIG = {
     postalCode: '3500',
     country: 'BE',
     lat: '50.9307',
-    lng: '5.3378'
+    lng: '5.3378',
   },
   social: {
     linkedin: 'https://www.linkedin.com/company/jukecoding',
     instagram: 'https://www.instagram.com/jukecoding',
-  }
+  },
 }
 
 const url = `${SITE_CONFIG.url}/webdesign`
@@ -71,7 +74,7 @@ const organizationSchema = {
   logo: `${SITE_CONFIG.url}/logo.png`,
   image: `${SITE_CONFIG.url}/og-image.jpg`,
   description:
-      'AI-automatisering en webdesign voor Belgische KMO\'s - digitale oplossingen die tijd besparen en meer leads opleveren.',
+    "AI-automatisering en webdesign voor Belgische KMO's - digitale oplossingen die tijd besparen en meer leads opleveren.",
   address: {
     '@type': 'PostalAddress',
     addressLocality: SITE_CONFIG.location.city,
@@ -86,14 +89,9 @@ const organizationSchema = {
   },
   telephone: SITE_CONFIG.phone,
   email: SITE_CONFIG.email,
-  priceRange: 'â‚¬â‚¬',
-  sameAs: [
-    SITE_CONFIG.social.linkedin,
-    SITE_CONFIG.social.instagram,
-  ],
+  sameAs: [SITE_CONFIG.social.linkedin, SITE_CONFIG.social.instagram],
   knowsAbout: [
     'AI automatisatie',
-    'AI Agents',
     'Workflow Automatisatie',
     'Webdesign',
     'Website laten maken',
@@ -114,7 +112,7 @@ const organizationSchema = {
     { '@type': 'City', name: 'Brussel' },
     { '@type': 'AdministrativeArea', name: 'Limburg' },
     { '@type': 'AdministrativeArea', name: 'Vlaanderen' },
-    { '@type': 'Country', name: 'Belgium' }
+    { '@type': 'Country', name: 'Belgium' },
   ],
 }
 
@@ -135,9 +133,9 @@ const webPageSchema = {
   '@type': 'WebPage',
   '@id': `${url}#webpage`,
   url,
-  name: 'Website laten maken in Limburg | Vanaf EUR 600',
+  name: 'Website laten maken in Limburg | JukeCoding',
   description:
-      "Website laten maken vanaf â‚¬600? JukeCoding bouwt snelle, SEO-proof websites op maat. Live in 2 weken, geen verborgen kosten.",
+    'Website laten maken bij JukeCoding: snelle, SEO-proof websites op maat. Live in 2 weken, transparante afspraken.',
   isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
   about: { '@id': `${SITE_CONFIG.url}#organization` },
   breadcrumb: { '@id': `${url}#breadcrumb` },
@@ -172,46 +170,37 @@ const offerCatalogSchema = {
       '@type': 'Offer',
       name: 'Juke Lite',
       description: 'Professionele landingspagina met contactformulier en basis SEO',
-      price: '600',
-      priceCurrency: 'EUR',
-      priceValidUntil: '2026-12-31',
       availability: 'https://schema.org/InStock',
       url: `${url}#juke-lite`,
       itemCondition: 'https://schema.org/NewCondition',
       eligibleRegion: {
         '@type': 'Country',
-        name: 'BE'
-      }
+        name: 'BE',
+      },
     },
     {
       '@type': 'Offer',
       name: 'Juke Groove',
-      description: 'Uitgebreide website met meerdere pagina\'s, CMS en geavanceerde SEO',
-      price: '1400',
-      priceCurrency: 'EUR',
-      priceValidUntil: '2026-12-31',
+      description: "Uitgebreide website met meerdere pagina's, CMS en geavanceerde SEO",
       availability: 'https://schema.org/InStock',
       url: `${url}#juke-groove`,
       itemCondition: 'https://schema.org/NewCondition',
       eligibleRegion: {
         '@type': 'Country',
-        name: 'BE'
-      }
+        name: 'BE',
+      },
     },
     {
       '@type': 'Offer',
       name: 'Juke Amplify',
       description: 'Complete digital presence met webshop, integraties en AI automatisatie',
-      price: '2600',
-      priceCurrency: 'EUR',
-      priceValidUntil: '2026-12-31',
       availability: 'https://schema.org/InStock',
       url: `${url}#juke-amplify`,
       itemCondition: 'https://schema.org/NewCondition',
       eligibleRegion: {
         '@type': 'Country',
-        name: 'BE'
-      }
+        name: 'BE',
+      },
     },
   ],
 }
@@ -224,7 +213,7 @@ const serviceSchema = {
   name: 'Website laten maken in Limburg',
   serviceType: 'Webdesign',
   description:
-      "Professionele websites op maat voor Belgische KMO's â€” snel, mobielvriendelijk en conversiegericht.",
+    "Professionele websites op maat voor Belgische KMO's â€” snel, mobielvriendelijk en conversiegericht.",
   provider: { '@id': `${SITE_CONFIG.url}#organization` },
   areaServed: { '@type': 'Country', name: 'Belgium' },
   url,
@@ -233,7 +222,7 @@ const serviceSchema = {
   // ðŸŽ¯ Service features
   serviceOutput: {
     '@type': 'WebSite',
-    name: 'Professionele website op maat'
+    name: 'Professionele website op maat',
   },
 }
 
@@ -248,11 +237,6 @@ const howToSchema = {
     url: ogImage,
   },
   totalTime: 'P14D', // ISO 8601 duration: 14 dagen
-  estimatedCost: {
-    '@type': 'MonetaryAmount',
-    currency: 'EUR',
-    value: '600',
-  },
   step: [
     {
       '@type': 'HowToStep',
@@ -297,12 +281,12 @@ const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   '@id': `${url}#faq`,
-  mainEntity: faqsWebdesign.map((f) => ({
+  mainEntity: webdesignFaqs.value.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: {
       '@type': 'Answer',
-      text: f.answer
+      text: f.answer,
     },
   })),
 }
@@ -313,21 +297,24 @@ const faqSchema = {
 
 useHead({
   // ðŸŽ¯ Geoptimaliseerde title met USP
-  title: 'Website Laten Maken in Limburg | Vanaf EUR 600',
+  title: 'Website Laten Maken in Limburg | JukeCoding',
 
   meta: [
     // Primary Meta Tags
     {
       name: 'description',
       content:
-          'Snelle website laten maken vanaf EUR 600 voor KMO en zelfstandigen in Hasselt en Limburg, gebouwd voor SEO, snelheid en meer aanvragen.',
+        'Snelle website laten maken voor KMO en zelfstandigen in Hasselt en Limburg, gebouwd voor SEO, snelheid en meer aanvragen.',
     },
-    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    {
+      name: 'robots',
+      content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    },
     { name: 'author', content: SITE_CONFIG.name },
     { name: 'language', content: 'nl' },
 
     // Mobile Optimization
-    { name: 'theme-color', content: '#f5f1e8' },
+    { name: 'theme-color', content: '#ffffff' },
     { name: 'mobile-web-app-capable', content: 'yes' },
 
     // Open Graph / Facebook
@@ -336,11 +323,11 @@ useHead({
     { property: 'og:site_name', content: SITE_CONFIG.name },
     { property: 'og:locale', content: 'nl_BE' },
     { property: 'og:locale:alternate', content: 'nl_NL' },
-    { property: 'og:title', content: 'Website Laten Maken in Limburg | Vanaf EUR 600' },
+    { property: 'og:title', content: 'Website Laten Maken in Limburg | JukeCoding' },
     {
       property: 'og:description',
       content:
-          'Voor KMO en zelfstandigen in Hasselt en Limburg: snelle websites op maat met lokale SEO en focus op meer aanvragen.',
+        'Voor KMO en zelfstandigen in Hasselt en Limburg: snelle websites op maat met lokale SEO en focus op meer aanvragen.',
     },
     { property: 'og:image', content: ogImage },
     { property: 'og:image:secure_url', content: ogImage },
@@ -351,13 +338,17 @@ useHead({
 
     // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Website Laten Maken in Limburg | Vanaf EUR 600' },
+    { name: 'twitter:title', content: 'Website Laten Maken in Limburg | JukeCoding' },
     {
       name: 'twitter:description',
-      content: 'Snelle websites op maat voor KMO en zelfstandigen in Hasselt en Limburg, gebouwd voor SEO en aanvragen.',
+      content:
+        'Snelle websites op maat voor KMO en zelfstandigen in Hasselt en Limburg, gebouwd voor SEO en aanvragen.',
     },
     { name: 'twitter:image', content: ogImage },
-    { name: 'twitter:image:alt', content: 'JukeCoding â€“ Webdesign en AI automatisatie in BelgiÃ«' },
+    {
+      name: 'twitter:image:alt',
+      content: 'JukeCoding â€“ Webdesign en AI automatisatie in BelgiÃ«',
+    },
 
     // Additional SEO
     { name: 'format-detection', content: 'telephone=yes' },
@@ -429,11 +420,4 @@ useHead({
 })
 </script>
 
-<style scoped>
-
-</style>
-
-
-
-
-
+<style scoped></style>

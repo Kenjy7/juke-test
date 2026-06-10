@@ -6,59 +6,73 @@
         <div class="hero__grid">
           <!-- Left: Content -->
           <div class="hero__content">
-            <div class="label">Resultaatgericht webdesign</div>
+            <div class="label">{{ t('webdesignDatKlantenOplevert.hero.label') }}</div>
 
             <h1 class="hero__title">
-              Website die <br>klanten oplevert
+              {{ t('webdesignDatKlantenOplevert.hero.titleLine1') }} <br />{{
+                t('webdesignDatKlantenOplevert.hero.titleLine2')
+              }}
               <span class="highlight">
-                <span class="highlight-text">niet alleen mooi</span>
+                <span class="highlight-text">{{
+                  t('webdesignDatKlantenOplevert.hero.titleHighlight')
+                }}</span>
                 <span class="highlight-glow"></span>
               </span>
             </h1>
 
             <p class="hero__subtitle">
-              Voor Belgische kmo&apos;s en zelfstandigen: snelle, mobielvriendelijke websites die converteren naar
-              aanvragen, offertes en afspraken.
+              {{ t('webdesignDatKlantenOplevert.hero.subtitle') }}
             </p>
 
             <div class="hero-buttons">
               <router-link to="/contact" class="btn btn--accent">
-                Gratis kennismaking
-                <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {{ t('webdesignDatKlantenOplevert.hero.ctaPrimary') }}
+                <svg
+                  class="btn__icon"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
               </router-link>
 
-              <router-link :to="{ path: '/webdesign', hash: '#pakketten' }" class="btn btn--secondary">
-                Bekijk de pakketten
+              <router-link
+                :to="{ path: '/webdesign', hash: '#pakketten' }"
+                class="btn btn--secondary"
+              >
+                {{ t('webdesignDatKlantenOplevert.hero.ctaSecondary') }}
               </router-link>
             </div>
 
-            <p class="micro">
-            </p>
+            <p class="micro"></p>
 
             <!-- TRUST BAR -->
-            <ul class="trust-bar" aria-label="Belangrijkste voordelen">
+            <ul
+              class="trust-bar"
+              :aria-label="t('webdesignDatKlantenOplevert.hero.trustAriaLabel')"
+            >
               <li class="trust-item">
                 <span class="trust-dot" aria-hidden="true"></span>
-                <span>Mobielvriendelijk &amp; snel</span>
+                <span>{{ t('webdesignDatKlantenOplevert.hero.trust.fast') }}</span>
               </li>
               <li class="trust-item">
                 <span class="trust-dot" aria-hidden="true"></span>
-                <span>SEO-basis inbegrepen</span>
+                <span>{{ t('webdesignDatKlantenOplevert.hero.trust.seo') }}</span>
               </li>
               <li class="trust-item">
                 <span class="trust-dot" aria-hidden="true"></span>
-                <span>Conversiegericht (CTA&apos;s)</span>
+                <span>{{ t('webdesignDatKlantenOplevert.hero.trust.conversion') }}</span>
               </li>
               <li class="trust-item">
                 <span class="trust-dot" aria-hidden="true"></span>
-                <span>Duidelijke aanpak</span>
+                <span>{{ t('webdesignDatKlantenOplevert.hero.trust.approach') }}</span>
               </li>
             </ul>
           </div>
@@ -66,13 +80,13 @@
           <!-- Right: Image -->
           <div class="hero__image">
             <img
-                src="../assets/CTR.png"
-                alt="Preview van een conversiegerichte bedrijfswebsite op maat"
-                width="900"
-                height="675"
-                loading="eager"
-                fetchpriority="high"
-                decoding="async"
+              src="../assets/CTR-hero.webp"
+              :alt="t('webdesignDatKlantenOplevert.hero.imageAlt')"
+              width="900"
+              height="675"
+              loading="eager"
+              fetchpriority="high"
+              decoding="async"
             />
           </div>
         </div>
@@ -87,11 +101,10 @@
     <section class="content-section problems-section" id="waarom">
       <div class="container">
         <div class="section-header">
-          <span class="label small">Waarom het vaak misloopt</span>
-          <h2 class="section-title">Waarom veel websites geen klanten opleveren</h2>
+          <span class="label small">{{ t('webdesignDatKlantenOplevert.problems.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.problems.title') }}</h2>
           <p class="section-subtitle">
-            Vaak ligt het niet aan je aanbod, maar aan de structuur, snelheid en duidelijkheid van je website.
-            Kleine frictie zorgt voor minder aanvragen.
+            {{ t('webdesignDatKlantenOplevert.problems.subtitle') }}
           </p>
         </div>
 
@@ -100,38 +113,42 @@
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
             </div>
-            <h3>Onduidelijke boodschap</h3>
-            <p>Bezoekers snappen niet meteen wat je doet, voor wie, en waarom ze voor jou moeten kiezen.</p>
+            <h3>{{ t('webdesignDatKlantenOplevert.problems.cards.message.title') }}</h3>
+            <p>{{ t('webdesignDatKlantenOplevert.problems.cards.message.text') }}</p>
           </div>
 
           <div class="problem-card">
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 8.965l-2.898-.777m0 0l2.898-.778M7.188 21.761l-.777-2.897m6.333-7.423l.777-2.897"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 8.965l-2.898-.777m0 0l2.898-.778M7.188 21.761l-.777-2.897m6.333-7.423l.777-2.897"
                 />
               </svg>
             </div>
-            <h3>Niet optimaal op mobiel</h3>
-            <p>De meeste bezoekers komen via smartphone. Als het daar niet vlot werkt, verlies je conversie.</p>
+            <h3>{{ t('webdesignDatKlantenOplevert.problems.cards.mobile.title') }}</h3>
+            <p>{{ t('webdesignDatKlantenOplevert.problems.cards.mobile.text') }}</p>
           </div>
 
           <div class="problem-card">
             <div class="problem-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
               </svg>
             </div>
-            <h3>Snelheid en vertrouwen</h3>
-            <p>Traag laden of een rommelige layout voelt onbetrouwbaar — en dat kost leads en aanvragen.</p>
+            <h3>{{ t('webdesignDatKlantenOplevert.problems.cards.speed.title') }}</h3>
+            <p>{{ t('webdesignDatKlantenOplevert.problems.cards.speed.text') }}</p>
           </div>
         </div>
       </div>
@@ -141,10 +158,10 @@
     <section class="content-section approach-section" id="aanpak">
       <div class="container">
         <div class="section-header">
-          <span class="label small">Onze aanpak</span>
-          <h2 class="section-title">Zo bouwen wij een website die wél werkt</h2>
+          <span class="label small">{{ t('webdesignDatKlantenOplevert.approach.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.approach.title') }}</h2>
           <p class="section-subtitle">
-            We combineren strategie, structuur, design en performance zodat je website bezoekers overtuigt en converteert.
+            {{ t('webdesignDatKlantenOplevert.approach.subtitle') }}
           </p>
         </div>
 
@@ -153,15 +170,15 @@
             <div class="approach-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                 />
               </svg>
             </div>
             <div class="approach-content">
-              <h3>Strategie &amp; structuur</h3>
-              <p>We maken je aanbod glashelder en bouwen een logische opbouw zodat bezoekers sneller beslissen.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.approach.cards.strategy.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.approach.cards.strategy.text') }}</p>
             </div>
           </div>
 
@@ -169,46 +186,54 @@
             <div class="approach-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zm0 8a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zm12 0a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
                 />
               </svg>
             </div>
             <div class="approach-content">
-              <h3>Conversiegericht design</h3>
-              <p>Design dat vertrouwen opbouwt en bezoekers naar actie stuurt: contact, offerte of afspraak.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.approach.cards.design.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.approach.cards.design.text') }}</p>
             </div>
           </div>
 
           <div class="approach-card">
             <div class="approach-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                />
               </svg>
             </div>
             <div class="approach-content">
-              <h3>Snelheid &amp; technische basis</h3>
-              <p>Mobielvriendelijk, snel en technisch netjes — met een sterke SEO-basis vanaf dag één.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.approach.cards.speed.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.approach.cards.speed.text') }}</p>
             </div>
           </div>
 
           <div class="approach-card">
             <div class="approach-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"
+                />
               </svg>
             </div>
             <div class="approach-content">
-              <h3>Duidelijke call-to-actions</h3>
-              <p>We verlagen frictie: duidelijke knoppen, slimme formulieren en een heldere contactflow.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.approach.cards.cta.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.approach.cards.cta.text') }}</p>
             </div>
           </div>
         </div>
 
         <div class="inline-cta">
           <router-link :to="{ path: '/webdesign', hash: '#stappen-webdesign' }" class="text-link">
-            Bekijk onze werkwijze →
+            {{ t('webdesignDatKlantenOplevert.approach.workflowLink') }}
           </router-link>
         </div>
       </div>
@@ -218,83 +243,125 @@
     <section class="content-section results-section" id="resultaten">
       <div class="container">
         <div class="section-header">
-          <span class="label small">Resultaten</span>
-          <h2 class="section-title">Wat een conversiegerichte website kan opleveren</h2>
+          <span class="label small">{{ t('webdesignDatKlantenOplevert.results.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.results.title') }}</h2>
           <p class="section-subtitle">
-            Niet alleen een mooi design, maar verbeteringen in aanvragen, snelheid en vertrouwen.
+            {{ t('webdesignDatKlantenOplevert.results.subtitle') }}
           </p>
         </div>
 
         <div class="results-grid">
           <article class="result-card">
-              <div class="result-header">
-                <a href="https://fripole.be/" class="result-tag" target="_blank" rel="noopener noreferrer">
-                  Fripole
-                </a>
+            <div class="result-header">
+              <a
+                href="https://fripole.be/"
+                class="result-tag"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Fripole
+              </a>
               <div class="result-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
-                Snellere laadtijd
+                {{ t('webdesignDatKlantenOplevert.results.cards.performance.badge') }}
               </div>
             </div>
-            <h3>Performance &amp; technische basis</h3>
-            <p>Snellere pagina&apos;s zorgen voor minder afhakers en een professionelere indruk.</p>
+            <h3>{{ t('webdesignDatKlantenOplevert.results.cards.performance.title') }}</h3>
+            <p>{{ t('webdesignDatKlantenOplevert.results.cards.performance.text') }}</p>
             <ul class="result-features">
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                Afbeeldingen geoptimaliseerd
+                {{ t('webdesignDatKlantenOplevert.results.cards.performance.features.images') }}
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                Structuur + caching
+                {{ t('webdesignDatKlantenOplevert.results.cards.performance.features.caching') }}
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                FAQ + duidelijke antwoorden
+                {{ t('webdesignDatKlantenOplevert.results.cards.performance.features.faq') }}
               </li>
             </ul>
           </article>
 
           <article class="result-card">
             <div class="result-header">
-              <a href="https://immosads.com" class="result-tag" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://immosads.com"
+                class="result-tag"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 IMMO Sads
               </a>
 
               <div class="result-badge">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
                 </svg>
-                Meer vertrouwen
+                {{ t('webdesignDatKlantenOplevert.results.cards.trust.badge') }}
               </div>
             </div>
-            <h3>Design dat vertrouwen bouwt</h3>
-            <p>Een duidelijke layout + sterke uitleg maakt het makkelijker om "ja" te zeggen.</p>
+            <h3>{{ t('webdesignDatKlantenOplevert.results.cards.trust.title') }}</h3>
+            <p>{{ t('webdesignDatKlantenOplevert.results.cards.trust.text') }}</p>
             <ul class="result-features">
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                Consistente branding
+                {{ t('webdesignDatKlantenOplevert.results.cards.trust.features.branding') }}
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                Mobile-first finetuning
+                {{ t('webdesignDatKlantenOplevert.results.cards.trust.features.mobile') }}
               </li>
               <li>
                 <svg viewBox="0 0 20 20" fill="currentColor">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd"
+                  />
                 </svg>
-                Snelle contactflow
+                {{ t('webdesignDatKlantenOplevert.results.cards.trust.features.contact') }}
               </li>
             </ul>
           </article>
@@ -306,10 +373,10 @@
     <section id="stappen-webdesign" class="content-section timeline-section">
       <div class="container">
         <div class="section-header">
-          <span class="label small">Stappen</span>
-          <h2 class="section-title">Onze werkwijze in 4 duidelijke stappen</h2>
+          <span class="label small">{{ t('webdesignDatKlantenOplevert.steps.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.steps.title') }}</h2>
           <p class="section-subtitle">
-            Transparant proces, duidelijke feedbackmomenten en focus op resultaat: aanvragen, leads en afspraken.
+            {{ t('webdesignDatKlantenOplevert.steps.subtitle') }}
           </p>
         </div>
 
@@ -319,8 +386,8 @@
               <span>1</span>
             </div>
             <div class="timeline-content">
-              <h3>Strategie &amp; doelen</h3>
-              <p>We bepalen je doelgroep, boodschap en primaire call-to-action (contact, offerte, afspraak).</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.steps.items.strategy.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.steps.items.strategy.text') }}</p>
             </div>
           </div>
 
@@ -329,8 +396,8 @@
               <span>2</span>
             </div>
             <div class="timeline-content">
-              <h3>wireframe &amp; Design</h3>
-              <p>Design dat vertrouwen opbouwt, met duidelijke hiërarchie en converterende content.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.steps.items.design.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.steps.items.design.text') }}</p>
             </div>
           </div>
 
@@ -339,8 +406,8 @@
               <span>3</span>
             </div>
             <div class="timeline-content">
-              <h3>Bouw &amp; performance</h3>
-              <p>Mobielvriendelijk, snel en technisch netjes: klaar voor SEO en een vlotte gebruikerservaring.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.steps.items.build.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.steps.items.build.text') }}</p>
             </div>
           </div>
 
@@ -349,15 +416,18 @@
               <span>4</span>
             </div>
             <div class="timeline-content">
-              <h3>Lancering &amp; optimalisatie</h3>
-              <p>Livegang + opvolging: meten, bijsturen en verbeteren waar nodig.</p>
+              <h3>{{ t('webdesignDatKlantenOplevert.steps.items.launch.title') }}</h3>
+              <p>{{ t('webdesignDatKlantenOplevert.steps.items.launch.text') }}</p>
             </div>
           </div>
         </div>
 
         <div class="inline-cta">
-          <router-link :to="{ path: '/webdesign', hash: '#stappen-webdesign' }" class="btn btn--accent btn--lg">
-            Ontdek onze volledige werkwijze →
+          <router-link
+            :to="{ path: '/webdesign', hash: '#stappen-webdesign' }"
+            class="btn btn--accent btn--lg"
+          >
+            {{ t('webdesignDatKlantenOplevert.steps.ctaLink') }}
           </router-link>
         </div>
       </div>
@@ -367,10 +437,10 @@
     <section class="content-section checklist-section" id="voor-wie">
       <div class="container">
         <div class="section-header">
-          <span class="label small">Voor wie?</span>
-          <h2 class="section-title">Ideaal voor bedrijven die meer aanvragen willen</h2>
+          <span class="label small">{{ t('webdesignDatKlantenOplevert.audience.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.audience.title') }}</h2>
           <p class="section-subtitle">
-            Voor bedrijven die hun website willen inzetten als groeimotor — niet als online brochure.
+            {{ t('webdesignDatKlantenOplevert.audience.subtitle') }}
           </p>
         </div>
 
@@ -381,7 +451,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span>KMO&apos;s en lokale bedrijven die meer leads of aanvragen willen.</span>
+            <span>{{ t('webdesignDatKlantenOplevert.audience.items.sme') }}</span>
           </div>
 
           <div class="checklist-item">
@@ -390,7 +460,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span>Dienstverleners (consultants, agencies, coaches, …) met een duidelijk aanbod.</span>
+            <span>{{ t('webdesignDatKlantenOplevert.audience.items.services') }}</span>
           </div>
 
           <div class="checklist-item">
@@ -399,7 +469,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span>Starters die meteen professioneel online willen staan.</span>
+            <span>{{ t('webdesignDatKlantenOplevert.audience.items.starters') }}</span>
           </div>
 
           <div class="checklist-item">
@@ -408,7 +478,7 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <span>Bedrijven met een bestaande website die weinig resultaat oplevert.</span>
+            <span>{{ t('webdesignDatKlantenOplevert.audience.items.existing') }}</span>
           </div>
         </div>
       </div>
@@ -418,11 +488,10 @@
     <section class="content-section packages-section" id="pakketten">
       <div class="container">
         <div class="section-header">
-          <span class="label">Pakketten</span>
-          <h2 class="section-title">Eenmalig of abonnement: kies wat bij je past</h2>
+          <span class="label">{{ t('webdesignDatKlantenOplevert.packages.label') }}</span>
+          <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.packages.title') }}</h2>
           <p class="section-subtitle">
-            Kies voor een eenmalige bouwprijs, of voor een abonnement met hosting &amp; onderhoud zodat je website veilig,
-            snel en up-to-date blijft.
+            {{ t('webdesignDatKlantenOplevert.packages.subtitle') }}
           </p>
         </div>
 
@@ -431,100 +500,138 @@
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
                 </svg>
               </div>
-              <span>Mobielvriendelijk design</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.mobile') }}</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
               </div>
-              <span>Snelheid &amp; Core Web Vitals basis</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.speed') }}</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
                 </svg>
               </div>
-              <span>SEO-basis (structuur, meta, indexing)</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.seo') }}</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5"
+                  />
                 </svg>
               </div>
-              <span>Conversie CTA&apos;s + duidelijke contactflow</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.conversion') }}</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                  />
                 </svg>
               </div>
-              <span>SSL-certificaat &amp; beveiligde hosting</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.ssl') }}</span>
             </div>
             <div class="feature-item">
               <div class="feature-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+                  />
                 </svg>
               </div>
-              <span>Contactformulier &amp; Google Analytics</span>
+              <span>{{ t('webdesignDatKlantenOplevert.packages.features.contactForm') }}</span>
             </div>
           </div>
         </div>
 
         <div class="cta-row">
-          <router-link :to="{ path: '/webdesign', hash: '#pakketten' }" class="btn btn--accent btn--lg">
-            Bekijk opties &amp; prijzen
-            <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <router-link
+            :to="{ path: '/webdesign', hash: '#pakketten' }"
+            class="btn btn--accent btn--lg"
+          >
+            {{ t('webdesignDatKlantenOplevert.packages.ctaPrimary') }}
+            <svg
+              class="btn__icon"
+              aria-hidden="true"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
               <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
           </router-link>
 
           <router-link to="/contact" class="btn btn--secondary btn--lg">
-            Vraag advies
+            {{ t('webdesignDatKlantenOplevert.packages.ctaSecondary') }}
           </router-link>
         </div>
       </div>
     </section>
 
-    <FaqListKlanten :faqs="faqsMeerKlanten" />
+    <FaqListKlanten :faqs="meerKlantenFaqs" />
 
     <!-- FINAL CTA -->
     <section class="content-section final-cta-section">
       <div class="container">
         <div class="final-cta">
           <div class="final-cta__content">
-            <span class="label">Klaar om te starten?</span>
-            <h2 class="section-title">Plan een gratis kennismaking</h2>
+            <span class="label">{{ t('webdesignDatKlantenOplevert.finalCta.label') }}</span>
+            <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.finalCta.title') }}</h2>
             <p class="section-subtitle1">
-              We bekijken je doelen en geven eerlijk advies over wat je website nodig heeft om meer aanvragen op te leveren.
+              {{ t('webdesignDatKlantenOplevert.finalCta.subtitle') }}
             </p>
 
             <div class="cta-row">
               <router-link to="/contact" class="btn btn--accent btn--lg">
-                Gratis kennismaking
-                <svg class="btn__icon" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                {{ t('webdesignDatKlantenOplevert.finalCta.cta') }}
+                <svg
+                  class="btn__icon"
+                  aria-hidden="true"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
                   <path
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
-                      d="M14 5l7 7m0 0l-7 7m7-7H3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M14 5l7 7m0 0l-7 7m7-7H3"
                   />
                 </svg>
               </router-link>
-
             </div>
           </div>
         </div>
@@ -534,8 +641,14 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import FaqListKlanten from '../components/FaqListKlanten.vue'
 import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
+
+const { t, locale } = useI18n()
+
+const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeerKlanten.nl)
 </script>
 
 <style scoped>
@@ -740,7 +853,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-1 {
   width: 400px;
   height: 400px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   top: 10%;
   left: -10%;
   animation-delay: 0s;
@@ -749,7 +862,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-2 {
   width: 300px;
   height: 300px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   bottom: 20%;
   right: -5%;
   animation-delay: 7s;
@@ -758,7 +871,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 .element-3 {
   width: 250px;
   height: 250px;
-  background: rgba(42, 108, 255, 0.06);
+  background: var(--color-primary-subtle);
   top: 50%;
   left: 50%;
   animation-delay: 14s;
@@ -975,7 +1088,6 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 /* ─── SECTION 3: Results - Modern Cards ─── */
 .results-section {
-
 }
 
 .result-tag {
@@ -984,7 +1096,6 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   text-decoration: none;
   color: inherit;
 }
-
 
 .results-grid {
   display: grid;
@@ -1033,16 +1144,14 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 }
 
 .result-tag::after {
-  content: " ↗";
+  content: ' ↗';
   margin-left: 4px;
   font-size: 0.9em;
 }
 
-
 .result-tag:hover .arrow {
   transform: translateX(3px);
 }
-
 
 .result-tag {
   font-size: 0.75rem;
@@ -1112,7 +1221,6 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
 
 /* ─── SECTION 4: Timeline ─── */
 .timeline-section {
-
 }
 
 .timeline {
@@ -1503,7 +1611,7 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
     font-size: clamp(2.75rem, 5vw, 2.5rem);
     padding-left: 1.5rem;
   }
-  .label{
+  .label {
     margin-left: 1.5rem;
   }
   .hero__subtitle {
@@ -1532,7 +1640,6 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
   }
 }
 
-
 @media (max-width: 768px) {
   .trust-bar {
     align-items: flex-start;
@@ -1543,5 +1650,4 @@ import { faqsMeerKlanten } from '../data/faqs.meerklanten.js'
     font-size: 0.7rem;
   }
 }
-
 </style>

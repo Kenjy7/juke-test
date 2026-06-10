@@ -1,0 +1,74 @@
+{
+  "nl": {
+    "head": {
+      "eyebrow": "Wat AI voor je doet",
+      "titleLine1": "Drie manieren waarop AI je",
+      "titleLine2": "bedrijf vooruit helpt."
+    },
+    "cards": {
+      "workflows": {
+        "title": "Autonome AI-workflows",
+        "description": "Zelfstandige AI-workflows die repetitieve taken overnemen en 24/7 uitvoeren zonder menselijke tussenkomst.",
+        "highlights": {
+          "0": "Sales & support automatisatie",
+          "1": "24/7 actief en schaalbaar",
+          "2": "Zelflerend en adaptief"
+        }
+      },
+      "insight": {
+        "title": "Inzicht & besluitvorming",
+        "description": "AI analyseert grote hoeveelheden data en vertaalt deze naar duidelijke inzichten voor snellere, betere beslissingen.",
+        "highlights": {
+          "0": "Realtime dashboards",
+          "1": "Predictive analytics",
+          "2": "Datagedreven keuzes"
+        }
+      },
+      "growth": {
+        "title": "Groei & communicatie",
+        "description": "Slimme AI-oplossingen die marketing, content en klantcommunicatie optimaliseren voor duurzame groei.",
+        "highlights": {
+          "0": "Leadgeneratie & conversie",
+          "1": "Content & copy met AI",
+          "2": "Consistente klantinteractie"
+        }
+      }
+    }
+  },
+  "en": {
+    "head": {
+      "eyebrow": "What AI does for you",
+      "titleLine1": "Three ways AI moves your",
+      "titleLine2": "business forward."
+    },
+    "cards": {
+      "workflows": {
+        "title": "Autonomous AI workflows",
+        "description": "Self-running AI workflows that take over repetitive tasks and run 24/7 without human intervention.",
+        "highlights": {
+          "0": "Sales & support automation",
+          "1": "Active 24/7 and scalable",
+          "2": "Self-learning and adaptive"
+        }
+      },
+      "insight": {
+        "title": "Insight & decision-making",
+        "description": "AI analyses large volumes of data and turns it into clear insights for faster, better decisions.",
+        "highlights": {
+          "0": "Real-time dashboards",
+          "1": "Predictive analytics",
+          "2": "Data-driven choices"
+        }
+      },
+      "growth": {
+        "title": "Growth & communication",
+        "description": "Smart AI solutions that optimise marketing, content and customer communication for sustainable growth.",
+        "highlights": {
+          "0": "Lead generation & conversion",
+          "1": "Content & copy with AI",
+          "2": "Consistent customer interaction"
+        }
+      }
+    }
+  }
+}

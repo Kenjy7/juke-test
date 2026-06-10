@@ -2,31 +2,28 @@
   <div class="ai-view">
     <BackgroundWeb>
       <IntroAi />
-      <ShortAnswer class="styleAI" title="AI-automatisering: de kernexpertise van JukeCoding">
-        JukeCoding is gespecialiseerd in AI-automatisering voor Belgische bedrijven.
-        We bouwen op maat gemaakte AI-agents, chatbots en slimme workflows die
-        repetitieve taken volledig automatiseren. Zo besparen teams tot 80% tijd,
-        verminderen ze fouten en kunnen ze zich focussen op groei en strategie.
+      <ShortAnswer class="styleAI" :title="t('aiSolutionsView.shortAnswer.title')">
+        {{ t('aiSolutionsView.shortAnswer.body') }}
       </ShortAnswer>
 
-      <AIAgents />
       <AiFeaturedrid />
       <AiProblemSolver />
       <AiSplitSection />
       <AiPlatformComponent />
       <WebdesignCta />
 
-      <FaqListAI :faqs="faqsAI" />
+      <FaqListAI :faqs="aiFaqs" />
     </BackgroundWeb>
   </div>
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useHead } from '@unhead/vue'
+import { useI18n } from 'vue-i18n'
 
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import IntroAi from '@/components/IntroAi.vue'
-import AIAgents from '@/components/AIAgents.vue'
 import AiFeaturedrid from '@/components/AiFeaturedrid.vue'
 import AiProblemSolver from '@/components/AiProblemSolver.vue'
 import AiSplitSection from '@/components/AiSplitSection.vue'
@@ -36,6 +33,10 @@ import FaqListAI from '@/components/FaqListAI.vue'
 import ShortAnswer from '@/components/ShortAnswer.vue'
 
 import { faqsAI } from '@/data/faqs.ai'
+
+const { t, locale } = useI18n()
+
+const aiFaqs = computed(() => faqsAI[locale.value] ?? faqsAI.nl)
 
 const url = 'https://jukecoding.be/ai-automatisatie'
 
@@ -52,26 +53,24 @@ const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   '@id': `${url}#service`,
-  name: 'AI automatisering & AI agents voor KMO in Belgie',
-  serviceType: ['AI Automation', 'AI Agents', 'Chatbot Development', 'Workflow Automatisatie'],
-  description: 'AI-agents, chatbots en slimme workflows die repetitieve taken automatiseren voor KMO en zelfstandigen in Belgie. Bespaar tijd, verminder fouten en groei sneller.',
+  name: 'AI-automatisering voor KMO in Belgie',
+  serviceType: ['AI Automation', 'Chatbot Development', 'Workflow Automatisatie'],
+  description:
+    'Slimme workflows, chatbots en automatiseringen die repetitieve taken overnemen voor KMO en zelfstandigen in Belgie. Bespaar tijd, verminder fouten en groei sneller.',
   areaServed: { '@type': 'Country', name: 'Belgium' },
   url,
   provider: { '@type': 'Organization', '@id': 'https://jukecoding.be/#organization' },
   offers: {
     '@type': 'Offer',
-    price: '800',
-    priceCurrency: 'EUR',
     availability: 'https://schema.org/InStock',
-    priceValidUntil: '2026-12-31',
-    description: 'AI automatisering op maat voor KMO vanaf EUR 800',
+    description: 'AI-automatisering op maat voor KMO — prijs op aanvraag na kennismaking',
   },
 }
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqsAI.map((faq) => ({
+  mainEntity: faqsAI.nl.map((faq) => ({
     '@type': 'Question',
     name: faq.question,
     acceptedAnswer: { '@type': 'Answer', text: faq.answer },
@@ -92,7 +91,8 @@ const organizationSchema = {
     height: 60,
   },
   image: 'https://jukecoding.be/og-image.jpg',
-  description: 'Professionele websites en AI-automatisatie voor KMO en zelfstandigen in Hasselt, Limburg en heel Vlaanderen.',
+  description:
+    'Professionele websites en AI-automatisatie voor KMO en zelfstandigen in Hasselt, Limburg en heel Vlaanderen.',
   address: {
     '@type': 'PostalAddress',
     addressLocality: 'Hasselt',
@@ -107,7 +107,6 @@ const organizationSchema = {
   },
   telephone: '+32479131715',
   email: 'contact@jukecoding.be',
-  priceRange: 'EUR 600 - EUR 3000',
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -116,13 +115,16 @@ const organizationSchema = {
       closes: '18:00',
     },
   ],
-  sameAs: [
-    'https://www.linkedin.com/company/jukecoding',
-    'https://www.instagram.com/jukecoding',
-  ],
+  sameAs: ['https://www.linkedin.com/company/jukecoding', 'https://www.instagram.com/jukecoding'],
   knowsAbout: [
-    'AI Automatisatie', 'AI Agents', 'Chatbots', 'Workflow Automatisatie',
-    'Web Design', 'AI Automation', 'Web Development', 'Digital Marketing', 'SEO',
+    'AI Automatisatie',
+    'Chatbots',
+    'Workflow Automatisatie',
+    'Web Design',
+    'AI Automation',
+    'Web Development',
+    'Digital Marketing',
+    'SEO',
   ],
   areaServed: [
     { '@type': 'AdministrativeArea', name: 'Limburg', addressCountry: 'BE' },
@@ -151,16 +153,21 @@ const websiteSchema = {
 }
 
 useHead({
-  title: 'AI Automatisatie voor KMO\'s in Belgie | JukeCoding',
+  title: "AI Automatisatie voor KMO's in Belgie | JukeCoding",
   meta: [
     {
       name: 'description',
-      content: 'AI automatisering voor KMO in Belgie met AI-agents en slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
+      content:
+        'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
     },
-    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
+    {
+      name: 'robots',
+      content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    },
     {
       name: 'keywords',
-      content: 'AI automatisatie Belgie, AI agents, chatbots, workflow automatisatie, KMO automatisatie, bedrijfsprocessen automatiseren',
+      content:
+        'AI automatisatie Belgie, slimme workflows, chatbots, workflow automatisatie, KMO automatisatie, bedrijfsprocessen automatiseren',
     },
     { name: 'geo.region', content: 'BE-VLG' },
     { name: 'geo.placename', content: 'Hasselt' },
@@ -169,29 +176,31 @@ useHead({
     { name: 'author', content: 'JukeCoding' },
     { name: 'copyright', content: 'JukeCoding' },
     { name: 'language', content: 'Dutch' },
-    { property: 'og:title', content: 'AI Automatisatie voor KMO\'s | JukeCoding' },
+    { property: 'og:title', content: "AI Automatisatie voor KMO's | JukeCoding" },
     {
       property: 'og:description',
-      content: 'AI automatisering voor KMO in Belgie met AI-agents en slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
+      content:
+        'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:image:alt', content: 'AI automatisering en AI agents door JukeCoding' },
+    { property: 'og:image:alt', content: 'AI-automatisering door JukeCoding' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:site_name', content: 'JukeCoding' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'AI Automatisatie voor KMO\'s | JukeCoding' },
+    { name: 'twitter:title', content: "AI Automatisatie voor KMO's | JukeCoding" },
     {
       name: 'twitter:description',
-      content: 'AI automatisering voor KMO in Belgie met AI-agents en slimme workflows voor offertes, opvolging en rapportage.',
+      content:
+        'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage.',
     },
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       name: 'twitter:image:alt',
-      content: 'JukeCoding - AI automatisatie voor Belgische KMO\'s',
+      content: "JukeCoding - AI automatisatie voor Belgische KMO's",
     },
   ],
   link: [{ rel: 'canonical', href: url }],

@@ -14,8 +14,8 @@
 
 <script setup>
 defineProps({
-  dark: { type: Boolean, default: false }
-});
+  dark: { type: Boolean, default: false },
+})
 </script>
 
 <style scoped>
@@ -27,7 +27,12 @@ defineProps({
   inset: 0;
   pointer-events: none;
   z-index: 0;
-  background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-sunken) 50%, var(--color-bg-primary) 100%);
+  background: linear-gradient(
+    180deg,
+    var(--color-bg-primary) 0%,
+    var(--color-bg-sunken) 50%,
+    var(--color-bg-primary) 100%
+  );
   overflow: hidden;
 }
 
@@ -61,7 +66,12 @@ defineProps({
 .orb-1 {
   width: 800px;
   height: 800px;
-  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-primary) 35%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    var(--color-primary) 0%,
+    var(--color-primary) 35%,
+    transparent 70%
+  );
   top: -350px;
   right: -250px;
   animation-delay: 0s;
@@ -70,7 +80,7 @@ defineProps({
 .orb-2 {
   width: 700px;
   height: 700px;
-  background: radial-gradient(circle, #ec4899 0%, var(--color-primary) 35%, transparent 70%);
+  background: radial-gradient(circle, #34c98e 0%, var(--color-primary) 35%, transparent 70%);
   bottom: -250px;
   left: -200px;
   animation-delay: -10s;
@@ -79,7 +89,12 @@ defineProps({
 .orb-3 {
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, var(--color-primary) 0%, var(--color-primary) 35%, transparent 70%);
+  background: radial-gradient(
+    circle,
+    var(--color-primary) 0%,
+    var(--color-primary) 35%,
+    transparent 70%
+  );
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -90,8 +105,8 @@ defineProps({
   position: absolute;
   inset: 0;
   background-image:
-      linear-gradient(var(--color-primary-subtle) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-primary-subtle) 1px, transparent 1px);
+    linear-gradient(var(--color-primary-subtle) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-primary-subtle) 1px, transparent 1px);
   background-size: 100px 100px;
   mask-image: radial-gradient(ellipse at center, black 10%, transparent 70%);
   animation: gridPulse 8s ease-in-out infinite;
@@ -100,8 +115,8 @@ defineProps({
 
 .dark .grid-pattern {
   background-image:
-      linear-gradient(var(--color-bg-surface) 1px, transparent 1px),
-      linear-gradient(90deg, var(--color-bg-surface) 1px, transparent 1px);
+    linear-gradient(var(--color-bg-surface) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-bg-surface) 1px, transparent 1px);
   opacity: 0.4;
 }
 
@@ -123,14 +138,26 @@ defineProps({
    ANIMATIONS
    ========================================================= */
 @keyframes float {
-  0%, 100% { transform: translate(0, 0) scale(1); }
-  33% { transform: translate(50px, -50px) scale(1.1); }
-  66% { transform: translate(-40px, 30px) scale(0.9); }
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+  33% {
+    transform: translate(50px, -50px) scale(1.1);
+  }
+  66% {
+    transform: translate(-40px, 30px) scale(0.9);
+  }
 }
 
 @keyframes gridPulse {
-  0%, 100% { opacity: 0.2; }
-  50% { opacity: 0.4; }
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.4;
+  }
 }
 
 /* =========================================================

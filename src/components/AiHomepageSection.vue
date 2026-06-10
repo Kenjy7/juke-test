@@ -2,25 +2,35 @@
   <section class="stats-section band--sunken" ref="sectionRef">
     <div class="container">
       <h2 class="reveal">
-        Technologie die meetbaar
-        <span class="highlight">resultaat levert.</span>
+        {{ t('aiHomepageSection.head.title') }}
+        <span class="highlight">{{ t('aiHomepageSection.head.titleHighlight') }}</span>
       </h2>
 
       <div class="stats-shell reveal reveal-delay-1">
         <div class="stats-inner">
-          <div v-for="(stat, index) in visibleStats" :key="`${stat.number}-${index}`" class="stat-item">
+          <div
+            v-for="(stat, index) in visibleStats"
+            :key="`${stat.number}-${index}`"
+            class="stat-item"
+          >
             <div class="stat-number">{{ stat.number }}</div>
             <div class="stat-label">{{ stat.label }}</div>
           </div>
         </div>
       </div>
 
-      <div class="reveal reveal-delay-2" style="text-align: center;">
+      <div class="reveal reveal-delay-2" style="text-align: center">
         <router-link to="/contact" class="cta-btn">
-          <span>Bespreek wat AI voor jou kan doen</span>
+          <span>{{ t('aiHomepageSection.cta.label') }}</span>
           <span class="cta-icon">
             <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M4 12L12 4M12 4H6M12 4V10"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </span>
         </router-link>
@@ -30,46 +40,54 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, onUnmounted } from 'vue';
+import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
 
-const stats = [
-  { number: 'Tot 80%', label: 'Tijdsbesparing door automatisering' },
-  { number: '24/7', label: 'Beschikbaar via AI-agents' },
-  { number: '3x', label: 'Snellere doorlooptijd' },
-  { number: '95%', label: 'Klanttevredenheid' },
-  { number: '10x', label: 'Meer schaalbaarheid' },
-  { number: '60%', label: 'Kostenreductie op processen' }
-];
+const sectionRef = ref(null)
 
-const currentStartIndex = ref(0);
-let interval = null;
+const stats = computed(() => [
+  { number: 'Tot 80%', label: t('aiHomepageSection.stats.timeSaving') },
+  { number: '24/7', label: t('aiHomepageSection.stats.available') },
+  { number: '3x', label: t('aiHomepageSection.stats.faster') },
+  { number: '95%', label: t('aiHomepageSection.stats.satisfaction') },
+  { number: '10x', label: t('aiHomepageSection.stats.scalability') },
+  { number: '60%', label: t('aiHomepageSection.stats.costReduction') },
+])
+
+const currentStartIndex = ref(0)
+let interval = null
 
 const visibleStats = computed(() => {
-  const result = [];
+  const result = []
   for (let i = 0; i < 3; i++) {
-    const index = (currentStartIndex.value + i) % stats.length;
-    result.push(stats[index]);
+    const index = (currentStartIndex.value + i) % stats.value.length
+    result.push(stats.value[index])
   }
-  return result;
-});
+  return result
+})
 
 onMounted(() => {
   interval = setInterval(() => {
-    currentStartIndex.value = (currentStartIndex.value + 1) % stats.length;
-  }, 3500);
+    currentStartIndex.value = (currentStartIndex.value + 1) % stats.value.length
+  }, 3500)
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1 },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 
-onUnmounted(() => { if (interval) clearInterval(interval); });
+onUnmounted(() => {
+  if (interval) clearInterval(interval)
+})
 </script>
 
 <style scoped lang="scss">
@@ -94,7 +112,9 @@ h2 {
   margin: 0 0 var(--space-12) 0;
 }
 
-.highlight { color: var(--color-primary); }
+.highlight {
+  color: var(--color-primary);
+}
 
 /* Double-Bezel stats */
 .stats-shell {
@@ -120,8 +140,14 @@ h2 {
 }
 
 @keyframes slideIn {
-  from { opacity: 0; transform: translateX(20px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 .stat-number {
@@ -170,20 +196,31 @@ h2 {
     background: var(--color-primary-hover);
     transform: translateY(-2px);
     box-shadow: 0 0 60px var(--color-primary-glow);
-    .cta-icon { transform: translate(1px, -1px) scale(1.08); }
+    .cta-icon {
+      transform: translate(1px, -1px) scale(1.08);
+    }
   }
 
-  &:active { transform: scale(0.97); }
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 @media (max-width: 768px) {
-  .stats-section { padding: var(--space-16) 0; }
-  .container { padding: 0 var(--space-4); }
+  .stats-section {
+    padding: var(--space-16) 0;
+  }
+  .container {
+    padding: 0 var(--space-4);
+  }
   .stats-inner {
     grid-template-columns: 1fr;
     gap: var(--space-8);
     padding: var(--space-8) var(--space-6);
   }
-  .cta-btn { width: 100%; justify-content: center; }
+  .cta-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }
 </style>

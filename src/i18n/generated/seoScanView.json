@@ -1,0 +1,116 @@
+{
+  "nl": {
+    "hero": {
+      "title": "Gratis SEO Scan",
+      "sub": "Voer je websiteadres in en ontdek in 10 seconden welke SEO-problemen je verbergen voor Google."
+    },
+    "already": {
+      "badge": "Je hebt al een gratis scan gebruikt",
+      "textBefore": "Je hebt eerder",
+      "textScanned": "gescand",
+      "textScore": "en een score van",
+      "textAchieved": "behaald.",
+      "rescan": "Andere website scannen"
+    },
+    "upgradeAlready": {
+      "title": "Wil je een uitgebreide analyse?",
+      "text": "Onze uitgebreide scan controleert elke pagina van je website, analyseert je concurrenten, zoekt keyword-kansen en geeft je een stap-voor-stap actieplan."
+    },
+    "upgrade": {
+      "cta": "Vraag uitgebreide scan aan ->"
+    },
+    "prevSummary": {
+      "label": "Jouw vorige scan"
+    },
+    "form": {
+      "placeholder": "jouwwebsite.be",
+      "scanNow": "Scan nu ->",
+      "disclaimer": "1 gratis scan per bezoeker. Bots en misbruik worden automatisch afgeremd."
+    },
+    "result": {
+      "scoreLabel": "SEO Score voor"
+    },
+    "metaPreview": {
+      "title": "Hoe Google jouw site ziet",
+      "noTitle": "Geen title tag gevonden",
+      "noDescription": "Geen meta description gevonden - Google kiest zelf een snippet."
+    },
+    "headingPreview": {
+      "title": "Paginastructuur (H2-titels)"
+    },
+    "upgradeResult": {
+      "title": "Wil je weten hoe je concurrenten het doen?",
+      "text": "Onze uitgebreide scan analyseert alle pagina's, vergelijkt met je concurrenten, zoekt keyword-kansen en levert een concreet actieplan op."
+    },
+    "checkLabels": {
+      "title": "Title tag",
+      "description": "Meta description",
+      "h1": "H1-titel",
+      "canonical": "Canonical URL",
+      "ogTags": "Social media tags (OG)",
+      "schema": "Schema markup",
+      "headings": "H2-structuur",
+      "images": "Alt-tekst afbeeldingen"
+    },
+    "errors": {
+      "generic": "Er ging iets mis. Probeer opnieuw."
+    }
+  },
+  "en": {
+    "hero": {
+      "title": "Free SEO Scan",
+      "sub": "Enter your website address and find out in 10 seconds which SEO problems you're hiding from Google."
+    },
+    "already": {
+      "badge": "You've already used a free scan",
+      "textBefore": "You previously scanned",
+      "textScanned": "",
+      "textScore": "and achieved a score of",
+      "textAchieved": ".",
+      "rescan": "Scan another website"
+    },
+    "upgradeAlready": {
+      "title": "Want a comprehensive analysis?",
+      "text": "Our comprehensive scan checks every page of your website, analyses your competitors, finds keyword opportunities and gives you a step-by-step action plan."
+    },
+    "upgrade": {
+      "cta": "Request comprehensive scan ->"
+    },
+    "prevSummary": {
+      "label": "Your previous scan"
+    },
+    "form": {
+      "placeholder": "yourwebsite.be",
+      "scanNow": "Scan now ->",
+      "disclaimer": "1 free scan per visitor. Bots and abuse are automatically throttled."
+    },
+    "result": {
+      "scoreLabel": "SEO Score for"
+    },
+    "metaPreview": {
+      "title": "How Google sees your site",
+      "noTitle": "No title tag found",
+      "noDescription": "No meta description found - Google picks its own snippet."
+    },
+    "headingPreview": {
+      "title": "Page structure (H2 headings)"
+    },
+    "upgradeResult": {
+      "title": "Want to know how your competitors are doing?",
+      "text": "Our comprehensive scan analyses all pages, compares with your competitors, finds keyword opportunities and delivers a concrete action plan."
+    },
+    "checkLabels": {
+      "title": "Title tag",
+      "description": "Meta description",
+      "h1": "H1 heading",
+      "canonical": "Canonical URL",
+      "ogTags": "Social media tags (OG)",
+      "schema": "Schema markup",
+      "headings": "H2 structure",
+      "images": "Image alt text"
+    },
+    "errors": {
+      "generic": "Something went wrong. Please try again."
+    }
+  }
+}

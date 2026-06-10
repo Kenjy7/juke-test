@@ -2,37 +2,36 @@ import fs from 'node:fs'
 import path from 'node:path'
 
 import { blogPosts } from '../src/data/blogs/index.js'
-import { provincieSlugs } from '../src/data/provincies.js'
-import { stadSlugs, stadData } from '../src/data/steden.js'
 
 const SITE_URL = 'https://jukecoding.be'
 
 const staticRoutes = [
-  { path: '/', changefreq: 'weekly', priority: '1.0', image: { loc: `${SITE_URL}/og-image.jpg`, title: 'JukeCoding - Webdesign & AI Automatisatie Hasselt' } },
-  { path: '/webdesign', changefreq: 'weekly', priority: '0.8', image: { loc: `${SITE_URL}/og-image-webdesign.jpg`, title: 'Webdesign pakketten - JukeCoding' } },
+  {
+    path: '/',
+    changefreq: 'weekly',
+    priority: '1.0',
+    image: {
+      loc: `${SITE_URL}/og-image.jpg`,
+      title: 'JukeCoding - Webdesign & AI Automatisatie Hasselt',
+    },
+  },
+  {
+    path: '/webdesign',
+    changefreq: 'weekly',
+    priority: '0.8',
+    image: { loc: `${SITE_URL}/og-image-webdesign.jpg`, title: 'Webdesign pakketten - JukeCoding' },
+  },
   { path: '/ai-automatisatie', changefreq: 'weekly', priority: '0.8' },
+  { path: '/saas-development', changefreq: 'weekly', priority: '0.8' },
+  { path: '/vibemind', changefreq: 'weekly', priority: '0.8' },
+  { path: '/beheerly', changefreq: 'weekly', priority: '0.8' },
   { path: '/gratis-seo-scan', changefreq: 'weekly', priority: '0.8' },
   { path: '/blog', changefreq: 'weekly', priority: '0.8' },
   { path: '/website-die-klanten-oplevert', changefreq: 'monthly', priority: '0.7' },
-  { path: '/locaties', changefreq: 'monthly', priority: '0.6' },
   { path: '/contact', changefreq: 'monthly', priority: '0.6' },
   { path: '/offerte-aanvraag', changefreq: 'monthly', priority: '0.6' },
   { path: '/cookies', changefreq: 'yearly', priority: '0.3' },
 ]
-
-const provinceRoutes = provincieSlugs.map((slug) => ({ path: `/webdesign-${slug}`, changefreq: 'monthly', priority: '0.7' }))
-
-const cityRoutes = stadSlugs.map((slug) => {
-  const data = stadData[slug]
-  const entry = { path: `/webdesign-${slug}`, changefreq: 'monthly', priority: '0.7' }
-  if (data?.ogImage) {
-    entry.image = {
-      loc: `${SITE_URL}${data.ogImage}`,
-      title: `Webdesign ${data.naam} - JukeCoding`,
-    }
-  }
-  return entry
-})
 
 const blogRoutes = blogPosts
   .filter((post) => post.published)
@@ -46,29 +45,47 @@ const blogRoutes = blogPosts
 
 const lastmod = new Date().toISOString().slice(0, 10)
 
-const toUrl = ({ path: routePath, date, changefreq, priority, image }) => {
-  const loc = `${SITE_URL}${routePath}`
+// prefix_except_default: nl is unprefixed, en lives under /en (keep in sync with
+// src/i18n). Each URL declares reciprocal hreflang alternates + x-default (nl).
+const localePath = (routePath, locale) =>
+  locale === 'nl' ? routePath : routePath === '/' ? '/en' : `/en${routePath}`
+
+const alternateTags = (routePath) =>
+  [
+    { hreflang: 'nl-BE', loc: `${SITE_URL}${localePath(routePath, 'nl')}` },
+    { hreflang: 'en', loc: `${SITE_URL}${localePath(routePath, 'en')}` },
+    { hreflang: 'x-default', loc: `${SITE_URL}${localePath(routePath, 'nl')}` },
+  ]
+    .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.loc}"/>\n`)
+    .join('')
+
+// One <url> per locale, each carrying the full set of alternates.
+const toUrls = ({ path: routePath, date, changefreq, priority, image }) => {
   const imageTag = image
     ? `    <image:image>\n      <image:loc>${image.loc}</image:loc>\n      <image:title>${image.title}</image:title>\n    </image:image>\n`
     : ''
+  const alternates = alternateTags(routePath)
 
-  return (
-    `  <url>\n` +
-    `    <loc>${loc}</loc>\n` +
-    `    <lastmod>${date || lastmod}</lastmod>\n` +
-    `    <changefreq>${changefreq}</changefreq>\n` +
-    `    <priority>${priority}</priority>\n` +
-    imageTag +
-    `  </url>`
+  return ['nl', 'en'].map(
+    (locale) =>
+      `  <url>\n` +
+      `    <loc>${SITE_URL}${localePath(routePath, locale)}</loc>\n` +
+      `    <lastmod>${date || lastmod}</lastmod>\n` +
+      `    <changefreq>${changefreq}</changefreq>\n` +
+      `    <priority>${priority}</priority>\n` +
+      alternates +
+      imageTag +
+      `  </url>`,
   )
 }
 
-const allUrls = [...staticRoutes, ...provinceRoutes, ...cityRoutes, ...blogRoutes].map(toUrl)
+const allUrls = [...staticRoutes, ...blogRoutes].flatMap(toUrls)
 
 const xml =
   `<?xml version="1.0" encoding="UTF-8"?>\n` +
   `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n` +
-  `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n` +
+  `        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"\n` +
+  `        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n` +
   allUrls.join('\n') +
   `\n</urlset>\n`
 
@@ -76,9 +93,7 @@ const outPath = path.resolve('public', 'sitemap.xml')
 fs.mkdirSync(path.dirname(outPath), { recursive: true })
 fs.writeFileSync(outPath, xml, 'utf8')
 
-const total = staticRoutes.length + provinceRoutes.length + cityRoutes.length + blogRoutes.length
-console.log(`sitemap.xml gegenereerd (${total} urls) -> ${outPath}`)
-console.log(`   -> ${staticRoutes.length} statische pagina's`)
-console.log(`   -> ${provinceRoutes.length} provinciepagina's`)
-console.log(`   -> ${cityRoutes.length} locatiepagina's`)
-console.log(`   -> ${blogRoutes.length} blogposts`)
+const total = (staticRoutes.length + blogRoutes.length) * 2
+console.log(`sitemap.xml gegenereerd (${total} urls, nl + en) -> ${outPath}`)
+console.log(`   -> ${staticRoutes.length} statische pagina's × 2 locales`)
+console.log(`   -> ${blogRoutes.length} blogposts × 2 locales`)

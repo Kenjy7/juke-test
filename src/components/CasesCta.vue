@@ -4,21 +4,32 @@
       <div class="cases-panel band--dark reveal">
         <span class="eyebrow">
           <span class="eyebrow__dot"></span>
-          Cases
+          {{ t('casesCta.eyebrow') }}
         </span>
         <h2>
-          We bouwen momenteel onze eerste
-          AI- en SaaS-projecten.
+          {{ t('casesCta.head.title') }}
         </h2>
         <p class="lead">
-          Heb je een idee voor een AI-oplossing of SaaS-platform?
-          We denken graag vrijblijvend met je mee.
+          {{ t('casesCta.head.lead') }}
         </p>
         <div class="cases-actions">
           <router-link to="/offerte-aanvraag" class="btn btn--accent btn--lg">
-            <span>Bespreek je project</span>
-            <svg class="btn__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <span>{{ t('casesCta.cta.discuss') }}</span>
+            <svg
+              class="btn__icon"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              aria-hidden="true"
+            >
+              <path
+                d="M4 12L12 4M12 4H6M12 4V10"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </router-link>
         </div>
@@ -28,19 +39,25 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
+
+const sectionRef = ref(null)
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.15 },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped lang="scss">
@@ -130,7 +147,9 @@ h2 {
   .cases-actions {
     flex-direction: column;
 
-    .btn { width: 100%; }
+    .btn {
+      width: 100%;
+    }
   }
 }
 </style>

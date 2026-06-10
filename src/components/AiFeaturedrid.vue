@@ -1,18 +1,26 @@
 <template>
-  <section class="ai-grid-section">
-    <div class="inner">
-      <!-- Title section -->
+  <section class="ai-grid-section" ref="sectionRef">
+    <div class="container">
+      <header class="section-head reveal">
+        <span class="eyebrow">
+          <span class="eyebrow__dot"></span>
+          {{ t('aiFeaturedrid.head.eyebrow') }}
+        </span>
+        <h2>
+          {{ t('aiFeaturedrid.head.titleLine1') }}<br />{{ t('aiFeaturedrid.head.titleLine2') }}
+        </h2>
+      </header>
 
-      <!-- Grid -->
       <div class="grid">
         <AiFeatureCard
-            v-for="(item, i) in features"
-            :key="i"
-            :title="item.title"
-            :description="item.description"
-            :icon="item.icon"
-            :highlights="item.highlights"
-            :style="{ '--delay': i * 0.1 + 's' }"
+          v-for="(item, i) in features"
+          :key="i"
+          :title="item.title"
+          :description="item.description"
+          :icon="item.icon"
+          :highlights="item.highlights"
+          class="reveal"
+          :class="[`reveal-delay-${i + 1}`]"
         />
       </div>
     </div>
@@ -20,158 +28,145 @@
 </template>
 
 <script setup>
-import { Bot, BrainCircuit, Rocket } from "lucide-vue-next";
-import AiFeatureCard from "@/components/AiFeatureCard.vue";
+import { ref, computed, onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { Bot, BrainCircuit, Rocket } from 'lucide-vue-next'
+import AiFeatureCard from '@/components/AiFeatureCard.vue'
 
-const features = [
+const { t } = useI18n()
+
+const sectionRef = ref(null)
+
+const features = computed(() => [
   {
-    title: "Autonome AI Agents",
-    description:
-        "Zelfstandige AI-agents die repetitieve taken overnemen en 24/7 uitvoeren zonder menselijke tussenkomst.",
+    title: t('aiFeaturedrid.cards.workflows.title'),
+    description: t('aiFeaturedrid.cards.workflows.description'),
     icon: Bot,
     highlights: [
-      "Sales & support automatisatie",
-      "24/7 actief en schaalbaar",
-      "Zelflerend en adaptief"
-    ]
+      t('aiFeaturedrid.cards.workflows.highlights.0'),
+      t('aiFeaturedrid.cards.workflows.highlights.1'),
+      t('aiFeaturedrid.cards.workflows.highlights.2'),
+    ],
   },
   {
-    title: "Inzicht & Besluitvorming",
-    description:
-        "AI analyseert grote hoeveelheden data en vertaalt deze naar duidelijke inzichten voor snellere, betere beslissingen.",
+    title: t('aiFeaturedrid.cards.insight.title'),
+    description: t('aiFeaturedrid.cards.insight.description'),
     icon: BrainCircuit,
     highlights: [
-      "Realtime dashboards",
-      "Predictive analytics",
-      "Datagedreven keuzes"
-    ]
+      t('aiFeaturedrid.cards.insight.highlights.0'),
+      t('aiFeaturedrid.cards.insight.highlights.1'),
+      t('aiFeaturedrid.cards.insight.highlights.2'),
+    ],
   },
   {
-    title: "Groei & Communicatie",
-    description:
-        "Slimme AI-oplossingen die marketing, content en klantcommunicatie optimaliseren voor duurzame groei.",
+    title: t('aiFeaturedrid.cards.growth.title'),
+    description: t('aiFeaturedrid.cards.growth.description'),
     icon: Rocket,
     highlights: [
-      "Leadgeneratie & conversie",
-      "Content & copy AI",
-      "Consistente klantinteractie"
-    ]
-  }
-];
+      t('aiFeaturedrid.cards.growth.highlights.0'),
+      t('aiFeaturedrid.cards.growth.highlights.1'),
+      t('aiFeaturedrid.cards.growth.highlights.2'),
+    ],
+  },
+])
+
+onMounted(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+  )
+
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped lang="scss">
 .ai-grid-section {
-  padding: 1rem 0 5rem;
-  position: relative;
-  border-bottom: 1px solid var(--color-bg-surface);
+  padding: var(--space-16) var(--space-8) var(--space-24);
 }
 
-.inner {
-  max-width: 1300px;
+.container {
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
 }
 
-/* =========================================================
-   TITLE SECTION
-   ========================================================= */
-.title-wrapper {
-  text-align: center;
-  margin-bottom: 5rem;
-  animation: fadeInUp 0.8s ease-out;
+.section-head {
+  max-width: 760px;
+  margin-bottom: var(--space-16);
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.label {
-  display: inline-block;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--color-primary);
-  background: var(--color-primary-subtle);
-  padding: 0.5rem 1.25rem;
-  border-radius: 2rem;
-  margin-bottom: 1.5rem;
-  letter-spacing: 0.05em;
-  border: 1px solid var(--color-primary-border);
-  text-transform: uppercase;
-}
-
-.gradient-text {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 800;
-  margin-bottom: 1.5rem;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-  color: var(--color-text-primary);
-  font-family: var(--font-display);
-}
-
-.subtitle {
-  font-size: 1.25rem;
-  max-width: 720px;
-  margin: 0 auto;
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
   color: var(--color-text-secondary);
-  line-height: 1.7;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  margin-bottom: var(--space-5);
 }
 
-/* =========================================================
-   GRID
-   ========================================================= */
+.eyebrow__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-h1);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
-  animation: fadeInUp 0.8s ease-out 0.2s both;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-5);
 }
 
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-@media (max-width: 768px) {
-  .ai-grid-section {
-    padding: 6rem 0;
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity var(--duration-reveal) var(--ease-out-expo),
+    transform var(--duration-reveal) var(--ease-out-expo);
+  &.visible {
+    opacity: 1;
+    transform: none;
   }
+}
+.reveal-delay-1 {
+  transition-delay: 80ms;
+}
+.reveal-delay-2 {
+  transition-delay: 160ms;
+}
+.reveal-delay-3 {
+  transition-delay: 240ms;
+}
 
-  .inner {
-    padding: 0 1.5rem;
-  }
-
-  .title-wrapper {
-    margin-bottom: 3rem;
-  }
-
-  .gradient-text {
-    font-size: 2rem;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-  }
-
+@media (max-width: 900px) {
   .grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    max-width: 480px;
+    margin: 0 auto;
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 768px) {
   .ai-grid-section {
-    padding: 5rem 0;
-  }
-
-  .inner {
-    padding: 0 1.25rem;
+    padding: var(--space-12) var(--space-5) var(--space-16);
   }
 }
 </style>

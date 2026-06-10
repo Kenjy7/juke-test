@@ -1,0 +1,44 @@
+{
+  "nl": {
+    "eyebrow": "Waarom Juke",
+    "head": {
+      "title": "Waarom bedrijven met ons bouwen.",
+      "lead": "Technische expertise gecombineerd met een pragmatische aanpak."
+    },
+    "features": {
+      "speed": {
+        "title": "Snelle oplevering",
+        "description": "Van idee tot werkend product in weken, niet maanden. We werken in sprints en leveren snel tastbaar resultaat."
+      },
+      "personal": {
+        "title": "Persoonlijke aanpak",
+        "description": "Geen templates of standaardoplossingen. We analyseren jouw processen en bouwen precies wat je nodig hebt."
+      },
+      "scale": {
+        "title": "Schaalbare technologie",
+        "description": "We bouwen met moderne stacks die meegroeien met je bedrijf. Van Vue en Node tot AI-API's en cloud-infrastructuur."
+      }
+    }
+  },
+  "en": {
+    "eyebrow": "Why Juke",
+    "head": {
+      "title": "Why companies build with us.",
+      "lead": "Technical expertise combined with a pragmatic approach."
+    },
+    "features": {
+      "speed": {
+        "title": "Fast delivery",
+        "description": "From idea to working product in weeks, not months. We work in sprints and deliver tangible results quickly."
+      },
+      "personal": {
+        "title": "Personal approach",
+        "description": "No templates or off-the-shelf solutions. We analyse your processes and build exactly what you need."
+      },
+      "scale": {
+        "title": "Scalable technology",
+        "description": "We build with modern stacks that grow with your business. From Vue and Node to AI APIs and cloud infrastructure."
+      }
+    }
+  }
+}

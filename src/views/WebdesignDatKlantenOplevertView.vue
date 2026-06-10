@@ -10,7 +10,7 @@ import { useHead } from '@unhead/vue'
 import WebdesignDatKlantenOplevert from '@/components/WebdesignDatKlantenOplevert.vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 
-import {faqsMeerKlanten} from '@/data/faqs.meerklanten.js'
+import { faqsMeerKlanten } from '@/data/faqs.meerklanten.js'
 
 const url = 'https://jukecoding.be/website-die-klanten-oplevert'
 const siteUrl = 'https://jukecoding.be/'
@@ -46,7 +46,8 @@ const howToJsonLd = {
   '@type': 'HowTo',
   '@id': `${url}#howto`,
   name: 'Hoe zorg je dat je website klanten oplevert',
-  description: 'Ontdek in 5 stappen hoe je website omzet in een klantenmagneet met duidelijke CTA\'s en conversie-optimalisatie.',
+  description:
+    "Ontdek in 5 stappen hoe je website omzet in een klantenmagneet met duidelijke CTA's en conversie-optimalisatie.",
   image: {
     '@type': 'ImageObject',
     url: ogImage,
@@ -104,7 +105,7 @@ const webPageJsonLd = {
   url,
   name: 'Website die klanten oplevert | Conversie-optimalisatie',
   description:
-      "Website die geen klanten oplevert? Wij optimaliseren voor conversie met duidelijke CTA's, snelheid en vertrouwenssignalen. Meer aanvragen, betere resultaten.",
+    "Website die geen klanten oplevert? Wij optimaliseren voor conversie met duidelijke CTA's, snelheid en vertrouwenssignalen. Meer aanvragen, betere resultaten.",
   inLanguage: 'nl-BE',
   isPartOf: { '@id': `${siteUrl}#website` },
   about: { '@id': `${siteUrl}#organization` },
@@ -117,8 +118,8 @@ const webPageJsonLd = {
   },
   speakable: {
     '@type': 'SpeakableSpecification',
-    cssSelector: ['.hero__title', '.section-title']
-  }
+    cssSelector: ['.hero__title', '.section-title'],
+  },
 }
 
 /** JSON-LD: Service - Conversie-specifiek */
@@ -129,26 +130,27 @@ const serviceJsonLd = {
   name: 'Website conversie-optimalisatie',
   serviceType: 'Conversie-optimalisatie & Webdesign',
   description:
-      "Transformeer je website in een klantenmagneet. We optimaliseren voor meer aanvragen via duidelijke CTA's, snelheid, vertrouwenssignalen en mobiele ervaring.",
+    "Transformeer je website in een klantenmagneet. We optimaliseren voor meer aanvragen via duidelijke CTA's, snelheid, vertrouwenssignalen en mobiele ervaring.",
   areaServed: { '@type': 'Country', name: 'Belgium' },
   url,
   provider: { '@type': 'Organization', '@id': `${siteUrl}#organization` },
   offers: {
     '@type': 'Offer',
     name: 'Website conversie-optimalisatie pakket',
-    description: 'Complete website die klanten oplevert: van strategie tot conversie-geoptimaliseerd design',
+    description:
+      'Complete website die klanten oplevert: van strategie tot conversie-geoptimaliseerd design',
     priceCurrency: 'EUR',
     priceSpecification: {
       '@type': 'PriceSpecification',
       minPrice: '600',
-      priceCurrency: 'EUR'
+      priceCurrency: 'EUR',
     },
     availability: 'https://schema.org/InStock',
     url: `${siteUrl}webdesign#pakketten`,
   },
   serviceOutput: {
     '@type': 'WebSite',
-    name: 'Conversiegerichte website'
+    name: 'Conversiegerichte website',
   },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -159,35 +161,35 @@ const serviceJsonLd = {
         itemOffered: {
           '@type': 'Service',
           name: 'CTA optimalisatie',
-          description: 'Duidelijke call-to-actions op strategische plaatsen'
-        }
+          description: 'Duidelijke call-to-actions op strategische plaatsen',
+        },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: 'Performance optimalisatie',
-          description: 'Snelle laadtijden voor lagere bounce rate'
-        }
+          description: 'Snelle laadtijden voor lagere bounce rate',
+        },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: 'Mobiele conversie',
-          description: 'Mobielvriendelijk design dat converteert'
-        }
+          description: 'Mobielvriendelijk design dat converteert',
+        },
       },
       {
         '@type': 'Offer',
         itemOffered: {
           '@type': 'Service',
           name: 'Vertrouwensopbouw',
-          description: 'Design en content die vertrouwen opbouwt'
-        }
-      }
-    ]
-  }
+          description: 'Design en content die vertrouwen opbouwt',
+        },
+      },
+    ],
+  },
 }
 
 useHead({
@@ -198,7 +200,7 @@ useHead({
     {
       name: 'description',
       content:
-          'Wil je meer aanvragen via je site? We bouwen snelle pagina\'s met sterke CTA\'s, vertrouwen en lokale SEO.',
+        "Wil je meer aanvragen via je site? We bouwen snelle pagina's met sterke CTA's, vertrouwen en lokale SEO.",
     },
     { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
     { name: 'author', content: 'JukeCoding' },
@@ -207,15 +209,15 @@ useHead({
     // Keywords - conversie-specifiek
     {
       name: 'keywords',
-      content: 'website klanten oplevert, conversiegerichte website, website meer aanvragen, conversie optimalisatie, website leadgeneratie, CTA optimalisatie'
+      content:
+        'website klanten oplevert, conversiegerichte website, website meer aanvragen, conversie optimalisatie, website leadgeneratie, CTA optimalisatie',
     },
 
     // Open Graph
-    { property: 'og:title', content: 'Website Die Klanten Oplevert | JukeCoding'},
+    { property: 'og:title', content: 'Website Die Klanten Oplevert | JukeCoding' },
     {
       property: 'og:description',
-      content:
-          'Snelle pagina\'s met sterke CTA\'s, vertrouwen en lokale SEO voor meer aanvragen.',
+      content: "Snelle pagina's met sterke CTA's, vertrouwen en lokale SEO voor meer aanvragen.",
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
@@ -232,7 +234,7 @@ useHead({
     { name: 'twitter:title', content: 'Website Die Klanten Oplevert | JukeCoding' },
     {
       name: 'twitter:description',
-      content: 'Meer aanvragen via een snelle website met sterke CTA\'s en vertrouwen.',
+      content: "Meer aanvragen via een snelle website met sterke CTA's en vertrouwen.",
     },
     { name: 'twitter:image', content: ogImage },
     { name: 'twitter:image:alt', content: 'JukeCoding â€“ website conversie-optimalisatie' },
@@ -257,22 +259,22 @@ useHead({
     {
       key: 'ld-breadcrumb',
       type: 'application/ld+json',
-      children: JSON.stringify(breadcrumbJsonLd)
+      children: JSON.stringify(breadcrumbJsonLd),
     },
     {
       key: 'ld-webpage',
       type: 'application/ld+json',
-      children: JSON.stringify(webPageJsonLd)
+      children: JSON.stringify(webPageJsonLd),
     },
     {
       key: 'ld-service',
       type: 'application/ld+json',
-      children: JSON.stringify(serviceJsonLd)
+      children: JSON.stringify(serviceJsonLd),
     },
     {
       key: 'ld-howto',
       type: 'application/ld+json',
-      children: JSON.stringify(howToJsonLd)
+      children: JSON.stringify(howToJsonLd),
     },
     {
       key: 'ld-faq-meerklanten',
@@ -281,9 +283,4 @@ useHead({
     },
   ],
 })
-
 </script>
-
-
-
-

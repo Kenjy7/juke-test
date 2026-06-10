@@ -193,24 +193,24 @@ p { text-wrap: pretty; }
 .band--sunken { background: var(--color-bg-sunken); }
 
 .band--dark {
-  background: #1a1814;
+  background: #0b1813;
   color: var(--color-text-secondary);
-  --color-bg-primary: #1a1814;
-  --color-bg-surface: #211e19;
-  --color-bg-elevated: #2a261f;
-  --color-bg-sunken: #211e19;
-  --color-bg-card-outer: #1a1814;
-  --color-bg-card-inner: #211e19;
-  --color-text-primary: #faf7f2;
-  --color-text-secondary: #b5ab9c;
-  --color-text-tertiary: #8b8378;
-  --color-text-on-accent: #faf7f2;
-  --color-border: #3c342b;
-  --color-border-hover: #4a4136;
-  --color-primary: #5b8cff;
-  --color-accent: #5b8cff;
-  --color-primary-subtle: rgba(91, 140, 255, 0.18);
-  --color-primary-border: rgba(91, 140, 255, 0.34);
+  --color-bg-primary: #0b1813;
+  --color-bg-surface: #11221b;
+  --color-bg-elevated: #16291f;
+  --color-bg-sunken: #11221b;
+  --color-bg-card-outer: #0b1813;
+  --color-bg-card-inner: #11221b;
+  --color-text-primary: #f3f8f5;
+  --color-text-secondary: #a7b5ac;
+  --color-text-tertiary: #76847b;
+  --color-text-on-accent: #06140d;
+  --color-border: #233830;
+  --color-border-hover: #30473d;
+  --color-primary: #34c98e;
+  --color-accent: #34c98e;
+  --color-primary-subtle: rgba(52, 201, 142, 0.16);
+  --color-primary-border: rgba(52, 201, 142, 0.32);
 }
 
 /* Hairline divider between same-colour bands when needed */

@@ -1,0 +1,292 @@
+{
+  "nl": {
+    "hero": {
+      "label": "Resultaatgericht webdesign",
+      "titleLine1": "Website die",
+      "titleLine2": "klanten oplevert",
+      "titleHighlight": "niet alleen mooi",
+      "subtitle": "Voor Belgische kmo's en zelfstandigen: snelle, mobielvriendelijke websites die converteren naar aanvragen, offertes en afspraken.",
+      "ctaPrimary": "Gratis kennismaking",
+      "ctaSecondary": "Bekijk de pakketten",
+      "trustAriaLabel": "Belangrijkste voordelen",
+      "trust": {
+        "fast": "Mobielvriendelijk & snel",
+        "seo": "SEO-basis inbegrepen",
+        "conversion": "Conversiegericht (CTA's)",
+        "approach": "Duidelijke aanpak"
+      },
+      "imageAlt": "Preview van een conversiegerichte bedrijfswebsite op maat"
+    },
+    "problems": {
+      "label": "Waarom het vaak misloopt",
+      "title": "Waarom veel websites geen klanten opleveren",
+      "subtitle": "Vaak ligt het niet aan je aanbod, maar aan de structuur, snelheid en duidelijkheid van je website. Kleine frictie zorgt voor minder aanvragen.",
+      "cards": {
+        "message": {
+          "title": "Onduidelijke boodschap",
+          "text": "Bezoekers snappen niet meteen wat je doet, voor wie, en waarom ze voor jou moeten kiezen."
+        },
+        "mobile": {
+          "title": "Niet optimaal op mobiel",
+          "text": "De meeste bezoekers komen via smartphone. Als het daar niet vlot werkt, verlies je conversie."
+        },
+        "speed": {
+          "title": "Snelheid en vertrouwen",
+          "text": "Traag laden of een rommelige layout voelt onbetrouwbaar — en dat kost leads en aanvragen."
+        }
+      }
+    },
+    "approach": {
+      "label": "Onze aanpak",
+      "title": "Zo bouwen wij een website die wél werkt",
+      "subtitle": "We combineren strategie, structuur, design en performance zodat je website bezoekers overtuigt en converteert.",
+      "cards": {
+        "strategy": {
+          "title": "Strategie & structuur",
+          "text": "We maken je aanbod glashelder en bouwen een logische opbouw zodat bezoekers sneller beslissen."
+        },
+        "design": {
+          "title": "Conversiegericht design",
+          "text": "Design dat vertrouwen opbouwt en bezoekers naar actie stuurt: contact, offerte of afspraak."
+        },
+        "speed": {
+          "title": "Snelheid & technische basis",
+          "text": "Mobielvriendelijk, snel en technisch netjes — met een sterke SEO-basis vanaf dag één."
+        },
+        "cta": {
+          "title": "Duidelijke call-to-actions",
+          "text": "We verlagen frictie: duidelijke knoppen, slimme formulieren en een heldere contactflow."
+        }
+      },
+      "workflowLink": "Bekijk onze werkwijze →"
+    },
+    "results": {
+      "label": "Resultaten",
+      "title": "Wat een conversiegerichte website kan opleveren",
+      "subtitle": "Niet alleen een mooi design, maar verbeteringen in aanvragen, snelheid en vertrouwen.",
+      "cards": {
+        "performance": {
+          "badge": "Snellere laadtijd",
+          "title": "Performance & technische basis",
+          "text": "Snellere pagina's zorgen voor minder afhakers en een professionelere indruk.",
+          "features": {
+            "images": "Afbeeldingen geoptimaliseerd",
+            "caching": "Structuur + caching",
+            "faq": "FAQ + duidelijke antwoorden"
+          }
+        },
+        "trust": {
+          "badge": "Meer vertrouwen",
+          "title": "Design dat vertrouwen bouwt",
+          "text": "Een duidelijke layout + sterke uitleg maakt het makkelijker om \"ja\" te zeggen.",
+          "features": {
+            "branding": "Consistente branding",
+            "mobile": "Mobile-first finetuning",
+            "contact": "Snelle contactflow"
+          }
+        }
+      }
+    },
+    "steps": {
+      "label": "Stappen",
+      "title": "Onze werkwijze in 4 duidelijke stappen",
+      "subtitle": "Transparant proces, duidelijke feedbackmomenten en focus op resultaat: aanvragen, leads en afspraken.",
+      "items": {
+        "strategy": {
+          "title": "Strategie & doelen",
+          "text": "We bepalen je doelgroep, boodschap en primaire call-to-action (contact, offerte, afspraak)."
+        },
+        "design": {
+          "title": "wireframe & Design",
+          "text": "Design dat vertrouwen opbouwt, met duidelijke hiërarchie en converterende content."
+        },
+        "build": {
+          "title": "Bouw & performance",
+          "text": "Mobielvriendelijk, snel en technisch netjes: klaar voor SEO en een vlotte gebruikerservaring."
+        },
+        "launch": {
+          "title": "Lancering & optimalisatie",
+          "text": "Livegang + opvolging: meten, bijsturen en verbeteren waar nodig."
+        }
+      },
+      "ctaLink": "Ontdek onze volledige werkwijze →"
+    },
+    "audience": {
+      "label": "Voor wie?",
+      "title": "Ideaal voor bedrijven die meer aanvragen willen",
+      "subtitle": "Voor bedrijven die hun website willen inzetten als groeimotor — niet als online brochure.",
+      "items": {
+        "sme": "KMO's en lokale bedrijven die meer leads of aanvragen willen.",
+        "services": "Dienstverleners (consultants, agencies, coaches, …) met een duidelijk aanbod.",
+        "starters": "Starters die meteen professioneel online willen staan.",
+        "existing": "Bedrijven met een bestaande website die weinig resultaat oplevert."
+      }
+    },
+    "packages": {
+      "label": "Pakketten",
+      "title": "Eenmalig of abonnement: kies wat bij je past",
+      "subtitle": "Kies voor een eenmalige bouwprijs, of voor een abonnement met hosting & onderhoud zodat je website veilig, snel en up-to-date blijft.",
+      "features": {
+        "mobile": "Mobielvriendelijk design",
+        "speed": "Snelheid & Core Web Vitals basis",
+        "seo": "SEO-basis (structuur, meta, indexing)",
+        "conversion": "Conversie CTA's + duidelijke contactflow",
+        "ssl": "SSL-certificaat & beveiligde hosting",
+        "contactForm": "Contactformulier & Google Analytics"
+      },
+      "ctaPrimary": "Bekijk opties & prijzen",
+      "ctaSecondary": "Vraag advies"
+    },
+    "finalCta": {
+      "label": "Klaar om te starten?",
+      "title": "Plan een gratis kennismaking",
+      "subtitle": "We bekijken je doelen en geven eerlijk advies over wat je website nodig heeft om meer aanvragen op te leveren.",
+      "cta": "Gratis kennismaking"
+    }
+  },
+  "en": {
+    "hero": {
+      "label": "Results-driven web design",
+      "titleLine1": "A website that",
+      "titleLine2": "wins you clients",
+      "titleHighlight": "not just good-looking",
+      "subtitle": "For Belgian SMEs and self-employed professionals: fast, mobile-friendly websites that convert into enquiries, quotes and appointments.",
+      "ctaPrimary": "Free intro call",
+      "ctaSecondary": "View the packages",
+      "trustAriaLabel": "Key benefits",
+      "trust": {
+        "fast": "Mobile-friendly & fast",
+        "seo": "SEO basics included",
+        "conversion": "Conversion-focused (CTAs)",
+        "approach": "Clear approach"
+      },
+      "imageAlt": "Preview of a custom, conversion-focused business website"
+    },
+    "problems": {
+      "label": "Why it often goes wrong",
+      "title": "Why so many websites don't win clients",
+      "subtitle": "Often it's not your offer, but the structure, speed and clarity of your website. Small friction leads to fewer enquiries.",
+      "cards": {
+        "message": {
+          "title": "Unclear message",
+          "text": "Visitors don't immediately get what you do, who it's for, and why they should choose you."
+        },
+        "mobile": {
+          "title": "Not optimised for mobile",
+          "text": "Most visitors come via smartphone. If it doesn't work smoothly there, you lose conversions."
+        },
+        "speed": {
+          "title": "Speed and trust",
+          "text": "Slow loading or a cluttered layout feels unreliable — and that costs you leads and enquiries."
+        }
+      }
+    },
+    "approach": {
+      "label": "Our approach",
+      "title": "How we build a website that actually works",
+      "subtitle": "We combine strategy, structure, design and performance so your website convinces visitors and converts.",
+      "cards": {
+        "strategy": {
+          "title": "Strategy & structure",
+          "text": "We make your offer crystal clear and build a logical structure so visitors decide faster."
+        },
+        "design": {
+          "title": "Conversion-focused design",
+          "text": "Design that builds trust and guides visitors towards action: contact, quote or appointment."
+        },
+        "speed": {
+          "title": "Speed & technical foundation",
+          "text": "Mobile-friendly, fast and technically clean — with a strong SEO foundation from day one."
+        },
+        "cta": {
+          "title": "Clear calls-to-action",
+          "text": "We reduce friction: clear buttons, smart forms and a straightforward contact flow."
+        }
+      },
+      "workflowLink": "See how we work →"
+    },
+    "results": {
+      "label": "Results",
+      "title": "What a conversion-focused website can deliver",
+      "subtitle": "Not just a beautiful design, but improvements in enquiries, speed and trust.",
+      "cards": {
+        "performance": {
+          "badge": "Faster load time",
+          "title": "Performance & technical foundation",
+          "text": "Faster pages mean fewer drop-offs and a more professional impression.",
+          "features": {
+            "images": "Optimised images",
+            "caching": "Structure + caching",
+            "faq": "FAQ + clear answers"
+          }
+        },
+        "trust": {
+          "badge": "More trust",
+          "title": "Design that builds trust",
+          "text": "A clear layout + strong explanation makes it easier to say \"yes\".",
+          "features": {
+            "branding": "Consistent branding",
+            "mobile": "Mobile-first fine-tuning",
+            "contact": "Fast contact flow"
+          }
+        }
+      }
+    },
+    "steps": {
+      "label": "Steps",
+      "title": "Our process in 4 clear steps",
+      "subtitle": "A transparent process, clear feedback moments and a focus on results: enquiries, leads and appointments.",
+      "items": {
+        "strategy": {
+          "title": "Strategy & goals",
+          "text": "We define your target audience, message and primary call-to-action (contact, quote, appointment)."
+        },
+        "design": {
+          "title": "Wireframe & design",
+          "text": "Design that builds trust, with a clear hierarchy and content that converts."
+        },
+        "build": {
+          "title": "Build & performance",
+          "text": "Mobile-friendly, fast and technically clean: ready for SEO and a smooth user experience."
+        },
+        "launch": {
+          "title": "Launch & optimisation",
+          "text": "Going live + follow-up: measuring, adjusting and improving where needed."
+        }
+      },
+      "ctaLink": "Discover our full process →"
+    },
+    "audience": {
+      "label": "Who is it for?",
+      "title": "Ideal for businesses that want more enquiries",
+      "subtitle": "For businesses that want to use their website as a growth engine — not as an online brochure.",
+      "items": {
+        "sme": "SMEs and local businesses that want more leads or enquiries.",
+        "services": "Service providers (consultants, agencies, coaches, …) with a clear offer.",
+        "starters": "Start-ups that want to look professional online right away.",
+        "existing": "Businesses with an existing website that delivers little result."
+      }
+    },
+    "packages": {
+      "label": "Packages",
+      "title": "One-off or subscription: choose what suits you",
+      "subtitle": "Choose a one-off build price, or a subscription with hosting & maintenance so your website stays secure, fast and up to date.",
+      "features": {
+        "mobile": "Mobile-friendly design",
+        "speed": "Speed & Core Web Vitals basics",
+        "seo": "SEO basics (structure, meta, indexing)",
+        "conversion": "Conversion CTAs + clear contact flow",
+        "ssl": "SSL certificate & secure hosting",
+        "contactForm": "Contact form & Google Analytics"
+      },
+      "ctaPrimary": "View options & pricing",
+      "ctaSecondary": "Ask for advice"
+    },
+    "finalCta": {
+      "label": "Ready to get started?",
+      "title": "Schedule a free intro call",
+      "subtitle": "We'll look at your goals and give honest advice on what your website needs to bring in more enquiries.",
+      "cta": "Free intro call"
+    }
+  }
+}

@@ -1,18 +1,23 @@
 <template>
-  <div
-      class="card"
-      :style="{ animationDelay: `var(--delay)` }"
-  >
-    <div class="icon-wrapper">
-      <component :is="icon" class="icon" />
+  <div class="card" :style="{ animationDelay: `var(--delay)` }">
+    <div class="card__icon">
+      <component :is="icon" />
     </div>
 
-    <h3 class="title">{{ title }}</h3>
-    <p class="description">{{ description }}</p>
+    <h3 class="card__title">{{ title }}</h3>
+    <p class="card__desc">{{ description }}</p>
 
-    <ul v-if="highlights.length" class="highlights">
+    <ul v-if="highlights.length" class="card__list">
       <li v-for="h in highlights" :key="h">
-        <span class="dot"></span>
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M13.3337 4L6.00033 11.3333L2.66699 8"
+            stroke="currentColor"
+            stroke-width="1.75"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
         {{ h }}
       </li>
     </ul>
@@ -24,135 +29,85 @@ defineProps({
   title: String,
   description: String,
   icon: Object,
-  highlights: {
-    type: Array,
-    default: () => []
-  }
-});
+  highlights: { type: Array, default: () => [] },
+})
 </script>
-
 
 <style scoped lang="scss">
 .card {
-  position: relative;
-  padding: 2.75rem 2.5rem;
-  border-radius: 1.75rem;
-
-  background: linear-gradient(
-          180deg,
-          var(--color-bg-surface),
-          var(--color-bg-card-inner)
-  );
-
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-
-  opacity: 0;
-  animation: fadeInUp 0.8s ease forwards;
-  transition: all 0.45s ease;
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:hover {
-    transform: translateY(-10px);
-    border-color: var(--color-border-active);
-    box-shadow:
-        0 25px 50px rgba(0,0,0,0.45),
-        0 0 0 1px var(--color-primary-border);
-  }
-
-  &::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    border-radius: inherit;
-    background: radial-gradient(
-            500px circle at 50% 50%,
-            var(--color-primary-border),
-            transparent 40%
-    );
-    opacity: 0;
-    transition: opacity 0.4s ease;
-    pointer-events: none;
-  }
-
-  &:hover::before {
-    opacity: 1;
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-elevated);
   }
 }
 
-/* ICON */
-.icon-wrapper {
-  width: 58px;
-  height: 58px;
-  border-radius: 1.1rem;
-  background: var(--color-primary);
-  display: grid;
-  place-items: center;
-  margin-bottom: 1.75rem;
-  box-shadow: var(--shadow-glow-primary);
-  transition: transform 0.4s ease;
+.card__icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: var(--color-primary-subtle);
+  border: 1px solid var(--color-primary-border);
+  color: var(--color-accent);
+  margin-bottom: var(--space-6);
 
-  .icon {
-    width: 28px;
-    height: 28px;
-    color: var(--color-text-primary);
-  }
-
-  svg {
-    color: var(--color-text-primary);
+  svg,
+  :deep(svg) {
+    width: 22px;
+    height: 22px;
   }
 }
 
-.card:hover .icon-wrapper {
-  transform: scale(1.05) rotate(-4deg);
-}
-
-/* TEXT */
-.title {
-  font-size: 1.35rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  letter-spacing: -0.01em;
-  color: var(--color-text-primary);
+.card__title {
   font-family: var(--font-display);
+  font-size: var(--text-h3);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  letter-spacing: -0.01em;
+  margin: 0 0 var(--space-3);
 }
 
-
-.description {
-  font-size: 1rem;
-  line-height: 1.65;
+.card__desc {
+  font-size: var(--text-small);
+  line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
+  margin: 0;
 }
 
-/* HIGHLIGHTS */
-.highlights {
-  margin-top: 1.75rem;
+.card__list {
+  list-style: none;
+  margin: var(--space-6) 0 0;
+  padding: var(--space-5) 0 0;
+  border-top: 1px solid var(--color-border);
   display: grid;
-  gap: 0.6rem;
+  gap: var(--space-3);
 
   li {
     display: flex;
     align-items: center;
-    font-size: 0.9rem;
+    gap: var(--space-2);
+    font-size: var(--text-small);
     color: var(--color-text-secondary);
-  }
 
-  .dot {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--color-primary);
-    margin-right: 0.75rem;
-  }
-}
-
-/* ANIMATION */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(35px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+    svg {
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
   }
 }
 </style>

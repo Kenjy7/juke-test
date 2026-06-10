@@ -46,7 +46,11 @@ function triggerWorker(payload) {
   // Niet awaiten — fire and forget zodat we snel kunnen antwoorden aan Discord
   fetch(workerUrl, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: {
+      'Content-Type': 'application/json',
+      // Shared secret so the worker only accepts internal triggers (not the public).
+      'X-Internal-Secret': process.env.INTERNAL_WORKER_SECRET || '',
+    },
     body: JSON.stringify(payload),
   }).catch(err => console.error('Worker trigger fout:', err))
 }
@@ -68,6 +72,12 @@ export default async function handler(req) {
   const isValid = verifyDiscordRequest(DISCORD_PUBLIC_KEY, signature, timestamp, rawBody)
   if (!isValid) {
     return new Response('Ongeldige handtekening', { status: 401 })
+  }
+
+  // Replay guard: reject signed requests older than 5 minutes.
+  const tsSeconds = Number(timestamp)
+  if (!Number.isFinite(tsSeconds) || Math.abs(Date.now() / 1000 - tsSeconds) > 300) {
+    return new Response('Verlopen verzoek', { status: 401 })
   }
 
   const interaction = JSON.parse(rawBody)

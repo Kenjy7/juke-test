@@ -1,0 +1,36 @@
+{
+  "nl": {
+    "eyebrow": "Schaalbaar",
+    "headline": {
+      "lead": "Digitale oplossingen die met",
+      "accent": "je bedrijf meegroeien."
+    },
+    "lead": "We transformeren bedrijfsprocessen met intelligente automatisering. Van eerste idee tot enterprise-schaal: onze oplossingen evolueren mee met je ambities.",
+    "industriesTitle": "Voor elk bedrijfstype",
+    "tags": {
+      "startups": "Startups",
+      "productMarketing": "Product- & marketingteams",
+      "agencies": "Bureaus & enterprises",
+      "customerService": "Klantenservice teams",
+      "logistics": "Logistiek & supply chain",
+      "sales": "Salesafdelingen"
+    }
+  },
+  "en": {
+    "eyebrow": "Scalable",
+    "headline": {
+      "lead": "Digital solutions that grow",
+      "accent": "with your business."
+    },
+    "lead": "We transform business processes with intelligent automation. From first idea to enterprise scale: our solutions evolve along with your ambitions.",
+    "industriesTitle": "For every type of business",
+    "tags": {
+      "startups": "Startups",
+      "productMarketing": "Product & marketing teams",
+      "agencies": "Agencies & enterprises",
+      "customerService": "Customer service teams",
+      "logistics": "Logistics & supply chain",
+      "sales": "Sales departments"
+    }
+  }
+}

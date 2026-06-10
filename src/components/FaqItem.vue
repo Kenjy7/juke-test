@@ -1,16 +1,18 @@
 <template>
-  <div
-      class="faq-item"
-      :class="{ open: isOpen }"
-      @click="toggleFaq"
-  >
+  <div class="faq-item" :class="{ open: isOpen }" @click="toggleFaq">
     <div class="faq-glow"></div>
 
     <div class="faq-question">
       <h3>{{ question }}</h3>
       <button class="toggle-button" :class="{ rotated: isOpen }" aria-label="Toggle answer">
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-          <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M5 7.5L10 12.5L15 7.5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </button>
     </div>
@@ -29,16 +31,16 @@ import { ref } from 'vue'
 defineProps({
   question: {
     type: String,
-    required: true
+    required: true,
   },
   answer: {
     type: String,
-    required: true
+    required: true,
   },
   index: {
     type: Number,
-    default: 0
-  }
+    default: 0,
+  },
 })
 
 const isOpen = ref(false)
@@ -56,9 +58,10 @@ const toggleFaq = () => {
   border-radius: var(--radius-xl);
   padding: var(--space-6);
   cursor: pointer;
-  transition: border-color var(--duration-base) var(--ease-spring),
-              transform var(--duration-base) var(--ease-spring),
-              box-shadow var(--duration-base) var(--ease-spring);
+  transition:
+    border-color var(--duration-base) var(--ease-spring),
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring);
   box-shadow: var(--shadow-ambient);
   opacity: 1;
   transform: translateY(0);
@@ -114,8 +117,9 @@ const toggleFaq = () => {
   border: 1px solid var(--color-border);
   border-radius: 50%;
   cursor: pointer;
-  transition: transform var(--duration-base) var(--ease-spring),
-              background var(--duration-base) var(--ease-spring);
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    background var(--duration-base) var(--ease-spring);
   color: var(--color-text-tertiary);
 
   &:hover {

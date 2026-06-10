@@ -1,21 +1,19 @@
 <template>
-  <BackgroundWeb >
-  <CookiesPolicy />
+  <BackgroundWeb>
+    <CookiesPolicy />
   </BackgroundWeb>
 </template>
 
 <script>
-  import BackgroundWeb from "@/components/BackgroundWeb.vue";
-  import CookiesPolicy from "@/components/CookiesPolicy.vue";
+import BackgroundWeb from '@/components/BackgroundWeb.vue'
+import CookiesPolicy from '@/components/CookiesPolicy.vue'
 
-  export default {
-    components: {
-      CookiesPolicy,
-      BackgroundWeb,
-    }
-  }
+export default {
+  components: {
+    CookiesPolicy,
+    BackgroundWeb,
+  },
+}
 </script>
 
-<style scoped lang="scss">
-
-</style>
+<style scoped lang="scss"></style>

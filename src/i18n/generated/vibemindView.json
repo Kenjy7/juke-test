@@ -1,0 +1,212 @@
+{
+  "nl": {
+    "hero": {
+      "eyebrow": "Pre-release · Een product van JukeCoding",
+      "titleHighlight": "bouw met meerdere AI-agents tegelijk.",
+      "subtitle": "De desktop-tool die we zelf elke dag gebruiken. Start meerdere Claude Code-sessies naast elkaar in panes, sleep taken en skills erin, en zie in één oogopslag welke agent klaar is en welke op jouw input wacht.",
+      "ctaBeta": "Schrijf je in voor de beta",
+      "ctaApp": "Bekijk de app",
+      "note": "Gratis tijdens de beta · macOS · werkt met je bestaande Claude Code-installatie"
+    },
+    "mockup": {
+      "workspaces": "Workspaces",
+      "buildPrompt": "bouw de checkout-flow af",
+      "waitingBadge": "wacht op input",
+      "reviewDone": "Review klaar — 3 fixes.",
+      "reviewAsk": "Zal ik committen?",
+      "testsRunning": "running 12 cases…",
+      "kanban": {
+        "todo": "Todo",
+        "doing": "Doing",
+        "review": "Review",
+        "done": "Done",
+        "cardWebhook": "Webhook docs",
+        "cardCheckout": "Checkout-flow",
+        "cardAuth": "Auth refactor",
+        "cardLanding": "Landing copy"
+      }
+    },
+    "intro": {
+      "title": "Wat is Vibemind?",
+      "p1": "Werken met AI-agents betekent vaak heen-en-weer schakelen tussen losse terminals: de ene wacht op jou, de andere is allang klaar en je merkt het niet. Vibemind brengt al die sessies samen in één helder venster.",
+      "p2a": "Je organiseert je werk in",
+      "p2b": "per project, splitst elke workspace in zoveel",
+      "p2c": "als je wil, en koppelt taken vanuit een ingebouwd kanban-bord rechtstreeks aan een agent. Een",
+      "p2skill": "skill-bibliotheek",
+      "p2d": "en",
+      "p2e": "zorgen dat je herbruikbare prompts en live projectcontext altijd binnen handbereik hebt. Keyboard-first, gebouwd voor snelheid."
+    },
+    "features": {
+      "title": "Alles om parallel te werken",
+      "items": {
+        "panes": {
+          "title": "Parallelle Claude-panes",
+          "description": "Start zoveel Claude Code-sessies als je wil naast elkaar. Een statuslampje toont meteen welke agent draait, klaar is of op jouw input wacht."
+        },
+        "kanban": {
+          "title": "Ingebouwd kanban",
+          "description": "Beheer je taken in todo / doing / done en sleep ze rechtstreeks naar een pane. De agent pikt de opdracht meteen op."
+        },
+        "skills": {
+          "title": "Skill-bibliotheek",
+          "description": "Bewaar herbruikbare prompts en workflows als skills en injecteer ze met één toets (Cmd+P) in elke sessie. Nooit meer dezelfde instructies typen."
+        },
+        "mcp": {
+          "title": "MCP-server ingebouwd",
+          "description": "Claude leest live welke workspaces, taken en panes je open hebt staan — en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
+        },
+        "voice": {
+          "title": "Voice-input",
+          "description": "Spreek je opdracht in plaats van te typen (Cmd+M). Handig voor lange prompts of wanneer je je handen vrij wil houden."
+        },
+        "workspaces": {
+          "title": "Workspaces & keyboard-first",
+          "description": "Een workspace per project, wissel met Cmd+1..9 en stuur alles via sneltoetsen. Gebouwd voor flow, niet voor muiskliks."
+        }
+      }
+    },
+    "shots": {
+      "title": "Een blik in de app",
+      "subtitle": "Zo ziet werken met meerdere agents er in de praktijk uit.",
+      "placeholder": "Screenshot volgt",
+      "items": {
+        "panes": {
+          "alt": "Meerdere Claude-panes naast elkaar in Vibemind",
+          "caption": "Meerdere agents naast elkaar"
+        },
+        "kanban": {
+          "alt": "Kanban-taakbord in Vibemind",
+          "caption": "Taken slepen naar een pane"
+        },
+        "skills": {
+          "alt": "Skill-picker in Vibemind",
+          "caption": "Skills injecteren met Cmd+P"
+        }
+      }
+    },
+    "beta": {
+      "eyebrow": "Pre-release toegang",
+      "title": "Word een van de eerste beta-gebruikers",
+      "lead": "Vibemind zit in besloten pre-release. Laat je gegevens achter en we sturen je een toegangscode plus de download zodra er plek vrijkomt. Geen verplichtingen, gratis tijdens de beta.",
+      "point1": "Vroege toegang tot nieuwe features",
+      "point2": "Directe lijn met het team voor feedback",
+      "point3": "Gratis zolang de beta loopt",
+      "formTitle": "Inschrijven voor de beta",
+      "nameLabel": "Naam",
+      "namePlaceholder": "Je naam",
+      "emailLabel": "E-mailadres",
+      "reasonLabel": "Waarvoor wil je het gebruiken?",
+      "optional": "(optioneel)",
+      "reasonPlaceholder": "Bv. parallel features bouwen, code reviewen, research…",
+      "submitSending": "Versturen…",
+      "submit": "Inschrijven",
+      "success": "Bedankt! Je staat op de lijst — we nemen contact op zodra er plek is. 🎉",
+      "errorPrefix": "Er ging iets mis. Probeer het opnieuw of mail"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "Pre-release · A product by JukeCoding",
+      "titleHighlight": "build with several AI agents at once.",
+      "subtitle": "The desktop tool we use ourselves every day. Run several Claude Code sessions side by side in panes, drag tasks and skills into them, and see at a glance which agent is done and which is waiting on your input.",
+      "ctaBeta": "Sign up for the beta",
+      "ctaApp": "See the app",
+      "note": "Free during the beta · macOS · works with your existing Claude Code install"
+    },
+    "mockup": {
+      "workspaces": "Workspaces",
+      "buildPrompt": "finish the checkout flow",
+      "waitingBadge": "waiting on input",
+      "reviewDone": "Review done — 3 fixes.",
+      "reviewAsk": "Shall I commit?",
+      "testsRunning": "running 12 cases…",
+      "kanban": {
+        "todo": "Todo",
+        "doing": "Doing",
+        "review": "Review",
+        "done": "Done",
+        "cardWebhook": "Webhook docs",
+        "cardCheckout": "Checkout flow",
+        "cardAuth": "Auth refactor",
+        "cardLanding": "Landing copy"
+      }
+    },
+    "intro": {
+      "title": "What is Vibemind?",
+      "p1": "Working with AI agents often means switching back and forth between separate terminals: one is waiting on you, another finished long ago and you don't notice. Vibemind brings all those sessions together in one clear window.",
+      "p2a": "You organise your work into",
+      "p2b": "per project, split each workspace into as many",
+      "p2c": "as you like, and link tasks from a built-in kanban board straight to an agent. A",
+      "p2skill": "skill library",
+      "p2d": "and",
+      "p2e": "make sure your reusable prompts and live project context are always within reach. Keyboard-first, built for speed."
+    },
+    "features": {
+      "title": "Everything you need to work in parallel",
+      "items": {
+        "panes": {
+          "title": "Parallel Claude panes",
+          "description": "Run as many Claude Code sessions as you like side by side. A status light shows you instantly which agent is running, done, or waiting on your input."
+        },
+        "kanban": {
+          "title": "Built-in kanban",
+          "description": "Manage your tasks in todo / doing / done and drag them straight onto a pane. The agent picks up the task right away."
+        },
+        "skills": {
+          "title": "Skill library",
+          "description": "Save reusable prompts and workflows as skills and inject them into any session with a single key (Cmd+P). Never type the same instructions again."
+        },
+        "mcp": {
+          "title": "Built-in MCP server",
+          "description": "Claude reads live which workspaces, tasks and panes you have open — and can create or move tasks. Your agents know what you're working on."
+        },
+        "voice": {
+          "title": "Voice input",
+          "description": "Speak your task instead of typing it (Cmd+M). Handy for long prompts or when you want to keep your hands free."
+        },
+        "workspaces": {
+          "title": "Workspaces & keyboard-first",
+          "description": "One workspace per project, switch with Cmd+1..9 and drive everything with shortcuts. Built for flow, not for mouse clicks."
+        }
+      }
+    },
+    "shots": {
+      "title": "A look inside the app",
+      "subtitle": "This is what working with several agents looks like in practice.",
+      "placeholder": "Screenshot coming soon",
+      "items": {
+        "panes": {
+          "alt": "Several Claude panes side by side in Vibemind",
+          "caption": "Several agents side by side"
+        },
+        "kanban": {
+          "alt": "Kanban task board in Vibemind",
+          "caption": "Drag tasks onto a pane"
+        },
+        "skills": {
+          "alt": "Skill picker in Vibemind",
+          "caption": "Inject skills with Cmd+P"
+        }
+      }
+    },
+    "beta": {
+      "eyebrow": "Pre-release access",
+      "title": "Become one of the first beta users",
+      "lead": "Vibemind is in closed pre-release. Leave your details and we'll send you an access code plus the download as soon as a spot opens up. No obligations, free during the beta.",
+      "point1": "Early access to new features",
+      "point2": "A direct line to the team for feedback",
+      "point3": "Free for as long as the beta runs",
+      "formTitle": "Sign up for the beta",
+      "nameLabel": "Name",
+      "namePlaceholder": "Your name",
+      "emailLabel": "Email address",
+      "reasonLabel": "What do you want to use it for?",
+      "optional": "(optional)",
+      "reasonPlaceholder": "E.g. building features in parallel, reviewing code, research…",
+      "submitSending": "Sending…",
+      "submit": "Sign up",
+      "success": "Thanks! You're on the list — we'll be in touch as soon as a spot opens up. 🎉",
+      "errorPrefix": "Something went wrong. Please try again or email"
+    }
+  }
+}

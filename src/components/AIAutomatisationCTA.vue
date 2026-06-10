@@ -3,21 +3,27 @@
   <section class="ai-cta">
     <div class="ai-cta-inner">
       <div class="ai-cta-content">
-        <h3>Klaar om jouw processen te automatiseren met AI?</h3>
+        <h3>{{ t('aIAutomatisationCTA.head.title') }}</h3>
         <p>
-          Koppel formulieren, leads en opvolging aan slimme AI-agents <br>ideaal voor KMO’s die tijd willen winnen en sneller willen groeien.
+          {{ t('aIAutomatisationCTA.head.leadStart') }} <br />{{
+            t('aIAutomatisationCTA.head.leadEnd')
+          }}
         </p>
       </div>
 
-      <RouterLink to="/ai-automatisatie" class="ai-cta-btn" aria-label="Bekijk AI automatisatie">
-        Ontdek AI automatisatie
+      <RouterLink
+        to="/ai-automatisatie"
+        class="ai-cta-btn"
+        :aria-label="t('aIAutomatisationCTA.cta.ariaLabel')"
+      >
+        {{ t('aIAutomatisationCTA.cta.label') }}
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
-              d="M7.5 15L12.5 10L7.5 5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M7.5 15L12.5 10L7.5 5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </RouterLink>
@@ -25,10 +31,10 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "AiAutomationCta",
-};
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped lang="scss">
@@ -95,8 +101,9 @@ export default {
   background: var(--color-text-primary);
   border: none;
   box-shadow: var(--shadow-elevated);
-  transition: transform var(--duration-base) var(--ease-spring),
-              box-shadow var(--duration-base) var(--ease-spring);
+  transition:
+    transform var(--duration-base) var(--ease-spring),
+    box-shadow var(--duration-base) var(--ease-spring);
   white-space: nowrap;
   min-width: 0;
   max-width: 100%;

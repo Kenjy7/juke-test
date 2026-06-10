@@ -1,0 +1,36 @@
+{
+  "nl": {
+    "head": {
+      "title": "Technologie die meetbaar",
+      "titleHighlight": "resultaat levert."
+    },
+    "stats": {
+      "timeSaving": "Tijdsbesparing door automatisering",
+      "available": "Beschikbaar via AI-automatisering",
+      "faster": "Snellere doorlooptijd",
+      "satisfaction": "Klanttevredenheid",
+      "scalability": "Meer schaalbaarheid",
+      "costReduction": "Kostenreductie op processen"
+    },
+    "cta": {
+      "label": "Bespreek wat AI voor jou kan doen"
+    }
+  },
+  "en": {
+    "head": {
+      "title": "Technology that delivers measurable",
+      "titleHighlight": "results."
+    },
+    "stats": {
+      "timeSaving": "Time saved through automation",
+      "available": "Available via AI automation",
+      "faster": "Faster turnaround time",
+      "satisfaction": "Customer satisfaction",
+      "scalability": "More scalability",
+      "costReduction": "Cost reduction on processes"
+    },
+    "cta": {
+      "label": "Discover what AI can do for you"
+    }
+  }
+}

@@ -1,0 +1,326 @@
+{
+  "nl": {
+    "head": {
+      "label": "Webdesign pakketten",
+      "title": "Onze webdesign pakketten",
+      "lead": "Kies een webdesign pakket dat past bij jouw bedrijf: een professionele <strong>bedrijfswebsite op maat</strong>, snel en mobielvriendelijk. Je kan starten met een <strong>eenmalige bouwprijs</strong> of kiezen voor een <strong>abonnement met hosting & onderhoud</strong> zodat je website veilig, snel en up-to-date blijft."
+    },
+    "toggle": {
+      "oneoff": "Eenmalig (website bouwen)",
+      "monthly": "Abonnement",
+      "monthlyPill": "hosting & onderhoud"
+    },
+    "monthlyInfo": {
+      "term": {
+        "title": "Minimaal 12 maanden",
+        "text": "Maandelijks betalen met een looptijd van 12 maanden."
+      },
+      "ownership": {
+        "title": "Na 12 maanden volledig jouw eigendom",
+        "text": "De website is daarna 100% van jou. Stoppen of doorgaan: jij kiest."
+      },
+      "support": {
+        "title": "Onderhoud & support inbegrepen",
+        "text": "Updates, back-ups, monitoring en support zodat je website performant blijft."
+      }
+    },
+    "card": {
+      "popular": "Populair",
+      "priceAria": "Prijs voor {name}",
+      "amount": "Op maat",
+      "periodOneoff": "eenmalige bouwprijs · prijs na kennismaking",
+      "periodMonthly": "maandelijks abonnement · prijs na kennismaking",
+      "includedTitle": "Inbegrepen in abonnement",
+      "includedSub": "Dezelfde website als <strong>{name}</strong>",
+      "cta": "Kies {name}"
+    },
+    "packages": {
+      "lite": {
+        "badge": "Starter",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "Responsive <strong>bedrijfswebsite</strong> tot <strong>4 pagina's</strong>",
+              "1": "Contactformulier + e-mail integratie (meer aanvragen)",
+              "2": "Conversiegerichte call-to-actions"
+            }
+          },
+          "design": {
+            "title": "Design & content",
+            "items": {
+              "0": "Basis grafische elementen + huisstijlkleuren",
+              "1": "Hulp bij structuur van teksten (titels & secties)",
+              "2": "Training & uitleg om zelf aanpassingen te doen"
+            }
+          },
+          "seo": {
+            "title": "SEO & revisies",
+            "items": {
+              "0": "SEO-basis (titels, meta, indexeerbaar)",
+              "1": "Geoptimaliseerde afbeeldingen (sneller laden)",
+              "2": "<strong>2 revisierondes</strong>"
+            }
+          }
+        }
+      },
+      "groove": {
+        "badge": "Aanbevolen",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "<strong>Alles uit Juke Lite</strong>",
+              "1": "Uitgebreide <strong>bedrijfswebsite</strong> tot <strong>7 pagina's</strong>",
+              "2": "Blog of nieuwssectie (extra vindbaarheid)"
+            }
+          },
+          "design": {
+            "title": "Design & UX",
+            "items": {
+              "0": "Custom design op jouw huisstijl",
+              "1": "Interacties en animaties waar nuttig",
+              "2": "Mobile UX optimalisatie (meer conversie)"
+            }
+          },
+          "seo": {
+            "title": "SEO & revisies",
+            "items": {
+              "0": "SEO-optimalisatie op pagina's & afbeeldingen",
+              "1": "Technische SEO check (headings, redirects)",
+              "2": "<strong>3–4 revisierondes</strong>"
+            }
+          }
+        }
+      },
+      "amplify": {
+        "badge": "Premium",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "<strong>Alles uit Juke Groove</strong>",
+              "1": "Tot <strong>10+ pagina's</strong> (groei & schaalbaarheid)",
+              "2": "Uitgebreide blog, portfolio of projectsecties (autoriteit opbouwen)"
+            }
+          },
+          "design": {
+            "title": "Design, UX & features",
+            "items": {
+              "0": "Volledig maatwerk design + UI/UX optimalisatie",
+              "1": "Professionele animaties & micro-interacties",
+              "2": "Online boekingssysteem of agenda",
+              "3": "CRM of nieuwsbrief integratie"
+            }
+          },
+          "seo": {
+            "title": "SEO, performance & revisies",
+            "items": {
+              "0": "SEO-optimalisatie + linkbuilding advies",
+              "1": "Website performance optimalisatie (sneller laden)",
+              "2": "Training & documentatie voor beheer",
+              "3": "<strong>5–6 revisierondes</strong>"
+            }
+          }
+        }
+      }
+    },
+    "monthlyPlans": {
+      "lite": {
+        "badge": "Starter abonnement",
+        "service": {
+          "0": "Hosting & SSL",
+          "1": "Updates & security",
+          "2": "Back-ups",
+          "3": "±60 min content updates",
+          "4": "Support"
+        },
+        "note": "Ideaal voor starters die ontzorgd willen worden."
+      },
+      "groove": {
+        "badge": "Meest gekozen",
+        "service": {
+          "0": "Hosting & SSL",
+          "1": "Updates & back-ups",
+          "2": "Monitoring",
+          "3": "±90 min content updates",
+          "4": "Prioritaire support"
+        },
+        "note": "Ideaal als je website actief mee evolueert."
+      },
+      "amplify": {
+        "badge": "Premium groei",
+        "service": {
+          "0": "Uptime monitoring",
+          "1": "Performance checks",
+          "2": "Updates & back-ups",
+          "3": "±2 uur content updates",
+          "4": "Integratie-onderhoud"
+        },
+        "note": "Voor bedrijven die focussen op conversie."
+      }
+    }
+  },
+  "en": {
+    "head": {
+      "label": "Web design packages",
+      "title": "Our web design packages",
+      "lead": "Choose a web design package that fits your business: a professional <strong>custom company website</strong>, fast and mobile-friendly. You can start with a <strong>one-off build price</strong> or opt for a <strong>subscription with hosting & maintenance</strong> so your website stays secure, fast and up to date."
+    },
+    "toggle": {
+      "oneoff": "One-off (build a website)",
+      "monthly": "Subscription",
+      "monthlyPill": "hosting & maintenance"
+    },
+    "monthlyInfo": {
+      "term": {
+        "title": "Minimum of 12 months",
+        "text": "Pay monthly with a 12-month commitment."
+      },
+      "ownership": {
+        "title": "Fully yours after 12 months",
+        "text": "After that the website is 100% yours. Stop or continue: it's your call."
+      },
+      "support": {
+        "title": "Maintenance & support included",
+        "text": "Updates, back-ups, monitoring and support so your website keeps performing."
+      }
+    },
+    "card": {
+      "popular": "Popular",
+      "priceAria": "Price for {name}",
+      "amount": "Custom quote",
+      "periodOneoff": "one-off build price · price after an intro call",
+      "periodMonthly": "monthly subscription · price after an intro call",
+      "includedTitle": "Included in the subscription",
+      "includedSub": "The same website as <strong>{name}</strong>",
+      "cta": "Choose {name}"
+    },
+    "packages": {
+      "lite": {
+        "badge": "Starter",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "Responsive <strong>company website</strong> with up to <strong>4 pages</strong>",
+              "1": "Contact form + email integration (more enquiries)",
+              "2": "Conversion-focused call-to-actions"
+            }
+          },
+          "design": {
+            "title": "Design & content",
+            "items": {
+              "0": "Basic graphic elements + brand colours",
+              "1": "Help structuring your copy (headings & sections)",
+              "2": "Training & guidance so you can make changes yourself"
+            }
+          },
+          "seo": {
+            "title": "SEO & revisions",
+            "items": {
+              "0": "SEO basics (titles, meta, indexable)",
+              "1": "Optimised images (faster loading)",
+              "2": "<strong>2 revision rounds</strong>"
+            }
+          }
+        }
+      },
+      "groove": {
+        "badge": "Recommended",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "<strong>Everything in Juke Lite</strong>",
+              "1": "Extended <strong>company website</strong> with up to <strong>7 pages</strong>",
+              "2": "Blog or news section (extra findability)"
+            }
+          },
+          "design": {
+            "title": "Design & UX",
+            "items": {
+              "0": "Custom design based on your brand identity",
+              "1": "Interactions and animations where useful",
+              "2": "Mobile UX optimisation (more conversion)"
+            }
+          },
+          "seo": {
+            "title": "SEO & revisions",
+            "items": {
+              "0": "SEO optimisation for pages & images",
+              "1": "Technical SEO check (headings, redirects)",
+              "2": "<strong>3–4 revision rounds</strong>"
+            }
+          }
+        }
+      },
+      "amplify": {
+        "badge": "Premium",
+        "groups": {
+          "website": {
+            "title": "Website",
+            "items": {
+              "0": "<strong>Everything in Juke Groove</strong>",
+              "1": "Up to <strong>10+ pages</strong> (growth & scalability)",
+              "2": "Extensive blog, portfolio or project sections (building authority)"
+            }
+          },
+          "design": {
+            "title": "Design, UX & features",
+            "items": {
+              "0": "Fully bespoke design + UI/UX optimisation",
+              "1": "Professional animations & micro-interactions",
+              "2": "Online booking system or calendar",
+              "3": "CRM or newsletter integration"
+            }
+          },
+          "seo": {
+            "title": "SEO, performance & revisions",
+            "items": {
+              "0": "SEO optimisation + link-building advice",
+              "1": "Website performance optimisation (faster loading)",
+              "2": "Training & documentation for management",
+              "3": "<strong>5–6 revision rounds</strong>"
+            }
+          }
+        }
+      }
+    },
+    "monthlyPlans": {
+      "lite": {
+        "badge": "Starter subscription",
+        "service": {
+          "0": "Hosting & SSL",
+          "1": "Updates & security",
+          "2": "Back-ups",
+          "3": "±60 min content updates",
+          "4": "Support"
+        },
+        "note": "Ideal for starters who want everything taken care of."
+      },
+      "groove": {
+        "badge": "Most chosen",
+        "service": {
+          "0": "Hosting & SSL",
+          "1": "Updates & back-ups",
+          "2": "Monitoring",
+          "3": "±90 min content updates",
+          "4": "Priority support"
+        },
+        "note": "Ideal when your website actively evolves with you."
+      },
+      "amplify": {
+        "badge": "Premium growth",
+        "service": {
+          "0": "Uptime monitoring",
+          "1": "Performance checks",
+          "2": "Updates & back-ups",
+          "3": "±2 hours content updates",
+          "4": "Integration maintenance"
+        },
+        "note": "For businesses that focus on conversion."
+      }
+    }
+  }
+}

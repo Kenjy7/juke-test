@@ -1,0 +1,102 @@
+{
+  "nl": {
+    "hero": {
+      "eyebrow": "SaaS & app-development",
+      "titleLead": "Eigen software,",
+      "titleHighlight": "gebouwd om te schalen.",
+      "subtitle": "Van concept tot live product — dashboards, portalen en platformen op maat die meegroeien van je eerste tien naar tienduizenden gebruikers.",
+      "ctaPrimary": "Bespreek je project",
+      "ctaSecondary": "Neem contact op"
+    },
+    "tiles": {
+      "mrr": "MRR",
+      "users": "Gebruikers",
+      "uptime": "Uptime",
+      "churn": "Churn"
+    },
+    "features": {
+      "heading": "Wat we bouwen",
+      "items": {
+        "dashboards": {
+          "title": "Custom dashboards & portalen",
+          "description": "Gebruiksvriendelijke interfaces waar jouw klanten of team mee werken. Realtime data, rollen en rechten, en volledig op maat."
+        },
+        "auth": {
+          "title": "Gebruikersbeheer & authenticatie",
+          "description": "Veilige login, multi-tenant architectuur, SSO-integraties en rolgebaseerde toegang. Gebouwd op bewezen standaarden."
+        },
+        "architecture": {
+          "title": "Schaalbare architectuur",
+          "description": "We bouwen met moderne stacks (Vue, Node, cloud) zodat je platform meegroeit van 10 naar 10.000 gebruikers."
+        },
+        "api": {
+          "title": "API-first development",
+          "description": "Elk platform krijgt een robuuste API zodat je kunt integreren met externe tools, mobiele apps en AI-services."
+        },
+        "concept": {
+          "title": "Van concept tot live product",
+          "description": "We begeleiden je van het eerste idee door wireframes, development en testing tot een werkend product in productie."
+        },
+        "maintenance": {
+          "title": "Doorlopend onderhoud",
+          "description": "Na livegang blijven we beschikbaar voor updates, nieuwe features en technisch onderhoud. Geen vendor lock-in."
+        }
+      }
+    },
+    "cta": {
+      "heading": "SaaS-projecten worden custom begroot.",
+      "body": "Elk platform is anders. We maken een voorstel op maat na een vrijblijvend gesprek over jouw idee, doelgroep en technische eisen.",
+      "button": "Start je SaaS-project"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "SaaS & app development",
+      "titleLead": "Your own software,",
+      "titleHighlight": "built to scale.",
+      "subtitle": "From concept to live product — custom dashboards, portals and platforms that grow with you, from your first ten to tens of thousands of users.",
+      "ctaPrimary": "Discuss your project",
+      "ctaSecondary": "Get in touch"
+    },
+    "tiles": {
+      "mrr": "MRR",
+      "users": "Users",
+      "uptime": "Uptime",
+      "churn": "Churn"
+    },
+    "features": {
+      "heading": "What we build",
+      "items": {
+        "dashboards": {
+          "title": "Custom dashboards & portals",
+          "description": "User-friendly interfaces your customers or team work with every day. Real-time data, roles and permissions, and fully tailored to you."
+        },
+        "auth": {
+          "title": "User management & authentication",
+          "description": "Secure login, multi-tenant architecture, SSO integrations and role-based access. Built on proven standards."
+        },
+        "architecture": {
+          "title": "Scalable architecture",
+          "description": "We build with modern stacks (Vue, Node, cloud) so your platform grows with you, from 10 to 10,000 users."
+        },
+        "api": {
+          "title": "API-first development",
+          "description": "Every platform gets a robust API so you can integrate with external tools, mobile apps and AI services."
+        },
+        "concept": {
+          "title": "From concept to live product",
+          "description": "We guide you from the first idea through wireframes, development and testing to a working product in production."
+        },
+        "maintenance": {
+          "title": "Ongoing maintenance",
+          "description": "After launch we stay available for updates, new features and technical maintenance. No vendor lock-in."
+        }
+      }
+    },
+    "cta": {
+      "heading": "SaaS projects are quoted custom.",
+      "body": "Every platform is different. We put together a tailored proposal after a no-obligation chat about your idea, target audience and technical requirements.",
+      "button": "Start your SaaS project"
+    }
+  }
+}

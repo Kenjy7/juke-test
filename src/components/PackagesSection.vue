@@ -2,71 +2,68 @@
   <section id="pakketten" class="packages">
     <div class="container">
       <div class="packages-header">
-        <span class="label">Webdesign prijzen</span>
-        <h2 class="hero-title">Webdesign pakketten & prijzen</h2>
-        <p class="hero-subtitle">
-          Kies een webdesign pakket dat past bij jouw bedrijf: een professionele <strong>bedrijfswebsite op maat</strong>, snel en mobielvriendelijk.
-          Je kan starten met een <strong>eenmalige bouwprijs</strong> of kiezen voor een <strong>abonnement met hosting & onderhoud</strong> zodat je website veilig, snel en up-to-date blijft.
-        </p>
+        <span class="label">{{ t('packagesSection.head.label') }}</span>
+        <h2 class="hero-title">{{ t('packagesSection.head.title') }}</h2>
+        <p class="hero-subtitle" v-html="t('packagesSection.head.lead')"></p>
       </div>
 
       <!-- TOGGLE: EENMALIG vs ABONNEMENT -->
       <div class="pricing-toggle">
         <button
-            class="toggle-btn"
-            :class="{ active: billing === 'oneoff' }"
-            @click="billing = 'oneoff'"
-            type="button"
+          class="toggle-btn"
+          :class="{ active: billing === 'oneoff' }"
+          @click="billing = 'oneoff'"
+          type="button"
         >
-          Eenmalig (website bouwen)
+          {{ t('packagesSection.toggle.oneoff') }}
         </button>
 
         <button
-            class="toggle-btn"
-            :class="{ active: billing === 'monthly' }"
-            @click="billing = 'monthly'"
-            type="button"
+          class="toggle-btn"
+          :class="{ active: billing === 'monthly' }"
+          @click="billing = 'monthly'"
+          type="button"
         >
-          Abonnement
-          <span class="toggle-pill">hosting & onderhoud</span>
+          {{ t('packagesSection.toggle.monthly') }}
+          <span class="toggle-pill">{{ t('packagesSection.toggle.monthlyPill') }}</span>
         </button>
       </div>
 
       <!-- MAANDELIJKS: 1x uitleg (niet per kaart herhalen) -->
       <div v-if="billing === 'monthly'" class="monthly-info">
         <div class="monthly-info-item">
-          <strong>Minimaal 12 maanden</strong>
-          <span>Maandelijks betalen met een looptijd van 12 maanden.</span>
+          <strong>{{ t('packagesSection.monthlyInfo.term.title') }}</strong>
+          <span>{{ t('packagesSection.monthlyInfo.term.text') }}</span>
         </div>
         <div class="monthly-info-item">
-          <strong>Na 12 maanden volledig jouw eigendom</strong>
-          <span>De website is daarna 100% van jou. Stoppen of doorgaan: jij kiest.</span>
+          <strong>{{ t('packagesSection.monthlyInfo.ownership.title') }}</strong>
+          <span>{{ t('packagesSection.monthlyInfo.ownership.text') }}</span>
         </div>
         <div class="monthly-info-item">
-          <strong>Onderhoud & support inbegrepen</strong>
-          <span>Updates, back-ups, monitoring en support zodat je website performant blijft.</span>
+          <strong>{{ t('packagesSection.monthlyInfo.support.title') }}</strong>
+          <span>{{ t('packagesSection.monthlyInfo.support.text') }}</span>
         </div>
       </div>
 
       <!-- ÉÉN GEHEEL: 3 PAKKETTEN -->
       <div class="packages-grid unified">
         <div
-            v-for="(tier, i) in tiers"
-            :key="i"
-            :id="`juke-${tier.class}`"
-            class="package-card"
-            :class="[tier.class, { popular: tier.popular }]"
+          v-for="(tier, i) in tiers"
+          :key="i"
+          :id="`juke-${tier.class}`"
+          class="package-card"
+          :class="[tier.class, { popular: tier.popular }]"
         >
           <div class="card-glow"></div>
 
           <div v-if="tier.popular" class="popular-badge">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
-                  d="M8 1L10.163 5.396L15 6.132L11.5 9.532L12.326 14.368L8 12.1L3.674 14.368L4.5 9.532L1 6.132L5.837 5.396L8 1Z"
-                  fill="currentColor"
+                d="M8 1L10.163 5.396L15 6.132L11.5 9.532L12.326 14.368L8 12.1L3.674 14.368L4.5 9.532L1 6.132L5.837 5.396L8 1Z"
+                fill="currentColor"
               />
             </svg>
-            Populair
+            {{ t('packagesSection.card.popular') }}
           </div>
 
           <div class="package-badge">{{ tier.badge }}</div>
@@ -74,38 +71,41 @@
           <div class="package-header">
             <h3>{{ tier.name }}</h3>
 
-            <div class="price" :aria-label="`Prijs voor ${tier.name}`">
-              <span class="amount">
-                {{ billing === 'oneoff' ? tier.oneoff.price : tier.monthly?.price }}
-              </span>
-
+            <div
+              class="price"
+              :aria-label="t('packagesSection.card.priceAria', { name: tier.name })"
+            >
+              <span class="amount amount--quote">{{ t('packagesSection.card.amount') }}</span>
               <span class="period">
-                <template v-if="billing === 'oneoff'">eenmalig</template>
-                <template v-else>/ maand</template>
+                <template v-if="billing === 'oneoff'">{{
+                  t('packagesSection.card.periodOneoff')
+                }}</template>
+                <template v-else>{{ t('packagesSection.card.periodMonthly') }}</template>
               </span>
-
-              <span v-if="billing === 'oneoff'" class="price-meta"></span>
             </div>
           </div>
 
           <!-- Abonnement: service block -->
           <div v-if="billing === 'monthly' && tier.monthly" class="monthly-included">
             <div class="monthly-included-head">
-              <div class="monthly-included-title">Inbegrepen in abonnement</div>
-              <div class="monthly-included-sub">
-                Dezelfde website als <strong>{{ tier.name }}</strong>
+              <div class="monthly-included-title">
+                {{ t('packagesSection.card.includedTitle') }}
               </div>
+              <div
+                class="monthly-included-sub"
+                v-html="t('packagesSection.card.includedSub', { name: tier.name })"
+              ></div>
             </div>
 
             <ul class="monthly-included-list">
               <li v-for="(s, j) in tier.monthly.service" :key="j">
                 <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path
-                      d="M16.6663 5L7.49967 14.1667L3.33301 10"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
+                    d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
                   />
                 </svg>
                 <span>{{ s }}</span>
@@ -126,11 +126,11 @@
                 <li v-for="(feature, j) in group.items" :key="j">
                   <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
-                        d="M16.6663 5L7.49967 14.1667L3.33301 10"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                      d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     />
                   </svg>
                   <span v-html="feature"></span>
@@ -140,18 +140,18 @@
           </div>
 
           <button
-              class="cta-button"
-              :class="{ secondary: billing === 'monthly' }"
-              @click="selectPackage(billing === 'oneoff' ? tier.oneoff.name : tier.monthly?.name)"
+            class="cta-button"
+            :class="{ secondary: billing === 'monthly' }"
+            @click="selectPackage(billing === 'oneoff' ? tier.oneoff.name : tier.monthly?.name)"
           >
-            <span>Kies {{ tier.name }}</span>
+            <span>{{ t('packagesSection.card.cta', { name: tier.name }) }}</span>
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path
-                  d="M7.5 15L12.5 10L7.5 5"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
               />
             </svg>
           </button>
@@ -164,8 +164,11 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+import { trackEvent } from '@/composables/useAnalytics'
 
 const router = useRouter()
+const { t } = useI18n()
 
 /**
  * Billing toggle
@@ -178,146 +181,164 @@ const billing = ref('oneoff')
  * One-off packages
  * (copy is SEO+conversie sterker, logica blijft identiek)
  */
-const packages = [
+const packages = computed(() => [
   {
     name: 'Juke Lite',
-    badge: 'Starter',
+    badge: t('packagesSection.packages.lite.badge'),
     price: '€600 – €900',
     class: 'lite',
     featureGroups: [
       {
-        title: 'Website',
+        title: t('packagesSection.packages.lite.groups.website.title'),
         items: [
-          "Responsive <strong>bedrijfswebsite</strong> tot <strong>4 pagina's</strong>",
-          'Contactformulier + e-mail integratie (meer aanvragen)',
-          'Conversiegerichte call-to-actions'
-        ]
+          t('packagesSection.packages.lite.groups.website.items.0'),
+          t('packagesSection.packages.lite.groups.website.items.1'),
+          t('packagesSection.packages.lite.groups.website.items.2'),
+        ],
       },
       {
-        title: 'Design & content',
+        title: t('packagesSection.packages.lite.groups.design.title'),
         items: [
-          'Basis grafische elementen + huisstijlkleuren',
-          'Hulp bij structuur van teksten (titels & secties)',
-          'Training & uitleg om zelf aanpassingen te doen'
-        ]
+          t('packagesSection.packages.lite.groups.design.items.0'),
+          t('packagesSection.packages.lite.groups.design.items.1'),
+          t('packagesSection.packages.lite.groups.design.items.2'),
+        ],
       },
       {
-        title: 'SEO & revisies',
+        title: t('packagesSection.packages.lite.groups.seo.title'),
         items: [
-          'SEO-basis (titels, meta, indexeerbaar)',
-          'Geoptimaliseerde afbeeldingen (sneller laden)',
-          '<strong>2 revisierondes</strong>'
-        ]
-      }
-    ]
+          t('packagesSection.packages.lite.groups.seo.items.0'),
+          t('packagesSection.packages.lite.groups.seo.items.1'),
+          t('packagesSection.packages.lite.groups.seo.items.2'),
+        ],
+      },
+    ],
   },
   {
     name: 'Juke Groove',
-    badge: 'Aanbevolen',
+    badge: t('packagesSection.packages.groove.badge'),
     price: '€1.200 – €1.600',
     class: 'groove',
     popular: true,
     featureGroups: [
       {
-        title: 'Website',
+        title: t('packagesSection.packages.groove.groups.website.title'),
         items: [
-          '<strong>Alles uit Juke Lite</strong>',
-          "Uitgebreide <strong>bedrijfswebsite</strong> tot <strong>7 pagina's</strong>",
-          'Blog of nieuwssectie (extra vindbaarheid)'
-        ]
+          t('packagesSection.packages.groove.groups.website.items.0'),
+          t('packagesSection.packages.groove.groups.website.items.1'),
+          t('packagesSection.packages.groove.groups.website.items.2'),
+        ],
       },
       {
-        title: 'Design & UX',
+        title: t('packagesSection.packages.groove.groups.design.title'),
         items: [
-          'Custom design op jouw huisstijl',
-          'Interacties en animaties waar nuttig',
-          'Mobile UX optimalisatie (meer conversie)'
-        ]
+          t('packagesSection.packages.groove.groups.design.items.0'),
+          t('packagesSection.packages.groove.groups.design.items.1'),
+          t('packagesSection.packages.groove.groups.design.items.2'),
+        ],
       },
       {
-        title: 'SEO & revisies',
+        title: t('packagesSection.packages.groove.groups.seo.title'),
         items: [
-          "SEO-optimalisatie op pagina's & afbeeldingen",
-          'Technische SEO check (headings, redirects)',
-          '<strong>3–4 revisierondes</strong>'
-        ]
-      }
-    ]
+          t('packagesSection.packages.groove.groups.seo.items.0'),
+          t('packagesSection.packages.groove.groups.seo.items.1'),
+          t('packagesSection.packages.groove.groups.seo.items.2'),
+        ],
+      },
+    ],
   },
   {
     name: 'Juke Amplify',
-    badge: 'Premium',
+    badge: t('packagesSection.packages.amplify.badge'),
     price: '€2.400 – €2.800',
     class: 'amplify',
     featureGroups: [
       {
-        title: 'Website',
+        title: t('packagesSection.packages.amplify.groups.website.title'),
         items: [
-          '<strong>Alles uit Juke Groove</strong>',
-          "Tot <strong>10+ pagina's</strong> (groei & schaalbaarheid)",
-          'Uitgebreide blog, portfolio of projectsecties (autoriteit opbouwen)'
-        ]
+          t('packagesSection.packages.amplify.groups.website.items.0'),
+          t('packagesSection.packages.amplify.groups.website.items.1'),
+          t('packagesSection.packages.amplify.groups.website.items.2'),
+        ],
       },
       {
-        title: 'Design, UX & features',
+        title: t('packagesSection.packages.amplify.groups.design.title'),
         items: [
-          'Volledig maatwerk design + UI/UX optimalisatie',
-          'Professionele animaties & micro-interacties',
-          'Online boekingssysteem of agenda',
-          'CRM of nieuwsbrief integratie'
-        ]
+          t('packagesSection.packages.amplify.groups.design.items.0'),
+          t('packagesSection.packages.amplify.groups.design.items.1'),
+          t('packagesSection.packages.amplify.groups.design.items.2'),
+          t('packagesSection.packages.amplify.groups.design.items.3'),
+        ],
       },
       {
-        title: 'SEO, performance & revisies',
+        title: t('packagesSection.packages.amplify.groups.seo.title'),
         items: [
-          'SEO-optimalisatie + linkbuilding advies',
-          'Website performance optimalisatie (sneller laden)',
-          'Training & documentatie voor beheer',
-          '<strong>5–6 revisierondes</strong>'
-        ]
-      }
-    ]
-  }
-]
+          t('packagesSection.packages.amplify.groups.seo.items.0'),
+          t('packagesSection.packages.amplify.groups.seo.items.1'),
+          t('packagesSection.packages.amplify.groups.seo.items.2'),
+          t('packagesSection.packages.amplify.groups.seo.items.3'),
+        ],
+      },
+    ],
+  },
+])
 
 /**
  * Monthly plans (alleen service/onderhoud)
  * (kleine copy edits: "content updates" is duidelijker dan "wijzigingen")
  */
-const monthlyPlans = [
+const monthlyPlans = computed(() => [
   {
     name: 'Juke Lite Monthly',
-    badge: 'Starter abonnement',
+    badge: t('packagesSection.monthlyPlans.lite.badge'),
     price: '€55 – €88',
     class: 'lite',
-    service: ['Hosting & SSL', 'Updates & security', 'Back-ups', '±60 min content updates', 'Support'],
-    note: 'Ideaal voor starters die ontzorgd willen worden.'
+    service: [
+      t('packagesSection.monthlyPlans.lite.service.0'),
+      t('packagesSection.monthlyPlans.lite.service.1'),
+      t('packagesSection.monthlyPlans.lite.service.2'),
+      t('packagesSection.monthlyPlans.lite.service.3'),
+      t('packagesSection.monthlyPlans.lite.service.4'),
+    ],
+    note: t('packagesSection.monthlyPlans.lite.note'),
   },
   {
     name: 'Juke Groove Monthly',
-    badge: 'Meest gekozen',
+    badge: t('packagesSection.monthlyPlans.groove.badge'),
     price: '€110 – €145',
     class: 'groove',
-    service: ['Hosting & SSL', 'Updates & back-ups', 'Monitoring', '±90 min content updates', 'Prioritaire support'],
-    note: 'Ideaal als je website actief mee evolueert.'
+    service: [
+      t('packagesSection.monthlyPlans.groove.service.0'),
+      t('packagesSection.monthlyPlans.groove.service.1'),
+      t('packagesSection.monthlyPlans.groove.service.2'),
+      t('packagesSection.monthlyPlans.groove.service.3'),
+      t('packagesSection.monthlyPlans.groove.service.4'),
+    ],
+    note: t('packagesSection.monthlyPlans.groove.note'),
   },
   {
     name: 'Juke Amplify Monthly',
-    badge: 'Premium groei',
+    badge: t('packagesSection.monthlyPlans.amplify.badge'),
     price: '€220 – €255',
     class: 'amplify',
-    service: ['Uptime monitoring', 'Performance checks', 'Updates & back-ups', '±2 uur content updates', 'Integratie-onderhoud'],
-    note: 'Voor bedrijven die focussen op conversie.'
-  }
-]
+    service: [
+      t('packagesSection.monthlyPlans.amplify.service.0'),
+      t('packagesSection.monthlyPlans.amplify.service.1'),
+      t('packagesSection.monthlyPlans.amplify.service.2'),
+      t('packagesSection.monthlyPlans.amplify.service.3'),
+      t('packagesSection.monthlyPlans.amplify.service.4'),
+    ],
+    note: t('packagesSection.monthlyPlans.amplify.note'),
+  },
+])
 
 /**
  * Merge: 1 kaart per tier (Lite/Groove/Amplify) met 2 prijsmodellen
  * Match op `class` (lite/groove/amplify)
  */
 const tiers = computed(() => {
-  return packages.map((p) => {
-    const m = monthlyPlans.find((mp) => mp.class === p.class)
+  return packages.value.map((p) => {
+    const m = monthlyPlans.value.find((mp) => mp.class === p.class)
 
     return {
       name: p.name,
@@ -328,17 +349,17 @@ const tiers = computed(() => {
 
       oneoff: {
         name: p.name,
-        price: p.price
+        price: p.price,
       },
 
       monthly: m
-          ? {
+        ? {
             name: m.name,
             price: m.price,
             service: m.service,
-            note: m.note
+            note: m.note,
           }
-          : null
+        : null,
     }
   })
 })
@@ -346,10 +367,13 @@ const tiers = computed(() => {
 const selectPackage = (packageName) => {
   if (!packageName) return
 
+  // Funnel step toward a lead (consent-gated, enumerable values)
+  trackEvent('package_selected', { package: packageName, billing: billing.value })
+
   router.push({
     path: '/contact',
     hash: '#contact',
-    query: { pakket: packageName }
+    query: { pakket: packageName },
   })
 
   setTimeout(() => {
@@ -360,12 +384,12 @@ const selectPackage = (packageName) => {
 
 onMounted(() => {
   const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -50px 0px' },
   )
 
   document.querySelectorAll('.package-card').forEach((el) => observer.observe(el))
@@ -479,7 +503,7 @@ onMounted(() => {
 
   &.active {
     background: var(--color-primary);
-    color: var(--color-text-primary);
+    color: var(--color-text-on-accent);
     box-shadow: var(--shadow-glow-primary);
   }
 }
@@ -669,7 +693,7 @@ onMounted(() => {
   align-items: center;
   gap: var(--space-2);
   background: var(--color-primary);
-  color: var(--color-text-primary);
+  color: var(--color-text-on-accent);
   padding: var(--space-2) var(--space-4);
   border-radius: var(--radius-full);
   font-family: var(--font-sans);
@@ -706,6 +730,10 @@ onMounted(() => {
     font-weight: var(--weight-extrabold);
     color: var(--color-primary);
     letter-spacing: var(--tracking-tight);
+  }
+
+  .amount--quote {
+    font-size: var(--text-h2);
   }
 
   .period {

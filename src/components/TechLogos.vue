@@ -10,21 +10,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted } from 'vue'
 
-const sectionRef = ref(null);
+const sectionRef = ref(null)
 
-const techs = ['Claude AI', 'OpenAI', 'Vue.js', 'Node.js', 'Python', 'Netlify'];
+const techs = ['Claude AI', 'OpenAI', 'Vue.js', 'Node.js', 'Python', 'Netlify']
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.3 });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.3 },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 </script>
 
 <style scoped lang="scss">
@@ -61,7 +64,9 @@ onMounted(() => {
   flex: 1;
   justify-content: flex-end;
 
-  &::-webkit-scrollbar { display: none; }
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .logo-item {
@@ -73,11 +78,15 @@ onMounted(() => {
   transition: opacity var(--duration-fast) var(--ease-smooth);
   letter-spacing: 0.02em;
 
-  &:hover { opacity: 1; }
+  &:hover {
+    opacity: 1;
+  }
 }
 
 @media (max-width: 768px) {
-  .tech-strip { padding: var(--space-4); }
+  .tech-strip {
+    padding: var(--space-4);
+  }
 
   .container {
     flex-direction: column;

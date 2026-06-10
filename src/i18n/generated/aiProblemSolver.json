@@ -1,0 +1,32 @@
+{
+  "nl": {
+    "head": {
+      "title": "Tijdverlies in je bedrijf?",
+      "accent": "Wij automatiseren het.",
+      "lead": "Veel bedrijven verspillen dagelijks uren aan repetitieve processen. Met slimme AI-automatisering lossen we dat sneller op dan je denkt."
+    },
+    "problems": {
+      "dataEntry": "Manuele data-invoer",
+      "reports": "Rapporten opmaken",
+      "teamCommunication": "Teamcommunicatie structureren",
+      "documentReview": "Documenten controleren",
+      "simplifyProcesses": "Complexe processen vereenvoudigen",
+      "overview": "Overzicht en inzicht in wat telt"
+    }
+  },
+  "en": {
+    "head": {
+      "title": "Losing time in your business?",
+      "accent": "We automate it.",
+      "lead": "Many businesses waste hours every day on repetitive processes. With smart AI automation we solve that faster than you think."
+    },
+    "problems": {
+      "dataEntry": "Manual data entry",
+      "reports": "Compiling reports",
+      "teamCommunication": "Structuring team communication",
+      "documentReview": "Reviewing documents",
+      "simplifyProcesses": "Simplifying complex processes",
+      "overview": "Clear overview and insight into what matters"
+    }
+  }
+}

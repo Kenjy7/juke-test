@@ -1,18 +1,16 @@
 <template>
   <section class="why-us band--sunken" ref="sectionRef">
     <div class="container">
-
       <!-- Asymmetric two-column: sticky lead heading + reasons list -->
       <div class="why-us__layout">
-
         <!-- Left column: editorial lead -->
         <aside class="why-us__lead reveal">
           <span class="eyebrow">
             <span class="eyebrow__dot" aria-hidden="true"></span>
-            Waarom Juke
+            {{ t('waaromJuke.eyebrow') }}
           </span>
-          <h2>Waarom bedrijven met ons bouwen.</h2>
-          <p class="lead">Technische expertise gecombineerd met een pragmatische aanpak.</p>
+          <h2>{{ t('waaromJuke.head.title') }}</h2>
+          <p class="lead">{{ t('waaromJuke.head.lead') }}</p>
         </aside>
 
         <!-- Right column: numbered hairline reason rows -->
@@ -33,69 +31,104 @@
             <span class="reason-row__index" aria-hidden="true">0{{ index + 1 }}</span>
           </li>
         </ol>
-
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-import { h, ref, onMounted } from 'vue';
+import { h, ref, onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 
-const sectionRef = ref(null);
+const { t } = useI18n()
+
+const sectionRef = ref(null)
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add('visible')
+      })
+    },
+    { threshold: 0.1, rootMargin: '0px 0px -40px 0px' },
+  )
 
-  sectionRef.value?.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-});
+  sectionRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
+})
 
-const SpeedIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [h('path', { d: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' })]);
+const SpeedIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [h('path', { d: 'M13 2L3 14h9l-1 8 10-12h-9l1-8z' })],
+  )
 
-const PersonalIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [
-  h('path', { d: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' }),
-  h('circle', { cx: '9', cy: '7', r: '4' }),
-  h('path', { d: 'M22 21v-2a4 4 0 0 0-3-3.87' }),
-  h('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' })
-]);
+const PersonalIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [
+      h('path', { d: 'M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2' }),
+      h('circle', { cx: '9', cy: '7', r: '4' }),
+      h('path', { d: 'M22 21v-2a4 4 0 0 0-3-3.87' }),
+      h('path', { d: 'M16 3.13a4 4 0 0 1 0 7.75' }),
+    ],
+  )
 
-const ScaleIcon = () => h('svg', {
-  xmlns: 'http://www.w3.org/2000/svg', viewBox: '0 0 24 24', fill: 'none',
-  stroke: 'currentColor', 'stroke-width': '1.5', 'stroke-linecap': 'round', 'stroke-linejoin': 'round'
-}, [
-  h('rect', { x: '2', y: '2', width: '8', height: '8', rx: '1' }),
-  h('rect', { x: '14', y: '2', width: '8', height: '8', rx: '1' }),
-  h('rect', { x: '2', y: '14', width: '8', height: '8', rx: '1' }),
-  h('rect', { x: '14', y: '14', width: '8', height: '8', rx: '1' })
-]);
+const ScaleIcon = () =>
+  h(
+    'svg',
+    {
+      xmlns: 'http://www.w3.org/2000/svg',
+      viewBox: '0 0 24 24',
+      fill: 'none',
+      stroke: 'currentColor',
+      'stroke-width': '1.5',
+      'stroke-linecap': 'round',
+      'stroke-linejoin': 'round',
+    },
+    [
+      h('rect', { x: '2', y: '2', width: '8', height: '8', rx: '1' }),
+      h('rect', { x: '14', y: '2', width: '8', height: '8', rx: '1' }),
+      h('rect', { x: '2', y: '14', width: '8', height: '8', rx: '1' }),
+      h('rect', { x: '14', y: '14', width: '8', height: '8', rx: '1' }),
+    ],
+  )
 
-const features = [
+const features = computed(() => [
   {
     icon: SpeedIcon,
-    title: 'Snelle oplevering',
-    description: 'Van idee tot werkend product in weken, niet maanden. We werken in sprints en leveren snel tastbaar resultaat.'
+    title: t('waaromJuke.features.speed.title'),
+    description: t('waaromJuke.features.speed.description'),
   },
   {
     icon: PersonalIcon,
-    title: 'Persoonlijke aanpak',
-    description: 'Geen templates of standaardoplossingen. We analyseren jouw processen en bouwen precies wat je nodig hebt.'
+    title: t('waaromJuke.features.personal.title'),
+    description: t('waaromJuke.features.personal.description'),
   },
   {
     icon: ScaleIcon,
-    title: 'Schaalbare technologie',
-    description: 'We bouwen met moderne stacks die meegroeien met je bedrijf. Van Vue en Node tot AI-API\'s en cloud-infrastructuur.'
-  }
-];
+    title: t('waaromJuke.features.scale.title'),
+    description: t('waaromJuke.features.scale.description'),
+  },
+])
 </script>
 
 <style scoped lang="scss">
@@ -176,9 +209,10 @@ h2 {
   align-items: start;
   padding: var(--space-8) 0;
   border-top: 1px solid var(--color-border);
-  transition: border-color var(--transition-base),
-              transform var(--transition-base),
-              box-shadow var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base),
+    box-shadow var(--transition-base);
 
   &:last-child {
     border-bottom: 1px solid var(--color-border);
@@ -207,10 +241,14 @@ h2 {
   border: 1px solid var(--color-border);
   background: var(--color-bg-surface);
   color: var(--color-accent);
-  transition: border-color var(--transition-base),
-              background var(--transition-base);
+  transition:
+    border-color var(--transition-base),
+    background var(--transition-base);
 
-  svg { width: 22px; height: 22px; }
+  svg {
+    width: 22px;
+    height: 22px;
+  }
 }
 
 .reason-row__body {
@@ -262,7 +300,9 @@ h2 {
   .reason-row {
     grid-template-columns: 44px 1fr;
 
-    .reason-row__index { display: none; }
+    .reason-row__index {
+      display: none;
+    }
   }
 }
 </style>

@@ -1,0 +1,32 @@
+{
+  "nl": {
+    "eyebrow": "Voor elke afdeling",
+    "title": "AI-automatisering voor elke kernafdeling.",
+    "description": "We bouwen slimme AI-workflows die repetitief werk overnemen, fouten verminderen en je team laten focussen op wat écht waarde toevoegt.",
+    "capabilities": {
+      "customerService": "AI klantenservice & chatbots",
+      "internalTools": "Interne tools & dashboards",
+      "salesAutomation": "Sales automation & lead opvolging",
+      "workflowAutomation": "Workflow & procesautomatisering",
+      "marketingContent": "Marketing content & campagnes",
+      "integrations": "Integraties (CRM, ERP, API's)",
+      "dataAnalysis": "Data-analyse & rapportages",
+      "customWorkflows": "Custom AI-workflows"
+    }
+  },
+  "en": {
+    "eyebrow": "For every department",
+    "title": "AI automation for every core department.",
+    "description": "We build smart AI workflows that take over repetitive work, reduce errors and let your team focus on what truly adds value.",
+    "capabilities": {
+      "customerService": "AI customer service & chatbots",
+      "internalTools": "Internal tools & dashboards",
+      "salesAutomation": "Sales automation & lead follow-up",
+      "workflowAutomation": "Workflow & process automation",
+      "marketingContent": "Marketing content & campaigns",
+      "integrations": "Integrations (CRM, ERP, APIs)",
+      "dataAnalysis": "Data analysis & reporting",
+      "customWorkflows": "Custom AI workflows"
+    }
+  }
+}

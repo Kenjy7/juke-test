@@ -2,153 +2,97 @@
   <section class="cookies">
     <div class="cookies-container">
       <div class="header">
-        <h1>Cookiebeleid</h1>
-        <p class="subtitle">Transparantie over hoe wij cookies gebruiken</p>
-        <p class="last-updated">Laatst bijgewerkt: December 2025</p>
+        <h1>{{ t('cookiesPolicy.header.title') }}</h1>
+        <p class="subtitle">{{ t('cookiesPolicy.header.subtitle') }}</p>
+        <p class="last-updated">{{ t('cookiesPolicy.header.lastUpdated') }}</p>
       </div>
 
       <div class="intro">
         <p>
-          Wij gebruiken cookies en vergelijkbare technologieën op onze website.
-          Dit cookiebeleid legt uit wat cookies zijn, hoe we ze gebruiken, en hoe u uw voorkeuren kunt beheren.
+          {{ t('cookiesPolicy.intro') }}
         </p>
       </div>
 
       <div class="content">
         <section class="section">
-          <h2>Wat zijn cookies?</h2>
+          <h2>{{ t('cookiesPolicy.whatAreCookies.title') }}</h2>
           <p>
-            Cookies zijn kleine tekstbestanden die op uw apparaat worden geplaatst wanneer u onze website bezoekt.
-            Ze helpen ons om de website goed te laten functioneren, veiliger te maken, een betere gebruikerservaring
-            te bieden en te begrijpen hoe de website presteert.
+            {{ t('cookiesPolicy.whatAreCookies.text') }}
           </p>
         </section>
 
         <section class="section">
-          <h2>Welke cookies gebruiken wij?</h2>
+          <h2>{{ t('cookiesPolicy.whichCookies.title') }}</h2>
 
-          <div class="cookie-type">
-            <h3>Noodzakelijke cookies</h3>
+          <div class="cookie-type" v-for="(type, index) in cookieTypes" :key="index">
+            <h3>{{ type.title }}</h3>
             <p>
-              Deze cookies zijn essentieel voor het functioneren van de website. Zonder deze cookies kunnen
-              bepaalde delen van de website niet werken.
+              {{ type.text }}
             </p>
-            <p class="examples">Voorbeelden: Sessie-cookies, beveiligingscookies, cookie-voorkeuren</p>
-          </div>
-
-          <div class="cookie-type">
-            <h3>Functionele cookies</h3>
-            <p>
-              Deze cookies onthouden uw voorkeuren en keuzes om uw ervaring te verbeteren.
-            </p>
-            <p class="examples">Voorbeelden: Taalvoorkeur, regio-instellingen, voorkeursinstellingen</p>
-          </div>
-
-          <div class="cookie-type">
-            <h3>Analytische cookies</h3>
-            <p>
-              Deze cookies helpen ons begrijpen hoe bezoekers omgaan met de website door informatie
-              anoniem te verzamelen en te rapporteren.
-            </p>
-            <p class="examples">Voorbeelden: Google Analytics, bezoekersstatistieken, pagina-interacties</p>
-          </div>
-
-          <div class="cookie-type">
-            <h3>Marketing cookies</h3>
-            <p>
-              Deze cookies worden gebruikt om bezoekers te volgen op websites. De bedoeling is om advertenties
-              te tonen die relevant en aantrekkelijk zijn voor de individuele gebruiker.
-            </p>
-            <p class="examples">Voorbeelden: Social media cookies, advertentiecookies, tracking pixels</p>
+            <p class="examples">{{ type.examples }}</p>
           </div>
         </section>
 
         <section class="section">
-          <h2>Cookies beheren</h2>
+          <h2>{{ t('cookiesPolicy.manage.title') }}</h2>
           <p>
-            U kunt uw cookie-instellingen op elk moment wijzigen via uw browserinstellingen. Houd er rekening
-            mee dat het uitschakelen van bepaalde cookies de functionaliteit van onze website kan beïnvloeden.
-            De meeste browsers accepteren cookies automatisch, maar u kunt uw browserinstellingen meestal aanpassen
-            om cookies te weigeren als u dat wenst.
+            {{ t('cookiesPolicy.manage.text') }}
           </p>
         </section>
 
         <section class="section">
-          <h2>Cookies van derde partijen</h2>
+          <h2>{{ t('cookiesPolicy.thirdParties.title') }}</h2>
           <p>
-            Sommige cookies worden geplaatst door diensten van derden die op onze pagina's verschijnen.
-            Wij hebben geen controle over deze cookies. Raadpleeg de privacyverklaring van deze diensten
-            voor meer informatie over hun cookies en hoe u deze kunt beheren.
+            {{ t('cookiesPolicy.thirdParties.text') }}
           </p>
 
           <div class="third-parties">
-            <div class="party">
-              <span class="party-name">Google Analytics</span>
-              <span class="party-purpose">Websiteanalyse en statistieken</span>
-            </div>
-            <div class="party">
-              <span class="party-name">Google Fonts</span>
-              <span class="party-purpose">Lettertype weergave</span>
-            </div>
-            <div class="party">
-              <span class="party-name">Social Media Plugins</span>
-              <span class="party-purpose">Social media integratie</span>
+            <div class="party" v-for="(party, index) in thirdParties" :key="index">
+              <span class="party-name">{{ party.name }}</span>
+              <span class="party-purpose">{{ party.purpose }}</span>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <h2>Bewaartermijn</h2>
-          <p>De bewaartermijn van cookies verschilt per type:</p>
+          <h2>{{ t('cookiesPolicy.retention.title') }}</h2>
+          <p>{{ t('cookiesPolicy.retention.intro') }}</p>
 
           <div class="durations">
-            <div class="duration-item">
-              <span class="duration-type">Sessiecookies</span>
-              <span class="duration-time">Worden verwijderd na het sluiten van uw browser</span>
-            </div>
-            <div class="duration-item">
-              <span class="duration-type">Permanente cookies</span>
-              <span class="duration-time">Blijven 1 maand tot 2 jaar bewaard</span>
-            </div>
-            <div class="duration-item">
-              <span class="duration-type">Analytische cookies</span>
-              <span class="duration-time">Worden na 26 maanden automatisch verwijderd</span>
+            <div class="duration-item" v-for="(duration, index) in durations" :key="index">
+              <span class="duration-type">{{ duration.type }}</span>
+              <span class="duration-time">{{ duration.time }}</span>
             </div>
           </div>
         </section>
 
         <section class="section">
-          <h2>Uw rechten</h2>
-          <p>U heeft het recht om:</p>
+          <h2>{{ t('cookiesPolicy.rights.title') }}</h2>
+          <p>{{ t('cookiesPolicy.rights.intro') }}</p>
 
           <ul class="rights-list">
-            <li>Uw toestemming voor cookies in te trekken</li>
-            <li>Cookies te verwijderen via uw browserinstellingen</li>
-            <li>Bezwaar te maken tegen tracking</li>
-            <li>Inzage te krijgen in verzamelde gegevens</li>
+            <li v-for="(right, index) in rights" :key="index">{{ right }}</li>
           </ul>
         </section>
 
         <section class="section">
-          <h2>Wijzigingen in dit cookiebeleid</h2>
+          <h2>{{ t('cookiesPolicy.changes.title') }}</h2>
           <p>
-            Dit cookiebeleid kan van tijd tot tijd worden bijgewerkt. We raden u aan deze pagina regelmatig
-            te bekijken om op de hoogte te blijven van eventuele wijzigingen. Wijzigingen in dit cookiebeleid
-            zijn van kracht vanaf het moment dat ze op deze pagina worden gepubliceerd.
+            {{ t('cookiesPolicy.changes.text') }}
           </p>
         </section>
 
         <section class="section contact-section">
-          <h2>Vragen?</h2>
-          <p>Heeft u vragen over ons cookiebeleid? Neem gerust contact met ons op:</p>
+          <h2>{{ t('cookiesPolicy.contact.title') }}</h2>
+          <p>{{ t('cookiesPolicy.contact.intro') }}</p>
 
           <div class="contact-info">
             <a href="mailto:contact@jukecoding.be" class="contact-link">
-              <span class="contact-label">Email:</span>
+              <span class="contact-label">{{ t('cookiesPolicy.contact.emailLabel') }}</span>
               <span class="contact-value">contact@jukecoding.be</span>
             </a>
             <a href="tel:+32123456789" class="contact-link">
-              <span class="contact-label">Telefoon:</span>
+              <span class="contact-label">{{ t('cookiesPolicy.contact.phoneLabel') }}</span>
               <span class="contact-value">+32 96 42 89 50</span>
             </a>
           </div>
@@ -156,11 +100,78 @@
       </div>
 
       <router-link to="/" class="back-link">
-        ← Terug naar home
+        {{ t('cookiesPolicy.backLink') }}
       </router-link>
     </div>
   </section>
 </template>
+
+<script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const cookieTypes = computed(() => [
+  {
+    title: t('cookiesPolicy.whichCookies.necessary.title'),
+    text: t('cookiesPolicy.whichCookies.necessary.text'),
+    examples: t('cookiesPolicy.whichCookies.necessary.examples'),
+  },
+  {
+    title: t('cookiesPolicy.whichCookies.functional.title'),
+    text: t('cookiesPolicy.whichCookies.functional.text'),
+    examples: t('cookiesPolicy.whichCookies.functional.examples'),
+  },
+  {
+    title: t('cookiesPolicy.whichCookies.analytical.title'),
+    text: t('cookiesPolicy.whichCookies.analytical.text'),
+    examples: t('cookiesPolicy.whichCookies.analytical.examples'),
+  },
+  {
+    title: t('cookiesPolicy.whichCookies.marketing.title'),
+    text: t('cookiesPolicy.whichCookies.marketing.text'),
+    examples: t('cookiesPolicy.whichCookies.marketing.examples'),
+  },
+])
+
+const thirdParties = computed(() => [
+  {
+    name: 'Google Analytics',
+    purpose: t('cookiesPolicy.thirdParties.googleAnalytics'),
+  },
+  {
+    name: 'Google Fonts',
+    purpose: t('cookiesPolicy.thirdParties.googleFonts'),
+  },
+  {
+    name: 'Social Media Plugins',
+    purpose: t('cookiesPolicy.thirdParties.socialMedia'),
+  },
+])
+
+const durations = computed(() => [
+  {
+    type: t('cookiesPolicy.retention.session.type'),
+    time: t('cookiesPolicy.retention.session.time'),
+  },
+  {
+    type: t('cookiesPolicy.retention.permanent.type'),
+    time: t('cookiesPolicy.retention.permanent.time'),
+  },
+  {
+    type: t('cookiesPolicy.retention.analytical.type'),
+    time: t('cookiesPolicy.retention.analytical.time'),
+  },
+])
+
+const rights = computed(() => [
+  t('cookiesPolicy.rights.withdraw'),
+  t('cookiesPolicy.rights.delete'),
+  t('cookiesPolicy.rights.object'),
+  t('cookiesPolicy.rights.access'),
+])
+</script>
 
 <style scoped lang="scss">
 .cookies {

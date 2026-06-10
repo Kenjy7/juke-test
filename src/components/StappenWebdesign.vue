@@ -1,10 +1,10 @@
 <template>
   <section id="stappen-webdesign" class="services-wrapper">
     <section
-        v-for="(service, i) in services"
-        :key="i"
-        class="service-section"
-        :class="{ 'reverse': i % 2 === 1 }"
+      v-for="(service, i) in services"
+      :key="i"
+      class="service-section"
+      :class="{ reverse: i % 2 === 1 }"
     >
       <div class="container">
         <div class="grid">
@@ -17,33 +17,41 @@
               <p v-for="(p, j) in service.paragraphs" :key="j">{{ p }}</p>
             </div>
 
-            <router-link
-                v-if="service.cta"
-                to="/contact"
-                class="btn"
-            >
+            <router-link v-if="service.cta" to="/contact" class="btn">
               <span>{{ service.cta }}</span>
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M7.5 15L12.5 10L7.5 5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"/>
+                <path
+                  d="M7.5 15L12.5 10L7.5 5"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </router-link>
           </div>
 
           <!-- CARDS -->
-          <div class="cards" v-if="service.cards" :data-aos="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+          <div
+            class="cards"
+            v-if="service.cards"
+            :data-aos="i % 2 === 0 ? 'fade-left' : 'fade-right'"
+          >
             <div
-                class="info-card"
-                v-for="(card, k) in service.cards"
-                :key="k"
-                :style="{ animationDelay: `${k * 0.1}s` }"
+              class="info-card"
+              v-for="(card, k) in service.cards"
+              :key="k"
+              :style="{ animationDelay: `${k * 0.1}s` }"
             >
               <div class="icon-wrapper">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path
+                    d="M20 6L9 17L4 12"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
               </div>
               <h4>{{ card.title }}</h4>
@@ -52,15 +60,26 @@
           </div>
 
           <!-- IMAGES -->
-          <div class="images" v-if="service.images" :data-aos="i % 2 === 0 ? 'fade-left' : 'fade-right'">
+          <div
+            class="images"
+            v-if="service.images"
+            :data-aos="i % 2 === 0 ? 'fade-left' : 'fade-right'"
+          >
             <div class="image-stack">
               <div
-                  v-for="(img, l) in service.images"
-                  :key="l"
-                  class="image-wrapper"
-                  :class="`image-${l + 1}`"
+                v-for="(img, l) in service.images"
+                :key="l"
+                class="image-wrapper"
+                :class="`image-${l + 1}`"
               >
-                <img :src="img" :alt="`${service.title} afbeelding ${l + 1}`" width="900" height="900" loading="lazy" decoding="async" />
+                <img
+                  :src="img"
+                  :alt="t('stappenWebdesign.imageAlt', { title: service.title, n: l + 1 })"
+                  width="900"
+                  height="900"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div class="image-overlay"></div>
               </div>
             </div>
@@ -72,7 +91,10 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 // Importeer alle images bovenaan
 import DesignJukeAgent from '@/assets/JukeCodingAIDesign.webp'
@@ -80,111 +102,110 @@ import KleurpaletJuke from '@/assets/TekenbordHuis.webp'
 import NazorgWeb from '@/assets/JukeCodingAINazorg.webp'
 import ITservices from '@/assets/ITServicesJuke.webp'
 
-const services = [
+const services = computed(() => [
   {
-    phase: 'Stap 1',
-    duration: 'Gesprek',
-    title: 'Kennismaken & Plan maken',
-    intro: 'We bepalen samen wat jouw website moet opleveren.',
+    phase: t('stappenWebdesign.step1.phase'),
+    duration: t('stappenWebdesign.step1.duration'),
+    title: t('stappenWebdesign.step1.title'),
+    intro: t('stappenWebdesign.step1.intro'),
     paragraphs: [
-      'We starten met een persoonlijk gesprek over je bedrijf, je aanbod en je ideale klant. Heb je al een website? Dan bekijken we wat goed werkt en waar bezoekers afhaken.',
-      'Daarna maken we een helder plan: structuur, pagina’s, inhoud en de volgende stappen. Zo bouwen we gericht aan een website die duidelijk is én aanvragen oplevert.'
+      t('stappenWebdesign.step1.paragraphs.0'),
+      t('stappenWebdesign.step1.paragraphs.1'),
     ],
     cards: [
       {
-        title: 'Persoonlijk gesprek',
-        description: 'We bespreken jouw ideeën, doelen en verwachtingen zodat we goed op één lijn zitten.'
+        title: t('stappenWebdesign.step1.cards.conversation.title'),
+        description: t('stappenWebdesign.step1.cards.conversation.description'),
       },
       {
-        title: 'Inzicht in je doelgroep',
-        description: 'We kijken wie je klanten zijn en wat zij nodig hebben op jouw website.'
+        title: t('stappenWebdesign.step1.cards.audience.title'),
+        description: t('stappenWebdesign.step1.cards.audience.description'),
       },
       {
-        title: 'Website check',
-        description: 'Als je al een website hebt, bekijken we snelheid, gebruiksgemak en verbeterpunten.'
+        title: t('stappenWebdesign.step1.cards.check.title'),
+        description: t('stappenWebdesign.step1.cards.check.description'),
       },
       {
-        title: 'Duidelijk stappenplan',
-        description: 'Je weet precies wat we gaan doen, wanneer en met welk doel.'
-      }
+        title: t('stappenWebdesign.step1.cards.plan.title'),
+        description: t('stappenWebdesign.step1.cards.plan.description'),
+      },
     ],
-    cta: 'Start met een gratis strategiesessie'
+    cta: t('stappenWebdesign.step1.cta'),
   },
   {
-    phase: 'Stap 2',
-    duration: '1 week',
-    title: 'Ontwerp & Uitstraling',
-    intro: 'Een ontwerp dat vertrouwen wekt en bezoekers vlot laat beslissen.',
+    phase: t('stappenWebdesign.step2.phase'),
+    duration: t('stappenWebdesign.step2.duration'),
+    title: t('stappenWebdesign.step2.title'),
+    intro: t('stappenWebdesign.step2.intro'),
     paragraphs: [
-      'We werken eerst de structuur uit: welke pagina’s zijn nodig en hoe vinden bezoekers snel wat ze zoeken. Alles wordt ontworpen met gebruiksgemak als prioriteit.',
-      'Daarna vertalen we jouw merk naar een professionele uitstraling met kleuren, typografie en beelden die passen bij je doelgroep. Je krijgt een duidelijk voorstel dat we samen verfijnen.'
+      t('stappenWebdesign.step2.paragraphs.0'),
+      t('stappenWebdesign.step2.paragraphs.1'),
     ],
-    images: [DesignJukeAgent, KleurpaletJuke]
+    images: [DesignJukeAgent, KleurpaletJuke],
   },
   {
-    phase: 'Stap 3',
-    duration: '2-3 weken',
-    title: 'Website Bouwen',
-    intro: 'We bouwen een snelle, veilige website die klaar is om te groeien.',
+    phase: t('stappenWebdesign.step3.phase'),
+    duration: t('stappenWebdesign.step3.duration'),
+    title: t('stappenWebdesign.step3.title'),
+    intro: t('stappenWebdesign.step3.intro'),
     paragraphs: [
-      'We ontwikkelen je website met moderne techniek die snel laadt en betrouwbaar werkt op mobiel en desktop. Je kan achteraf zelf eenvoudig teksten en afbeeldingen aanpassen.',
-      'Heb je extra functionaliteiten nodig, zoals formulieren, een webshop of koppelingen met tools? Dan bouwen we die mee in — zonder dat het complex wordt voor jou.'
+      t('stappenWebdesign.step3.paragraphs.0'),
+      t('stappenWebdesign.step3.paragraphs.1'),
     ],
     cards: [
       {
-        title: 'Website op maat',
-        description: 'Een professionele website die volledig aansluit bij jouw wensen en doelen.'
+        title: t('stappenWebdesign.step3.cards.custom.title'),
+        description: t('stappenWebdesign.step3.cards.custom.description'),
       },
       {
-        title: 'Webshop',
-        description: 'Online verkopen met een gebruiksvriendelijke en veilige webshop.'
+        title: t('stappenWebdesign.step3.cards.webshop.title'),
+        description: t('stappenWebdesign.step3.cards.webshop.description'),
       },
       {
-        title: 'Koppelingen & tools',
-        description: 'Integraties met e-mail, betalingen, statistieken en andere systemen.'
+        title: t('stappenWebdesign.step3.cards.integrations.title'),
+        description: t('stappenWebdesign.step3.cards.integrations.description'),
       },
       {
-        title: 'Portalen & dashboards',
-        description: 'Handige omgevingen voor klanten, medewerkers of overzichtelijke data.'
-      }
-    ]
+        title: t('stappenWebdesign.step3.cards.portals.title'),
+        description: t('stappenWebdesign.step3.cards.portals.description'),
+      },
+    ],
   },
   {
-    phase: 'Stap 4',
-    duration: 'Doorlopend',
-    title: 'Testen, Livegang & Verbeteren',
-    intro: 'We lanceren zorgvuldig en blijven optimaliseren voor betere resultaten.',
+    phase: t('stappenWebdesign.step4.phase'),
+    duration: t('stappenWebdesign.step4.duration'),
+    title: t('stappenWebdesign.step4.title'),
+    intro: t('stappenWebdesign.step4.intro'),
     paragraphs: [
-      'Voor de livegang testen we alles uitgebreid: snelheid, mobielvriendelijkheid, formulieren en weergave in verschillende browsers. Zo gaat je website stabiel en professioneel online.',
-      'Na de lancering blijven we verbeteren. We kijken naar bezoekersgedrag en sturen bij waar nodig, zodat je website stap voor stap meer aanvragen en conversie oplevert.'
+      t('stappenWebdesign.step4.paragraphs.0'),
+      t('stappenWebdesign.step4.paragraphs.1'),
     ],
     results: [
-      'Goed geteste en stabiele website',
-      'Betere vindbaarheid in Google',
-      'Inzicht in bezoekers en prestaties',
-      'Doorlopende verbeteringen',
-      'Onderhoud en support zonder zorgen'
+      t('stappenWebdesign.step4.results.0'),
+      t('stappenWebdesign.step4.results.1'),
+      t('stappenWebdesign.step4.results.2'),
+      t('stappenWebdesign.step4.results.3'),
+      t('stappenWebdesign.step4.results.4'),
     ],
-    images: [NazorgWeb, ITservices]
-  }
-]
-
+    images: [NazorgWeb, ITservices],
+  },
+])
 
 onMounted(() => {
   const observerOptions = {
     threshold: 0.1,
-    rootMargin: '0px 0px -100px 0px'
+    rootMargin: '0px 0px -100px 0px',
   }
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
         entry.target.classList.add('visible')
       }
     })
   }, observerOptions)
 
-  document.querySelectorAll('[data-aos]').forEach(el => observer.observe(el))
+  document.querySelectorAll('[data-aos]').forEach((el) => observer.observe(el))
 })
 </script>
 
@@ -364,7 +385,8 @@ onMounted(() => {
     transition: opacity 0.3s ease;
   }
 
-  span, svg {
+  span,
+  svg {
     position: relative;
     z-index: 1;
   }
@@ -441,7 +463,8 @@ onMounted(() => {
     }
   }
 
-  h4, p {
+  h4,
+  p {
     position: relative;
     z-index: 1;
   }
@@ -600,7 +623,9 @@ onMounted(() => {
     height: 400px;
   }
 
-  .text, .cards, .images {
+  .text,
+  .cards,
+  .images {
     transform: translateY(20px);
 
     &.visible {
@@ -640,6 +665,4 @@ onMounted(() => {
     height: 350px;
   }
 }
-
 </style>
-

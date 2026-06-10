@@ -2,19 +2,19 @@
   <section class="webdesign-cta">
     <div class="webdesign-cta-inner">
       <div class="webdesign-cta-content">
-        <h3>Een sterke automatisatie start vaak met een goede basis</h3>
-        <p>Wij bouwen ook websites op maat voor kmo's in België.</p>
+        <h3>{{ t('webdesignCTA.head.title') }}</h3>
+        <p>{{ t('webdesignCTA.head.lead') }}</p>
       </div>
 
       <RouterLink to="/webdesign" class="webdesign-cta-btn">
-        Naar webdesign
+        {{ t('webdesignCTA.button') }}
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
-              d="M7.5 15L12.5 10L7.5 5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M7.5 15L12.5 10L7.5 5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </RouterLink>
@@ -22,10 +22,10 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "WebdesignCta",
-};
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped lang="scss">
@@ -99,10 +99,14 @@ export default {
   &:hover {
     transform: translateY(-2px);
     box-shadow: var(--shadow-elevated);
-    svg { transform: translateX(3px); }
+    svg {
+      transform: translateX(3px);
+    }
   }
 
-  &:active { transform: scale(0.97); }
+  &:active {
+    transform: scale(0.97);
+  }
 }
 
 @media (max-width: 900px) {
@@ -124,8 +128,12 @@ export default {
   }
 
   .webdesign-cta-content {
-    h3 { font-size: 1.1rem; }
-    p { font-size: var(--text-small); }
+    h3 {
+      font-size: 1.1rem;
+    }
+    p {
+      font-size: var(--text-small);
+    }
   }
 
   .webdesign-cta-btn {

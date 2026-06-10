@@ -1,36 +1,25 @@
 <template>
   <transition name="fade">
     <div v-if="showBanner" class="cookie-banner-overlay">
-      <div
-        class="cookie-banner"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="cookie-title"
-      >
+      <div class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
         <div class="cookie-content">
           <div class="cookie-header">
             <div class="cookie-icon">🍪</div>
-            <h3 id="cookie-title">Cookievoorkeuren</h3>
+            <h3 id="cookie-title">{{ t('cookiesPopUp.title') }}</h3>
           </div>
 
           <p class="cookie-description">
-            We gebruiken cookies om je ervaring te verbeteren. Pas je voorkeuren aan of accepteer alles.
+            {{ t('cookiesPopUp.description') }}
           </p>
 
           <!-- Detailed settings -->
           <div v-if="showDetails" class="cookie-settings">
             <div class="cookie-option">
               <div class="option-header">
-                <input
-                    type="checkbox"
-                    id="necessary"
-                    checked
-                    disabled
-                    class="cookie-checkbox"
-                />
+                <input type="checkbox" id="necessary" checked disabled class="cookie-checkbox" />
                 <label for="necessary">
-                  <span class="option-title">Noodzakelijk</span>
-                  <span class="option-required">(Verplicht)</span>
+                  <span class="option-title">{{ t('cookiesPopUp.options.necessary') }}</span>
+                  <span class="option-required">{{ t('cookiesPopUp.options.required') }}</span>
                 </label>
               </div>
             </div>
@@ -38,13 +27,13 @@
             <div class="cookie-option">
               <div class="option-header">
                 <input
-                    type="checkbox"
-                    id="functional"
-                    v-model="preferences.functional"
-                    class="cookie-checkbox"
+                  type="checkbox"
+                  id="functional"
+                  v-model="preferences.functional"
+                  class="cookie-checkbox"
                 />
                 <label for="functional">
-                  <span class="option-title">Functioneel</span>
+                  <span class="option-title">{{ t('cookiesPopUp.options.functional') }}</span>
                 </label>
               </div>
             </div>
@@ -52,13 +41,13 @@
             <div class="cookie-option">
               <div class="option-header">
                 <input
-                    type="checkbox"
-                    id="analytics"
-                    v-model="preferences.analytics"
-                    class="cookie-checkbox"
+                  type="checkbox"
+                  id="analytics"
+                  v-model="preferences.analytics"
+                  class="cookie-checkbox"
                 />
                 <label for="analytics">
-                  <span class="option-title">Analytisch</span>
+                  <span class="option-title">{{ t('cookiesPopUp.options.analytics') }}</span>
                 </label>
               </div>
             </div>
@@ -66,13 +55,13 @@
             <div class="cookie-option">
               <div class="option-header">
                 <input
-                    type="checkbox"
-                    id="marketing"
-                    v-model="preferences.marketing"
-                    class="cookie-checkbox"
+                  type="checkbox"
+                  id="marketing"
+                  v-model="preferences.marketing"
+                  class="cookie-checkbox"
                 />
                 <label for="marketing">
-                  <span class="option-title">Marketing</span>
+                  <span class="option-title">{{ t('cookiesPopUp.options.marketing') }}</span>
                 </label>
               </div>
             </div>
@@ -80,43 +69,35 @@
 
           <!-- Actions -->
           <div class="cookie-actions">
-            <button
-                v-if="!showDetails"
-                @click="toggleDetails"
-                class="btn btn-secondary"
-            >
-              Aanpassen
+            <button v-if="!showDetails" @click="toggleDetails" class="btn btn-secondary">
+              {{ t('cookiesPopUp.actions.customize') }}
             </button>
 
-            <button
-                v-if="showDetails"
-                @click="handleSavePreferences"
-                class="btn btn-secondary"
-            >
-              Opslaan
+            <button v-if="showDetails" @click="handleSavePreferences" class="btn btn-secondary">
+              {{ t('cookiesPopUp.actions.save') }}
             </button>
 
-            <button
-                v-if="!showDetails"
-                @click="handleRejectAll"
-                class="btn btn-tertiary"
-            >
-              Weigeren
+            <button v-if="!showDetails" @click="handleRejectAll" class="btn btn-tertiary">
+              {{ t('cookiesPopUp.actions.reject') }}
             </button>
 
-            <button
-                ref="primaryBtnRef"
-                @click="handleAcceptAll"
-                class="btn btn-primary"
-            >
-              {{ showDetails ? 'Alles accepteren' : 'Accepteren' }}
+            <button ref="primaryBtnRef" @click="handleAcceptAll" class="btn btn-primary">
+              {{
+                showDetails ? t('cookiesPopUp.actions.acceptAll') : t('cookiesPopUp.actions.accept')
+              }}
             </button>
           </div>
 
           <router-link to="/cookies" class="cookie-policy-link">
-            Meer info over ons cookiebeleid
+            {{ t('cookiesPopUp.policyLink') }}
             <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
-              <path d="M7.5 15L12.5 10L7.5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M7.5 15L12.5 10L7.5 5"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
           </router-link>
         </div>
@@ -127,15 +108,13 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useCookieConsent } from '../composables/useCookieConsent'
 
+const { t } = useI18n()
+
 // Gebruik de composable
-const {
-  initializeConsent,
-  saveConsent,
-  acceptAll,
-  acceptNecessary
-} = useCookieConsent()
+const { initializeConsent, saveConsent, acceptAll, acceptNecessary } = useCookieConsent()
 
 const showBanner = ref(false)
 const showDetails = ref(false)
@@ -144,7 +123,7 @@ const primaryBtnRef = ref(null)
 const preferences = ref({
   functional: true,
   analytics: true,
-  marketing: false
+  marketing: false,
 })
 
 const handleKeyDown = (e) => {

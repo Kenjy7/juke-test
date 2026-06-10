@@ -1,0 +1,80 @@
+{
+  "nl": {
+    "head": {
+      "eyebrow": "Wat we bouwen",
+      "title": "Van slimme automatisering tot complete platformen.",
+      "lead": "Eén partner voor je hele digitale traject — van slimme automatisering tot software en web, telkens op maat van je bedrijf."
+    },
+    "cards": {
+      "ai": {
+        "title": "AI-oplossingen op maat",
+        "points": [
+          "Automatisering voor sales, support & opvolging",
+          "Chatbots voor 24/7 klantenservice",
+          "Slimme workflows & automatisering",
+          "API-koppelingen & integraties"
+        ],
+        "linkText": "Meer over AI"
+      },
+      "saas": {
+        "title": "SaaS-platformen bouwen",
+        "points": [
+          "Custom dashboards & portalen",
+          "Gebruikersbeheer & authenticatie",
+          "Schaalbare architectuur",
+          "Van concept tot live product"
+        ],
+        "linkText": "Meer over SaaS"
+      },
+      "web": {
+        "title": "Websites die converteren",
+        "points": [
+          "Websites op maat",
+          "Mobielvriendelijk & snel",
+          "SEO-geoptimaliseerd",
+          "Conversiegerichte structuur"
+        ],
+        "linkText": "Bekijk pakketten"
+      }
+    }
+  },
+  "en": {
+    "head": {
+      "eyebrow": "What we build",
+      "title": "From smart automation to complete platforms.",
+      "lead": "One partner for your entire digital journey — from smart automation to software and web, always tailored to your business."
+    },
+    "cards": {
+      "ai": {
+        "title": "Tailored AI solutions",
+        "points": [
+          "Automation for sales, support & follow-up",
+          "Chatbots for 24/7 customer service",
+          "Smart workflows & automation",
+          "API connections & integrations"
+        ],
+        "linkText": "More about AI"
+      },
+      "saas": {
+        "title": "Building SaaS platforms",
+        "points": [
+          "Custom dashboards & portals",
+          "User management & authentication",
+          "Scalable architecture",
+          "From concept to live product"
+        ],
+        "linkText": "More about SaaS"
+      },
+      "web": {
+        "title": "Websites that convert",
+        "points": [
+          "Custom-built websites",
+          "Mobile-friendly & fast",
+          "SEO-optimised",
+          "Conversion-focused structure"
+        ],
+        "linkText": "View packages"
+      }
+    }
+  }
+}

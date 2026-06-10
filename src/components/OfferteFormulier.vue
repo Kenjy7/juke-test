@@ -2,30 +2,49 @@
   <section class="offerte-section" id="offerte">
     <div class="container">
       <div class="offerte-header">
-        <h2><span>Vraag je offerte aan</span></h2>
+        <h2>
+          <span>{{ t('offerteFormulier.header.title') }}</span>
+        </h2>
         <p>
-          Vertel ons over je project en ontvang een vrijblijvend voorstel.
+          {{ t('offerteFormulier.header.subtitle') }}
         </p>
       </div>
 
       <!-- Success/Error Modal -->
       <transition name="modal-fade">
         <div v-if="showModal" class="modal-overlay" @click="closeModal">
-          <div class="modal-content" @click.stop :class="{ 'error': modalType === 'error' }">
+          <div class="modal-content" @click.stop :class="{ error: modalType === 'error' }">
             <div class="modal-icon">
-              <svg v-if="modalType === 'success'" width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3"/>
-                <path d="M14 24L20 30L34 16" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <svg
+                v-if="modalType === 'success'"
+                width="48"
+                height="48"
+                viewBox="0 0 48 48"
+                fill="none"
+              >
+                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
+                <path
+                  d="M14 24L20 30L34 16"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
               <svg v-else width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3"/>
-                <path d="M16 16L32 32M32 16L16 32" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
+                <path
+                  d="M16 16L32 32M32 16L16 32"
+                  stroke="currentColor"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                />
               </svg>
             </div>
             <h3>{{ modalTitle }}</h3>
             <p>{{ modalMessage }}</p>
             <button @click="closeModal" class="modal-btn">
-              Sluiten
+              {{ t('offerteFormulier.modal.close') }}
             </button>
           </div>
         </div>
@@ -36,13 +55,28 @@
         <div v-if="selectedPackage" class="package-notification">
           <div class="notification-content">
             <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-              <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path
+                d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
             </svg>
-            <span>Je hebt <strong>{{ selectedPackage }}</strong> geselecteerd</span>
+            <span
+              >{{ t('offerteFormulier.packageNotification.prefix') }}
+              <strong>{{ selectedPackage }}</strong>
+              {{ t('offerteFormulier.packageNotification.suffix') }}</span
+            >
           </div>
           <button @click="clearPackage" class="clear-btn" type="button">
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              <path
+                d="M12 4L4 12M4 4L12 12"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+              />
             </svg>
           </button>
         </div>
@@ -54,35 +88,86 @@
           </div>
 
           <div @submit.prevent="sendOfferte">
+            <!-- Honeypot: hidden from real users, bots fill it → submit is dropped -->
+            <div
+              aria-hidden="true"
+              style="position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden"
+            >
+              <label
+                >{{ t('offerteFormulier.honeypot.label') }}
+                <input type="text" v-model="honeypot" tabindex="-1" autocomplete="off" />
+              </label>
+            </div>
             <!-- Basisgegevens -->
             <div class="form-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                  <circle cx="12" cy="7" r="4"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                  <circle cx="12" cy="7" r="4" />
                 </svg>
-                Basisgegevens
+                {{ t('offerteFormulier.sections.basics.title') }}
               </h3>
 
               <div class="form-grid">
                 <div class="form-group">
-                  <label for="name">Naam <span class="required">*</span></label>
-                  <input type="text" id="name" v-model="formData.name" required placeholder="John Doe" />
+                  <label for="name"
+                    >{{ t('offerteFormulier.fields.name.label') }}
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    v-model="formData.name"
+                    required
+                    placeholder="John Doe"
+                  />
                 </div>
 
                 <div class="form-group">
-                  <label for="companyName">Bedrijfsnaam <span class="required">*</span></label>
-                  <input type="text" id="companyName" v-model="formData.companyName" placeholder="Je bedrijf" />
+                  <label for="companyName"
+                    >{{ t('offerteFormulier.fields.companyName.label') }}
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="text"
+                    id="companyName"
+                    v-model="formData.companyName"
+                    :placeholder="t('offerteFormulier.fields.companyName.placeholder')"
+                  />
                 </div>
 
                 <div class="form-group">
-                  <label for="email">E-mailadres <span class="required">*</span></label>
-                  <input type="email" id="email" v-model="formData.email" required placeholder="john@example.com" />
+                  <label for="email"
+                    >{{ t('offerteFormulier.fields.email.label') }}
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    v-model="formData.email"
+                    required
+                    placeholder="john@example.com"
+                  />
                 </div>
 
                 <div class="form-group">
-                  <label for="phone">Telefoonnummer <span class="required">*</span></label>
-                  <input type="tel" id="phone" v-model="formData.phone" placeholder="+32 470 12 34 56" />
+                  <label for="phone"
+                    >{{ t('offerteFormulier.fields.phone.label') }}
+                    <span class="required">*</span></label
+                  >
+                  <input
+                    type="tel"
+                    id="phone"
+                    v-model="formData.phone"
+                    placeholder="+32 470 12 34 56"
+                  />
                 </div>
               </div>
             </div>
@@ -90,11 +175,18 @@
             <!-- Type Project -->
             <div class="form-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <polyline points="16 18 22 12 16 6"/>
-                  <polyline points="8 6 2 12 8 18"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <polyline points="16 18 22 12 16 6" />
+                  <polyline points="8 6 2 12 8 18" />
                 </svg>
-                Type project
+                {{ t('offerteFormulier.sections.projectType.title') }}
               </h3>
 
               <div class="checkbox-grid">
@@ -108,22 +200,52 @@
             <!-- Pakket Keuze -->
             <div class="form-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
-                  <line x1="9" y1="3" x2="9" y2="21"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+                  <line x1="9" y1="3" x2="9" y2="21" />
                 </svg>
-                Welk pakket past bij jou?
+                {{ t('offerteFormulier.sections.packageChoice.title') }}
               </h3>
 
               <div class="radio-grid">
-                <label v-for="pkg in packages" :key="pkg.value" class="radio-option" :class="{ active: formData.package === pkg.value }">
-                  <input type="radio" name="package" :value="pkg.value" v-model="formData.package" />
+                <label
+                  v-for="pkg in packages"
+                  :key="pkg.value"
+                  class="radio-option"
+                  :class="{ active: formData.package === pkg.value }"
+                >
+                  <input
+                    type="radio"
+                    name="package"
+                    :value="pkg.value"
+                    v-model="formData.package"
+                  />
                   <div class="radio-content">
                     <span class="radio-title">{{ pkg.label }}</span>
                     <span class="radio-description">{{ pkg.description }}</span>
                   </div>
-                  <svg v-if="formData.package === pkg.value" class="check-icon" width="18" height="18" viewBox="0 0 20 20" fill="none">
-                    <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <svg
+                    v-if="formData.package === pkg.value"
+                    class="check-icon"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                  >
+                    <path
+                      d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
                   </svg>
                 </label>
               </div>
@@ -132,11 +254,18 @@
             <!-- Functionaliteiten -->
             <div class="form-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="3"/>
-                  <path d="M12 1v6m0 6v6M1 12h6m6 0h6"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path d="M12 1v6m0 6v6M1 12h6m6 0h6" />
                 </svg>
-                Functionaliteiten
+                {{ t('offerteFormulier.sections.features.title') }}
               </h3>
 
               <div class="checkbox-grid">
@@ -150,86 +279,162 @@
             <!-- AI Automatisation -->
             <div class="form-section ai-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z" />
                 </svg>
-                AI Automatisation
+                {{ t('offerteFormulier.sections.aiAutomation.title') }}
               </h3>
 
               <div class="checkbox-grid">
-                <label v-for="service in aiServices" :key="service.value" class="checkbox-option ai-option">
+                <label
+                  v-for="service in aiServices"
+                  :key="service.value"
+                  class="checkbox-option ai-option"
+                >
                   <input type="checkbox" :value="service.value" v-model="formData.aiServices" />
                   <span class="checkbox-label">{{ service.label }}</span>
                 </label>
               </div>
 
-              <div v-if="formData.aiServices.length > 0" class="form-group" style="margin-top: 1rem;">
-                <label for="aiDescription">Toelichting AI-oplossing <span class="optional">(optioneel)</span></label>
-                <textarea id="aiDescription" v-model="formData.aiDescription" placeholder="Beschrijf wat je graag geautomatiseerd wilt zien..." rows="3"></textarea>
+              <div
+                v-if="formData.aiServices.length > 0"
+                class="form-group"
+                style="margin-top: 1rem"
+              >
+                <label for="aiDescription"
+                  >{{ t('offerteFormulier.fields.aiDescription.label') }}
+                  <span class="optional">{{ t('offerteFormulier.common.optional') }}</span></label
+                >
+                <textarea
+                  id="aiDescription"
+                  v-model="formData.aiDescription"
+                  :placeholder="t('offerteFormulier.fields.aiDescription.placeholder')"
+                  rows="3"
+                ></textarea>
               </div>
             </div>
 
             <!-- Design & Inspiratie -->
             <div class="form-section">
               <h3 class="section-title" id="design">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
-                  <line x1="8" y1="21" x2="16" y2="21"/>
-                  <line x1="12" y1="17" x2="12" y2="21"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
                 </svg>
-                Design & inspiratie
+                {{ t('offerteFormulier.sections.design.title') }}
               </h3>
 
               <div class="form-group">
-                <label>Heb je al een huisstijl of logo?</label>
+                <label>{{ t('offerteFormulier.fields.hasIdentity.label') }}</label>
                 <div class="radio-inline">
-                  <label class="radio-inline-option" :class="{ active: formData.hasIdentity === 'ja' }">
-                    <input type="radio" name="hasIdentity" value="ja" v-model="formData.hasIdentity" />
-                    <span>Ja</span>
+                  <label
+                    class="radio-inline-option"
+                    :class="{ active: formData.hasIdentity === 'ja' }"
+                  >
+                    <input
+                      type="radio"
+                      name="hasIdentity"
+                      value="ja"
+                      v-model="formData.hasIdentity"
+                    />
+                    <span>{{ t('offerteFormulier.fields.hasIdentity.yes') }}</span>
                   </label>
-                  <label class="radio-inline-option" :class="{ active: formData.hasIdentity === 'nee' }">
-                    <input type="radio" name="hasIdentity" value="nee" v-model="formData.hasIdentity" />
-                    <span>Nee</span>
+                  <label
+                    class="radio-inline-option"
+                    :class="{ active: formData.hasIdentity === 'nee' }"
+                  >
+                    <input
+                      type="radio"
+                      name="hasIdentity"
+                      value="nee"
+                      v-model="formData.hasIdentity"
+                    />
+                    <span>{{ t('offerteFormulier.fields.hasIdentity.no') }}</span>
                   </label>
                 </div>
               </div>
 
               <div class="form-group">
-                <label id="inspirationLinks" for="inspirationLinks">Inspiratie websites <span class="optional">(optioneel)</span></label>
-                <textarea class="inputlengte"  v-model="formData.inspirationLinks" placeholder="Link(s) naar websites die je mooi vindt..." rows="2"></textarea>
+                <label id="inspirationLinks" for="inspirationLinks"
+                  >{{ t('offerteFormulier.fields.inspirationLinks.label') }}
+                  <span class="optional">{{ t('offerteFormulier.common.optional') }}</span></label
+                >
+                <textarea
+                  class="inputlengte"
+                  v-model="formData.inspirationLinks"
+                  :placeholder="t('offerteFormulier.fields.inspirationLinks.placeholder')"
+                  rows="2"
+                ></textarea>
               </div>
             </div>
 
             <!-- Timing & Budget -->
             <div class="form-section">
               <h3 class="section-title">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"/>
-                  <polyline points="12 6 12 12 16 14"/>
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <circle cx="12" cy="12" r="10" />
+                  <polyline points="12 6 12 12 16 14" />
                 </svg>
-                Timing & budget
+                {{ t('offerteFormulier.sections.timingBudget.title') }}
               </h3>
 
               <div class="form-grid">
                 <div class="form-group">
-                  <label for="timeline">Wanneer wil je live gaan?</label>
+                  <label for="timeline">{{ t('offerteFormulier.fields.timeline.label') }}</label>
                   <select class="timelinebackground" id="timeline" v-model="formData.timeline">
-                    <option value="">Selecteer timing</option>
-                    <option value="asap">Zo snel mogelijk</option>
-                    <option value="1month">Binnen 1 maand</option>
-                    <option value="1-3months">1-3 maanden</option>
-                    <option value="flexible">Geen deadline</option>
+                    <option value="">
+                      {{ t('offerteFormulier.fields.timeline.placeholder') }}
+                    </option>
+                    <option value="asap">
+                      {{ t('offerteFormulier.fields.timeline.options.asap') }}
+                    </option>
+                    <option value="1month">
+                      {{ t('offerteFormulier.fields.timeline.options.within1Month') }}
+                    </option>
+                    <option value="1-3months">
+                      {{ t('offerteFormulier.fields.timeline.options.1to3Months') }}
+                    </option>
+                    <option value="flexible">
+                      {{ t('offerteFormulier.fields.timeline.options.noDeadline') }}
+                    </option>
                   </select>
                 </div>
 
                 <div class="form-group">
-                  <label for="budget">Indicatie budget <span class="optional">(optioneel)</span></label>
+                  <label for="budget"
+                    >{{ t('offerteFormulier.fields.budget.label') }}
+                    <span class="optional">{{ t('offerteFormulier.common.optional') }}</span></label
+                  >
                   <select id="budget" v-model="formData.budget">
-                    <option value="">Selecteer budget</option>
+                    <option value="">{{ t('offerteFormulier.fields.budget.placeholder') }}</option>
                     <option value="500-1000">€500 - €1.000</option>
                     <option value="1000-2500">€1.000 - €2.500</option>
                     <option value="2500+">€2.500+</option>
-                    <option value="unknown">Weet ik nog niet</option>
+                    <option value="unknown">
+                      {{ t('offerteFormulier.fields.budget.options.unknown') }}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -238,16 +443,34 @@
             <!-- Extra Uitleg -->
             <div class="form-section">
               <div class="form-group">
-                <label for="description">Vertel ons over je project</label>
-                <textarea class="inputlengte" id="description" v-model="formData.description" placeholder="Beschrijf kort je idee of doel..." rows="4"></textarea>
+                <label for="description">{{
+                  t('offerteFormulier.fields.description.label')
+                }}</label>
+                <textarea
+                  class="inputlengte"
+                  id="description"
+                  v-model="formData.description"
+                  :placeholder="t('offerteFormulier.fields.description.placeholder')"
+                  rows="4"
+                ></textarea>
               </div>
             </div>
 
             <!-- Submit Button -->
             <button @click="sendOfferte" type="button" class="submit-btn" :disabled="isLoading">
-              <span>{{ isLoading ? "Versturen..." : "Ontvang mijn voorstel" }}</span>
+              <span>{{
+                isLoading
+                  ? t('offerteFormulier.submit.loading')
+                  : t('offerteFormulier.submit.label')
+              }}</span>
               <svg v-if="!isLoading" width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path d="M18.3346 1.66669L9.16797 10.8334M18.3346 1.66669L12.5013 18.3334L9.16797 10.8334M18.3346 1.66669L1.66797 7.50002L9.16797 10.8334" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M18.3346 1.66669L9.16797 10.8334M18.3346 1.66669L12.5013 18.3334L9.16797 10.8334M18.3346 1.66669L1.66797 7.50002L9.16797 10.8334"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </button>
 
@@ -255,10 +478,18 @@
             <div class="trust-message">
               <div class="trust-item">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
-                  <polyline points="10 5 10 10 13 13" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                  <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" />
+                  <polyline
+                    points="10 5 10 10 13 13"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                  />
                 </svg>
-                <span>Reactie binnen <strong> 24h</strong></span>
+                <span
+                  >{{ t('offerteFormulier.trust.responseTime') }}
+                  <strong> {{ t('offerteFormulier.trust.responseValue') }}</strong></span
+                >
               </div>
             </div>
           </div>
@@ -269,108 +500,143 @@
 </template>
 
 <script>
-import emailjs from "@emailjs/browser";
-import { ref, onMounted, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import emailjs from '@emailjs/browser'
+import { trackEvent } from '@/composables/useAnalytics'
+import { ref, onMounted, watch, computed } from 'vue'
+import { useRoute } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
 export default {
-  name: "OfferteComponent",
+  name: 'OfferteComponent',
   setup() {
-    const route = useRoute();
-    const selectedPackage = ref(null);
+    const { t } = useI18n()
+    const route = useRoute()
+    const selectedPackage = ref(null)
 
     const formData = ref({
-      name: "",
-      companyName: "",
-      email: "",
-      phone: "",
+      name: '',
+      companyName: '',
+      email: '',
+      phone: '',
       projectTypes: [],
-      package: "",
+      package: '',
       features: [],
       aiServices: [],
-      aiDescription: "",
-      hasIdentity: "",
-      inspirationLinks: "",
-      timeline: "",
-      budget: "",
-      description: ""
-    });
+      aiDescription: '',
+      hasIdentity: '',
+      inspirationLinks: '',
+      timeline: '',
+      budget: '',
+      description: '',
+    })
 
-    const projectTypes = [
-      { value: 'nieuwe-website', label: 'Nieuwe website' },
-      { value: 'redesign', label: 'Redesign van bestaande website' },
-      { value: 'webshop', label: 'Webshop' },
-      { value: 'webapp', label: 'Webapp / maatwerk' },
-      { value: 'seo', label: 'SEO-optimalisatie' },
-      { value: 'onderhoud', label: 'Onderhoud & hosting' },
-      { value: 'anders', label: 'Anders' }
-    ];
+    // Spam honeypot — must stay empty for a genuine human submission.
+    const honeypot = ref('')
 
-    const packages = [
-      { value: 'lite', label: 'Juke Lite', description: 'Perfect voor starters' },
-      { value: 'groove', label: 'Juke Groove', description: 'Meest gekozen' },
-      { value: 'amplify', label: 'Juke Amplify', description: 'All-in premium' },
-      { value: 'advies', label: 'Ik weet het nog niet', description: 'Graag advies' }
-    ];
+    const projectTypes = computed(() => [
+      { value: 'nieuwe-website', label: t('offerteFormulier.projectTypes.newWebsite') },
+      { value: 'redesign', label: t('offerteFormulier.projectTypes.redesign') },
+      { value: 'webshop', label: t('offerteFormulier.projectTypes.webshop') },
+      { value: 'webapp', label: t('offerteFormulier.projectTypes.webapp') },
+      { value: 'seo', label: t('offerteFormulier.projectTypes.seo') },
+      { value: 'onderhoud', label: t('offerteFormulier.projectTypes.maintenance') },
+      { value: 'anders', label: t('offerteFormulier.projectTypes.other') },
+    ])
 
-    const features = [
-      { value: 'contactformulier', label: 'Contactformulier' },
-      { value: 'meertalig', label: 'Meertalige website (NL/EN/FR)' },
-      { value: 'cms', label: 'CMS (zelf teksten aanpassen)' },
-      { value: 'seo-basis', label: 'SEO-basis' },
-      { value: 'animaties', label: 'Animaties / interacties' },
-      { value: 'blog', label: 'Blog / nieuws' },
-      { value: 'login', label: 'Login / accounts' },
-      { value: 'betalingen', label: 'Betalingen (webshop)' }
-    ];
+    const packages = computed(() => [
+      {
+        value: 'lite',
+        label: 'Juke Lite',
+        description: t('offerteFormulier.packages.lite.description'),
+      },
+      {
+        value: 'groove',
+        label: 'Juke Groove',
+        description: t('offerteFormulier.packages.groove.description'),
+      },
+      {
+        value: 'amplify',
+        label: 'Juke Amplify',
+        description: t('offerteFormulier.packages.amplify.description'),
+      },
+      {
+        value: 'advies',
+        label: t('offerteFormulier.packages.advies.label'),
+        description: t('offerteFormulier.packages.advies.description'),
+      },
+    ])
 
-    const aiServices = [
-      { value: 'chatbot', label: 'AI Chatbot voor klantenservice' },
-      { value: 'email-automation', label: 'E-mail automatisering' },
-      { value: 'content-generation', label: 'Content generatie' },
-      { value: 'data-analyse', label: 'Data-analyse & rapportage' },
-      { value: 'workflow', label: 'Workflow automatisering' },
-      { value: 'voice-assistant', label: 'Voice assistant' },
-      { value: 'ai-anders', label: 'Andere AI-oplossing' }
-    ];
+    const features = computed(() => [
+      { value: 'contactformulier', label: t('offerteFormulier.features.contactForm') },
+      { value: 'meertalig', label: t('offerteFormulier.features.multilingual') },
+      { value: 'cms', label: t('offerteFormulier.features.cms') },
+      { value: 'seo-basis', label: t('offerteFormulier.features.seoBasic') },
+      { value: 'animaties', label: t('offerteFormulier.features.animations') },
+      { value: 'blog', label: t('offerteFormulier.features.blog') },
+      { value: 'login', label: t('offerteFormulier.features.login') },
+      { value: 'betalingen', label: t('offerteFormulier.features.payments') },
+    ])
 
-    const isLoading = ref(false);
-    const showModal = ref(false);
-    const modalType = ref('success');
-    const modalTitle = ref('');
-    const modalMessage = ref('');
+    const aiServices = computed(() => [
+      { value: 'chatbot', label: t('offerteFormulier.aiServices.chatbot') },
+      { value: 'email-automation', label: t('offerteFormulier.aiServices.emailAutomation') },
+      { value: 'content-generation', label: t('offerteFormulier.aiServices.contentGeneration') },
+      { value: 'data-analyse', label: t('offerteFormulier.aiServices.dataAnalysis') },
+      { value: 'workflow', label: t('offerteFormulier.aiServices.workflow') },
+      { value: 'voice-assistant', label: t('offerteFormulier.aiServices.voiceAssistant') },
+      { value: 'ai-anders', label: t('offerteFormulier.aiServices.other') },
+    ])
+
+    const isLoading = ref(false)
+    const showModal = ref(false)
+    const modalType = ref('success')
+    const modalTitle = ref('')
+    const modalMessage = ref('')
 
     const closeModal = () => {
-      showModal.value = false;
-    };
+      showModal.value = false
+    }
 
     const checkForPackage = () => {
-      const packageFromUrl = route.query.pakket;
+      const packageFromUrl = route.query.pakket
       if (packageFromUrl) {
-        selectedPackage.value = packageFromUrl;
-        formData.value.package = packageFromUrl.toLowerCase();
+        selectedPackage.value = packageFromUrl
+        formData.value.package = packageFromUrl.toLowerCase()
       }
-    };
+    }
 
-    watch(() => route.query.pakket, (newPackage) => {
-      if (newPackage) {
-        selectedPackage.value = newPackage;
-        formData.value.package = newPackage.toLowerCase();
-      }
-    });
+    watch(
+      () => route.query.pakket,
+      (newPackage) => {
+        if (newPackage) {
+          selectedPackage.value = newPackage
+          formData.value.package = newPackage.toLowerCase()
+        }
+      },
+    )
 
     const clearPackage = () => {
-      selectedPackage.value = null;
-      formData.value.package = "";
-    };
+      selectedPackage.value = null
+      formData.value.package = ''
+    }
 
     const sendOfferte = async () => {
-      isLoading.value = true;
+      // Bot filled the honeypot → silently pretend success, send nothing.
+      if (honeypot.value) {
+        modalType.value = 'success'
+        modalTitle.value = t('offerteFormulier.messages.success.title')
+        modalMessage.value = t('offerteFormulier.messages.success.body')
+        showModal.value = true
+        resetForm()
+        return
+      }
+
+      isLoading.value = true
 
       try {
         if (!validateForm()) {
-          isLoading.value = false;
-          return;
+          isLoading.value = false
+          return
         }
 
         // Format arrays naar leesbare strings met komma's
@@ -384,70 +650,78 @@ export default {
           description: formData.value.description || 'Geen extra uitleg',
           hasIdentity: formData.value.hasIdentity || 'Niet opgegeven',
           timeline: formData.value.timeline || 'Niet opgegeven',
-          budget: formData.value.budget || 'Niet opgegeven'
-        };
+          budget: formData.value.budget || 'Niet opgegeven',
+        }
 
-        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-        const templateId = import.meta.env.VITE_EMAILJS_OFFERTE_TEMPLATE_ID;
-        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+        const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+        const templateId = import.meta.env.VITE_EMAILJS_OFFERTE_TEMPLATE_ID
+        const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-        const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+        const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
 
         if (response.status === 200) {
-          modalType.value = 'success';
-          modalTitle.value = 'Offerte aanvraag verzonden!';
-          modalMessage.value = 'Bedankt! We nemen binnen 1-2 werkdagen persoonlijk contact met je op.';
-          showModal.value = true;
-          resetForm();
-          selectedPackage.value = null;
+          // Conversion event (consent-gated, no PII) — enumerable values only
+          trackEvent('quote_requested', {
+            source_form: 'offerte',
+            package: formData.value.package || 'geen',
+            budget_band: formData.value.budget || 'niet_opgegeven',
+          })
+          modalType.value = 'success'
+          modalTitle.value = t('offerteFormulier.messages.success.title')
+          modalMessage.value = t('offerteFormulier.messages.success.body')
+          showModal.value = true
+          resetForm()
+          selectedPackage.value = null
         }
       } catch (error) {
-        console.error("EmailJS error:", error);
-        modalType.value = 'error';
-        modalTitle.value = 'Oeps, er ging iets mis';
-        modalMessage.value = 'Het verzenden is mislukt. Probeer het later opnieuw of neem direct contact op via email.';
-        showModal.value = true;
+        console.error('EmailJS error:', error)
+        modalType.value = 'error'
+        modalTitle.value = t('offerteFormulier.messages.error.title')
+        modalMessage.value = t('offerteFormulier.messages.error.body')
+        showModal.value = true
       } finally {
-        isLoading.value = false;
+        isLoading.value = false
       }
-    };
+    }
 
     const validateForm = () => {
       if (!formData.value.email || !formData.value.name) {
-        modalType.value = 'error';
-        modalTitle.value = 'Vul verplichte velden in';
-        modalMessage.value = 'Gelieve minstens je naam en e-mailadres in te vullen.';
-        showModal.value = true;
-        return false;
+        modalType.value = 'error'
+        modalTitle.value = t('offerteFormulier.messages.validation.title')
+        modalMessage.value = t('offerteFormulier.messages.validation.body')
+        showModal.value = true
+        return false
       }
-      return true;
-    };
+      return true
+    }
 
     const resetForm = () => {
       formData.value = {
-        name: "",
-        companyName: "",
-        email: "",
-        phone: "",
+        name: '',
+        companyName: '',
+        email: '',
+        phone: '',
         projectTypes: [],
-        package: "",
+        package: '',
         features: [],
         aiServices: [],
-        aiDescription: "",
-        hasIdentity: "",
-        inspirationLinks: "",
-        timeline: "",
-        budget: "",
-        description: ""
-      };
-    };
+        aiDescription: '',
+        hasIdentity: '',
+        inspirationLinks: '',
+        timeline: '',
+        budget: '',
+        description: '',
+      }
+    }
 
     onMounted(() => {
-      checkForPackage();
-    });
+      checkForPackage()
+    })
 
     return {
+      t,
       formData,
+      honeypot,
       projectTypes,
       packages,
       features,
@@ -460,10 +734,10 @@ export default {
       modalMessage,
       sendOfferte,
       clearPackage,
-      closeModal
-    };
-  }
-};
+      closeModal,
+    }
+  },
+}
 </script>
 
 <style scoped lang="scss">
@@ -474,7 +748,7 @@ export default {
   padding: 1rem 0 4rem;
 }
 
-#inspirationLinks{
+#inspirationLinks {
   padding-top: 1rem;
 }
 
@@ -507,10 +781,15 @@ export default {
   }
 }
 
-
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .offerte-wrapper {
@@ -615,7 +894,9 @@ export default {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .form-section {
@@ -758,7 +1039,7 @@ export default {
     background: var(--color-primary-subtle);
   }
 
-  input[type="checkbox"] {
+  input[type='checkbox'] {
     width: 1.125rem;
     height: 1.125rem;
     flex-shrink: 0;
@@ -780,7 +1061,7 @@ export default {
       background: var(--color-primary-subtle);
     }
 
-    input[type="checkbox"] {
+    input[type='checkbox'] {
       accent-color: var(--color-primary);
     }
   }
@@ -821,7 +1102,7 @@ export default {
     background: var(--color-primary-subtle);
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -883,7 +1164,7 @@ export default {
     color: var(--color-text-primary);
   }
 
-  input[type="radio"] {
+  input[type='radio'] {
     position: absolute;
     opacity: 0;
     pointer-events: none;
@@ -994,8 +1275,13 @@ export default {
 }
 
 @keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
 }
 
 @keyframes pulseRing {
@@ -1080,8 +1366,12 @@ export default {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -1180,5 +1470,4 @@ export default {
     font-size: 1rem;
   }
 }
-
 </style>

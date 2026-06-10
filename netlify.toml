@@ -38,6 +38,17 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    # script-src has NO 'unsafe-inline': the prerendered HTML contains zero
+    # executable inline scripts (JSON-LD blocks are inert data; GA4 loads from
+    # googletagmanager.com via an external <script src>; Vue hydration runs from
+    # the 'self' module bundle). Dropping it means an injected inline <script> or
+    # on*= handler is blocked by the browser even if it reaches the DOM — real
+    # XSS containment, not just origin locking. style-src keeps 'unsafe-inline'
+    # because Vue scoped styles + Vite's inlined critical CSS need it (inline
+    # styles can't execute JS). If a future feature adds an inline bootstrap
+    # script, give it a nonce rather than re-adding 'unsafe-inline'.
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://api.emailjs.com https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com; upgrade-insecure-requests"
 
 [[redirects]]
   from = "/*"

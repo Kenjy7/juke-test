@@ -36,13 +36,24 @@ async function fetchPage(url) {
 function extractMeta(html) {
   if (!html) return { title: null, description: null, h1: null, canonical: null, h2s: [] }
   const title = html.match(/<title[^>]*>([^<]*)<\/title>/i)?.[1]?.trim() || null
-  const description = html.match(/name=["']description["'][^>]*content=["']([^"']*)/i)?.[1]?.trim()
-    || html.match(/content=["']([^"']*)["'][^>]*name=["']description["']/i)?.[1]?.trim() || null
-  const h1 = html.match(/<h1[^>]*>([^<]*)<\/h1>/i)?.[1]?.replace(/<[^>]*>/g, '').trim() || null
-  const canonical = html.match(/rel=["']canonical["'][^>]*href=["']([^"']*)/i)?.[1]?.trim()
-    || html.match(/href=["']([^"']*)["'][^>]*rel=["']canonical["']/i)?.[1]?.trim() || null
+  const description =
+    html.match(/name=["']description["'][^>]*content=["']([^"']*)/i)?.[1]?.trim() ||
+    html.match(/content=["']([^"']*)["'][^>]*name=["']description["']/i)?.[1]?.trim() ||
+    null
+  const h1 =
+    html
+      .match(/<h1[^>]*>([^<]*)<\/h1>/i)?.[1]
+      ?.replace(/<[^>]*>/g, '')
+      .trim() || null
+  const canonical =
+    html.match(/rel=["']canonical["'][^>]*href=["']([^"']*)/i)?.[1]?.trim() ||
+    html.match(/href=["']([^"']*)["'][^>]*rel=["']canonical["']/i)?.[1]?.trim() ||
+    null
   const h2matches = [...html.matchAll(/<h2[^>]*>([^<]*)<\/h2>/gi)]
-  const h2s = h2matches.map(m => m[1].replace(/<[^>]*>/g, '').trim()).filter(Boolean).slice(0, 5)
+  const h2s = h2matches
+    .map((m) => m[1].replace(/<[^>]*>/g, '').trim())
+    .filter(Boolean)
+    .slice(0, 5)
   return { title, description, h1, canonical, h2s }
 }
 
@@ -55,8 +66,10 @@ function auditPage({ name, url }, meta) {
   else good.push('✅ Title OK')
 
   if (!meta.description) issues.push('❌ Geen meta description')
-  else if (meta.description.length > 160) issues.push(`⚠️ Description te lang (${meta.description.length} tekens)`)
-  else if (meta.description.length < 80) issues.push(`⚠️ Description te kort (${meta.description.length} tekens)`)
+  else if (meta.description.length > 160)
+    issues.push(`⚠️ Description te lang (${meta.description.length} tekens)`)
+  else if (meta.description.length < 80)
+    issues.push(`⚠️ Description te kort (${meta.description.length} tekens)`)
   else good.push('✅ Meta description OK')
 
   if (!meta.h1) issues.push('❌ Geen H1')
@@ -72,20 +85,27 @@ async function analyzeWithClaude({ pageAudits, competitorData, apiKey }) {
   const { default: Anthropic } = await import('@anthropic-ai/sdk')
   const client = new Anthropic({ apiKey })
 
-  const auditSummary = pageAudits.map(p =>
-    `Pagina: ${p.name}\n- Title: ${p.meta.title || 'ONTBREEKT'} (${p.meta.title?.length || 0} tekens)\n- Description: ${p.meta.description?.substring(0, 80) || 'ONTBREEKT'}\n- H1: ${p.meta.h1 || 'ONTBREEKT'}\n- Issues: ${p.issues.join(', ') || 'geen'}`
-  ).join('\n\n')
+  const auditSummary = pageAudits
+    .map(
+      (p) =>
+        `Pagina: ${p.name}\n- Title: ${p.meta.title || 'ONTBREEKT'} (${p.meta.title?.length || 0} tekens)\n- Description: ${p.meta.description?.substring(0, 80) || 'ONTBREEKT'}\n- H1: ${p.meta.h1 || 'ONTBREEKT'}\n- Issues: ${p.issues.join(', ') || 'geen'}`,
+    )
+    .join('\n\n')
 
-  const competitorSummary = competitorData.map(c =>
-    `${c.url}\n- Title: ${c.meta.title || 'onbekend'}\n- H1: ${c.meta.h1 || 'onbekend'}\n- H2s: ${c.meta.h2s.join(' | ') || 'onbekend'}`
-  ).join('\n\n')
+  const competitorSummary = competitorData
+    .map(
+      (c) =>
+        `${c.url}\n- Title: ${c.meta.title || 'onbekend'}\n- H1: ${c.meta.h1 || 'onbekend'}\n- H2s: ${c.meta.h2s.join(' | ') || 'onbekend'}`,
+    )
+    .join('\n\n')
 
   const message = await client.messages.create({
     model: 'claude-opus-4-6',
     max_tokens: 2000,
-    messages: [{
-      role: 'user',
-      content: `Je bent een SEO-expert voor JukeCoding (Belgisch webbureau, custom websites + AI-automatisering voor KMO's, Hasselt).
+    messages: [
+      {
+        role: 'user',
+        content: `Je bent een SEO-expert voor JukeCoding (Belgisch webbureau, custom websites + AI-automatisering voor KMO's, Hasselt).
 
 ON-PAGE AUDIT:
 ${auditSummary}
@@ -105,8 +125,9 @@ De 3 meest impactvolle verbeteringen. Geef exacte tekst voor title/description w
 Wat doen concurrenten goed? Waar heeft JukeCoding een voordeel?
 
 **4. TOP 5 ACTIES DEZE MAAND**
-5 concrete acties gerangschikt op impact, elk max 1 zin.`
-    }],
+5 concrete acties gerangschikt op impact, elk max 1 zin.`,
+      },
+    ],
   })
   return message.content[0].text
 }
@@ -114,21 +135,49 @@ Wat doen concurrenten goed? Waar heeft JukeCoding een voordeel?
 async function sendToDiscord(webhookUrl, analysis, pageAudits) {
   const totalIssues = pageAudits.reduce((s, p) => s + p.issues.length, 0)
   const month = new Date().toLocaleString('nl-BE', { month: 'long', year: 'numeric' })
-  const issueLines = pageAudits.filter(p => p.issues.length > 0)
-    .map(p => `**${p.name}:** ${p.issues.join(' · ')}`).join('\n').substring(0, 800)
+  const issueLines = pageAudits
+    .filter((p) => p.issues.length > 0)
+    .map((p) => `**${p.name}:** ${p.issues.join(' · ')}`)
+    .join('\n')
+    .substring(0, 800)
 
   const sections = analysis.split(/\*\*\d+\./)
   const payload = {
     username: 'JukeCoding SEO Bot',
     embeds: [
-      { title: `📊 SEO Rapport — ${month}`, description: `${totalIssues} issues gevonden op jukecoding.be`, color: totalIssues > 5 ? 0xFF4444 : totalIssues > 2 ? 0xFFAA00 : 0x00CC66, timestamp: new Date().toISOString() },
-      { title: '📋 On-Page Issues', description: issueLines || '✅ Geen kritische issues!', color: 0x5865F2 },
-      { title: '🔍 Keyword Kansen', description: (`**KEYWORD KANSEN**${sections[1] || ''}`).substring(0, 1024), color: 0x57F287 },
-      { title: '🥊 Concurrentie-inzichten', description: (`**CONCURRENTIE**${sections[3] || ''}`).substring(0, 1024), color: 0xFEE75C },
-      { title: '✅ Top 5 Acties', description: (`**ACTIES**${sections[4] || ''}`).substring(0, 1024), color: 0xEB459E },
+      {
+        title: `📊 SEO Rapport — ${month}`,
+        description: `${totalIssues} issues gevonden op jukecoding.be`,
+        color: totalIssues > 5 ? 0xff4444 : totalIssues > 2 ? 0xffaa00 : 0x00cc66,
+        timestamp: new Date().toISOString(),
+      },
+      {
+        title: '📋 On-Page Issues',
+        description: issueLines || '✅ Geen kritische issues!',
+        color: 0x5865f2,
+      },
+      {
+        title: '🔍 Keyword Kansen',
+        description: `**KEYWORD KANSEN**${sections[1] || ''}`.substring(0, 1024),
+        color: 0x57f287,
+      },
+      {
+        title: '🥊 Concurrentie-inzichten',
+        description: `**CONCURRENTIE**${sections[3] || ''}`.substring(0, 1024),
+        color: 0xfee75c,
+      },
+      {
+        title: '✅ Top 5 Acties',
+        description: `**ACTIES**${sections[4] || ''}`.substring(0, 1024),
+        color: 0xeb459e,
+      },
     ],
   }
-  const res = await fetch(webhookUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) })
+  const res = await fetch(webhookUrl, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload),
+  })
   return res.ok
 }
 
@@ -136,12 +185,18 @@ async function main() {
   const { ANTHROPIC_API_KEY, DISCORD_SEO_WEBHOOK_URL, DISCORD_WEBHOOK_URL } = process.env
   const webhookUrl = DISCORD_SEO_WEBHOOK_URL || DISCORD_WEBHOOK_URL
 
-  if (!ANTHROPIC_API_KEY) { console.error('❌ ANTHROPIC_API_KEY ontbreekt in .env'); process.exit(1) }
-  if (!webhookUrl) { console.error('❌ DISCORD_WEBHOOK_URL ontbreekt in .env'); process.exit(1) }
+  if (!ANTHROPIC_API_KEY) {
+    console.error('❌ ANTHROPIC_API_KEY ontbreekt in .env')
+    process.exit(1)
+  }
+  if (!webhookUrl) {
+    console.error('❌ DISCORD_WEBHOOK_URL ontbreekt in .env')
+    process.exit(1)
+  }
 
   console.log('🚀 JukeCoding SEO Analyse gestart...\n')
 
-  console.log('📋 Pagina\'s ophalen en auditen...')
+  console.log("📋 Pagina's ophalen en auditen...")
   const pageAudits = await Promise.all(
     PAGES_TO_AUDIT.map(async (page) => {
       process.stdout.write(`   → ${page.name}... `)
@@ -150,7 +205,7 @@ async function main() {
       const result = auditPage(page, meta)
       console.log(result.issues.length === 0 ? '✅' : `⚠️ ${result.issues.length} issues`)
       return result
-    })
+    }),
   )
 
   console.log('\n🥊 Concurrenten ophalen...')
@@ -161,11 +216,15 @@ async function main() {
       const meta = extractMeta(html)
       console.log(meta.title ? '✅' : '⚠️ geen data')
       return { url, meta }
-    })
+    }),
   )
 
   console.log('\n🤖 Claude analyseert alles...')
-  const analysis = await analyzeWithClaude({ pageAudits, competitorData, apiKey: ANTHROPIC_API_KEY })
+  const analysis = await analyzeWithClaude({
+    pageAudits,
+    competitorData,
+    apiKey: ANTHROPIC_API_KEY,
+  })
 
   console.log('\n📨 Rapport versturen naar Discord...')
   const sent = await sendToDiscord(webhookUrl, analysis, pageAudits)

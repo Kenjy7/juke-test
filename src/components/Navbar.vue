@@ -2,7 +2,15 @@
   <header class="navbar-wrap" :class="{ scrolled: hasScrolled }">
     <nav class="navbar">
       <router-link to="/" class="navbar-brand" @click="closeMenu">
-        <img :src="logoUrl" class="logo" width="195" height="195" loading="eager" decoding="async" alt="JukeCoding logo" />
+        <img
+          :src="logoUrl"
+          class="logo"
+          width="195"
+          height="195"
+          loading="eager"
+          decoding="async"
+          alt="JukeCoding logo"
+        />
         <div class="brand">
           <span class="brand-name">JUKE<span class="brand-thin">CODING</span></span>
         </div>
@@ -11,25 +19,34 @@
       <ul class="navbar-links">
         <li v-for="link in navLinks" :key="link.to">
           <router-link :to="link.to" class="nav-link" :class="{ active: $route.path === link.to }">
-            {{ link.label }}
+            {{ t(link.labelKey) }}
           </router-link>
         </li>
       </ul>
 
+      <LocaleSwitcher class="locale-switcher-desktop" />
+
       <router-link to="/offerte-aanvraag" class="cta-btn">
-        Start je project
+        {{ t('cta.startProject') }}
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="cta-arrow">
-          <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M4 12L12 4M12 4H6M12 4V10"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
         </svg>
       </router-link>
 
       <button
+        ref="hamburgerRef"
         class="hamburger"
         @click="toggleMenu"
         :class="{ active: isMenuOpen }"
         :aria-expanded="isMenuOpen"
         aria-controls="mobile-menu"
-        aria-label="Menu"
+        :aria-label="t('a11y.menu')"
       >
         <span class="bar bar-1"></span>
         <span class="bar bar-2"></span>
@@ -41,31 +58,43 @@
     <transition name="menu-reveal">
       <div
         v-if="isMenuOpen"
+        ref="menuRef"
         id="mobile-menu"
         class="mobile-menu"
         role="dialog"
         aria-modal="true"
-        aria-label="Hoofdmenu"
+        :aria-label="t('a11y.mainMenu')"
         @click="closeMenu"
       >
         <div class="mobile-menu-inner" @click.stop>
           <nav class="mobile-nav-links">
             <router-link
-              v-for="(link, i) in navLinks" :key="link.to"
+              v-for="(link, i) in navLinks"
+              :key="link.to"
               :to="link.to"
               class="mobile-link"
               :style="{ animationDelay: `${80 + i * 50}ms` }"
               @click="closeMenu"
             >
-              {{ link.label }}
+              {{ t(link.labelKey) }}
             </router-link>
           </nav>
 
-          <div class="mobile-bottom" :style="{ animationDelay: `${80 + navLinks.length * 50 + 40}ms` }">
+          <div
+            class="mobile-bottom"
+            :style="{ animationDelay: `${80 + navLinks.length * 50 + 40}ms` }"
+          >
+            <LocaleSwitcher class="locale-switcher-mobile" @click="closeMenu" />
             <router-link to="/offerte-aanvraag" class="mobile-cta" @click="closeMenu">
-              Start je project
+              {{ t('cta.startProject') }}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M4 12L12 4M12 4H6M12 4V10"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
             </router-link>
             <div class="mobile-contact">
@@ -79,55 +108,94 @@
 </template>
 
 <script setup>
-import logoUrl from "@/assets/logo.webp";
-import { ref, onMounted, onBeforeUnmount } from 'vue';
+import logoUrl from '@/assets/logo.webp'
+import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue'
+import { useI18n } from 'vue-i18n'
+import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
+
+const { t } = useI18n()
 
 const navLinks = [
-  { to: '/ai-projecten', label: 'AI & automatisering' },
-  { to: '/saas-development', label: 'SaaS & apps' },
-  { to: '/webdesign', label: 'Webdesign' },
-  { to: '/blog', label: 'Blog' },
-  { to: '/contact', label: 'Contact' },
-];
+  { to: '/ai-projecten', labelKey: 'nav.ai' },
+  { to: '/saas-development', labelKey: 'nav.saas' },
+  { to: '/webdesign', labelKey: 'nav.webdesign' },
+  { to: '/vibemind', labelKey: 'nav.vibemind' },
+  { to: '/beheerly', labelKey: 'nav.beheerly' },
+  { to: '/blog', labelKey: 'nav.blog' },
+  { to: '/contact', labelKey: 'nav.contact' },
+]
 
-const isMenuOpen = ref(false);
-const hasScrolled = ref(false);
+const isMenuOpen = ref(false)
+const hasScrolled = ref(false)
+const menuRef = ref(null)
+const hamburgerRef = ref(null)
+
+const getFocusable = () =>
+  menuRef.value ? Array.from(menuRef.value.querySelectorAll('a[href], button:not([disabled])')) : []
 
 const toggleMenu = () => {
-  isMenuOpen.value = !isMenuOpen.value;
-  document.body.style.overflow = isMenuOpen.value ? 'hidden' : '';
-};
+  isMenuOpen.value = !isMenuOpen.value
+  document.body.style.overflow = isMenuOpen.value ? 'hidden' : ''
+  // Flag the open state on <body> so other top-layer UI (e.g. the cookie
+  // banner) can step aside while the full-screen menu is up.
+  document.body.classList.toggle('menu-open', isMenuOpen.value)
+  if (isMenuOpen.value) nextTick(() => getFocusable()[0]?.focus())
+}
 
-const closeMenu = () => {
-  isMenuOpen.value = false;
-  document.body.style.overflow = '';
-};
+const closeMenu = (restoreFocus = false) => {
+  const wasOpen = isMenuOpen.value
+  isMenuOpen.value = false
+  document.body.style.overflow = ''
+  document.body.classList.remove('menu-open')
+  // Only restore focus to the trigger on keyboard close (ESC); navigation
+  // and pointer closes let the SPA route-focus take over.
+  if (wasOpen && restoreFocus === true) nextTick(() => hamburgerRef.value?.focus())
+}
 
 const onScroll = () => {
-  hasScrolled.value = window.scrollY > 20;
-};
+  hasScrolled.value = window.scrollY > 20
+}
 
 const handleResize = () => {
-  if (window.innerWidth > 900 && isMenuOpen.value) closeMenu();
-};
+  if (window.innerWidth > 900 && isMenuOpen.value) closeMenu()
+}
 
 const onKeydown = (e) => {
-  if (e.key === 'Escape' && isMenuOpen.value) closeMenu();
-};
+  if (!isMenuOpen.value) return
+  if (e.key === 'Escape') {
+    closeMenu(true)
+    return
+  }
+  // Trap Tab within the open dialog (WCAG 2.4.3)
+  if (e.key === 'Tab') {
+    const f = getFocusable()
+    if (!f.length) return
+    const first = f[0]
+    const last = f[f.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
+  }
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', handleResize);
-  window.addEventListener('keydown', onKeydown);
-  onScroll();
-});
+  window.addEventListener('scroll', onScroll, { passive: true })
+  window.addEventListener('resize', handleResize)
+  window.addEventListener('keydown', onKeydown)
+  onScroll()
+})
 
 onBeforeUnmount(() => {
-  window.removeEventListener('scroll', onScroll);
-  window.removeEventListener('resize', handleResize);
-  window.removeEventListener('keydown', onKeydown);
-  document.body.style.overflow = '';
-});
+  window.removeEventListener('scroll', onScroll)
+  window.removeEventListener('resize', handleResize)
+  window.removeEventListener('keydown', onKeydown)
+  document.body.style.overflow = ''
+  document.body.classList.remove('menu-open')
+})
 </script>
 
 <style scoped lang="scss">
@@ -138,14 +206,15 @@ onBeforeUnmount(() => {
   left: 0;
   right: 0;
   z-index: 100;
-  transition: background var(--duration-slow) var(--ease-smooth),
-              border-color var(--duration-slow) var(--ease-smooth);
+  transition:
+    background var(--duration-slow) var(--ease-smooth),
+    border-color var(--duration-slow) var(--ease-smooth);
   background: transparent;
   border-bottom: 1px solid transparent;
 }
 
 .navbar-wrap.scrolled {
-  background: rgba(250, 250, 249, 0.8);
+  background: rgba(255, 255, 255, 0.82);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom-color: var(--color-border);
@@ -208,7 +277,9 @@ onBeforeUnmount(() => {
   padding: 0.5rem 0.875rem;
   transition: color var(--duration-base) var(--ease-smooth);
 
-  &:hover { color: var(--color-text-primary); }
+  &:hover {
+    color: var(--color-text-primary);
+  }
 
   &.active,
   &.router-link-active {
@@ -228,12 +299,17 @@ onBeforeUnmount(() => {
   }
 }
 
+/* ─── Language switcher (desktop sits between links and CTA) ─── */
+.locale-switcher-desktop {
+  margin-left: var(--space-4);
+}
+
 /* ─── CTA ─── */
 .cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  margin-left: var(--space-6);
+  margin-left: var(--space-4);
   background: var(--color-accent);
   color: var(--color-text-on-accent);
   font-weight: var(--weight-medium);
@@ -250,7 +326,10 @@ onBeforeUnmount(() => {
 
   &:hover {
     background: var(--color-accent-hover);
-    .cta-arrow { transform: translate(2px, -2px); opacity: 1; }
+    .cta-arrow {
+      transform: translate(2px, -2px);
+      opacity: 1;
+    }
   }
 }
 
@@ -264,6 +343,9 @@ onBeforeUnmount(() => {
   width: 44px;
   height: 44px;
   position: relative;
+  /* Keep the toggle above the full-screen mobile menu (z-index 200)
+     so it stays clickable to close the menu. */
+  z-index: 300;
 
   .bar {
     position: absolute;
@@ -276,14 +358,29 @@ onBeforeUnmount(() => {
     transition: all var(--duration-slow) var(--ease-spring);
   }
 
-  .bar-1 { top: 14px; }
-  .bar-2 { top: 21px; }
-  .bar-3 { top: 28px; }
+  .bar-1 {
+    top: 14px;
+  }
+  .bar-2 {
+    top: 21px;
+  }
+  .bar-3 {
+    top: 28px;
+  }
 
   &.active {
-    .bar-1 { top: 21px; transform: translateX(-50%) rotate(45deg); }
-    .bar-2 { opacity: 0; transform: translateX(-50%) scaleX(0); }
-    .bar-3 { top: 21px; transform: translateX(-50%) rotate(-45deg); }
+    .bar-1 {
+      top: 21px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+    .bar-2 {
+      opacity: 0;
+      transform: translateX(-50%) scaleX(0);
+    }
+    .bar-3 {
+      top: 21px;
+      transform: translateX(-50%) rotate(-45deg);
+    }
   }
 }
 
@@ -335,7 +432,9 @@ onBeforeUnmount(() => {
   transform: translateY(1.5rem);
   animation: slideUp 0.5s var(--ease-out-expo) forwards;
 
-  &:hover { color: var(--color-text-primary); }
+  &:hover {
+    color: var(--color-text-primary);
+  }
 }
 
 .mobile-bottom {
@@ -346,8 +445,14 @@ onBeforeUnmount(() => {
   animation: slideUp 0.5s var(--ease-out-expo) forwards;
 }
 
-.mobile-cta {
+.locale-switcher-mobile {
   display: inline-flex;
+  margin-bottom: var(--space-6);
+}
+
+.mobile-cta {
+  display: flex;
+  width: fit-content;
   align-items: center;
   gap: 0.625rem;
   background: var(--color-accent);
@@ -359,7 +464,9 @@ onBeforeUnmount(() => {
   text-decoration: none;
   margin-bottom: var(--space-6);
 
-  svg { opacity: 0.85; }
+  svg {
+    opacity: 0.85;
+  }
 }
 
 .mobile-contact {
@@ -367,24 +474,58 @@ onBeforeUnmount(() => {
     font-size: var(--text-small);
     color: var(--color-text-tertiary);
     text-decoration: none;
-    &:hover { color: var(--color-text-secondary); }
+    &:hover {
+      color: var(--color-text-secondary);
+    }
   }
 }
 
 @keyframes slideUp {
-  to { opacity: 1; transform: translateY(0); }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 900px) {
-  .navbar-links, .cta-btn { display: none; }
-  .hamburger { display: flex; }
+  .navbar-links,
+  .cta-btn,
+  .locale-switcher-desktop {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
 }
 
 @media (max-width: 480px) {
-  .navbar { padding: 1rem 1.25rem; }
-  .logo { width: 34px; height: 34px; }
-  .brand-name { font-size: 0.875rem; }
-  .mobile-menu-inner { padding: 5rem 1.5rem 2rem; }
+  .navbar {
+    padding: 1rem 1.25rem;
+  }
+  .logo {
+    width: 34px;
+    height: 34px;
+  }
+  .brand-name {
+    font-size: 0.875rem;
+  }
+  .mobile-menu-inner {
+    padding: 5rem 1.5rem 2rem;
+  }
+}
+</style>
+
+<!-- Global: top-layer widgets (cookie banner z-index 9999, chat launcher
+     z-index 1000) live outside this component's stacking context, so they
+     would otherwise float over the open full-screen menu. Suppress them
+     while the menu is up. -->
+<style lang="scss">
+body.menu-open {
+  .cookie-banner-overlay,
+  #chatToggle,
+  #chatbox {
+    display: none;
+  }
 }
 </style>

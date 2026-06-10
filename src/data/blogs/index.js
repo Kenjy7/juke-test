@@ -138,8 +138,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 
   {
     slug: 'waarom-is-een-website-belangrijk-in-je-onderneming-7-redenen-die-je-niet-mag-negeren',
-    title:
-      'Waarom is een website belangrijk in je onderneming? 7 redenen die je niet mag negeren',
+    title: 'Waarom is een website belangrijk in je onderneming? 7 redenen die je niet mag negeren',
     metaTitle: 'Waarom is een website belangrijk? 7 redenen | JukeCoding',
     metaDescription:
       'Ontdek waarom een website belangrijk is in je onderneming en hoe je er klanten mee wint. Lees de 7 redenen en vraag je offerte aan bij JukeCoding.',

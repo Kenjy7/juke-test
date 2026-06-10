@@ -3,9 +3,9 @@
     <div class="container">
       <div class="case-header">
         <h2 class="title">
-          E&eacute;n van onze digitale oplossingen
+          {{ t('klantHighlight.head.title') }}
         </h2>
-        <p class="subtitle">AI en webdesign gecombineerd voor maximaal resultaat</p>
+        <p class="subtitle">{{ t('klantHighlight.head.subtitle') }}</p>
       </div>
 
       <div class="content-wrapper">
@@ -14,39 +14,54 @@
           <div class="mockup-glow"></div>
           <div class="device-wrapper">
             <img
-                src="../assets/laptop%20klanthighlight.webp"
-                alt="Laptop mockup IMMO SADS"
-                class="laptop"
+              src="../assets/laptop%20klanthighlight.webp"
+              :alt="t('klantHighlight.mockupAlt')"
+              class="laptop"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
 
         <!-- Text block -->
         <div class="text-block">
-          <p class="description">
-            Voor <span class="dik">Immo Sads</span> bouwden we een strakke en professionele website die hun expertise in plaatsbeschrijvingen
-            en vastgoedmarketing helder presenteert. Met een gebruiksvriendelijk design en sterke visuele elementen
-            brengen we hun diensten perfect tot hun recht.
-          </p>
+          <p class="description" v-html="t('klantHighlight.description')"></p>
 
           <div class="features-list">
             <h4 class="features-title">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M9 11L12 14L22 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <path d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path
+                  d="M9 11L12 14L22 4"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M21 12V19C21 19.5304 20.7893 20.0391 20.4142 20.4142C20.0391 20.7893 19.5304 21 19 21H5C4.46957 21 3.96086 20.7893 3.58579 20.4142C3.21071 20.0391 3 19.5304 3 19V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H16"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
               </svg>
-              Wat wij deden voor deze klant
+              {{ t('klantHighlight.featuresTitle') }}
             </h4>
             <ul class="features">
               <li v-for="(feature, i) in features" :key="i">
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                  <path d="M16.6663 5L7.49967 14.1667L3.33301 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path
+                    d="M16.6663 5L7.49967 14.1667L3.33301 10"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
                 </svg>
                 <span>{{ feature }}</span>
               </li>
             </ul>
           </div>
-
         </div>
       </div>
     </div>
@@ -54,17 +69,21 @@
 </template>
 
 <script setup>
-const features = [
-  'AI-geoptimaliseerde website',
-  'Mobielvriendelijk webdesign',
-  'Conversiegericht ontwerp',
-  'SEO-geoptimaliseerd'
-]
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
+
+const features = computed(() => [
+  t('klantHighlight.features.aiOptimized'),
+  t('klantHighlight.features.mobileFriendly'),
+  t('klantHighlight.features.conversionFocused'),
+  t('klantHighlight.features.seoOptimized'),
+])
 </script>
 
 <style scoped lang="scss">
-
-.dik{
+.dik {
   font-weight: 900;
 }
 
@@ -121,8 +140,14 @@ const features = [
 }
 
 @keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .content-wrapper {
@@ -259,82 +284,80 @@ const features = [
   width: fit-content;
   text-decoration: none;
 
+  svg {
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    box-shadow: var(--shadow-glow-primary);
+    transform: translateY(-2px);
+    background: var(--color-primary-hover);
 
     svg {
-      transition: transform 0.3s ease;
-    }
-
-    &:hover {
-      box-shadow: var(--shadow-glow-primary);
-      transform: translateY(-2px);
-      background: var(--color-primary-hover);
-
-      svg {
-        transform: translateX(4px);
-      }
+      transform: translateX(4px);
     }
   }
+}
 
-  // Responsive
-  @media (max-width: 900px) {
-    .case-highlight {
-      padding: 1rem 0 4rem 0;
-    }
-
-    .content-wrapper {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-
-    .case-header {
-      margin-bottom: 3rem;
-    }
-
-    .laptop {
-      clip-path: inset(12% 0 12% 0);
-      margin: -10% 0% -15% -10%;
-    }
-
-    .cta-button {
-      width: 100%;
-    }
+// Responsive
+@media (max-width: 900px) {
+  .case-highlight {
+    padding: 1rem 0 4rem 0;
   }
 
-  @media (max-width: 600px) {
-    .case-highlight {
-      padding: 1rem 0 2rem 0;
-    }
-
-    .container {
-      padding: 0 1.5rem;
-    }
-
-    .case-header {
-      margin-bottom: 2rem;
-    }
-
-    .title {
-      font-size: 1.5rem;
-    }
-
-    .content-wrapper {
-      gap: 2rem;
-    }
-
-    .laptop {
-      clip-path: inset(15% 0 15% 0);
-      margin: -8% 0% -15% -10%;
-    }
-
-    .features-list {
-      padding: 1.5rem;
-    }
+  .content-wrapper {
+    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
-  @media (hover: hover) {
-    .laptop:hover {
-      transform: scale(1.03);
-    }
+  .case-header {
+    margin-bottom: 3rem;
   }
 
+  .laptop {
+    clip-path: inset(12% 0 12% 0);
+    margin: -10% 0% -15% -10%;
+  }
+
+  .cta-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .case-highlight {
+    padding: 1rem 0 2rem 0;
+  }
+
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .case-header {
+    margin-bottom: 2rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .content-wrapper {
+    gap: 2rem;
+  }
+
+  .laptop {
+    clip-path: inset(15% 0 15% 0);
+    margin: -8% 0% -15% -10%;
+  }
+
+  .features-list {
+    padding: 1.5rem;
+  }
+}
+
+@media (hover: hover) {
+  .laptop:hover {
+    transform: scale(1.03);
+  }
+}
 </style>

@@ -3,20 +3,20 @@
   <section class="website-klanten-cta">
     <div class="website-klanten-cta-inner">
       <div class="website-klanten-cta-content">
-        <div class="cta-badge">💡 Bestaande website?</div>
-        <h3>Website die weinig aanvragen oplevert?</h3>
-        <p>Ontdek hoe we jouw website omzetten in een klantenmagneet <br>met behulp van conversie-optimalisatie.</p>
+        <div class="cta-badge">{{ t('websiteKlantenCTA.badge') }}</div>
+        <h3>{{ t('websiteKlantenCTA.title') }}</h3>
+        <p>{{ t('websiteKlantenCTA.lead.line1') }} <br />{{ t('websiteKlantenCTA.lead.line2') }}</p>
       </div>
 
       <RouterLink to="/website-die-klanten-oplevert" class="website-klanten-cta-btn">
-        Lees meer over conversie
+        {{ t('websiteKlantenCTA.cta') }}
         <svg width="18" height="18" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
-              d="M7.5 15L12.5 10L7.5 5"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+            d="M7.5 15L12.5 10L7.5 5"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
           />
         </svg>
       </RouterLink>
@@ -24,14 +24,16 @@
   </section>
 </template>
 
-<script>
-export default {
-  name: "WebsiteKlantenCta",
-};
+<script setup>
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 </script>
 
 <style scoped lang="scss">
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 

@@ -1,0 +1,60 @@
+{
+  "nl": {
+    "faq": {
+      "label": "FAQ",
+      "title": "Veelgestelde vragen",
+      "description": "Heldere antwoorden over AI, SaaS, webdesign en samenwerking."
+    },
+    "faqs": {
+      "what": {
+        "question": "Wat doet JukeCoding precies?",
+        "answer": "JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan."
+      },
+      "pricing": {
+        "question": "Wat kosten AI-projecten of SaaS-development?",
+        "answer": "AI-projecten en SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope."
+      },
+      "webdesign": {
+        "question": "Bieden jullie ook webdesign aan?",
+        "answer": "Ja. Naast AI en SaaS bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO."
+      },
+      "audience": {
+        "question": "Voor wie zijn jullie diensten bedoeld?",
+        "answer": "Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie."
+      },
+      "process": {
+        "question": "Hoe ziet een samenwerking eruit?",
+        "answer": "We starten met een vrijblijvend gesprek om je situatie te begrijpen. Daarna maken we een voorstel met scope, planning en prijs. We werken in korte sprints zodat je snel resultaat ziet en tussentijds kunt bijsturen."
+      }
+    }
+  },
+  "en": {
+    "faq": {
+      "label": "FAQ",
+      "title": "Frequently asked questions",
+      "description": "Clear answers about AI, SaaS, web design and working together."
+    },
+    "faqs": {
+      "what": {
+        "question": "What exactly does JukeCoding do?",
+        "answer": "JukeCoding is a development studio in Hasselt that builds AI solutions, SaaS platforms and websites for ambitious companies. We help scale-ups and SMEs automate processes, develop their own software and strengthen their online presence."
+      },
+      "pricing": {
+        "question": "What do AI projects or SaaS development cost?",
+        "answer": "AI projects and SaaS platforms are custom-built and quoted per project after a no-obligation conversation. We always discuss pricing personally and provide a clear quote upfront, tailored to the scope."
+      },
+      "webdesign": {
+        "question": "Do you also offer web design?",
+        "answer": "Yes. Alongside AI and SaaS, we build professional custom websites. Our websites are fast, mobile-friendly and optimised for conversion and local SEO."
+      },
+      "audience": {
+        "question": "Who are your services for?",
+        "answer": "Our AI and SaaS projects are ideal for scale-ups, mid-sized companies and international organisations. For web design, we also help SMEs and self-employed professionals across Belgium."
+      },
+      "process": {
+        "question": "What does working together look like?",
+        "answer": "We start with a no-obligation conversation to understand your situation. Then we put together a proposal with scope, planning and pricing. We work in short sprints so you see results quickly and can adjust along the way."
+      }
+    }
+  }
+}

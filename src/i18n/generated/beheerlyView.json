@@ -1,0 +1,192 @@
+{
+  "nl": {
+    "hero": {
+      "eyebrow": "Software voor syndici · Een product van JukeCoding",
+      "titleLead": "Beheerly —",
+      "titleHighlight": "het beheer van mede-eigendommen, eindelijk gestroomlijnd.",
+      "subtitle": "Eén platform dat syndici, aannemers en bewoners samenbrengt rond de hele flow van een gebouw: van melding tot oplevering. Met AI die de klassieke administratie — triage, offertes en samenvattingen — voor je wegwerkt.",
+      "ctaPrimary": "Vraag uitleg of een demo",
+      "ctaMail": "Mail ons direct",
+      "note": "Web & mobiel (PWA) · gebouwd voor Belgische mede-eigendommen"
+    },
+    "mockup": {
+      "dashboardTitle": "Dashboard",
+      "dashboardSub": "Overzicht voor Residentie Park",
+      "recentTickets": "Recente meldingen",
+      "nav": {
+        "dashboard": "Dashboard",
+        "buildings": "Gebouwen",
+        "tickets": "Tickets",
+        "inbox": "Inbox",
+        "quotes": "Offertes",
+        "siteFollowup": "Werfopvolging",
+        "claims": "Schadegevallen",
+        "meetings": "Vergaderingen"
+      },
+      "stats": {
+        "buildings": "Gebouwen",
+        "openTickets": "Open tickets",
+        "openQuotes": "Lopende offertes"
+      },
+      "tickets": {
+        "t1": { "title": "Lekkage parkeergarage", "meta": "Residentie Park · vandaag", "badge": "Kritiek" },
+        "t2": { "title": "Lift blok B hapert", "meta": "Park · blok B", "badge": "Open" },
+        "t3": { "title": "Offerte schilderwerk traphal", "meta": "Residentie Park", "badge": "Te gunnen" },
+        "t4": { "title": "Tuinonderhoud najaar", "meta": "Park · buitenaanleg", "badge": "Afgerond" }
+      }
+    },
+    "intro": {
+      "title": "Wat is Beheerly?",
+      "paragraph1": "Een syndicus jongleert dagelijks met meldingen van bewoners, offertes van aannemers, werven die opgevolgd moeten worden en een berg administratie. Dat zit vandaag verspreid over mails, telefoontjes en losse documenten.",
+      "paragraph2a": "brengt het allemaal samen in één web- en mobiel platform. Bewoners melden een probleem, de syndicus stuurt in een paar kliks een offerteaanvraag uit, gunt de opdracht, volgt de werf op en levert op — alles op één plek, met een duidelijke status voor elke partij.",
+      "paragraph2b": "doet het zware tilwerk: meldingen automatisch triëren, offertes samenvatten en vergelijken, en lange documenten in heldere taal samenvatten."
+    },
+    "flow": {
+      "title": "De kernflow van elk gebouw",
+      "subtitle": "Van eerste melding tot oplevering — één doorlopend proces."
+    },
+    "steps": {
+      "complaint": { "title": "Klacht", "description": "Een bewoner meldt een probleem via een eenvoudige link of de mobiele app — met foto’s. AI triëert de melding en bepaalt urgentie en categorie." },
+      "quoteRequest": { "title": "Offerteaanvraag", "description": "De syndicus stuurt in enkele kliks een aanvraag naar geschikte aannemers. AI helpt de aanvraag helder en compleet op te stellen." },
+      "award": { "title": "Gunning", "description": "Binnengekomen offertes worden samengevat en vergeleken, zodat de syndicus snel een onderbouwde keuze kan maken." },
+      "siteFollowup": { "title": "Werfopvolging", "description": "Status, communicatie en documenten van de werf zitten op één plek. Iedereen ziet waar het project staat." },
+      "delivery": { "title": "Oplevering", "description": "Na afronding wordt alles netjes gedocumenteerd en gearchiveerd per gebouw — klaar voor de volgende keer." }
+    },
+    "features": {
+      "title": "Gebouwd rond drie partijen"
+    },
+    "featureCards": {
+      "syndics": { "title": "Voor syndici", "description": "Eén dashboard voor al je gebouwen, meldingen, offerteaanvragen en werven. Minder mailverkeer, minder losse documenten, meer overzicht." },
+      "residents": { "title": "Voor bewoners", "description": "Een probleem melden in een minuut, met foto en al, via een publieke link of de PWA. En altijd de status van je melding kunnen volgen." },
+      "contractors": { "title": "Voor aannemers", "description": "Offerteaanvragen ontvangen via een eenvoudige link, zonder gedoe met accounts. Helder wat er gevraagd wordt en wanneer." },
+      "ai": { "title": "AI als hefboom", "description": "Meldingen automatisch triëren, offertes samenvatten en vergelijken, en lange documenten in heldere taal samenvatten. De admin die je tijd vrat." },
+      "perBuilding": { "title": "Alles per gebouw", "description": "Meldingen, offertes, werven en documenten worden gebundeld per mede-eigendom. Geschiedenis altijd terugvindbaar." },
+      "webMobile": { "title": "Web & mobiel", "description": "Een installeerbare PWA — werkt op desktop én telefoon, zonder aparte app-store. Onderweg een melding afhandelen kan gewoon." }
+    },
+    "shots": {
+      "title": "Een blik in het platform",
+      "subtitle": "Zo houdt een syndicus elk gebouw in beeld.",
+      "placeholder": "Screenshot volgt"
+    },
+    "shotsItems": {
+      "dashboard": { "alt": "Beheerly dashboard met gebouwen en meldingen", "caption": "Dashboard per gebouw" },
+      "report": { "alt": "Een melding aanmaken in Beheerly", "caption": "Een melding met foto" },
+      "quotes": { "alt": "Offertes vergelijken in Beheerly", "caption": "Offertes vergelijken" }
+    },
+    "faq": {
+      "title": "Veelgestelde vragen",
+      "leadBefore": "Iets niet duidelijk?",
+      "leadLink": "Mail ons",
+      "leadAfter": "gerust."
+    },
+    "faqItems": {
+      "q1": { "question": "Voor wie is Beheerly bedoeld?", "answer": "In de eerste plaats voor syndici die Belgische mede-eigendommen beheren. Bewoners en aannemers werken mee via eenvoudige links — zij hebben niet meteen een account nodig." },
+      "q2": { "question": "Wat kost het?", "answer": "Beheerly wordt op maat geprijsd, afhankelijk van het aantal gebouwen en gebruikers. Neem contact op voor een voorstel dat bij jouw situatie past." },
+      "q3": { "question": "Kan ik een demo krijgen?", "answer": "Zeker. Laat via het contactformulier of een mailtje weten dat je interesse hebt, dan plannen we een vrijblijvende demo in waarin we het platform live tonen." },
+      "q4": { "question": "Werkt het op mobiel?", "answer": "Ja. Beheerly is een installeerbare web-app (PWA) die op zowel desktop als telefoon werkt, zonder dat je iets uit een app-store moet halen." },
+      "q5": { "question": "Is mijn data veilig?", "answer": "Data wordt veilig opgeslagen en per gebouw afgeschermd, zodat elke partij enkel ziet wat voor haar relevant is. We bespreken graag de details tijdens een gesprek." }
+    },
+    "cta": {
+      "title": "Interesse in Beheerly?",
+      "body": "Of je nu een vrijblijvende demo wil, een vraag hebt of gewoon meer uitleg zoekt — we helpen je graag verder. Kies wat voor jou het makkelijkst is.",
+      "ctaContact": "Via het contactformulier",
+      "ctaFaq": "Lees de FAQ",
+      "ctaMail": "Mail ons direct"
+    }
+  },
+  "en": {
+    "hero": {
+      "eyebrow": "Software for syndics · A JukeCoding product",
+      "titleLead": "Beheerly —",
+      "titleHighlight": "managing shared property, finally streamlined.",
+      "subtitle": "One platform that brings syndics, contractors and residents together around the entire flow of a building: from report to handover. With AI that handles the classic admin — triage, quotes and summaries — for you.",
+      "ctaPrimary": "Ask for details or a demo",
+      "ctaMail": "Email us directly",
+      "note": "Web & mobile (PWA) · built for Belgian shared properties"
+    },
+    "mockup": {
+      "dashboardTitle": "Dashboard",
+      "dashboardSub": "Overview for Residentie Park",
+      "recentTickets": "Recent reports",
+      "nav": {
+        "dashboard": "Dashboard",
+        "buildings": "Buildings",
+        "tickets": "Tickets",
+        "inbox": "Inbox",
+        "quotes": "Quotes",
+        "siteFollowup": "Site follow-up",
+        "claims": "Claims",
+        "meetings": "Meetings"
+      },
+      "stats": {
+        "buildings": "Buildings",
+        "openTickets": "Open tickets",
+        "openQuotes": "Quotes in progress"
+      },
+      "tickets": {
+        "t1": { "title": "Parking garage leak", "meta": "Residentie Park · today", "badge": "Critical" },
+        "t2": { "title": "Block B lift faltering", "meta": "Park · block B", "badge": "Open" },
+        "t3": { "title": "Stairwell painting quote", "meta": "Residentie Park", "badge": "To award" },
+        "t4": { "title": "Autumn garden upkeep", "meta": "Park · outdoor", "badge": "Completed" }
+      }
+    },
+    "intro": {
+      "title": "What is Beheerly?",
+      "paragraph1": "A syndic juggles resident reports, contractor quotes, sites that need following up and a mountain of admin every day. Today that is scattered across emails, phone calls and loose documents.",
+      "paragraph2a": "brings it all together in one web and mobile platform. Residents report a problem, the syndic sends out a quote request in a few clicks, awards the job, follows up the site and hands it over — all in one place, with a clear status for every party.",
+      "paragraph2b": "does the heavy lifting: triaging reports automatically, summarising and comparing quotes, and summarising long documents in plain language."
+    },
+    "flow": {
+      "title": "The core flow of every building",
+      "subtitle": "From first report to handover — one continuous process."
+    },
+    "steps": {
+      "complaint": { "title": "Report", "description": "A resident reports a problem through a simple link or the mobile app — with photos. AI triages the report and determines urgency and category." },
+      "quoteRequest": { "title": "Quote request", "description": "The syndic sends a request to suitable contractors in just a few clicks. AI helps make the request clear and complete." },
+      "award": { "title": "Awarding", "description": "Incoming quotes are summarised and compared, so the syndic can quickly make a well-founded choice." },
+      "siteFollowup": { "title": "Site follow-up", "description": "Status, communication and documents for the site are kept in one place. Everyone can see where the project stands." },
+      "delivery": { "title": "Handover", "description": "Once finished, everything is neatly documented and archived per building — ready for the next time." }
+    },
+    "features": {
+      "title": "Built around three parties"
+    },
+    "featureCards": {
+      "syndics": { "title": "For syndics", "description": "One dashboard for all your buildings, reports, quote requests and sites. Less email traffic, fewer loose documents, more overview." },
+      "residents": { "title": "For residents", "description": "Report a problem in a minute, photo and all, through a public link or the PWA. And always be able to follow the status of your report." },
+      "contractors": { "title": "For contractors", "description": "Receive quote requests through a simple link, without the hassle of accounts. Clear about what is being asked and when." },
+      "ai": { "title": "AI as a lever", "description": "Triage reports automatically, summarise and compare quotes, and summarise long documents in plain language. The admin that used to eat up your time." },
+      "perBuilding": { "title": "Everything per building", "description": "Reports, quotes, sites and documents are bundled per shared property. History always traceable." },
+      "webMobile": { "title": "Web & mobile", "description": "An installable PWA — works on desktop and phone, without a separate app store. Handling a report on the go just works." }
+    },
+    "shots": {
+      "title": "A look inside the platform",
+      "subtitle": "This is how a syndic keeps every building in view.",
+      "placeholder": "Screenshot coming soon"
+    },
+    "shotsItems": {
+      "dashboard": { "alt": "Beheerly dashboard with buildings and reports", "caption": "Dashboard per building" },
+      "report": { "alt": "Creating a report in Beheerly", "caption": "A report with a photo" },
+      "quotes": { "alt": "Comparing quotes in Beheerly", "caption": "Comparing quotes" }
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "leadBefore": "Something not clear?",
+      "leadLink": "Email us",
+      "leadAfter": "anytime."
+    },
+    "faqItems": {
+      "q1": { "question": "Who is Beheerly for?", "answer": "First and foremost for syndics managing Belgian shared properties. Residents and contractors take part through simple links — they don't immediately need an account." },
+      "q2": { "question": "What does it cost?", "answer": "Beheerly is priced to measure, depending on the number of buildings and users. Get in touch for a proposal that fits your situation." },
+      "q3": { "question": "Can I get a demo?", "answer": "Absolutely. Let us know you're interested through the contact form or an email, and we'll schedule a no-obligation demo where we show the platform live." },
+      "q4": { "question": "Does it work on mobile?", "answer": "Yes. Beheerly is an installable web app (PWA) that works on both desktop and phone, without needing to get anything from an app store." },
+      "q5": { "question": "Is my data safe?", "answer": "Data is stored securely and shielded per building, so each party only sees what is relevant to them. We're happy to discuss the details during a conversation." }
+    },
+    "cta": {
+      "title": "Interested in Beheerly?",
+      "body": "Whether you want a no-obligation demo, have a question or are just looking for more details — we're glad to help. Choose whatever is easiest for you.",
+      "ctaContact": "Via the contact form",
+      "ctaFaq": "Read the FAQ",
+      "ctaMail": "Email us directly"
+    }
+  }
+}

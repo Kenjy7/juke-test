@@ -1,14 +1,9 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
 <head>
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MDEMFNGVWJ"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-MDEMFNGVWJ');
-    </script>
+    <!-- Google Analytics is loaded consent-gated from src/composables/useCookieConsent.js
+         (analytics cookie category) — NOT here, so nothing tracks before consent and
+         the third-party script stays off the critical render path. -->
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -42,7 +37,7 @@
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <!-- Theme color voor mobiel -->
-    <meta name="theme-color" content="#f5f1e8" />
+    <meta name="theme-color" content="#ffffff" />
 
     <!-- Favicons -->
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -50,12 +45,21 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 
-    <!-- Fonts: Fraunces (editorial serif display) + Geist (grotesque body) -->
+    <!-- Fonts: Geist — loaded non-render-blocking (print→all swap); display=swap avoids FOIT -->
     <link
-            href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400&family=Geist:wght@400;500;600&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
             rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
             crossorigin="anonymous"
     />
+    <noscript>
+        <link
+                href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&display=swap"
+                rel="stylesheet"
+                crossorigin="anonymous"
+        />
+    </noscript>
 
     <!-- Preconnect -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +83,6 @@
             },
             "image": "https://jukecoding.be/og-image.jpg",
             "description": "AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.",
-            "priceRange": "EUR 600 - EUR 25000+",
             "currenciesAccepted": "EUR",
             "paymentAccepted": "Bank transfer, Credit Card",
             "areaServed": [
@@ -115,9 +118,9 @@
                 "@type": "OfferCatalog",
                 "name": "AI, SaaS & Webdesign diensten",
                 "itemListElement": [
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI-projecten"}, "price": "800", "priceCurrency": "EUR"},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SaaS Development"}, "priceCurrency": "EUR"},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Webdesign"}, "price": "600", "priceCurrency": "EUR"}
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI-projecten"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SaaS Development"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Webdesign"}}
                 ]
             },
             "sameAs": [

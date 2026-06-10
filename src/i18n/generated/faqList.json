@@ -1,0 +1,16 @@
+{
+  "nl": {
+    "header": {
+      "label": "Veelgestelde vragen",
+      "title": "Vragen over webdesign?",
+      "description": "Alle antwoorden over jouw website project op een rij"
+    }
+  },
+  "en": {
+    "header": {
+      "label": "Frequently asked questions",
+      "title": "Questions about web design?",
+      "description": "All the answers about your website project at a glance"
+    }
+  }
+}

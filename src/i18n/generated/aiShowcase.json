@@ -1,0 +1,64 @@
+{
+  "nl": {
+    "head": {
+      "eyebrow": "Wat AI voor jouw bedrijf doet",
+      "titleLine1": "AI die uren",
+      "titleLine2": "handmatig werk overneemt.",
+      "lead": "We bouwen AI die daadwerkelijk taken uitvoert — niet alleen adviseert."
+    },
+    "flow": {
+      "step1": "Klant stuurt bericht",
+      "step2": "AI verwerkt",
+      "step3": "Automatisch afgehandeld"
+    },
+    "featured": {
+      "title": "Sales & Support Automatisering",
+      "description": "AI die inkomende leads kwalificeert, vragen beantwoordt en opvolging automatiseert. Van eerste contact tot afspraak — zonder handmatig werk."
+    },
+    "cards": {
+      "content": {
+        "title": "Automatische Contentcreatie",
+        "description": "Blogposts, social media, rapportages — AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd."
+      },
+      "data": {
+        "title": "Data & Inzichten",
+        "description": "AI die patronen herkent in je data, rapportages genereert en anomalieën detecteert. Beslissingen op basis van feiten, niet gevoel."
+      },
+      "workflow": {
+        "title": "Workflow Integraties",
+        "description": "Koppel AI aan je bestaande tools — CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren."
+      }
+    }
+  },
+  "en": {
+    "head": {
+      "eyebrow": "What AI does for your business",
+      "titleLine1": "AI that takes over hours",
+      "titleLine2": "of manual work.",
+      "lead": "We build AI that actually carries out tasks — not just advises."
+    },
+    "flow": {
+      "step1": "Customer sends a message",
+      "step2": "AI processes it",
+      "step3": "Handled automatically"
+    },
+    "featured": {
+      "title": "Sales & Support Automation",
+      "description": "AI that qualifies incoming leads, answers questions and automates follow-up. From first contact to appointment — without manual work."
+    },
+    "cards": {
+      "content": {
+        "title": "Automated Content Creation",
+        "description": "Blog posts, social media, reports — AI generates content in your tone of voice. Always on-brand, always on time."
+      },
+      "data": {
+        "title": "Data & Insights",
+        "description": "AI that spots patterns in your data, generates reports and detects anomalies. Decisions based on facts, not gut feeling."
+      },
+      "workflow": {
+        "title": "Workflow Integrations",
+        "description": "Connect AI to your existing tools — CRM, email, accounting. Everything talks to each other, without manual copying."
+      }
+    }
+  }
+}

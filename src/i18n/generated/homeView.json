@@ -3,24 +3,24 @@
     "faq": {
       "label": "FAQ",
       "title": "Veelgestelde vragen",
-      "description": "Heldere antwoorden over AI, SaaS, webdesign en samenwerking."
+      "description": "Heldere antwoorden over SaaS, AI, webdesign en samenwerking."
     },
     "faqs": {
       "what": {
-        "question": "Wat doet JukeCoding precies?",
-        "answer": "JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan."
+        "question": "Wat doet Juke precies?",
+        "answer": "Juke is een development studio in Hasselt die SaaS-platformen, AI-oplossingen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om eigen software te ontwikkelen, processen te automatiseren en online sterker te staan."
       },
       "pricing": {
-        "question": "Wat kosten AI-projecten of SaaS-development?",
-        "answer": "AI-projecten en SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope."
+        "question": "Wat kost SaaS-development of een AI-project?",
+        "answer": "SaaS-platformen en AI-projecten zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope."
       },
       "webdesign": {
         "question": "Bieden jullie ook webdesign aan?",
-        "answer": "Ja. Naast AI en SaaS bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO."
+        "answer": "Ja. Naast SaaS en AI bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO."
       },
       "audience": {
         "question": "Voor wie zijn jullie diensten bedoeld?",
-        "answer": "Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie."
+        "answer": "Onze SaaS- en AI-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie."
       },
       "process": {
         "question": "Hoe ziet een samenwerking eruit?",
@@ -32,24 +32,24 @@
     "faq": {
       "label": "FAQ",
       "title": "Frequently asked questions",
-      "description": "Clear answers about AI, SaaS, web design and working together."
+      "description": "Clear answers about SaaS, AI, web design and working together."
     },
     "faqs": {
       "what": {
-        "question": "What exactly does JukeCoding do?",
-        "answer": "JukeCoding is a development studio in Hasselt that builds AI solutions, SaaS platforms and websites for ambitious companies. We help scale-ups and SMEs automate processes, develop their own software and strengthen their online presence."
+        "question": "What exactly does Juke do?",
+        "answer": "Juke is a development studio in Hasselt that builds SaaS platforms, AI solutions and websites for ambitious companies. We help scale-ups and SMEs develop their own software, automate processes and strengthen their online presence."
       },
       "pricing": {
-        "question": "What do AI projects or SaaS development cost?",
-        "answer": "AI projects and SaaS platforms are custom-built and quoted per project after a no-obligation conversation. We always discuss pricing personally and provide a clear quote upfront, tailored to the scope."
+        "question": "What does SaaS development or an AI project cost?",
+        "answer": "SaaS platforms and AI projects are custom-built and quoted per project after a no-obligation conversation. We always discuss pricing personally and provide a clear quote upfront, tailored to the scope."
       },
       "webdesign": {
         "question": "Do you also offer web design?",
-        "answer": "Yes. Alongside AI and SaaS, we build professional custom websites. Our websites are fast, mobile-friendly and optimised for conversion and local SEO."
+        "answer": "Yes. Alongside SaaS and AI, we build professional custom websites. Our websites are fast, mobile-friendly and optimised for conversion and local SEO."
       },
       "audience": {
         "question": "Who are your services for?",
-        "answer": "Our AI and SaaS projects are ideal for scale-ups, mid-sized companies and international organisations. For web design, we also help SMEs and self-employed professionals across Belgium."
+        "answer": "Our SaaS and AI projects are ideal for scale-ups, mid-sized companies and international organisations. For web design, we also help SMEs and self-employed professionals across Belgium."
       },
       "process": {
         "question": "What does working together look like?",

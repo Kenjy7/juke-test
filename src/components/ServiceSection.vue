@@ -40,7 +40,7 @@
             </li>
           </ul>
 
-          <router-link :to="service.linkUrl" class="card-link">
+          <router-link v-if="service.linkUrl" :to="service.linkUrl" class="card-link">
             <span>{{ service.linkText }}</span>
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
@@ -118,7 +118,7 @@ const SaasIcon = () =>
     ],
   )
 
-const WebIcon = () =>
+const DigitalIcon = () =>
   h(
     'svg',
     {
@@ -131,27 +131,14 @@ const WebIcon = () =>
       'stroke-linejoin': 'round',
     },
     [
-      h('rect', { x: '2', y: '3', width: '20', height: '14', rx: '2' }),
-      h('path', { d: 'M8 21h8' }),
-      h('path', { d: 'M12 17v4' }),
-      h('path', { d: 'M7 8l3 3-3 3' }),
-      h('path', { d: 'M13 14h4' }),
+      h('path', { d: 'M21 2v6h-6' }),
+      h('path', { d: 'M3 12a9 9 0 0 1 15-6.7L21 8' }),
+      h('path', { d: 'M3 22v-6h6' }),
+      h('path', { d: 'M21 12a9 9 0 0 1-15 6.7L3 16' }),
     ],
   )
 
 const services = computed(() => [
-  {
-    icon: AiIcon,
-    title: t('serviceSection.cards.ai.title'),
-    points: [
-      t('serviceSection.cards.ai.points.0'),
-      t('serviceSection.cards.ai.points.1'),
-      t('serviceSection.cards.ai.points.2'),
-      t('serviceSection.cards.ai.points.3'),
-    ],
-    linkText: t('serviceSection.cards.ai.linkText'),
-    linkUrl: '/ai-projecten',
-  },
   {
     icon: SaasIcon,
     title: t('serviceSection.cards.saas.title'),
@@ -165,23 +152,33 @@ const services = computed(() => [
     linkUrl: '/saas-development',
   },
   {
-    icon: WebIcon,
-    title: t('serviceSection.cards.web.title'),
+    icon: AiIcon,
+    title: t('serviceSection.cards.ai.title'),
     points: [
-      t('serviceSection.cards.web.points.0'),
-      t('serviceSection.cards.web.points.1'),
-      t('serviceSection.cards.web.points.2'),
-      t('serviceSection.cards.web.points.3'),
+      t('serviceSection.cards.ai.points.0'),
+      t('serviceSection.cards.ai.points.1'),
+      t('serviceSection.cards.ai.points.2'),
+      t('serviceSection.cards.ai.points.3'),
     ],
-    linkText: t('serviceSection.cards.web.linkText'),
-    linkUrl: '/webdesign',
+    linkText: t('serviceSection.cards.ai.linkText'),
+    linkUrl: '/ai-projecten',
+  },
+  {
+    icon: DigitalIcon,
+    title: t('serviceSection.cards.digital.title'),
+    points: [
+      t('serviceSection.cards.digital.points.0'),
+      t('serviceSection.cards.digital.points.1'),
+      t('serviceSection.cards.digital.points.2'),
+      t('serviceSection.cards.digital.points.3'),
+    ],
   },
 ])
 </script>
 
 <style scoped lang="scss">
 .services {
-  padding: var(--space-24) var(--space-8);
+  padding: var(--section-pad-y) var(--space-8);
 }
 
 .container {
@@ -341,7 +338,7 @@ h3 {
 
 @media (max-width: 768px) {
   .services {
-    padding: var(--space-16) var(--space-5);
+    padding: var(--section-pad-y) var(--space-5);
   }
 }
 </style>

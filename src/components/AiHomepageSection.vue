@@ -92,7 +92,7 @@ onUnmounted(() => {
 
 <style scoped lang="scss">
 .stats-section {
-  padding: var(--space-24) 0 var(--space-24);
+  padding: var(--section-pad-y) 0;
 }
 
 .container {
@@ -208,7 +208,7 @@ h2 {
 
 @media (max-width: 768px) {
   .stats-section {
-    padding: var(--space-16) 0;
+    padding: var(--section-pad-y) 0;
   }
   .container {
     padding: 0 var(--space-4);

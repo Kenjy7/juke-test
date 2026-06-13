@@ -22,11 +22,6 @@ export const faqsAI = {
         "Als je team repetitieve taken doet, is automatisering bijna altijd een directe winst. Onze oplossingen zijn schaalbaar en geschikt voor zelfstandigen, KMO's en grotere organisaties in elke sector.",
     },
     {
-      question: 'Wat levert het op?',
-      answer:
-        'Bedrijven besparen tot 80% tijd op repetitief werk, maken minder fouten, reageren sneller naar klanten en krijgen meer overzicht — wat ruimte geeft voor groei.',
-    },
-    {
       question: 'Moet ik technische kennis hebben?',
       answer:
         'Nee. Wij bouwen, trainen en configureren alles voor je. Jij krijgt een gebruiksvriendelijke oplossing die je zonder technische kennis kunt gebruiken en opvolgen.',
@@ -67,11 +62,6 @@ export const faqsAI = {
       question: 'Is AI automation right for my business?',
       answer:
         'If your team handles repetitive tasks, automation is almost always an immediate win. Our solutions are scalable and suited to freelancers, SMEs and larger organisations in any sector.',
-    },
-    {
-      question: 'What does it deliver?',
-      answer:
-        'Companies save up to 80% of the time spent on repetitive work, make fewer mistakes, respond to customers faster and gain more oversight — which creates room to grow.',
     },
     {
       question: 'Do I need technical knowledge?',

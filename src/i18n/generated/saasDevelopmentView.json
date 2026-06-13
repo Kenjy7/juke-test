@@ -4,9 +4,10 @@
       "eyebrow": "SaaS & app-development",
       "titleLead": "Eigen software,",
       "titleHighlight": "gebouwd om te schalen.",
-      "subtitle": "Van concept tot live product — dashboards, portalen en platformen op maat die meegroeien van je eerste tien naar tienduizenden gebruikers.",
+      "subtitle": "Van concept tot live product: dashboards, portalen en platformen op maat die meegroeien van je eerste tien naar tienduizenden gebruikers.",
       "ctaPrimary": "Bespreek je project",
-      "ctaSecondary": "Neem contact op"
+      "ctaSecondary": "Neem contact op",
+      "ctaFaq": "Veelgestelde vragen"
     },
     "tiles": {
       "mrr": "MRR",
@@ -54,9 +55,10 @@
       "eyebrow": "SaaS & app development",
       "titleLead": "Your own software,",
       "titleHighlight": "built to scale.",
-      "subtitle": "From concept to live product — custom dashboards, portals and platforms that grow with you, from your first ten to tens of thousands of users.",
+      "subtitle": "From concept to live product: custom dashboards, portals and platforms that grow with you, from your first ten to tens of thousands of users.",
       "ctaPrimary": "Discuss your project",
-      "ctaSecondary": "Get in touch"
+      "ctaSecondary": "Get in touch",
+      "ctaFaq": "Frequently asked questions"
     },
     "tiles": {
       "mrr": "MRR",

@@ -17,11 +17,8 @@
         </p>
 
         <div class="hero-buttons">
-          <router-link
-            :to="{ path: '/webdesign', hash: '#pakketten' }"
-            class="btn btn--accent btn--lg"
-          >
-            {{ t('heroSectionAanbod.buttons.packages') }}
+          <router-link to="/contact" class="btn btn--accent btn--lg">
+            {{ t('heroSectionAanbod.buttons.start') }}
             <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
               <path
                 d="M4 12L12 4M12 4H5M12 4V11"
@@ -94,7 +91,11 @@ const checks = computed(() => [
 
 <style scoped lang="scss">
 .hero {
-  padding: calc(var(--space-32) + 1rem) 0 var(--space-20);
+  padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
+  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: var(--color-bg-sunken);
   border-bottom: 1px solid var(--color-border);
 }
@@ -104,6 +105,7 @@ const checks = computed(() => [
   grid-template-columns: 1.05fr 1fr;
   gap: var(--space-16);
   align-items: center;
+  width: 100%;
 }
 
 .hero-copy {
@@ -330,7 +332,7 @@ p {
 
 @media (max-width: 768px) {
   .hero {
-    padding: var(--space-32) 0 var(--space-16);
+    padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
   }
   h1 {
     font-size: var(--text-h2);

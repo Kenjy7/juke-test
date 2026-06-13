@@ -10,12 +10,6 @@ const baseRoutes = [
     alias: ['/home'],
   },
   {
-    path: '/webdesign',
-    name: 'webdesign',
-    component: () => import('@/views/AanbodView.vue'),
-    alias: ['/aanbod', '/webdesign-pakketten', '/pakketten'],
-  },
-  {
     path: '/ai-projecten',
     name: 'aiProjecten',
     component: () => import('@/views/AiSolutionsView.vue'),
@@ -58,29 +52,6 @@ const baseRoutes = [
     name: 'cookies',
     component: () => import('@/views/CookiesBeleidView.vue'),
     alias: ['/cookiebeleid', '/privacy-cookies'],
-  },
-  {
-    path: '/offerte-aanvraag',
-    name: 'offerteAanvraag',
-    component: () => import('@/views/OfferteView.vue'),
-    alias: ['/offerte', '/offerteaanvraag'],
-  },
-  {
-    path: '/website-die-klanten-oplevert',
-    name: 'websiteDieKlantenOplevert',
-    component: () => import('@/views/WebdesignDatKlantenOplevertView.vue'),
-    alias: [
-      '/website-die-klanten-opbrengt',
-      '/website-die-klanten-brengt',
-      '/website-klanten-oplevert',
-      '/webdesign-die-klanten-oplevert',
-    ],
-  },
-  {
-    path: '/gratis-seo-scan',
-    name: 'gratisSeoScan',
-    component: () => import('@/views/SeoScanView.vue'),
-    alias: ['/seo-scan', '/seo-check'],
   },
   {
     path: '/blog',

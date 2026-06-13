@@ -2,7 +2,7 @@
   <section ref="rootEl" class="faq-section">
     <div class="container">
       <div class="faq-header">
-        <span class="label">{{ labelText }}</span>
+        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ labelText }}</span>
         <h2>{{ titleText }}</h2>
         <p>{{ descriptionText }}</p>
       </div>
@@ -77,8 +77,8 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .faq-section {
   position: relative;
-  padding-top: var(--space-24);
-  padding-bottom: var(--space-24);
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
   overflow: hidden;
 }
 
@@ -96,38 +96,36 @@ onBeforeUnmount(() => {
   animation: fadeInUp var(--duration-reveal) var(--ease-out-expo);
 }
 
-.label {
-  display: inline-block;
-  font-family: var(--font-sans);
-  font-size: var(--text-xs, 0.75rem);
-  font-weight: 600;
-  color: var(--color-text-tertiary);
-  background: var(--color-bg-card-inner);
-  padding: var(--space-4) var(--space-8);
-  border-radius: var(--radius-2xl);
-  letter-spacing: 0.08em;
-  border: 1px solid var(--color-border);
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
-  margin-bottom: var(--space-6);
+  margin-bottom: var(--space-5);
 }
+.eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 
 .faq-header h2 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 800;
+  font-size: var(--text-h1);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
-  line-height: 1.2;
-  margin-bottom: var(--space-4);
-  letter-spacing: -0.02em;
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
 }
 
 .faq-header p {
-  font-family: var(--font-sans);
-  font-size: 1.25rem;
+  font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
-  max-width: 700px;
+  max-width: 58ch;
   margin: 0 auto;
-  line-height: 1.6;
+  line-height: var(--leading-relaxed);
 }
 
 @keyframes fadeInUp {
@@ -142,16 +140,42 @@ onBeforeUnmount(() => {
 }
 
 .faq-list {
-  max-width: 900px;
+  max-width: 820px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-3);
+}
+
+/* Flatten the shared FaqItem to match the newer FAQ styling — scoped to this
+   component so other raw FaqItem usages stay unchanged. */
+.faq-section :deep(.faq-item) {
+  border-radius: var(--radius-lg);
+  box-shadow: none;
+  padding: var(--space-5) var(--space-6);
+}
+.faq-section :deep(.faq-item:hover) {
+  transform: none;
+  box-shadow: none;
+  border-color: var(--color-border-hover);
+}
+.faq-section :deep(.faq-question h3) {
+  font-weight: var(--weight-semibold);
+}
+.faq-section :deep(.toggle-button) {
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  color: var(--color-text-tertiary);
+}
+.faq-section :deep(.toggle-button:hover) {
+  background: transparent;
 }
 
 @media (max-width: 768px) {
   .faq-section {
-    padding: var(--space-16) 0;
+    padding: var(--section-pad-y) 0;
   }
 
   .faq-header {

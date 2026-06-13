@@ -1,5 +1,5 @@
 <template>
-  <section class="ai-growth-section" ref="sectionRef">
+  <section class="ai-growth-section band--sunken" ref="sectionRef">
     <div class="container reveal">
       <span class="eyebrow">
         <span class="eyebrow__dot"></span>

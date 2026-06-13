@@ -4,7 +4,7 @@
       "eyebrow": "Wat AI voor jouw bedrijf doet",
       "titleLine1": "AI die uren",
       "titleLine2": "handmatig werk overneemt.",
-      "lead": "We bouwen AI die daadwerkelijk taken uitvoert — niet alleen adviseert."
+      "lead": "We bouwen AI die daadwerkelijk taken uitvoert, niet alleen adviseert."
     },
     "flow": {
       "step1": "Klant stuurt bericht",
@@ -13,12 +13,12 @@
     },
     "featured": {
       "title": "Sales & Support Automatisering",
-      "description": "AI die inkomende leads kwalificeert, vragen beantwoordt en opvolging automatiseert. Van eerste contact tot afspraak — zonder handmatig werk."
+      "description": "AI die inkomende leads kwalificeert, vragen beantwoordt en opvolging automatiseert. Van eerste contact tot afspraak, zonder handmatig werk."
     },
     "cards": {
       "content": {
         "title": "Automatische Contentcreatie",
-        "description": "Blogposts, social media, rapportages — AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd."
+        "description": "Blogposts, social media, rapportages: AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd."
       },
       "data": {
         "title": "Data & Inzichten",
@@ -26,7 +26,7 @@
       },
       "workflow": {
         "title": "Workflow Integraties",
-        "description": "Koppel AI aan je bestaande tools — CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren."
+        "description": "Koppel AI aan je bestaande tools: CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren."
       }
     }
   },
@@ -35,7 +35,7 @@
       "eyebrow": "What AI does for your business",
       "titleLine1": "AI that takes over hours",
       "titleLine2": "of manual work.",
-      "lead": "We build AI that actually carries out tasks — not just advises."
+      "lead": "We build AI that actually carries out tasks, not just advises."
     },
     "flow": {
       "step1": "Customer sends a message",
@@ -44,12 +44,12 @@
     },
     "featured": {
       "title": "Sales & Support Automation",
-      "description": "AI that qualifies incoming leads, answers questions and automates follow-up. From first contact to appointment — without manual work."
+      "description": "AI that qualifies incoming leads, answers questions and automates follow-up. From first contact to appointment, without manual work."
     },
     "cards": {
       "content": {
         "title": "Automated Content Creation",
-        "description": "Blog posts, social media, reports — AI generates content in your tone of voice. Always on-brand, always on time."
+        "description": "Blog posts, social media, reports: AI generates content in your tone of voice. Always on-brand, always on time."
       },
       "data": {
         "title": "Data & Insights",
@@ -57,7 +57,7 @@
       },
       "workflow": {
         "title": "Workflow Integrations",
-        "description": "Connect AI to your existing tools — CRM, email, accounting. Everything talks to each other, without manual copying."
+        "description": "Connect AI to your existing tools: CRM, email, accounting. Everything talks to each other, without manual copying."
       }
     }
   }

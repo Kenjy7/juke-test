@@ -48,6 +48,8 @@
   --font-display: 'Geist', 'Inter Tight', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-sans: 'Geist', 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-mono: 'Geist Mono', 'JetBrains Mono', ui-monospace, monospace;
+  /* "juke" wordmark only (navbar/footer) — Bricolage Grotesque 600, tight tracking */
+  --font-wordmark: 'Bricolage Grotesque', 'Geist', system-ui, sans-serif;
 
   /* ramp — confident, modern-SaaS scale */
   --text-hero: clamp(2.75rem, 5.5vw, 4.25rem);  /* 44–68 */
@@ -82,12 +84,30 @@
   --space-5: 1.25rem;
   --space-6: 1.5rem;
   --space-8: 2rem;
+  --space-10: 2.5rem;
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5.5rem;
   --space-24: 7rem;
   --space-32: 9rem;     /* desktop section ≈ 144 */
   --space-40: 12rem;
+
+  /* ---- Section rhythm ----
+     Standard vertical padding for a full-width page section. Two adjacent
+     sections sum to a 9rem gap. Mobile value is overridden below. Use
+     var(--section-pad-y) for the block padding of every section so the whole
+     page keeps one cadence — change this one value to retune every section. */
+  --section-pad-y: 4.5rem;
+
+  /* ---- Hero sizing ----
+     Shared by the first (hero) section of every main navbar page so they all
+     start at the same point under the fixed navbar and hold the same height.
+     --hero-pad-top clears the navbar; --hero-min-height gives a common floor
+     so heroes with lighter content don't read as shorter. Mobile values are
+     overridden below. */
+  --hero-pad-top: calc(var(--space-32) + 1.5rem);
+  --hero-pad-bottom: var(--section-pad-y);
+  --hero-min-height: 80vh;
 
   /* ---- Radius (soft, modern SaaS) ---- */
   --radius-sm: 4px;
@@ -129,4 +149,18 @@
   --max-width: 1200px;
   --max-width-narrow: 800px;
   --max-width-wide: 1320px;
+  /* Closing-CTA panel — shared by every page's end CTA so they stay the
+     same, more contained width (narrower than a full content section). */
+  --max-width-cta: 960px;
+}
+
+/* Tighten the section rhythm on small screens (two sections sum to 8rem). */
+@media (max-width: 768px) {
+  :root {
+    --section-pad-y: var(--space-16);
+    /* On phones the stacked hero content is already tall — drop the navbar
+       clearance and release the min-height floor so heroes size to content. */
+    --hero-pad-top: var(--space-32);
+    --hero-min-height: auto;
+  }
 }

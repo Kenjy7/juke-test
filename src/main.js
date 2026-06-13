@@ -7,7 +7,7 @@ import { routes } from './router/routes'
 import { createHeadCore, createUnhead } from '@unhead/vue'
 
 import { createAppI18n, LOCALE_META } from './i18n/index.js'
-import { localeFromPath } from './i18n/routing.js'
+import { localeFromPath, stripLocale } from './i18n/routing.js'
 import LocaleLink from './components/LocaleLink.vue'
 
 export const createApp = ViteSSG(
@@ -44,7 +44,11 @@ export const createApp = ViteSSG(
     })
 
     if (isClient) {
-      router.afterEach((to) => {
+      router.afterEach((to, from) => {
+        // Language switch (same page, only the locale prefix changes): keep the
+        // current scroll position and focus instead of jumping to the top.
+        if (from && stripLocale(to.path) === stripLocale(from.path)) return
+
         if (!to.hash) {
           window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
           // SPA focus management: move focus to the main landmark so

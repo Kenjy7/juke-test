@@ -28,12 +28,12 @@
                 />
               </svg>
             </router-link>
-            <a
-              href="mailto:contact@jukecoding.be?subject=Interesse%20in%20Beheerly"
+            <router-link
+              :to="{ path: '/contact', query: { interesse: 'beheerly' } }"
               class="btn btn--secondary btn--lg"
             >
               {{ t('beheerlyView.hero.ctaMail') }}
-            </a>
+            </router-link>
           </div>
           <p class="hero-note">
             {{ t('beheerlyView.hero.note') }}
@@ -50,10 +50,7 @@
             <div class="appwin__shell">
               <!-- Sidebar -->
               <aside class="appnav">
-                <div class="appnav__brand">
-                  <span class="appnav__logo"></span>
-                  Beheerly
-                </div>
+                <div class="appnav__brand">Beheerly</div>
                 <nav class="appnav__list">
                   <span
                     class="appnav__item"
@@ -206,9 +203,7 @@
           <h2>{{ t('beheerlyView.faq.title') }}</h2>
           <p>
             {{ t('beheerlyView.faq.leadBefore') }}
-            <a href="mailto:contact@jukecoding.be?subject=Vraag%20over%20Beheerly">{{
-              t('beheerlyView.faq.leadLink')
-            }}</a>
+            <router-link to="/contact">{{ t('beheerlyView.faq.leadLink') }}</router-link>
             {{ t('beheerlyView.faq.leadAfter') }}
           </p>
         </div>
@@ -234,30 +229,25 @@
 
     <!-- ───────────── CTA ───────────── -->
     <section class="bh-cta">
-      <div class="container cta-card">
-        <h2>{{ t('beheerlyView.cta.title') }}</h2>
-        <p>
-          {{ t('beheerlyView.cta.body') }}
-        </p>
-        <div class="cta-actions">
-          <router-link to="/contact" class="btn btn--accent btn--lg">
-            {{ t('beheerlyView.cta.ctaContact') }}
-            <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path
-                d="M4 12L12 4M12 4H5M12 4V11"
-                stroke="currentColor"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </router-link>
-          <a href="#faq" class="btn btn--secondary btn--lg">{{ t('beheerlyView.cta.ctaFaq') }}</a>
-          <a
-            href="mailto:contact@jukecoding.be?subject=Interesse%20in%20Beheerly"
-            class="btn btn--secondary btn--lg"
-            >{{ t('beheerlyView.cta.ctaMail') }}</a
-          >
+      <div class="container">
+        <div class="bh-cta__panel band--dark">
+          <h2>{{ t('beheerlyView.cta.title') }}</h2>
+          <p>{{ t('beheerlyView.cta.body') }}</p>
+          <div class="cta-actions">
+            <router-link to="/contact" class="btn btn--accent btn--lg">
+              {{ t('beheerlyView.cta.ctaContact') }}
+              <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M4 12L12 4M12 4H5M12 4V11"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </router-link>
+            <a href="#faq" class="btn btn--secondary btn--lg">{{ t('beheerlyView.cta.ctaFaq') }}</a>
+          </div>
         </div>
       </div>
     </section>
@@ -445,17 +435,17 @@ const faqs = computed(() => [
 ])
 
 useHead({
-  title: 'Beheerly — Software voor syndici & mede-eigendommen | JukeCoding',
+  title: 'Beheerly — Software voor syndici & mede-eigendommen | Juke',
   meta: [
     {
       name: 'description',
       content:
-        'Beheerly is het platform van JukeCoding voor het beheer van Belgische mede-eigendommen: van melding tot oplevering, met AI voor triage, offertes en samenvattingen. Vraag een demo.',
+        'Beheerly is het platform van Juke voor het beheer van Belgische mede-eigendommen: van melding tot oplevering, met AI voor triage, offertes en samenvattingen. Vraag een demo.',
     },
     { name: 'robots', content: 'index, follow' },
     {
       property: 'og:title',
-      content: 'Beheerly — Software voor syndici & mede-eigendommen | JukeCoding',
+      content: 'Beheerly — Software voor syndici & mede-eigendommen | Juke',
     },
     {
       property: 'og:description',
@@ -465,7 +455,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/beheerly' },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Beheerly — Software voor syndici & mede-eigendommen' },
@@ -487,7 +477,7 @@ useHead({
         description:
           'Web- en mobiel platform voor het beheer van Belgische mede-eigendommen. Verbindt syndici, aannemers en bewoners van melding tot oplevering, met AI.',
         url: 'https://jukecoding.be/beheerly',
-        author: { '@type': 'Organization', name: 'JukeCoding', url: 'https://jukecoding.be' },
+        author: { '@type': 'Organization', name: 'Juke', url: 'https://jukecoding.be' },
       }),
     },
     {
@@ -514,13 +504,18 @@ useHead({
 
 /* ── Hero ── */
 .bh-hero {
-  padding: calc(var(--space-32) + 1rem) var(--space-8) var(--space-20);
+  padding: var(--hero-pad-top) var(--space-8) var(--hero-pad-bottom);
+  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: var(--space-16);
   align-items: center;
+  width: 100%;
 }
 .hero-copy {
   animation: fade-up 0.7s var(--ease-out-expo) 0.1s both;
@@ -640,13 +635,6 @@ h1 {
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
-}
-.appnav__logo {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  background: var(--color-accent);
-  flex-shrink: 0;
 }
 .appnav__list {
   display: flex;
@@ -1019,7 +1007,7 @@ h1 {
 
 /* ── FAQ ── */
 .bh-faq {
-  padding: var(--space-16) var(--space-8);
+  padding: var(--section-pad-y) var(--space-8);
 }
 .faq-narrow {
   max-width: var(--max-width-narrow);
@@ -1068,29 +1056,38 @@ h1 {
   }
 }
 
-/* ── CTA ── */
+/* ── CTA — shared dark closing-panel pattern ── */
 .bh-cta {
-  padding: var(--space-16) var(--space-8) var(--space-24);
+  padding: var(--section-pad-y) var(--space-8) var(--space-24);
 }
-.cta-card {
-  max-width: var(--max-width-narrow);
-  text-align: center;
-  background: var(--color-bg-elevated);
+.bh-cta .container {
+  max-width: var(--max-width-cta);
+}
+.bh-cta__panel {
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-16) var(--space-8);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20) var(--space-12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   h2 {
-    font-size: var(--text-h2);
-    font-weight: var(--weight-bold);
+    font-family: var(--font-display);
+    font-size: var(--text-h1);
+    font-weight: var(--weight-semibold);
     color: var(--color-text-primary);
-    margin: 0 0 var(--space-4);
+    line-height: var(--leading-snug);
+    letter-spacing: var(--tracking-tight);
+    margin: 0 0 var(--space-5);
+    max-width: 22ch;
+    text-wrap: balance;
   }
   p {
     font-size: var(--text-body-lg);
     color: var(--color-text-secondary);
     line-height: var(--leading-relaxed);
-    margin: 0 auto var(--space-8);
-    max-width: 560px;
+    margin: 0 0 var(--space-12);
+    max-width: 52ch;
   }
 }
 .cta-actions {
@@ -1127,7 +1124,7 @@ h1 {
 
 @media (max-width: 768px) {
   .bh-hero {
-    padding: var(--space-32) var(--space-6) var(--space-16);
+    padding: var(--hero-pad-top) var(--space-6) var(--hero-pad-bottom);
   }
   h1 {
     font-size: var(--text-h2);
@@ -1160,8 +1157,19 @@ h1 {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
-  .cta-card {
+  .bh-cta__panel {
     padding: var(--space-12) var(--space-6);
+  }
+  .bh-cta__panel h2 {
+    font-size: var(--text-h2);
+  }
+  .cta-actions {
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+  }
+  .cta-actions .btn {
+    width: 100%;
   }
 }
 

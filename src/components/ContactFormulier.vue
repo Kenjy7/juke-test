@@ -2,65 +2,23 @@
 <template>
   <section class="contact-section" id="contact">
     <div class="container">
-      <div class="contact-header">
-        <h2>
-          <span>{{ t('contactFormulier.header.title') }}</span>
-        </h2>
-        <p>
-          {{ t('contactFormulier.header.lead') }}
-        </p>
-      </div>
-
-      <!-- Success/Error Modal -->
-      <transition name="modal-fade">
-        <div v-if="showModal" class="modal-overlay" @click="closeModal">
-          <div class="modal-content" @click.stop :class="{ error: modalType === 'error' }">
-            <div class="modal-icon">
-              <svg
-                v-if="modalType === 'success'"
-                width="48"
-                height="48"
-                viewBox="0 0 48 48"
-                fill="none"
-              >
-                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
-                <path
-                  d="M14 24L20 30L34 16"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-
-              <svg v-else width="48" height="48" viewBox="0 0 48 48" fill="none">
-                <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3" />
-                <path
-                  d="M16 16L32 32M32 16L16 32"
-                  stroke="currentColor"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </div>
-
-            <h3>{{ modalTitle }}</h3>
-            <p>{{ modalMessage }}</p>
-
-            <button @click="closeModal" class="modal-btn">
-              {{ t('contactFormulier.modal.close') }}
-            </button>
-          </div>
-        </div>
-      </transition>
-
       <div class="contact-wrapper">
-        <!-- Contact Info -->
-        <div class="contact-info">
-          <div class="info-card">
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <!-- Dark editorial panel -->
+        <aside class="contact-aside band--dark">
+          <div class="contact-aside__glow" aria-hidden="true"></div>
+
+          <div class="contact-aside__head">
+            <span class="eyebrow"
+              ><span class="eyebrow__dot"></span>{{ t('contactFormulier.header.eyebrow') }}</span
+            >
+            <h2>{{ t('contactFormulier.header.title') }}</h2>
+            <p>{{ t('contactFormulier.header.lead') }}</p>
+          </div>
+
+          <div class="contact-methods">
+            <a href="mailto:contact@jukecoding.be" class="method">
+              <span class="method__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path
                     d="M4 4H20C21.1 4 22 4.9 22 6V18C22 19.1 21.1 20 20 20H4C2.9 20 2 19.1 2 18V6C2 4.9 2.9 4 4 4Z"
                     stroke="currentColor"
@@ -76,34 +34,53 @@
                     stroke-linejoin="round"
                   />
                 </svg>
-              </div>
-              <div class="info-content">
-                <span class="info-label">{{ t('contactFormulier.info.emailLabel') }}</span>
-                <a href="mailto:contact@jukecoding.be" class="info-value">contact@jukecoding.be</a>
-              </div>
-            </div>
+              </span>
+              <span class="method__text">
+                <span class="method__label">{{ t('contactFormulier.info.emailLabel') }}</span>
+                <span class="method__value">contact@jukecoding.be</span>
+              </span>
+            </a>
 
-            <div class="info-item">
-              <div class="icon-wrapper">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <a href="tel:+32479131715" class="method">
+              <span class="method__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
                   <path
-                    d="M22 16.92V19.92C22 20.4696 21.7893 20.9969 21.4142 21.3871C21.0391 21.7773 20.5304 21.9992 20 22C16.7428 21.7634 13.5869 20.7269 10.8 19C8.20183 17.425 5.97223 15.3041 4.25 12.75C2.49998 9.91504 1.45726 6.69859 1.22 3.38C1.21998 2.84954 1.42983 2.33853 1.80837 1.95547C2.18691 1.57241 2.70511 1.34632 3.25 1.34H6.25C7.02697 1.33292 7.76838 1.61918 8.31943 2.13837C8.87048 2.65756 9.18673 3.36681 9.2 4.12C9.22509 5.62818 9.47656 7.12316 9.94 8.56C10.1556 9.22443 10.1709 9.94039 9.98402 10.6129C9.79716 11.2854 9.40593 11.8822 8.86 12.32L7.58 13.57C9.09076 16.2356 11.3644 18.4648 14.08 19.94L15.33 18.68C15.7777 18.1457 16.3852 17.7619 17.0707 17.5793C17.7561 17.3967 18.4847 17.4242 19.155 17.658C20.6063 18.1147 22.1158 18.3617 23.638 18.387C24.4053 18.4006 25.1252 18.7231 25.6513 19.2849C26.1775 19.8467 26.4658 20.6005 26.458 21.379V21.379Z"
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"
                     stroke="currentColor"
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
                   />
                 </svg>
-              </div>
-              <div class="info-content">
-                <span class="info-label">{{ t('contactFormulier.info.phoneLabel') }}</span>
-                <a href="tel:+32479131715" class="info-value">(+32) 0479 13 17 15</a>
-              </div>
+              </span>
+              <span class="method__text">
+                <span class="method__label">{{ t('contactFormulier.info.phoneLabel') }}</span>
+                <span class="method__value">(+32) 0479 13 17 15</span>
+              </span>
+            </a>
+
+            <div class="method method--static">
+              <span class="method__icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
+                  <path
+                    d="M12 7v5l3 2"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <span class="method__text">
+                <span class="method__label">{{ t('contactFormulier.info.responseLabel') }}</span>
+                <span class="method__value">{{ t('contactFormulier.info.responseValue') }}</span>
+              </span>
             </div>
           </div>
 
-          <div class="social-links">
-            <h4>{{ t('contactFormulier.social.title') }}</h4>
+          <div class="contact-social">
+            <span class="contact-social__label">{{ t('contactFormulier.social.title') }}</span>
             <div class="social-icons">
               <a
                 href="https://www.linkedin.com/company/jukecoding"
@@ -137,49 +114,12 @@
               </a>
             </div>
           </div>
-        </div>
+        </aside>
 
         <!-- Contact Form -->
         <div class="contact-form">
-          <!-- Pakket notificatie -->
-          <div v-if="selectedPackage" class="package-notification">
-            <div class="notification-content">
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                <path
-                  d="M16.6663 5L7.49967 14.1667L3.33301 10"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-              <span
-                >{{ t('contactFormulier.package.prefix') }} <strong>{{ selectedPackage }}</strong>
-                {{ t('contactFormulier.package.suffix') }}</span
-              >
-            </div>
-            <button
-              @click="clearPackage"
-              class="clear-btn"
-              type="button"
-              :aria-label="t('contactFormulier.package.clearAria')"
-            >
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path
-                  d="M12 4L4 12M4 4L12 12"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                />
-              </svg>
-            </button>
-          </div>
-
-          <div v-if="isLoading" class="loading-overlay">
-            <div class="loader"></div>
-          </div>
-
-          <form @submit.prevent="sendEmail">
+          <transition name="form-swap" mode="out-in">
+            <form v-if="!isSent" key="form" @submit.prevent="sendEmail">
             <!-- Honeypot: hidden from real users, bots fill it → submit is dropped -->
             <div
               aria-hidden="true"
@@ -197,13 +137,13 @@
                 <span class="required">*</span></label
               >
               <div class="service-options">
-                <label class="service-option" :class="{ active: formData.service === 'webdesign' }">
+                <label class="service-option" :class="{ active: formData.service === 'saas' }">
                   <input
                     type="radio"
                     name="service"
-                    value="webdesign"
+                    value="saas"
                     v-model="formData.service"
-                    required
+                    @change="clearError('service')"
                   />
                   <div class="option-content">
                     <svg
@@ -213,12 +153,14 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     >
-                      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                      <line x1="8" y1="21" x2="16" y2="21" />
-                      <line x1="12" y1="17" x2="12" y2="21" />
+                      <rect x="3" y="3" width="18" height="18" rx="2" />
+                      <path d="M3 9h18" />
+                      <path d="M9 21V9" />
                     </svg>
-                    <span>{{ t('contactFormulier.form.serviceWebdesign') }}</span>
+                    <span>{{ t('contactFormulier.form.serviceSaas') }}</span>
                   </div>
                 </label>
 
@@ -231,7 +173,7 @@
                     name="service"
                     value="ai-automatisation"
                     v-model="formData.service"
-                    required
+                    @change="clearError('service')"
                   />
                   <div class="option-content">
                     <svg
@@ -241,6 +183,8 @@
                       fill="none"
                       stroke="currentColor"
                       stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
                     >
                       <path
                         d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"
@@ -254,7 +198,33 @@
                     <span>{{ t('contactFormulier.form.serviceAi') }}</span>
                   </div>
                 </label>
+
+                <label class="service-option" :class="{ active: formData.service === 'other' }">
+                  <input
+                    type="radio"
+                    name="service"
+                    value="other"
+                    v-model="formData.service"
+                    @change="clearError('service')"
+                  />
+                  <div class="option-content">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                    </svg>
+                    <span>{{ t('contactFormulier.form.serviceOther') }}</span>
+                  </div>
+                </label>
               </div>
+              <span v-if="errors.service" class="field-error">{{ errors.service }}</span>
             </div>
 
             <div class="form-row">
@@ -263,7 +233,15 @@
                   >{{ t('contactFormulier.form.firstNameLabel') }}
                   <span class="required">*</span></label
                 >
-                <input type="text" id="name" v-model="formData.name" required placeholder="John" />
+                <input
+                  type="text"
+                  id="name"
+                  v-model="formData.name"
+                  :class="{ 'has-error': errors.name }"
+                  @input="clearError('name')"
+                  placeholder="John"
+                />
+                <span v-if="errors.name" class="field-error">{{ errors.name }}</span>
               </div>
 
               <div class="form-group">
@@ -275,9 +253,11 @@
                   type="text"
                   id="lastname"
                   v-model="formData.lastname"
-                  required
+                  :class="{ 'has-error': errors.lastname }"
+                  @input="clearError('lastname')"
                   placeholder="Doe"
                 />
+                <span v-if="errors.lastname" class="field-error">{{ errors.lastname }}</span>
               </div>
             </div>
 
@@ -291,16 +271,15 @@
                   type="email"
                   id="email"
                   v-model="formData.email"
-                  required
+                  :class="{ 'has-error': errors.email }"
+                  @input="clearError('email')"
                   placeholder="john@example.com"
                 />
+                <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
               </div>
 
               <div class="form-group">
-                <label for="phone"
-                  >{{ t('contactFormulier.form.phoneLabel') }}
-                  <span class="required">*</span></label
-                >
+                <label for="phone">{{ t('contactFormulier.form.phoneLabel') }}</label>
                 <input
                   type="tel"
                   id="phone"
@@ -317,7 +296,6 @@
                 id="subject"
                 v-model="formData.subject"
                 :placeholder="t('contactFormulier.form.subjectPlaceholder')"
-                :readonly="!!selectedPackage"
               />
             </div>
 
@@ -331,7 +309,20 @@
               />
             </div>
 
-            <button type="submit" class="submit-btn" :disabled="isLoading">
+            <div v-if="submitError" class="form-banner" role="alert">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" />
+                <path
+                  d="M12 8v4m0 4h.01"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                />
+              </svg>
+              <span>{{ t('contactFormulier.modal.errorMessage') }}</span>
+            </div>
+
+            <button type="submit" class="btn btn--accent btn--lg submit-btn" :disabled="isLoading">
               <span>{{
                 isLoading
                   ? t('contactFormulier.form.submitSending')
@@ -359,21 +350,8 @@
               <span class="form-backlinks-label">{{ t('contactFormulier.backlinks.label') }}</span>
 
               <div class="form-backlinks-links">
-                <RouterLink to="/offerte-aanvraag" class="form-link secondary">
-                  {{ t('contactFormulier.backlinks.quote') }}
-                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-                    <path
-                      d="M7.5 15L12.5 10L7.5 5"
-                      stroke="currentColor"
-                      stroke-width="2"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    />
-                  </svg>
-                </RouterLink>
-
-                <RouterLink to="/webdesign" class="form-link">
-                  {{ t('contactFormulier.backlinks.webdesign') }}
+                <RouterLink to="/saas-development" class="form-link secondary">
+                  {{ t('contactFormulier.backlinks.saas') }}
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
                       d="M7.5 15L12.5 10L7.5 5"
@@ -399,7 +377,27 @@
                 </RouterLink>
               </div>
             </div>
-          </form>
+            </form>
+
+            <div v-else key="sent" class="form-sent">
+              <span class="form-sent__icon" aria-hidden="true">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                  <path
+                    d="M5 13l4 4L19 7"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </span>
+              <h3>{{ t('contactFormulier.modal.successTitle') }}</h3>
+              <p>{{ t('contactFormulier.modal.successMessage') }}</p>
+              <button type="button" class="btn btn--secondary" @click="resetSent">
+                {{ t('contactFormulier.form.sendAnother') }}
+              </button>
+            </div>
+          </transition>
         </div>
       </div>
     </div>
@@ -409,16 +407,15 @@
 <script>
 import emailjs from '@emailjs/browser'
 import { trackEvent } from '@/composables/useAnalytics'
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
 export default {
   name: 'ContactComponent',
   setup() {
-    const route = useRoute()
     const { t } = useI18n()
-    const selectedPackage = ref(null)
+    const route = useRoute()
 
     const formData = ref({
       service: '',
@@ -430,60 +427,55 @@ export default {
       message: '',
     })
 
+    // Prefill from a product CTA, e.g. /contact?interesse=saas →
+    // pre-select the matching service and drop a localised subject in.
+    const prefillService = {
+      saas: 'saas',
+      ai: 'ai-automatisation',
+      beheerly: 'other',
+    }
+    onMounted(() => {
+      const interesse = route.query.interesse
+      const service = prefillService[interesse]
+      if (service) {
+        formData.value.service = service
+        formData.value.subject = t(`contactFormulier.prefill.${interesse}`)
+      }
+    })
+
     // Spam honeypot — must stay empty for a genuine human submission.
     const honeypot = ref('')
 
     const isLoading = ref(false)
+    const errors = ref({})
 
-    // modal state (FIX: netjes binnen setup)
-    const showModal = ref(false)
-    const modalType = ref('success')
-    const modalTitle = ref('')
-    const modalMessage = ref('')
+    // Inline submit-result state (replaces the old modal).
+    const isSent = ref(false)
+    const submitError = ref(false)
 
-    const closeModal = () => {
-      showModal.value = false
+    const resetSent = () => {
+      isSent.value = false
     }
 
-    const checkForPackage = () => {
-      const packageFromUrl = route.query.pakket
-      if (packageFromUrl) {
-        selectedPackage.value = packageFromUrl
-        formData.value.subject = t('contactFormulier.form.subjectInterest', {
-          package: packageFromUrl,
-        })
-        formData.value.service = 'webdesign'
+    // Clear a field's inline error as soon as the user edits it.
+    const clearError = (field) => {
+      if (errors.value[field]) {
+        const next = { ...errors.value }
+        delete next[field]
+        errors.value = next
       }
-    }
-
-    watch(
-      () => route.query.pakket,
-      (newPackage) => {
-        if (newPackage) {
-          selectedPackage.value = newPackage
-          formData.value.subject = t('contactFormulier.form.subjectInterest', {
-            package: newPackage,
-          })
-          formData.value.service = 'webdesign'
-        }
-      },
-    )
-
-    const clearPackage = () => {
-      selectedPackage.value = null
-      formData.value.subject = ''
     }
 
     const validateForm = () => {
-      if (!formData.value.service) {
-        alert(t('contactFormulier.validation.selectService'))
-        return false
-      }
-      if (!formData.value.email || !formData.value.name || !formData.value.lastname) {
-        alert(t('contactFormulier.validation.nameEmailRequired'))
-        return false
-      }
-      return true
+      const next = {}
+      if (!formData.value.service) next.service = t('contactFormulier.validation.service')
+      if (!formData.value.name.trim()) next.name = t('contactFormulier.validation.name')
+      if (!formData.value.lastname.trim()) next.lastname = t('contactFormulier.validation.lastname')
+      if (!formData.value.email.trim()) next.email = t('contactFormulier.validation.email')
+      else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.value.email))
+        next.email = t('contactFormulier.validation.emailInvalid')
+      errors.value = next
+      return Object.keys(next).length === 0
     }
 
     const resetForm = () => {
@@ -496,27 +488,24 @@ export default {
         subject: '',
         message: '',
       }
+      errors.value = {}
     }
 
     const sendEmail = async () => {
       // Bot filled the honeypot → silently pretend success, send nothing.
       if (honeypot.value) {
-        modalType.value = 'success'
-        modalTitle.value = t('contactFormulier.modal.successTitle')
-        modalMessage.value = t('contactFormulier.modal.successMessage')
-        showModal.value = true
+        isSent.value = true
         resetForm()
         return
       }
 
+      // Validate before showing any loading state — invalid fields surface inline.
+      if (!validateForm()) return
+
+      submitError.value = false
       isLoading.value = true
 
       try {
-        if (!validateForm()) {
-          isLoading.value = false
-          return
-        }
-
         const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
         const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
         const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
@@ -531,42 +520,30 @@ export default {
             source_form: 'contact',
             service: formData.value.service || 'onbekend',
           })
-          modalType.value = 'success'
-          modalTitle.value = t('contactFormulier.modal.successTitle')
-          modalMessage.value = t('contactFormulier.modal.successMessage')
-          showModal.value = true
+          isSent.value = true
           resetForm()
-          selectedPackage.value = null
+        } else {
+          submitError.value = true
         }
       } catch (error) {
         console.error('EmailJS error:', error)
-        modalType.value = 'error'
-        modalTitle.value = t('contactFormulier.modal.errorTitle')
-        modalMessage.value = t('contactFormulier.modal.errorMessage')
-        showModal.value = true
+        submitError.value = true
       } finally {
         isLoading.value = false
       }
     }
-
-    onMounted(() => {
-      checkForPackage()
-    })
 
     return {
       t,
       formData,
       honeypot,
       isLoading,
-      selectedPackage,
+      errors,
+      clearError,
       sendEmail,
-      clearPackage,
-
-      showModal,
-      modalType,
-      modalTitle,
-      modalMessage,
-      closeModal,
+      isSent,
+      submitError,
+      resetSent,
     }
   },
 }
@@ -578,7 +555,7 @@ export default {
   position: relative;
   background: transparent;
   overflow: hidden;
-  padding: var(--space-8) var(--space-8) var(--space-16);
+  padding: var(--hero-pad-top) var(--space-8) var(--section-pad-y);
 }
 
 .container {
@@ -589,247 +566,191 @@ export default {
   min-width: 0;
 }
 
-.contact-header {
-  text-align: center;
-  margin-bottom: var(--space-16);
+.contact-aside__head .eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: var(--space-5);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
 }
-
-.contact-header h2 {
+.contact-aside__head .eyebrow__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+.contact-aside__head h2 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
-  margin-bottom: var(--space-4);
+  margin: 0 0 var(--space-4);
   letter-spacing: var(--tracking-tight);
+  text-wrap: balance;
 }
-
-.contact-header p {
+.contact-aside__head p {
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0;
+  max-width: 42ch;
 }
 
 .contact-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1.4fr;
-  gap: var(--space-8);
-  align-items: start;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: var(--space-6);
+  align-items: stretch;
   min-width: 0;
 }
 
-/* ========= Package Notification ========= */
-.package-notification {
+/* ========= Dark editorial panel ========= */
+.contact-aside {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-10);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+}
+.contact-aside__glow {
+  position: absolute;
+  top: -28%;
+  right: -22%;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-primary-subtle), transparent 70%);
+  pointer-events: none;
+}
+.contact-aside > *:not(.contact-aside__glow) {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-methods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.method {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  background: var(--color-primary-subtle);
-  border: 1px solid var(--color-primary-border);
-  border-radius: var(--radius-md);
-  padding: var(--space-4) var(--space-6);
-  margin-bottom: var(--space-6);
-
-  .notification-content {
-    display: flex;
-    align-items: center;
-    gap: var(--space-3);
-    color: var(--color-text-primary);
-    font-size: var(--text-small);
-
-    svg {
-      flex-shrink: 0;
-      color: var(--color-primary);
-    }
-    strong {
-      color: var(--color-primary);
-      font-weight: var(--weight-bold);
-    }
-  }
-
-  .clear-btn {
-    background: var(--color-bg-surface);
-    border: none;
-    border-radius: var(--radius-sm);
-    padding: var(--space-2);
-    cursor: pointer;
-    color: var(--color-text-secondary);
-    transition: all var(--duration-fast) var(--ease-smooth);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    &:hover {
-      background: var(--color-bg-card-inner);
-      color: var(--color-text-primary);
-    }
-  }
-}
-
-/* ========= Contact Info ========= */
-.contact-info {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-}
-
-.info-card {
-  background: var(--color-bg-card-inner);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-8);
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-8);
-  box-shadow: var(--shadow-inner-highlight);
-}
-
-.info-item {
-  display: flex;
-  align-items: flex-start;
   gap: var(--space-4);
+  padding: var(--space-4);
+  background: var(--color-bg-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition:
+    border-color var(--transition-base),
+    transform var(--transition-base);
 }
-
-.icon-wrapper {
+a.method:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-2px);
+}
+.method__icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
   background: var(--color-primary-subtle);
   border: 1px solid var(--color-primary-border);
-  border-radius: var(--radius-sm);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
-  transition: all var(--duration-base) var(--ease-spring);
-
-  &:hover {
-    background: var(--color-primary);
-    color: var(--color-bg-primary);
-    transform: scale(1.05);
-    box-shadow: var(--shadow-glow-primary);
-  }
 }
-
-.info-content {
+.method__text {
   display: flex;
   flex-direction: column;
-  gap: var(--space-1);
+  gap: 2px;
+  min-width: 0;
 }
-
-.info-label {
+.method__label {
   font-size: var(--text-xs);
   color: var(--color-text-tertiary);
   font-weight: var(--weight-medium);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
 }
-
-.info-value {
+.method__value {
   font-size: var(--text-body);
   color: var(--color-text-primary);
   font-weight: var(--weight-semibold);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-smooth);
-
-  &:hover {
-    color: var(--color-primary);
-  }
 }
 
 #bericht label {
   padding-top: var(--space-6);
 }
 
-.social-links {
-  h4 {
-    font-family: var(--font-display);
-    font-size: var(--text-h3);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text-primary);
-    margin-bottom: var(--space-4);
-  }
+.contact-social {
+  margin-top: auto;
 }
-
+.contact-social__label {
+  display: block;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  font-weight: var(--weight-medium);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+  margin-bottom: var(--space-4);
+}
 .social-icons {
   display: flex;
   gap: var(--space-3);
 }
-
 .social-icon {
   width: 44px;
   height: 44px;
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-full);
+  border-radius: var(--radius-md);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-text-tertiary);
-  transition: all var(--duration-base) var(--ease-spring);
+  color: var(--color-text-secondary);
+  transition:
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-base);
 
   &:hover {
-    background: var(--color-primary-subtle);
-    border-color: var(--color-primary-border);
+    border-color: var(--color-border-hover);
     color: var(--color-primary);
     transform: translateY(-2px);
   }
 }
 
-/* ========= Contact Form (Double-Bezel) ========= */
+/* ========= Contact Form ========= */
 .contact-form {
   position: relative;
-  background: var(--color-bg-card-outer);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-2xl);
-  padding: 6px;
   min-width: 0;
 
-  > form,
-  > .package-notification,
-  > .loading-overlay {
-    position: relative;
-  }
-
   > form {
-    background: var(--color-bg-card-inner);
-    border-radius: calc(var(--radius-2xl) - 6px);
-    box-shadow: var(--shadow-inner-highlight);
-    padding: var(--space-12);
-  }
-}
-
-.loading-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(5, 5, 8, 0.9);
-  backdrop-filter: blur(10px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 100;
-  border-radius: var(--radius-2xl);
-}
-
-.loader {
-  border: 3px solid var(--color-border);
-  border-top: 3px solid var(--color-primary);
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
+    background: var(--color-bg-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-10);
   }
 }
 
 /* ========= Service Selection ========= */
+.form-group:has(.service-options) {
+  margin-bottom: var(--space-6);
+}
 .service-options {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-4);
-  padding-bottom: var(--space-8);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-3);
 }
 
 .service-option {
@@ -914,11 +835,13 @@ export default {
     padding: 0.875rem 1rem;
     background: var(--color-bg-surface);
     border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-md);
     color: var(--color-text-primary);
     font-size: var(--text-body);
     font-family: var(--font-sans);
-    transition: all var(--duration-base) var(--ease-spring);
+    transition:
+      border-color var(--transition-base),
+      box-shadow var(--transition-base);
 
     &::placeholder {
       color: var(--color-text-tertiary);
@@ -926,14 +849,13 @@ export default {
 
     &:focus {
       outline: none;
-      border-color: var(--color-border-active);
+      border-color: var(--color-primary);
       box-shadow: 0 0 0 3px var(--color-primary-subtle);
     }
 
-    &:read-only {
-      background: var(--color-primary-subtle);
-      border-color: var(--color-primary-border);
-      cursor: not-allowed;
+    &.has-error {
+      border-color: var(--color-error);
+      box-shadow: 0 0 0 3px var(--color-error-subtle, rgba(220, 38, 38, 0.12));
     }
   }
 
@@ -943,50 +865,27 @@ export default {
   }
 }
 
-/* ========= Submit Button (PROMINENT) ========= */
+.field-error {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--text-xs);
+  color: var(--color-error);
+}
+
+/* ========= Submit Button — canonical .btn, full width ========= */
 .submit-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--space-3);
   width: 100%;
-  padding: 1.125rem 2.5rem;
-  background: var(--color-accent);
-  color: var(--color-text-on-accent);
-  font-weight: var(--weight-bold);
-  font-size: var(--text-body-lg);
-  font-family: var(--font-sans);
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--duration-slow) var(--ease-spring);
   margin-top: var(--space-8);
-  box-shadow: var(--shadow-glow-accent);
-  letter-spacing: -0.01em;
 
   svg {
-    transition: transform var(--duration-base) var(--ease-spring);
+    transition: transform var(--transition-base);
   }
-
-  &:hover:not(:disabled) {
-    background: var(--color-accent-hover);
-    transform: translateY(-2px);
-    box-shadow: 0 0 50px var(--color-accent-glow);
-
-    svg {
-      transform: translateX(4px);
-    }
+  &:hover:not(:disabled) svg {
+    transform: translateX(3px);
   }
-
-  &:active:not(:disabled) {
-    transform: scale(0.98);
-  }
-
   &:disabled {
-    opacity: 0.4;
+    opacity: 0.5;
     cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
   }
 }
 
@@ -1050,30 +949,32 @@ export default {
 /* ========= Responsive ========= */
 @media (max-width: 900px) {
   .contact-section {
-    padding: var(--space-8) var(--space-6) var(--space-12);
+    padding: var(--hero-pad-top) var(--space-6) var(--section-pad-y);
   }
   .contact-wrapper {
     grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  .contact-aside {
+    padding: var(--space-8);
     gap: var(--space-8);
   }
-  .contact-header {
-    margin-bottom: var(--space-12);
-  }
   .form-row {
-    grid-template-columns: 1fr;
-  }
-  .service-options {
     grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 600px) {
   .contact-section {
-    padding: var(--space-4) var(--space-4) var(--space-8);
+    padding: var(--hero-pad-top) var(--space-4) var(--section-pad-y);
   }
 
   .contact-form > form {
     padding: var(--space-8) var(--space-6);
+  }
+
+  .service-options {
+    grid-template-columns: 1fr;
   }
 
   .form-backlinks-links {
@@ -1083,122 +984,81 @@ export default {
       justify-content: center;
     }
   }
-
-  .package-notification {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: var(--space-4);
-    .clear-btn {
-      align-self: flex-end;
-    }
-  }
-
-  .modal-content {
-    padding: var(--space-8) var(--space-6);
-    margin: var(--space-4);
-  }
 }
 
-/* ========= Modal ========= */
-.modal-fade-enter-active,
-.modal-fade-leave-active {
-  transition: opacity var(--duration-base) var(--ease-out-expo);
-}
-
-.modal-fade-enter-from,
-.modal-fade-leave-to {
-  opacity: 0;
-}
-
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.85);
-  backdrop-filter: blur(12px);
+/* ========= Inline submit error banner ========= */
+.form-banner {
   display: flex;
   align-items: center;
-  justify-content: center;
-  z-index: 1000;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
   padding: var(--space-4);
+  border: 1px solid var(--color-error);
+  border-radius: var(--radius-md);
+  background: var(--color-error-subtle, rgba(198, 58, 43, 0.08));
+  color: var(--color-error);
+  font-size: var(--text-small);
+  line-height: var(--leading-snug);
+
+  svg {
+    flex-shrink: 0;
+  }
 }
 
-.modal-content {
-  background: var(--color-bg-card-inner);
+/* ========= Inline success state ========= */
+.form-sent {
+  background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  padding: var(--space-12);
-  max-width: 420px;
-  width: 100%;
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) var(--space-10);
+  min-height: 420px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  animation: modalSlideUp var(--duration-slow) var(--ease-out-expo);
-  box-shadow: var(--shadow-elevated);
-
-  &.error .modal-icon {
-    color: var(--color-error);
-    background: rgba(239, 68, 68, 0.08);
-  }
 }
-
-@keyframes modalSlideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.96);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-.modal-icon {
-  width: 72px;
-  height: 72px;
-  margin: 0 auto var(--space-6);
+.form-sent__icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: var(--space-6);
+  border-radius: 50%;
   background: var(--color-primary-subtle);
   border: 1px solid var(--color-primary-border);
-  border-radius: var(--radius-full);
+  color: var(--color-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-primary);
 }
-
-.modal-content h3 {
+.form-sent h3 {
   font-family: var(--font-display);
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
-  margin-bottom: var(--space-3);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-3);
 }
-
-.modal-content p {
+.form-sent p {
   font-size: var(--text-body);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
-  margin-bottom: var(--space-8);
+  margin: 0 0 var(--space-8);
+  max-width: 38ch;
 }
 
-.modal-btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.875rem 2.5rem;
-  background: var(--color-text-primary);
-  color: var(--color-bg-primary);
-  font-weight: var(--weight-semibold);
-  font-size: var(--text-body);
-  border: none;
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  transition: all var(--duration-base) var(--ease-spring);
-
-  &:hover {
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-elevated);
-  }
-
-  &:active {
-    transform: scale(0.97);
-  }
+/* ========= Form ↔ success swap ========= */
+.form-swap-enter-active,
+.form-swap-leave-active {
+  transition:
+    opacity var(--duration-base) var(--ease-out-expo),
+    transform var(--duration-base) var(--ease-out-expo);
+}
+.form-swap-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.form-swap-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
 }
 </style>

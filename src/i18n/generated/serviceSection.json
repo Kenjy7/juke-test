@@ -3,7 +3,7 @@
     "head": {
       "eyebrow": "Wat we bouwen",
       "title": "Van slimme automatisering tot complete platformen.",
-      "lead": "Eén partner voor je hele digitale traject — van slimme automatisering tot software en web, telkens op maat van je bedrijf."
+      "lead": "Eén partner voor je hele digitale traject: van slimme automatisering tot software en web, telkens op maat van je bedrijf."
     },
     "cards": {
       "ai": {
@@ -15,6 +15,15 @@
           "API-koppelingen & integraties"
         ],
         "linkText": "Meer over AI"
+      },
+      "digital": {
+        "title": "Digitaliseren",
+        "points": [
+          "Van papier en Excel naar digitale processen",
+          "Bestaande systemen koppelen en stroomlijnen",
+          "Handmatig werk omzetten in slimme workflows",
+          "Een stevige basis voor verdere groei"
+        ]
       },
       "saas": {
         "title": "SaaS-platformen bouwen",
@@ -42,7 +51,7 @@
     "head": {
       "eyebrow": "What we build",
       "title": "From smart automation to complete platforms.",
-      "lead": "One partner for your entire digital journey — from smart automation to software and web, always tailored to your business."
+      "lead": "One partner for your entire digital journey: from smart automation to software and web, always tailored to your business."
     },
     "cards": {
       "ai": {
@@ -54,6 +63,15 @@
           "API connections & integrations"
         ],
         "linkText": "More about AI"
+      },
+      "digital": {
+        "title": "Digitalisation",
+        "points": [
+          "From paper and Excel to digital processes",
+          "Connect and streamline existing systems",
+          "Turn manual work into smart workflows",
+          "A solid base for further growth"
+        ]
       },
       "saas": {
         "title": "Building SaaS platforms",

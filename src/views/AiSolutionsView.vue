@@ -2,17 +2,14 @@
   <div class="ai-view">
     <BackgroundWeb>
       <IntroAi />
-      <ShortAnswer class="styleAI" :title="t('aiSolutionsView.shortAnswer.title')">
-        {{ t('aiSolutionsView.shortAnswer.body') }}
-      </ShortAnswer>
-
-      <AiFeaturedrid />
-      <AiProblemSolver />
-      <AiSplitSection />
-      <AiPlatformComponent />
-      <WebdesignCta />
+      <AiValue />
+      <AiInAction />
+      <AiOverview />
+      <AiApproach />
+      <AiEssentials />
 
       <FaqListAI :faqs="aiFaqs" />
+      <AiClosingCta />
     </BackgroundWeb>
   </div>
 </template>
@@ -24,13 +21,13 @@ import { useI18n } from 'vue-i18n'
 
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import IntroAi from '@/components/IntroAi.vue'
-import AiFeaturedrid from '@/components/AiFeaturedrid.vue'
-import AiProblemSolver from '@/components/AiProblemSolver.vue'
-import AiSplitSection from '@/components/AiSplitSection.vue'
-import AiPlatformComponent from '@/components/AiPlatformComponent.vue'
-import WebdesignCta from '@/components/WebdesignCTA.vue'
+import AiValue from '@/components/AiValue.vue'
+import AiInAction from '@/components/AiInAction.vue'
+import AiOverview from '@/components/AiOverview.vue'
+import AiApproach from '@/components/AiApproach.vue'
+import AiEssentials from '@/components/AiEssentials.vue'
 import FaqListAI from '@/components/FaqListAI.vue'
-import ShortAnswer from '@/components/ShortAnswer.vue'
+import AiClosingCta from '@/components/AiClosingCta.vue'
 
 import { faqsAI } from '@/data/faqs.ai'
 
@@ -63,7 +60,7 @@ const serviceJsonLd = {
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    description: 'AI-automatisering op maat voor KMO — prijs op aanvraag na kennismaking',
+    description: 'AI-automatisering op maat voor KMO, prijs op aanvraag na kennismaking',
   },
 }
 
@@ -81,7 +78,7 @@ const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   '@id': 'https://jukecoding.be/#organization',
-  name: 'JukeCoding',
+  name: 'Juke',
   alternateName: 'Juke Coding',
   url: 'https://jukecoding.be/',
   logo: {
@@ -137,7 +134,7 @@ const websiteSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebSite',
   '@id': 'https://jukecoding.be/#website',
-  name: 'JukeCoding',
+  name: 'Juke',
   url: 'https://jukecoding.be/',
   publisher: {
     '@id': 'https://jukecoding.be/#organization',
@@ -153,7 +150,7 @@ const websiteSchema = {
 }
 
 useHead({
-  title: "AI Automatisatie voor KMO's in Belgie | JukeCoding",
+  title: "AI Automatisatie voor KMO's in Belgie | Juke",
   meta: [
     {
       name: 'description',
@@ -173,10 +170,10 @@ useHead({
     { name: 'geo.placename', content: 'Hasselt' },
     { name: 'geo.position', content: '50.9307;5.3378' },
     { name: 'ICBM', content: '50.9307, 5.3378' },
-    { name: 'author', content: 'JukeCoding' },
-    { name: 'copyright', content: 'JukeCoding' },
+    { name: 'author', content: 'Juke' },
+    { name: 'copyright', content: 'Juke' },
     { name: 'language', content: 'Dutch' },
-    { property: 'og:title', content: "AI Automatisatie voor KMO's | JukeCoding" },
+    { property: 'og:title', content: "AI Automatisatie voor KMO's | Juke" },
     {
       property: 'og:description',
       content:
@@ -185,13 +182,13 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:image:alt', content: 'AI-automatisering door JukeCoding' },
+    { property: 'og:image:alt', content: 'AI-automatisering door Juke' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: "AI Automatisatie voor KMO's | JukeCoding" },
+    { name: 'twitter:title', content: "AI Automatisatie voor KMO's | Juke" },
     {
       name: 'twitter:description',
       content:
@@ -200,7 +197,7 @@ useHead({
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       name: 'twitter:image:alt',
-      content: "JukeCoding - AI automatisatie voor Belgische KMO's",
+      content: "Juke - AI automatisatie voor Belgische KMO's",
     },
   ],
   link: [{ rel: 'canonical', href: url }],

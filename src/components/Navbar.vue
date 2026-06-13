@@ -1,19 +1,8 @@
 <template>
   <header class="navbar-wrap" :class="{ scrolled: hasScrolled }">
     <nav class="navbar">
-      <router-link to="/" class="navbar-brand" @click="closeMenu">
-        <img
-          :src="logoUrl"
-          class="logo"
-          width="195"
-          height="195"
-          loading="eager"
-          decoding="async"
-          alt="JukeCoding logo"
-        />
-        <div class="brand">
-          <span class="brand-name">JUKE<span class="brand-thin">CODING</span></span>
-        </div>
+      <router-link to="/" class="navbar-brand" @click="closeMenu" aria-label="juke — home">
+        <span class="brand-name">juke</span>
       </router-link>
 
       <ul class="navbar-links">
@@ -26,7 +15,7 @@
 
       <LocaleSwitcher class="locale-switcher-desktop" />
 
-      <router-link to="/offerte-aanvraag" class="cta-btn">
+      <router-link to="/contact" class="cta-btn">
         {{ t('cta.startProject') }}
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="cta-arrow">
           <path
@@ -85,7 +74,7 @@
             :style="{ animationDelay: `${80 + navLinks.length * 50 + 40}ms` }"
           >
             <LocaleSwitcher class="locale-switcher-mobile" @click="closeMenu" />
-            <router-link to="/offerte-aanvraag" class="mobile-cta" @click="closeMenu">
+            <router-link to="/contact" class="mobile-cta" @click="closeMenu">
               {{ t('cta.startProject') }}
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
                 <path
@@ -108,7 +97,6 @@
 </template>
 
 <script setup>
-import logoUrl from '@/assets/logo.webp'
 import { ref, nextTick, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
@@ -116,9 +104,8 @@ import LocaleSwitcher from '@/components/LocaleSwitcher.vue'
 const { t } = useI18n()
 
 const navLinks = [
-  { to: '/ai-projecten', labelKey: 'nav.ai' },
   { to: '/saas-development', labelKey: 'nav.saas' },
-  { to: '/webdesign', labelKey: 'nav.webdesign' },
+  { to: '/ai-projecten', labelKey: 'nav.ai' },
   { to: '/vibemind', labelKey: 'nav.vibemind' },
   { to: '/beheerly', labelKey: 'nav.beheerly' },
   { to: '/blog', labelKey: 'nav.blog' },
@@ -233,29 +220,17 @@ onBeforeUnmount(() => {
 .navbar-brand {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
   text-decoration: none;
   margin-right: auto;
 }
 
-.logo {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-}
-
 .brand-name {
-  font-family: var(--font-display);
-  font-weight: var(--weight-bold);
-  font-size: 1rem;
+  font-family: var(--font-wordmark);
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1;
   color: var(--color-text-primary);
-  letter-spacing: 0.06em;
-}
-
-.brand-thin {
-  font-weight: 300;
-  color: var(--color-text-tertiary);
-  margin-left: 1px;
+  letter-spacing: -0.04em;
 }
 
 /* ─── Links ─── */
@@ -503,12 +478,8 @@ onBeforeUnmount(() => {
   .navbar {
     padding: 1rem 1.25rem;
   }
-  .logo {
-    width: 34px;
-    height: 34px;
-  }
   .brand-name {
-    font-size: 0.875rem;
+    font-size: 1.375rem;
   }
   .mobile-menu-inner {
     padding: 5rem 1.5rem 2rem;

@@ -1,6 +1,6 @@
 // src/data/blogs/index.js
 // ─────────────────────────────────────────────────────────────────────
-// Alle blogposts van JukeCoding.
+// Alle blogposts van Juke.
 // Nieuwe posts toevoegen: kopieer het template onderaan en zet published: false
 // Zet published: true om de post live te zetten bij de volgende build.
 // ─────────────────────────────────────────────────────────────────────
@@ -9,7 +9,7 @@ export const blogPosts = [
   {
     slug: 'hoeveel-kost-een-website-op-maat-belgie',
     title: 'Hoeveel kost een website op maat in België? (2026 prijsgids)',
-    metaTitle: 'Hoeveel kost een website op maat in België? | JukeCoding',
+    metaTitle: 'Hoeveel kost een website op maat in België? | Juke',
     metaDescription:
       'Wat kost een website laten maken in België in 2026? Ontdek de echte prijzen, van eenvoudige websites tot uitgebreid maatwerk voor KMO’s.',
     excerpt:
@@ -27,7 +27,7 @@ export const blogPosts = [
     ogImage: '/og-image-webdesign.jpg',
     content: `
 <h2>Wat kost een website laten maken in België?</h2>
-<p>Een van de meest gestelde vragen die we bij JukeCoding krijgen: <strong>"Wat kost een website?"</strong>. Het eerlijke antwoord is: dat hangt af van wat je wil bereiken. In dit artikel geven we je een helder overzicht van de prijzen in 2026, zodat je een weloverwogen keuze kan maken.</p>
+<p>Een van de meest gestelde vragen die we bij Juke krijgen: <strong>"Wat kost een website?"</strong>. Het eerlijke antwoord is: dat hangt af van wat je wil bereiken. In dit artikel geven we je een helder overzicht van de prijzen in 2026, zodat je een weloverwogen keuze kan maken.</p>
 
 <h2>De drie niveaus van websites</h2>
 
@@ -50,8 +50,8 @@ export const blogPosts = [
   <li><strong>Revisies en begeleiding</strong>: hoeveel feedbackrondes en ondersteuning zijn inbegrepen?</li>
 </ul>
 
-<h2>Wat kost een website bij JukeCoding?</h2>
-<p>Bij JukeCoding werken we met duidelijke pakketten, afgestemd op de noden van KMO’s en zelfstandigen. Elk pakket is opgebouwd rond snelheid, gebruiksvriendelijkheid en een sterke online basis — niet gewoon “een website”, maar een doordachte site die professioneel oogt en duidelijk communiceert wat je doet.</p>
+<h2>Wat kost een website bij Juke?</h2>
+<p>Bij Juke werken we met duidelijke pakketten, afgestemd op de noden van KMO’s en zelfstandigen. Elk pakket is opgebouwd rond snelheid, gebruiksvriendelijkheid en een sterke online basis — niet gewoon “een website”, maar een doordachte site die professioneel oogt en duidelijk communiceert wat je doet.</p>
 
 <p><strong>Juke Lite (€600 – €900)</strong><br>
 Ideaal voor starters of kleine ondernemingen die een professionele online aanwezigheid willen. Je krijgt een responsive bedrijfswebsite tot 4 pagina’s, inclusief contactformulier met e-mailintegratie, conversiegerichte call-to-actions, hulp bij de structuur van de teksten, SEO-basis en 2 revisierondes.</p>
@@ -74,7 +74,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
   {
     slug: 'custom-code-vs-wordpress-wat-kiest-een-kmo',
     title: 'Custom code vs WordPress: wat kiest een KMO in 2026?',
-    metaTitle: "Custom code vs WordPress voor KMO's | JukeCoding",
+    metaTitle: "Custom code vs WordPress voor KMO's | Juke",
     metaDescription:
       "WordPress of custom code voor jouw KMO-website? We vergelijken snelheid, veiligheid, SEO en kostprijs — en leggen uit waarom steeds meer KMO's kiezen voor maatwerk.",
     excerpt:
@@ -130,8 +130,8 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 <p><strong>Kies voor WordPress als:</strong> je een eenvoudige informatiesite nodig hebt, je budget beperkt is, en je zelf vaak inhoud wil aanpassen via een klassiek CMS.</p>
 <p><strong>Kies voor maatwerk als:</strong> je website een belangrijk onderdeel van je merk, communicatie of groei is, en je een oplossing wil die beter aansluit op jouw structuur en doelstellingen.</p>
 
-<h2>Wat doet JukeCoding?</h2>
-<p>Bij JukeCoding bouwen we websites met focus op structuur, performantie en gebruikservaring. Dat betekent niet dat elk project “zwaar maatwerk” moet zijn, maar wel dat we bewust kiezen voor oplossingen die passen bij de noden van de klant — zonder onnodige complexiteit.</p>
+<h2>Wat doet Juke?</h2>
+<p>Bij Juke bouwen we websites met focus op structuur, performantie en gebruikservaring. Dat betekent niet dat elk project “zwaar maatwerk” moet zijn, maar wel dat we bewust kiezen voor oplossingen die passen bij de noden van de klant — zonder onnodige complexiteit.</p>
 <p><a href="/offerte-aanvraag">Vraag een gratis offerte aan</a> en ontdek welke aanpak het best past bij jouw bedrijf.</p>
     `,
   },
@@ -139,9 +139,9 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
   {
     slug: 'waarom-is-een-website-belangrijk-in-je-onderneming-7-redenen-die-je-niet-mag-negeren',
     title: 'Waarom is een website belangrijk in je onderneming? 7 redenen die je niet mag negeren',
-    metaTitle: 'Waarom is een website belangrijk? 7 redenen | JukeCoding',
+    metaTitle: 'Waarom is een website belangrijk? 7 redenen | Juke',
     metaDescription:
-      'Ontdek waarom een website belangrijk is in je onderneming en hoe je er klanten mee wint. Lees de 7 redenen en vraag je offerte aan bij JukeCoding.',
+      'Ontdek waarom een website belangrijk is in je onderneming en hoe je er klanten mee wint. Lees de 7 redenen en vraag je offerte aan bij Juke.',
     excerpt:
       'Een professionele website is geen luxe meer, maar een noodzaak. Ontdek 7 redenen waarom een website belangrijk is in je onderneming.',
     publishedAt: '2026-04-03',
@@ -158,7 +158,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
     ogImage: '/og-image.jpg',
     content: `
 <h2>Waarom is een website belangrijk in je onderneming?</h2>
-<p>Je hebt een goed draaiende zaak, tevreden klanten en voldoende werk. Waarom zou je dan nog investeren in een website? Dat is een vraag die we bij JukeCoding regelmatig horen van ondernemers. Het antwoord is eigenlijk vrij simpel: <strong>waarom is een website belangrijk in je onderneming</strong>? Omdat je klanten je anders gewoon niet vinden. Veel mensen zoeken vandaag eerst online voor ze contact opnemen met een bedrijf. Geen website hebben is dus alsof je een winkel opent zonder uithangbord, ergens in een zijstraatje waar niemand passeert.</p>
+<p>Je hebt een goed draaiende zaak, tevreden klanten en voldoende werk. Waarom zou je dan nog investeren in een website? Dat is een vraag die we bij Juke regelmatig horen van ondernemers. Het antwoord is eigenlijk vrij simpel: <strong>waarom is een website belangrijk in je onderneming</strong>? Omdat je klanten je anders gewoon niet vinden. Veel mensen zoeken vandaag eerst online voor ze contact opnemen met een bedrijf. Geen website hebben is dus alsof je een winkel opent zonder uithangbord, ergens in een zijstraatje waar niemand passeert.</p>
 
 <p>In dit artikel geven we je zeven concrete redenen waarom een professionele website onmisbaar is voor jouw onderneming. Geen vaag marketingverhaal, maar eerlijke argumenten die je meteen kunt toetsen aan je eigen situatie.</p>
 
@@ -170,7 +170,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 <h2>2. Geloofwaardigheid en vertrouwen opbouwen</h2>
 <p>Laten we eerlijk zijn: als je vandaag geen website hebt, wekt dat sneller twijfel. Klanten verwachten dat ze je online kunnen vinden. Een professionele website geeft je onderneming direct meer geloofwaardigheid. Het toont dat je je zaak serieus neemt en dat je aandacht besteedt aan hoe je overkomt.</p>
 
-<p>Dat betekent niet dat je een peperdure website nodig hebt met allerlei toeters en bellen. Wél eentje die er verzorgd uitziet, snel laadt en duidelijk communiceert wat je doet. Bij JukeCoding bouwen we <a href="/webdesign">websites op maat</a> die gericht zijn op vertrouwen én gebruiksgemak — met een duidelijke structuur, sterke opbouw en een design dat professioneel aanvoelt.</p>
+<p>Dat betekent niet dat je een peperdure website nodig hebt met allerlei toeters en bellen. Wél eentje die er verzorgd uitziet, snel laadt en duidelijk communiceert wat je doet. Bij Juke bouwen we <a href="/webdesign">websites op maat</a> die gericht zijn op vertrouwen én gebruiksgemak — met een duidelijke structuur, sterke opbouw en een design dat professioneel aanvoelt.</p>
 
 <h2>3. Je hebt controle over je eigen verhaal</h2>
 <p>Social media zijn handig, maar je blijft er afhankelijk van algoritmes, beperkingen en regels die voortdurend veranderen. Op je eigen website bepaal jij het verhaal. Je kiest zelf welke informatie er staat, hoe die gepresenteerd wordt en welke actie bezoekers moeten ondernemen.</p>
@@ -180,7 +180,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 <h2>4. Nieuwe klanten aantrekken via Google</h2>
 <p>Hier wordt het echt interessant. Een goed opgebouwde website kan actief nieuwe klanten aantrekken via Google. Mensen die zoeken naar jouw diensten of producten komen op jouw website terecht — zonder dat je volledig afhankelijk bent van advertenties.</p>
 
-<p>Dit is precies waar het belang van een website voor je onderneming het duidelijkst wordt. Je website is geen digitale brochure die ergens online staat te wachten, maar een actief kanaal dat je zichtbaarheid versterkt. Bij JukeCoding bouwen we websites met een sterke basis in structuur, inhoud en techniek, zodat je niet alleen bezoekers aantrekt, maar ook professioneel overkomt wanneer ze landen op je site.</p>
+<p>Dit is precies waar het belang van een website voor je onderneming het duidelijkst wordt. Je website is geen digitale brochure die ergens online staat te wachten, maar een actief kanaal dat je zichtbaarheid versterkt. Bij Juke bouwen we websites met een sterke basis in structuur, inhoud en techniek, zodat je niet alleen bezoekers aantrekt, maar ook professioneel overkomt wanneer ze landen op je site.</p>
 
 <h2>5. Efficiënter werken dankzij slimme functionaliteiten</h2>
 <p>Een website hoeft niet beperkt te blijven tot een korte voorstelling en een contactformulier. Met de juiste aanpak kan je website je dagelijkse werking ook efficiënter maken. Denk aan:</p>
@@ -223,7 +223,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
   <li><strong>Technische basis:</strong> veiligheid, indexeerbaarheid en gebruiksgemak moeten in orde zijn</li>
 </ul>
 
-<p>Bij JukeCoding bouwen we websites op maat, met focus op snelheid, structuur en gebruikservaring. Geen overbodige complexiteit, maar een doordachte opbouw die past bij jouw onderneming. Benieuwd wat dat voor jouw bedrijf kan betekenen? <a href="/offerte-aanvraag">Vraag vrijblijvend een offerte aan</a> en we bekijken samen de mogelijkheden.</p>
+<p>Bij Juke bouwen we websites op maat, met focus op snelheid, structuur en gebruikservaring. Geen overbodige complexiteit, maar een doordachte opbouw die past bij jouw onderneming. Benieuwd wat dat voor jouw bedrijf kan betekenen? <a href="/offerte-aanvraag">Vraag vrijblijvend een offerte aan</a> en we bekijken samen de mogelijkheden.</p>
 
 <h2>Conclusie: een website is geen kost, maar een investering</h2>
 <p>De vraag is niet langer of je een website nodig hebt, maar hoe belangrijk die website wordt binnen je onderneming. Een professionele website vormt de basis van je online zichtbaarheid, je geloofwaardigheid en je communicatie. Het is geen overbodige kost, maar een investering in hoe klanten jouw bedrijf zien en vinden.</p>
@@ -240,7 +240,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 // {
 //   slug: 'jouw-url-slug-hier',
 //   title: 'Volledige paginatitel (H1)',
-//   metaTitle: 'SEO Titel (max 60 tekens) | JukeCoding',
+//   metaTitle: 'SEO Titel (max 60 tekens) | Juke',
 //   metaDescription:
 //     'SEO beschrijving (max 160 tekens) met een duidelijke call-to-action.',
 //   excerpt: 'Korte samenvatting voor de bloglijst (1-2 zinnen).',

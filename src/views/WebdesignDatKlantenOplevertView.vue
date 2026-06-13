@@ -194,7 +194,7 @@ const serviceJsonLd = {
 
 useHead({
   // ðŸŽ¯ Title met probleem + oplossing focus
-  title: 'Website Die Klanten Oplevert | JukeCoding',
+  title: 'Website Die Klanten Oplevert | Juke',
 
   meta: [
     {
@@ -203,7 +203,7 @@ useHead({
         "Wil je meer aanvragen via je site? We bouwen snelle pagina's met sterke CTA's, vertrouwen en lokale SEO.",
     },
     { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1' },
-    { name: 'author', content: 'JukeCoding' },
+    { name: 'author', content: 'Juke' },
     { name: 'language', content: 'nl' },
 
     // Keywords - conversie-specifiek
@@ -214,7 +214,7 @@ useHead({
     },
 
     // Open Graph
-    { property: 'og:title', content: 'Website Die Klanten Oplevert | JukeCoding' },
+    { property: 'og:title', content: 'Website Die Klanten Oplevert | Juke' },
     {
       property: 'og:description',
       content: "Snelle pagina's met sterke CTA's, vertrouwen en lokale SEO voor meer aanvragen.",
@@ -222,22 +222,22 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
     { property: 'og:image', content: ogImage },
-    { property: 'og:image:alt', content: 'JukeCoding - Website conversie-optimalisatie' },
+    { property: 'og:image:alt', content: 'Juke - Website conversie-optimalisatie' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:locale', content: 'nl_BE' },
     { property: 'og:locale:alternate', content: 'nl_NL' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
 
     // Twitter
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Website Die Klanten Oplevert | JukeCoding' },
+    { name: 'twitter:title', content: 'Website Die Klanten Oplevert | Juke' },
     {
       name: 'twitter:description',
       content: "Meer aanvragen via een snelle website met sterke CTA's en vertrouwen.",
     },
     { name: 'twitter:image', content: ogImage },
-    { name: 'twitter:image:alt', content: 'JukeCoding â€“ website conversie-optimalisatie' },
+    { name: 'twitter:image:alt', content: 'Juke â€“ website conversie-optimalisatie' },
 
     // Additional SEO
     { name: 'format-detection', content: 'telephone=yes' },

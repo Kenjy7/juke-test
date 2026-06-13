@@ -134,7 +134,7 @@ const features = computed(() => [
 <style scoped lang="scss">
 /* ── Section shell ── */
 .why-us {
-  padding: var(--space-24) var(--space-8);
+  padding: var(--section-pad-y) var(--space-8);
 }
 
 .container {
@@ -294,7 +294,7 @@ h2 {
 
 @media (max-width: 768px) {
   .why-us {
-    padding: var(--space-16) var(--space-5);
+    padding: var(--section-pad-y) var(--space-5);
   }
 
   .reason-row {

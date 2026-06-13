@@ -13,7 +13,7 @@
           {{ t('casesCta.head.lead') }}
         </p>
         <div class="cases-actions">
-          <router-link to="/offerte-aanvraag" class="btn btn--accent btn--lg">
+          <router-link to="/contact" class="btn btn--accent btn--lg">
             <span>{{ t('casesCta.cta.discuss') }}</span>
             <svg
               class="btn__icon"
@@ -63,11 +63,11 @@ onMounted(() => {
 <style scoped lang="scss">
 /* ── Section wrapper ── */
 .cases-section {
-  padding: var(--space-8) var(--space-8) var(--space-24);
+  padding: var(--section-pad-y) var(--space-8) var(--space-24);
 }
 
 .cases-shell {
-  max-width: var(--max-width-narrow);
+  max-width: var(--max-width-cta);
   margin: 0 auto;
 }
 
@@ -119,8 +119,9 @@ h2 {
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
   line-height: var(--leading-relaxed);
-  margin: 0 auto var(--space-10);
+  margin: 0 auto var(--space-12);
   max-width: 46ch;
+  text-wrap: balance;
 }
 
 /* ── Action row ── */
@@ -133,7 +134,7 @@ h2 {
 
 @media (max-width: 768px) {
   .cases-section {
-    padding: var(--space-4) var(--space-4) var(--space-16);
+    padding: var(--section-pad-y) var(--space-5) var(--space-16);
   }
 
   .cases-panel {

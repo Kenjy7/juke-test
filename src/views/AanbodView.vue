@@ -5,15 +5,13 @@
       {{ t('aanbodView.shortAnswer.body') }}
     </ShortAnswer>
 
-    <section id="stappen-webdesign">
-      <StappenWebdesign />
-    </section>
-    <PackagesSection />
-    <AIAutomatisationCTA />
+    <WebdesignProcess />
+    <WebdesignKnowledge />
+    <WebdesignSeoFacts />
 
     <!-- âœ… FAQ's via props -->
     <FaqList :faqs="webdesignFaqs" />
-    <WebsiteKlantenCta />
+    <WebdesignClosingCta />
   </BackgroundWeb>
 </template>
 
@@ -26,14 +24,14 @@ const { t, locale } = useI18n()
 
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import HeroSectionAanbod from '@/components/HeroSectionAanbod.vue'
-import StappenWebdesign from '@/components/StappenWebdesign.vue'
-import AIAutomatisationCTA from '@/components/AIAutomatisationCTA.vue'
-import PackagesSection from '@/components/PackagesSection.vue'
+import WebdesignProcess from '@/components/WebdesignProcess.vue'
+import WebdesignKnowledge from '@/components/WebdesignKnowledge.vue'
+import WebdesignSeoFacts from '@/components/WebdesignSeoFacts.vue'
+import WebdesignClosingCta from '@/components/WebdesignClosingCta.vue'
 import FaqList from '@/components/FaqList.vue'
 import ShortAnswer from '@/components/ShortAnswer.vue'
 
 import { faqsWebdesign } from '@/data/faqs.webdesign'
-import WebsiteKlantenCta from '@/components/WebsiteKlantenCTA.vue'
 
 const webdesignFaqs = computed(() => faqsWebdesign[locale.value] ?? faqsWebdesign.nl)
 
@@ -42,7 +40,7 @@ const webdesignFaqs = computed(() => faqsWebdesign[locale.value] ?? faqsWebdesig
 // ============================================================================
 const SITE_CONFIG = {
   url: 'https://jukecoding.be',
-  name: 'JukeCoding',
+  name: 'Juke',
   alternateName: 'Juke Coding',
   phone: '+32479131715',
   email: 'contact@jukecoding.be',
@@ -133,9 +131,9 @@ const webPageSchema = {
   '@type': 'WebPage',
   '@id': `${url}#webpage`,
   url,
-  name: 'Website laten maken in Limburg | JukeCoding',
+  name: 'Website laten maken in Limburg | Juke',
   description:
-    'Website laten maken bij JukeCoding: snelle, SEO-proof websites op maat. Live in 2 weken, transparante afspraken.',
+    'Website laten maken bij Juke: snelle, SEO-proof websites op maat. Live in 2 weken, transparante afspraken.',
   isPartOf: { '@id': `${SITE_CONFIG.url}#website` },
   about: { '@id': `${SITE_CONFIG.url}#organization` },
   breadcrumb: { '@id': `${url}#breadcrumb` },
@@ -161,50 +159,6 @@ const breadcrumbSchema = {
 }
 
 // 5ï¸âƒ£ OfferCatalog Schema - Voor prijsweergave in Google
-const offerCatalogSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'OfferCatalog',
-  name: 'Webdesign pakketten',
-  itemListElement: [
-    {
-      '@type': 'Offer',
-      name: 'Juke Lite',
-      description: 'Professionele landingspagina met contactformulier en basis SEO',
-      availability: 'https://schema.org/InStock',
-      url: `${url}#juke-lite`,
-      itemCondition: 'https://schema.org/NewCondition',
-      eligibleRegion: {
-        '@type': 'Country',
-        name: 'BE',
-      },
-    },
-    {
-      '@type': 'Offer',
-      name: 'Juke Groove',
-      description: "Uitgebreide website met meerdere pagina's, CMS en geavanceerde SEO",
-      availability: 'https://schema.org/InStock',
-      url: `${url}#juke-groove`,
-      itemCondition: 'https://schema.org/NewCondition',
-      eligibleRegion: {
-        '@type': 'Country',
-        name: 'BE',
-      },
-    },
-    {
-      '@type': 'Offer',
-      name: 'Juke Amplify',
-      description: 'Complete digital presence met webshop, integraties en AI automatisatie',
-      availability: 'https://schema.org/InStock',
-      url: `${url}#juke-amplify`,
-      itemCondition: 'https://schema.org/NewCondition',
-      eligibleRegion: {
-        '@type': 'Country',
-        name: 'BE',
-      },
-    },
-  ],
-}
-
 // 6ï¸âƒ£ Service Schema met OfferCatalog
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -217,7 +171,6 @@ const serviceSchema = {
   provider: { '@id': `${SITE_CONFIG.url}#organization` },
   areaServed: { '@type': 'Country', name: 'Belgium' },
   url,
-  hasOfferCatalog: offerCatalogSchema,
   termsOfService: `${SITE_CONFIG.url}/algemene-voorwaarden`,
   // ðŸŽ¯ Service features
   serviceOutput: {
@@ -230,7 +183,7 @@ const serviceSchema = {
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
-  name: 'Hoe laat je een website maken bij JukeCoding?',
+  name: 'Hoe laat je een website maken bij Juke?',
   description: 'Het proces van intake tot livegang van jouw nieuwe website in 5 stappen',
   image: {
     '@type': 'ImageObject',
@@ -297,7 +250,7 @@ const faqSchema = {
 
 useHead({
   // ðŸŽ¯ Geoptimaliseerde title met USP
-  title: 'Website Laten Maken in Limburg | JukeCoding',
+  title: 'Website Laten Maken in Limburg | Juke',
 
   meta: [
     // Primary Meta Tags
@@ -323,7 +276,7 @@ useHead({
     { property: 'og:site_name', content: SITE_CONFIG.name },
     { property: 'og:locale', content: 'nl_BE' },
     { property: 'og:locale:alternate', content: 'nl_NL' },
-    { property: 'og:title', content: 'Website Laten Maken in Limburg | JukeCoding' },
+    { property: 'og:title', content: 'Website Laten Maken in Limburg | Juke' },
     {
       property: 'og:description',
       content:
@@ -331,14 +284,14 @@ useHead({
     },
     { property: 'og:image', content: ogImage },
     { property: 'og:image:secure_url', content: ogImage },
-    { property: 'og:image:alt', content: 'JukeCoding webdesign voor bedrijven in BelgiÃ«' },
+    { property: 'og:image:alt', content: 'Juke webdesign voor bedrijven in BelgiÃ«' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:image:type', content: 'image/jpeg' },
 
     // Twitter Card
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Website Laten Maken in Limburg | JukeCoding' },
+    { name: 'twitter:title', content: 'Website Laten Maken in Limburg | Juke' },
     {
       name: 'twitter:description',
       content:
@@ -347,7 +300,7 @@ useHead({
     { name: 'twitter:image', content: ogImage },
     {
       name: 'twitter:image:alt',
-      content: 'JukeCoding â€“ Webdesign en AI automatisatie in BelgiÃ«',
+      content: 'Juke â€“ Webdesign en AI automatisatie in BelgiÃ«',
     },
 
     // Additional SEO

@@ -274,7 +274,7 @@ const seoScanFaqs = [
 ]
 
 useHead({
-  title: 'Gratis SEO Scan voor je Website | Directe Score | JukeCoding',
+  title: 'Gratis SEO Scan voor je Website | Directe Score | Juke',
   meta: [
     {
       name: 'description',
@@ -290,10 +290,10 @@ useHead({
       content:
         'gratis SEO scan, website SEO checker, SEO score website, SEO analyse Belgie, meta tags checker, website optimalisatie tool',
     },
-    { name: 'author', content: 'JukeCoding' },
+    { name: 'author', content: 'Juke' },
     {
       property: 'og:title',
-      content: 'Gratis SEO Scan | Check je Website in 10 Seconden | JukeCoding',
+      content: 'Gratis SEO Scan | Check je Website in 10 Seconden | Juke',
     },
     {
       property: 'og:description',
@@ -303,11 +303,11 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/gratis-seo-scan' },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:image:alt', content: 'Gratis SEO scan tool van JukeCoding' },
+    { property: 'og:image:alt', content: 'Gratis SEO scan tool van Juke' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:locale', content: 'nl_BE' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Gratis SEO Scan | Check je Website in 10 Seconden' },
     {
@@ -316,7 +316,7 @@ useHead({
         'Gratis SEO scan met directe score. Controleer title, meta, headings en schema markup. Geen registratie nodig.',
     },
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { name: 'twitter:image:alt', content: 'Gratis SEO scan tool van JukeCoding' },
+    { name: 'twitter:image:alt', content: 'Gratis SEO scan tool van Juke' },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/gratis-seo-scan' }],
   script: [
@@ -326,7 +326,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         '@id': 'https://jukecoding.be/gratis-seo-scan#app',
-        name: 'JukeCoding Gratis SEO Scan',
+        name: 'Juke Gratis SEO Scan',
         url: 'https://jukecoding.be/gratis-seo-scan',
         applicationCategory: 'BusinessApplication',
         applicationSubCategory: 'SEO Tool',
@@ -353,7 +353,7 @@ useHead({
         provider: {
           '@type': 'Organization',
           '@id': 'https://jukecoding.be/#organization',
-          name: 'JukeCoding',
+          name: 'Juke',
         },
       }),
     },

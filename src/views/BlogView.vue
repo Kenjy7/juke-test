@@ -47,7 +47,7 @@ const publishedPosts = computed(() =>
 )
 
 useHead(() => ({
-  title: "Blog over Webdesign & AI voor KMO's | JukeCoding",
+  title: "Blog over Webdesign & AI voor KMO's | Juke",
   meta: [
     {
       name: 'description',
@@ -63,8 +63,8 @@ useHead(() => ({
       content:
         'webdesign blog Belgie, SEO tips KMO, AI automatisatie nieuws, website tips zelfstandigen, online groeien Vlaanderen',
     },
-    { name: 'author', content: 'JukeCoding' },
-    { property: 'og:title', content: "Blog over Webdesign & AI voor KMO's | JukeCoding" },
+    { name: 'author', content: 'Juke' },
+    { property: 'og:title', content: "Blog over Webdesign & AI voor KMO's | Juke" },
     {
       property: 'og:description',
       content:
@@ -75,20 +75,20 @@ useHead(() => ({
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       property: 'og:image:alt',
-      content: 'JukeCoding blog over webdesign en AI voor KMO in Belgie',
+      content: 'Juke blog over webdesign en AI voor KMO in Belgie',
     },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:locale', content: 'nl_BE' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Blog | Webdesign & AI tips voor KMO | JukeCoding' },
+    { name: 'twitter:title', content: 'Blog | Webdesign & AI tips voor KMO | Juke' },
     {
       name: 'twitter:description',
       content: 'Tips over websites, lokale SEO en AI voor Belgische KMO en zelfstandigen.',
     },
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { name: 'twitter:image:alt', content: 'JukeCoding blog - webdesign en AI voor KMO in Belgie' },
+    { name: 'twitter:image:alt', content: 'Juke blog - webdesign en AI voor KMO in Belgie' },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/blog' }],
   script: [
@@ -106,7 +106,7 @@ useHead(() => ({
         publisher: {
           '@type': 'Organization',
           '@id': 'https://jukecoding.be/#organization',
-          name: 'JukeCoding',
+          name: 'Juke',
         },
         blogPost: publishedPosts.value.map((post) => ({
           '@type': 'BlogPosting',
@@ -162,7 +162,13 @@ useHead(() => ({
 <style scoped>
 .blog-hero {
   text-align: center;
-  padding: 80px 24px 48px;
+  /* Shared hero sizing so the blog starts under the navbar at the same point
+     and holds the same floor as every other main page. */
+  padding: var(--hero-pad-top) 24px var(--hero-pad-bottom);
+  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .blog-hero__title {

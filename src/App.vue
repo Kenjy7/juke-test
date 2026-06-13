@@ -59,11 +59,11 @@ useHead({
     { name: 'geo.position', content: '50.9307;5.3378' },
     { name: 'ICBM', content: '50.9307, 5.3378' },
 
-    { name: 'author', content: 'JukeCoding' },
-    { name: 'copyright', content: 'JukeCoding' },
+    { name: 'author', content: 'Juke' },
+    { name: 'copyright', content: 'Juke' },
     { name: 'language', content: computed(() => LOCALE_META[locale.value].htmlLang) },
 
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: computed(() => LOCALE_META[locale.value].ogLocale) },
   ],
 })

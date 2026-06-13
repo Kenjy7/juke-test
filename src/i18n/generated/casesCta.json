@@ -1,19 +1,19 @@
 {
   "nl": {
-    "eyebrow": "Cases",
+    "eyebrow": "Aan de slag",
     "head": {
-      "title": "We bouwen momenteel onze eerste AI- en SaaS-projecten.",
-      "lead": "Heb je een idee voor een AI-oplossing of SaaS-platform? We denken graag vrijblijvend met je mee."
+      "title": "Klaar om jouw idee te bouwen?",
+      "lead": "Heb je een idee voor een SaaS-platform of AI-oplossing? We denken graag vrijblijvend met je mee."
     },
     "cta": {
       "discuss": "Bespreek je project"
     }
   },
   "en": {
-    "eyebrow": "Cases",
+    "eyebrow": "Get started",
     "head": {
-      "title": "We're currently building our first AI and SaaS projects.",
-      "lead": "Got an idea for an AI solution or SaaS platform? We're happy to think it through with you, no strings attached."
+      "title": "Ready to build your idea?",
+      "lead": "Got an idea for a SaaS platform or AI solution? We're happy to think it through with you, no strings attached."
     },
     "cta": {
       "discuss": "Discuss your project"

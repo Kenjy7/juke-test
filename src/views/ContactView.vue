@@ -35,7 +35,7 @@ const contactFaqs = [
 ]
 
 useHead({
-  title: 'Contact Opnemen | AI & Webdesign Hasselt | JukeCoding',
+  title: 'Contact Opnemen | AI & Webdesign Hasselt | Juke',
   meta: [
     {
       name: 'description',
@@ -49,10 +49,10 @@ useHead({
     {
       name: 'keywords',
       content:
-        'contact JukeCoding, AI automatisatie Hasselt, offerte aanvragen AI, kennismaking AI-bureau Belgie',
+        'contact Juke, AI automatisatie Hasselt, offerte aanvragen AI, kennismaking AI-bureau Belgie',
     },
-    { name: 'author', content: 'JukeCoding' },
-    { property: 'og:title', content: 'Contact Opnemen | AI & Webdesign Hasselt | JukeCoding' },
+    { name: 'author', content: 'Juke' },
+    { property: 'og:title', content: 'Contact Opnemen | AI & Webdesign Hasselt | Juke' },
     {
       property: 'og:description',
       content:
@@ -63,14 +63,14 @@ useHead({
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       property: 'og:image:alt',
-      content: 'Contact opnemen met JukeCoding voor AI en webdesign in Hasselt',
+      content: 'Contact opnemen met Juke voor AI en webdesign in Hasselt',
     },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Contact Opnemen | JukeCoding Hasselt' },
+    { name: 'twitter:title', content: 'Contact Opnemen | Juke Hasselt' },
     {
       name: 'twitter:description',
       content:
@@ -79,7 +79,7 @@ useHead({
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       name: 'twitter:image:alt',
-      content: 'JukeCoding - AI automatisering en webdesign in Hasselt en Limburg',
+      content: 'Juke - AI automatisering en webdesign in Hasselt en Limburg',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/contact' }],
@@ -91,7 +91,7 @@ useHead({
         '@type': 'ContactPage',
         '@id': 'https://jukecoding.be/contact#webpage',
         url: 'https://jukecoding.be/contact',
-        name: 'Contact opnemen met JukeCoding',
+        name: 'Contact opnemen met Juke',
         description:
           'Plan een gratis kennismakingsgesprek voor AI-automatisering of webdesign in Hasselt en Limburg.',
         inLanguage: 'nl-BE',

@@ -606,7 +606,7 @@
     <!-- FINAL CTA -->
     <section class="content-section final-cta-section">
       <div class="container">
-        <div class="final-cta">
+        <div class="final-cta band--dark">
           <div class="final-cta__content">
             <span class="label">{{ t('webdesignDatKlantenOplevert.finalCta.label') }}</span>
             <h2 class="section-title">{{ t('webdesignDatKlantenOplevert.finalCta.title') }}</h2>
@@ -659,35 +659,40 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--space-8);
 }
 
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 var(--space-6);
   }
 }
 
-/* ─── Label ─── */
+/* ─── Eyebrow label — flat dot pattern, shared with the rest of the site ─── */
 .label {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  background: var(--color-primary-subtle);
-  border: 1px solid var(--color-primary-border);
-  border-radius: 100px;
-  color: var(--color-primary);
-  font-size: 0.875rem;
-  font-weight: 600;
-  letter-spacing: 0.025em;
+  color: var(--color-text-secondary);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
 }
 
+.label::before {
+  content: '';
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  flex-shrink: 0;
+}
+
 .label.small {
-  font-size: 0.8125rem;
+  font-size: var(--text-xs);
 }
 
 /* ─── Buttons — canonical .btn system comes from base.css ─── */
@@ -703,12 +708,16 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 .hero__inner {
   position: relative;
   z-index: 2;
-  padding: 4.5rem 0 6rem;
+  padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
+  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 @media (max-width: 768px) {
   .hero__inner {
-    padding: 6rem 0 4rem;
+    padding: var(--hero-pad-top) 0 var(--hero-pad-bottom);
   }
 }
 
@@ -717,6 +726,7 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
   grid-template-columns: 1fr 1.2fr; /* 👈 Geef afbeelding MEER ruimte */
   gap: 4rem;
   align-items: center;
+  width: 100%;
 }
 
 @media (max-width: 968px) {
@@ -898,17 +908,17 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 
 /* ─── Sections ─── */
 .content-section {
-  padding: 4rem 0;
+  padding: var(--section-pad-y) 0;
 }
 
 .content-section.final-cta-section {
-  padding: 0 0 6rem;
+  padding: var(--section-pad-y) 0 var(--space-24);
 }
 
 /* ─── Section Header ─── */
 .section-header {
   text-align: center;
-  margin-bottom: 3.5rem;
+  margin-bottom: var(--space-12);
 }
 
 .section-header .label {
@@ -1359,8 +1369,8 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 /* ─── SECTION 6: Packages ─── */
 .packages-section {
   position: relative;
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
 }
 
 .packages-feature {
@@ -1509,12 +1519,11 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 
 /* ─── Final CTA ─── */
 .final-cta {
-  background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
-  border-radius: 24px;
-  padding: 2rem 3rem;
+  border-radius: var(--radius-lg);
+  padding: var(--space-20) var(--space-12);
   text-align: center;
-  max-width: 800px;
+  max-width: var(--max-width-cta);
   margin: 0 auto;
   position: relative;
   overflow: hidden;
@@ -1561,7 +1570,7 @@ const meerKlantenFaqs = computed(() => faqsMeerKlanten[locale.value] ?? faqsMeer
 
 @media (max-width: 640px) {
   .final-cta {
-    padding: 3rem 2rem;
+    padding: var(--space-12) var(--space-6);
   }
 }
 

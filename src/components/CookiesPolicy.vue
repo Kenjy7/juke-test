@@ -177,7 +177,7 @@ const rights = computed(() => [
 .cookies {
   min-height: 100vh;
   background: transparent;
-  padding: 2rem 1.5rem 4rem;
+  padding: var(--hero-pad-top) 1.5rem var(--section-pad-y);
 }
 
 .cookies-container {
@@ -187,7 +187,7 @@ const rights = computed(() => [
 
 .header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2.25rem;
 }
 
 h1 {
@@ -210,7 +210,7 @@ h1 {
 }
 
 .intro {
-  margin-bottom: 4rem;
+  margin-bottom: 2.25rem;
 
   p {
     font-size: 1.125rem;
@@ -222,10 +222,12 @@ h1 {
 .content {
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2.25rem;
 }
 
 .section {
+  padding-block: 0; /* override the global .section { padding-block: 9rem } from base.css */
+
   h2 {
     font-size: 1.75rem;
     font-weight: 600;
@@ -393,11 +395,11 @@ h1 {
 
 @media (max-width: 768px) {
   .cookies {
-    padding: 6rem 1.25rem 3rem;
+    padding: var(--hero-pad-top) 1.25rem var(--section-pad-y);
   }
 
   .header {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
   }
 
   h1 {
@@ -409,7 +411,7 @@ h1 {
   }
 
   .intro {
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 
     p {
       font-size: 1rem;
@@ -417,7 +419,7 @@ h1 {
   }
 
   .content {
-    gap: 2.5rem;
+    gap: 2rem;
   }
 
   .section h2 {
@@ -446,7 +448,7 @@ h1 {
 
 @media (max-width: 480px) {
   .cookies {
-    padding: 5rem 1rem 2.5rem;
+    padding: var(--hero-pad-top) 1rem var(--section-pad-y);
   }
 
   h1 {

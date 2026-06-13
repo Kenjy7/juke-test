@@ -37,7 +37,7 @@
       <div class="blog-post__cta-block">
         <h3>{{ t('blogPostView.cta.title') }}</h3>
         <p>{{ t('blogPostView.cta.text') }}</p>
-        <RouterLink to="/offerte-aanvraag" class="blog-post__cta-btn">
+        <RouterLink to="/contact" class="blog-post__cta-btn">
           {{ t('blogPostView.cta.button') }}
         </RouterLink>
       </div>
@@ -78,7 +78,7 @@ const canonicalUrl = computed(() => `https://jukecoding.be/blog/${slug.value}`)
 useHead(() => {
   if (!post.value) {
     return {
-      title: 'Post niet gevonden | JukeCoding',
+      title: 'Post niet gevonden | Juke',
       meta: [{ name: 'robots', content: 'noindex, nofollow' }],
     }
   }
@@ -91,7 +91,7 @@ useHead(() => {
         name: 'robots',
         content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
       },
-      { name: 'author', content: 'JukeCoding' },
+      { name: 'author', content: 'Juke' },
       {
         name: 'keywords',
         content: Array.isArray(post.value.keywords)
@@ -111,14 +111,14 @@ useHead(() => {
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
       { property: 'og:locale', content: 'nl_BE' },
-      { property: 'og:site_name', content: 'JukeCoding' },
+      { property: 'og:site_name', content: 'Juke' },
       // Article specific
       { property: 'article:published_time', content: post.value.publishedAt },
       {
         property: 'article:modified_time',
         content: post.value.updatedAt || post.value.publishedAt,
       },
-      { property: 'article:author', content: 'JukeCoding' },
+      { property: 'article:author', content: 'Juke' },
       { property: 'article:section', content: post.value.category },
       ...(Array.isArray(post.value.keywords)
         ? post.value.keywords.map((kw) => ({ property: 'article:tag', content: kw }))
@@ -151,12 +151,12 @@ useHead(() => {
           author: {
             '@type': 'Organization',
             '@id': 'https://jukecoding.be/#organization',
-            name: 'JukeCoding',
+            name: 'Juke',
           },
           publisher: {
             '@type': 'Organization',
             '@id': 'https://jukecoding.be/#organization',
-            name: 'JukeCoding',
+            name: 'Juke',
             logo: {
               '@type': 'ImageObject',
               url: 'https://jukecoding.be/logo.png',

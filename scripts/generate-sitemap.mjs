@@ -15,21 +15,12 @@ const staticRoutes = [
       title: 'JukeCoding - Webdesign & AI Automatisatie Hasselt',
     },
   },
-  {
-    path: '/webdesign',
-    changefreq: 'weekly',
-    priority: '0.8',
-    image: { loc: `${SITE_URL}/og-image-webdesign.jpg`, title: 'Webdesign pakketten - JukeCoding' },
-  },
   { path: '/ai-automatisatie', changefreq: 'weekly', priority: '0.8' },
   { path: '/saas-development', changefreq: 'weekly', priority: '0.8' },
   { path: '/vibemind', changefreq: 'weekly', priority: '0.8' },
   { path: '/beheerly', changefreq: 'weekly', priority: '0.8' },
-  { path: '/gratis-seo-scan', changefreq: 'weekly', priority: '0.8' },
   { path: '/blog', changefreq: 'weekly', priority: '0.8' },
-  { path: '/website-die-klanten-oplevert', changefreq: 'monthly', priority: '0.7' },
   { path: '/contact', changefreq: 'monthly', priority: '0.6' },
-  { path: '/offerte-aanvraag', changefreq: 'monthly', priority: '0.6' },
   { path: '/cookies', changefreq: 'yearly', priority: '0.3' },
 ]
 

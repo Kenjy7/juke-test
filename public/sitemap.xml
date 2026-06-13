@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jukecoding.be/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/"/>
@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/"/>
@@ -29,34 +29,8 @@
     </image:image>
   </url>
   <url>
-    <loc>https://jukecoding.be/webdesign</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/webdesign"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/webdesign"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/webdesign"/>
-    <image:image>
-      <image:loc>https://jukecoding.be/og-image-webdesign.jpg</image:loc>
-      <image:title>Webdesign pakketten - JukeCoding</image:title>
-    </image:image>
-  </url>
-  <url>
-    <loc>https://jukecoding.be/en/webdesign</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/webdesign"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/webdesign"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/webdesign"/>
-    <image:image>
-      <image:loc>https://jukecoding.be/og-image-webdesign.jpg</image:loc>
-      <image:title>Webdesign pakketten - JukeCoding</image:title>
-    </image:image>
-  </url>
-  <url>
     <loc>https://jukecoding.be/ai-automatisatie</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/ai-automatisatie"/>
@@ -65,7 +39,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/ai-automatisatie</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/ai-automatisatie"/>
@@ -74,7 +48,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/saas-development</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/saas-development"/>
@@ -83,7 +57,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/saas-development</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/saas-development"/>
@@ -92,7 +66,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/vibemind</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/vibemind"/>
@@ -101,7 +75,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/vibemind</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/vibemind"/>
@@ -110,7 +84,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/beheerly</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/beheerly"/>
@@ -119,7 +93,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/beheerly</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/beheerly"/>
@@ -127,26 +101,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/beheerly"/>
   </url>
   <url>
-    <loc>https://jukecoding.be/gratis-seo-scan</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/gratis-seo-scan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/gratis-seo-scan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/gratis-seo-scan"/>
-  </url>
-  <url>
-    <loc>https://jukecoding.be/en/gratis-seo-scan</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/gratis-seo-scan"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/gratis-seo-scan"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/gratis-seo-scan"/>
-  </url>
-  <url>
     <loc>https://jukecoding.be/blog</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog"/>
@@ -155,7 +111,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/blog</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog"/>
@@ -163,26 +119,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog"/>
   </url>
   <url>
-    <loc>https://jukecoding.be/website-die-klanten-oplevert</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/website-die-klanten-oplevert"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/website-die-klanten-oplevert"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/website-die-klanten-oplevert"/>
-  </url>
-  <url>
-    <loc>https://jukecoding.be/en/website-die-klanten-oplevert</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/website-die-klanten-oplevert"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/website-die-klanten-oplevert"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/website-die-klanten-oplevert"/>
-  </url>
-  <url>
     <loc>https://jukecoding.be/contact</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/contact"/>
@@ -191,7 +129,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/contact</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/contact"/>
@@ -199,26 +137,8 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/contact"/>
   </url>
   <url>
-    <loc>https://jukecoding.be/offerte-aanvraag</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/offerte-aanvraag"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/offerte-aanvraag"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/offerte-aanvraag"/>
-  </url>
-  <url>
-    <loc>https://jukecoding.be/en/offerte-aanvraag</loc>
-    <lastmod>2026-06-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/offerte-aanvraag"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/offerte-aanvraag"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/offerte-aanvraag"/>
-  </url>
-  <url>
     <loc>https://jukecoding.be/cookies</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/cookies"/>
@@ -227,7 +147,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/cookies</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-12</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/cookies"/>

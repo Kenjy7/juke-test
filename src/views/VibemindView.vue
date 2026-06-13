@@ -432,15 +432,15 @@ const submitBeta = async () => {
 }
 
 useHead({
-  title: 'Vibemind — Parallelle AI-agents in één app | JukeCoding',
+  title: 'Vibemind — Parallelle AI-agents in één app | Juke',
   meta: [
     {
       name: 'description',
       content:
-        'Vibemind is de desktop-tool van JukeCoding om meerdere Claude Code-agents parallel te draaien: panes, kanban, skills en een MCP-server. Schrijf je in voor de beta.',
+        'Vibemind is de desktop-tool van Juke om meerdere Claude Code-agents parallel te draaien: panes, kanban, skills en een MCP-server. Schrijf je in voor de beta.',
     },
     { name: 'robots', content: 'index, follow' },
-    { property: 'og:title', content: 'Vibemind — Parallelle AI-agents in één app | JukeCoding' },
+    { property: 'og:title', content: 'Vibemind — Parallelle AI-agents in één app | Juke' },
     {
       property: 'og:description',
       content:
@@ -449,7 +449,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/vibemind' },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Vibemind — Parallelle AI-agents in één app' },
@@ -471,7 +471,7 @@ useHead({
         description:
           'Desktop-tool om meerdere Claude Code-agents parallel te draaien met panes, kanban, skills en een MCP-server.',
         url: 'https://jukecoding.be/vibemind',
-        author: { '@type': 'Organization', name: 'JukeCoding', url: 'https://jukecoding.be' },
+        author: { '@type': 'Organization', name: 'Juke', url: 'https://jukecoding.be' },
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -492,7 +492,11 @@ useHead({
 
 /* ── Hero ── */
 .vm-hero {
-  padding: calc(var(--space-32) + 1rem) var(--space-8) var(--space-20);
+  padding: var(--hero-pad-top) var(--space-8) var(--hero-pad-bottom);
+  min-height: var(--hero-min-height);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero-grid {
@@ -500,6 +504,7 @@ useHead({
   grid-template-columns: 1fr 1.05fr;
   gap: var(--space-16);
   align-items: center;
+  width: 100%;
 }
 
 .hero-copy {
@@ -1225,7 +1230,7 @@ h1 {
 
 @media (max-width: 768px) {
   .vm-hero {
-    padding: var(--space-32) var(--space-6) var(--space-16);
+    padding: var(--hero-pad-top) var(--space-6) var(--hero-pad-bottom);
   }
   h1 {
     font-size: var(--text-h2);

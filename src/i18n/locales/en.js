@@ -36,11 +36,11 @@ export default {
 
   home: {
     hero: {
-      eyebrow: 'Digitalization · AI · SaaS',
+      eyebrow: 'SaaS · AI · Digitalization',
       titleLead: 'We build the software that',
       titleHighlight: 'scales your business.',
       subtitle:
-        'JukeCoding designs and builds apps, SaaS platforms and AI automations that speed up your processes and take work off your hands — from first idea to live product.',
+        'Juke designs and builds apps, SaaS platforms and AI automations that speed up your processes and take work off your hands, from first idea to live product.',
       ctaSecondary: 'See what we do',
       kpis: {
         users: 'Active users',
@@ -53,11 +53,35 @@ export default {
         digital: 'Digitalization',
         web: 'Web design',
       },
+      // Labels for the decorative business-operations dashboard mock.
+      demo: {
+        title: 'Dashboard',
+        subtitle: 'Improve and streamline business operations.',
+        navDashboard: 'Dashboard',
+        grpAnalytics: 'Analytics',
+        navPerformance: 'Performance',
+        navOverview: 'Overview',
+        grpSupport: 'Support',
+        navCustomers: 'Customers',
+        navBudgets: 'Budgets',
+        grpAccount: 'Account',
+        navSettings: 'Settings',
+        navGoals: 'Goals',
+        s1: "Today's sales",
+        s2: 'Total Orders',
+        s3: 'Total Sales',
+        reports: 'Sales reports',
+        trend: 'Sale trends over time',
+        transactions: 'Transactions',
+        seeAll: 'See all',
+        completed: 'Completed',
+        pending: 'Pending',
+      },
     },
   },
 
   footer: {
-    tagline: 'Development studio for AI, SaaS and web.',
+    tagline: 'Custom software, from idea to scale.',
     headings: {
       services: 'Services',
       products: 'Products',

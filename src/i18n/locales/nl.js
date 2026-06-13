@@ -40,11 +40,11 @@ export default {
   // Home page
   home: {
     hero: {
-      eyebrow: 'Digitalisering · AI · SaaS',
+      eyebrow: 'SaaS · AI · Digitalisering',
       titleLead: 'Wij bouwen de software die',
       titleHighlight: 'je bedrijf laat schalen.',
       subtitle:
-        'JukeCoding ontwerpt en bouwt apps, SaaS-platformen en AI-automatiseringen die processen versnellen en werk uit handen nemen — van eerste idee tot live product.',
+        'Juke ontwerpt en bouwt apps, SaaS-platformen en AI-automatiseringen die processen versnellen en werk uit handen nemen, van eerste idee tot live product.',
       ctaSecondary: 'Ontdek wat we doen',
       kpis: {
         users: 'Actieve gebruikers',
@@ -57,12 +57,36 @@ export default {
         digital: 'Digitalisering',
         web: 'Webdesign',
       },
+      // Labels for the decorative business-operations dashboard mock.
+      demo: {
+        title: 'Dashboard',
+        subtitle: 'Verbeter en stroomlijn je bedrijfsvoering.',
+        navDashboard: 'Dashboard',
+        grpAnalytics: 'Analyse',
+        navPerformance: 'Prestaties',
+        navOverview: 'Overzicht',
+        grpSupport: 'Support',
+        navCustomers: 'Klanten',
+        navBudgets: 'Budgetten',
+        grpAccount: 'Account',
+        navSettings: 'Instellingen',
+        navGoals: 'Doelen',
+        s1: 'Omzet vandaag',
+        s2: 'Bestellingen',
+        s3: 'Totale omzet',
+        reports: 'Verkooprapporten',
+        trend: 'Verkooptrend over tijd',
+        transactions: 'Transacties',
+        seeAll: 'Alles tonen',
+        completed: 'Voltooid',
+        pending: 'In behandeling',
+      },
     },
   },
 
   // Footer (seeded for when you wire the footer to t())
   footer: {
-    tagline: 'Development studio voor AI, SaaS en web.',
+    tagline: 'Software op maat, van idee tot schaal.',
     headings: {
       services: 'Diensten',
       products: 'Producten',

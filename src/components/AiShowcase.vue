@@ -172,7 +172,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .showcase {
-  padding: var(--space-24) var(--space-8) var(--space-32);
+  padding: var(--section-pad-y) var(--space-8);
 }
 
 .container {
@@ -400,7 +400,7 @@ h2 {
 
 @media (max-width: 768px) {
   .showcase {
-    padding: var(--space-16) var(--space-5) var(--space-20);
+    padding: var(--section-pad-y) var(--space-5);
   }
 
   .showcase-featured {

@@ -4,17 +4,17 @@
     "head": {
       "title": "Laat AI het repetitieve werk doen,",
       "titleHighlight": "zodat je team kan focussen.",
-      "lead": "Van AI die sales, support en e-mail afhandelt tot workflows op maat — we bouwen AI die tijd bespaart, fouten elimineert en meeschaalt met je bedrijf."
+      "lead": "Van AI die sales, support en e-mail afhandelt tot workflows op maat. We bouwen AI die tijd bespaart, fouten elimineert en meeschaalt met je bedrijf."
     },
     "cta": {
       "start": "Start met AI",
       "faq": "Veelgestelde vragen"
     },
     "terminal": {
-      "line1": "→ 142 inkomende e-mails geclassificeerd",
-      "line2": "→ 7 offerteaanvragen herkend & doorgestuurd",
-      "line3": "→ 3 antwoorden opgesteld & gepland",
-      "done": "✓ workflow voltooid · 1.2s · 0 fouten"
+      "line1": "→ nieuwe klantvraag binnen · order #4821",
+      "line2": "→ order opgezocht · levertijd: morgen vóór 17u",
+      "line3": "→ antwoord opgesteld in jouw tone-of-voice",
+      "done": "✓ wacht op je goedkeuring · 1.2s · 0 fouten"
     }
   },
   "en": {
@@ -22,17 +22,17 @@
     "head": {
       "title": "Let AI handle the repetitive work,",
       "titleHighlight": "so your team can focus.",
-      "lead": "From AI that handles sales, support and email to custom workflows — we build AI that saves time, eliminates errors and scales with your business."
+      "lead": "From AI that handles sales, support and email to custom workflows. We build AI that saves time, eliminates errors and scales with your business."
     },
     "cta": {
       "start": "Get started with AI",
       "faq": "Frequently asked questions"
     },
     "terminal": {
-      "line1": "→ 142 incoming emails classified",
-      "line2": "→ 7 quote requests detected & forwarded",
-      "line3": "→ 3 replies drafted & scheduled",
-      "done": "✓ workflow completed · 1.2s · 0 errors"
+      "line1": "→ new customer question in · order #4821",
+      "line2": "→ order looked up · delivery: tomorrow before 5 pm",
+      "line3": "→ reply drafted in your tone of voice",
+      "done": "✓ waiting for your approval · 1.2s · 0 errors"
     }
   }
 }

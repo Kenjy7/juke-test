@@ -61,8 +61,8 @@ onBeforeUnmount(() => {
 <style scoped lang="scss">
 .faq-section {
   position: relative;
-  padding-top: var(--space-24);
-  padding-bottom: var(--space-24);
+  padding-top: var(--section-pad-y);
+  padding-bottom: var(--section-pad-y);
   overflow: hidden;
 }
 

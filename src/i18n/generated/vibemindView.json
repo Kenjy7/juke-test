@@ -1,7 +1,7 @@
 {
   "nl": {
     "hero": {
-      "eyebrow": "Pre-release · Een product van JukeCoding",
+      "eyebrow": "Pre-release · Een product van Juke",
       "titleHighlight": "bouw met meerdere AI-agents tegelijk.",
       "subtitle": "De desktop-tool die we zelf elke dag gebruiken. Start meerdere Claude Code-sessies naast elkaar in panes, sleep taken en skills erin, en zie in één oogopslag welke agent klaar is en welke op jouw input wacht.",
       "ctaBeta": "Schrijf je in voor de beta",
@@ -12,7 +12,7 @@
       "workspaces": "Workspaces",
       "buildPrompt": "bouw de checkout-flow af",
       "waitingBadge": "wacht op input",
-      "reviewDone": "Review klaar — 3 fixes.",
+      "reviewDone": "Review klaar: 3 fixes.",
       "reviewAsk": "Zal ik committen?",
       "testsRunning": "running 12 cases…",
       "kanban": {
@@ -53,7 +53,7 @@
         },
         "mcp": {
           "title": "MCP-server ingebouwd",
-          "description": "Claude leest live welke workspaces, taken en panes je open hebt staan — en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
+          "description": "Claude leest live welke workspaces, taken en panes je open hebt staan, en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
         },
         "voice": {
           "title": "Voice-input",
@@ -100,13 +100,13 @@
       "reasonPlaceholder": "Bv. parallel features bouwen, code reviewen, research…",
       "submitSending": "Versturen…",
       "submit": "Inschrijven",
-      "success": "Bedankt! Je staat op de lijst — we nemen contact op zodra er plek is. 🎉",
+      "success": "Bedankt! Je staat op de lijst. We nemen contact op zodra er plek is. 🎉",
       "errorPrefix": "Er ging iets mis. Probeer het opnieuw of mail"
     }
   },
   "en": {
     "hero": {
-      "eyebrow": "Pre-release · A product by JukeCoding",
+      "eyebrow": "Pre-release · A product by Juke",
       "titleHighlight": "build with several AI agents at once.",
       "subtitle": "The desktop tool we use ourselves every day. Run several Claude Code sessions side by side in panes, drag tasks and skills into them, and see at a glance which agent is done and which is waiting on your input.",
       "ctaBeta": "Sign up for the beta",
@@ -117,7 +117,7 @@
       "workspaces": "Workspaces",
       "buildPrompt": "finish the checkout flow",
       "waitingBadge": "waiting on input",
-      "reviewDone": "Review done — 3 fixes.",
+      "reviewDone": "Review done: 3 fixes.",
       "reviewAsk": "Shall I commit?",
       "testsRunning": "running 12 cases…",
       "kanban": {
@@ -158,7 +158,7 @@
         },
         "mcp": {
           "title": "Built-in MCP server",
-          "description": "Claude reads live which workspaces, tasks and panes you have open — and can create or move tasks. Your agents know what you're working on."
+          "description": "Claude reads live which workspaces, tasks and panes you have open, and can create or move tasks. Your agents know what you're working on."
         },
         "voice": {
           "title": "Voice input",
@@ -205,7 +205,7 @@
       "reasonPlaceholder": "E.g. building features in parallel, reviewing code, research…",
       "submitSending": "Sending…",
       "submit": "Sign up",
-      "success": "Thanks! You're on the list — we'll be in touch as soon as a spot opens up. 🎉",
+      "success": "Thanks! You're on the list. We'll be in touch as soon as a spot opens up. 🎉",
       "errorPrefix": "Something went wrong. Please try again or email"
     }
   }

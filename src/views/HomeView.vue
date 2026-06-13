@@ -1,11 +1,9 @@
 <template>
   <BackgroundWeb>
     <HeroSectionHome />
+    <SaasShowcaseHome />
     <AiShowcase />
     <ServiceSection />
-    <AiProcess />
-    <AiHomepageSection />
-    <CasesCta />
     <WaaromJuke />
     <FaqList
       :faqs="homeFaqsDisplay"
@@ -13,7 +11,7 @@
       :title="t('homeView.faq.title')"
       :description="t('homeView.faq.description')"
     />
-    <ContactComponent />
+    <CasesCta />
   </BackgroundWeb>
 </template>
 
@@ -22,13 +20,11 @@ import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import HeroSectionHome from '@/components/HeroSectionHome.vue'
+import SaasShowcaseHome from '@/components/SaasShowcaseHome.vue'
 import AiShowcase from '@/components/AiShowcase.vue'
 import ServiceSection from '@/components/ServiceSection.vue'
-import AiProcess from '@/components/AiProcess.vue'
-import AiHomepageSection from '@/components/AiHomepageSection.vue'
 import CasesCta from '@/components/CasesCta.vue'
 import WaaromJuke from '@/components/WaaromJuke.vue'
-import ContactComponent from '@/components/ContactFormulier.vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import FaqList from '@/components/FaqList.vue'
 
@@ -36,24 +32,24 @@ const { t } = useI18n()
 
 const homeFaqs = [
   {
-    question: 'Wat doet JukeCoding precies?',
+    question: 'Wat doet Juke precies?',
     answer:
-      "JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan.",
+      "Juke is een development studio in Hasselt die SaaS-platformen, AI-oplossingen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om eigen software te ontwikkelen, processen te automatiseren en online sterker te staan.",
   },
   {
-    question: 'Wat kosten AI-projecten of SaaS-development?',
+    question: 'Wat kost SaaS-development of een AI-project?',
     answer:
-      'AI-projecten en SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope.',
+      'SaaS-platformen en AI-projecten zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope.',
   },
   {
     question: 'Bieden jullie ook webdesign aan?',
     answer:
-      'Ja. Naast AI en SaaS bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO.',
+      'Ja. Naast SaaS en AI bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO.',
   },
   {
     question: 'Voor wie zijn jullie diensten bedoeld?',
     answer:
-      "Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie.",
+      "Onze SaaS- en AI-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie.",
   },
   {
     question: 'Hoe ziet een samenwerking eruit?',
@@ -71,12 +67,12 @@ const homeFaqsDisplay = computed(() => [
 ])
 
 useHead({
-  title: 'AI & SaaS Development Studio Hasselt | JukeCoding',
+  title: 'SaaS & AI Development Studio Hasselt | Juke',
   meta: [
     {
       name: 'description',
       content:
-        'JukeCoding bouwt AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
+        'Juke bouwt SaaS-platformen, AI-oplossingen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
     },
     {
       name: 'robots',
@@ -85,44 +81,44 @@ useHead({
     {
       name: 'keywords',
       content:
-        'JukeCoding, AI development Belgie, SaaS development, AI-automatisering, custom software, webdesign Hasselt, development studio Belgie',
+        'Juke, SaaS development, AI development Belgie, AI-automatisering, custom software, webdesign Hasselt, development studio Belgie',
     },
     { name: 'geo.region', content: 'BE-VLG' },
     { name: 'geo.placename', content: 'Hasselt' },
     { name: 'geo.position', content: '50.9307;5.3378' },
     { name: 'ICBM', content: '50.9307, 5.3378' },
-    { name: 'author', content: 'JukeCoding' },
-    { name: 'copyright', content: 'JukeCoding' },
+    { name: 'author', content: 'Juke' },
+    { name: 'copyright', content: 'Juke' },
     { name: 'language', content: 'Dutch' },
     {
       property: 'og:title',
-      content: 'AI & SaaS Development Studio | JukeCoding',
+      content: 'SaaS & AI Development Studio | Juke',
     },
     {
       property: 'og:description',
       content:
-        'JukeCoding bouwt AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
+        'Juke bouwt SaaS-platformen, AI-oplossingen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/' },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
-    { property: 'og:site_name', content: 'JukeCoding' },
+    { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:title',
-      content: 'AI & SaaS Development Studio | JukeCoding',
+      content: 'SaaS & AI Development Studio | Juke',
     },
     {
       name: 'twitter:description',
-      content: 'AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie.',
+      content: 'SaaS-platformen, AI-oplossingen en websites voor bedrijven met ambitie.',
     },
     { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       name: 'twitter:image:alt',
-      content: 'JukeCoding - AI & SaaS development studio in Hasselt',
+      content: 'Juke - SaaS & AI development studio in Hasselt',
     },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/' }],
@@ -133,7 +129,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
         '@id': 'https://jukecoding.be/#organization',
-        name: 'JukeCoding',
+        name: 'Juke',
         alternateName: 'Juke Coding',
         url: 'https://jukecoding.be/',
         logo: {
@@ -144,7 +140,7 @@ useHead({
         },
         image: 'https://jukecoding.be/og-image.jpg',
         description:
-          'AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
+          'SaaS-platformen, AI-oplossingen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
         address: {
           '@type': 'PostalAddress',
           addressLocality: 'Hasselt',
@@ -173,9 +169,9 @@ useHead({
           'https://www.instagram.com/jukecoding',
         ],
         knowsAbout: [
+          'SaaS Development',
           'AI Development',
           'AI Automatisering',
-          'SaaS Development',
           'Chatbots',
           'Workflow Automatisatie',
           'Webdesign',
@@ -190,17 +186,8 @@ useHead({
         ],
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
-          name: 'AI, SaaS & Webdesign diensten',
+          name: 'SaaS, AI & Webdesign diensten',
           itemListElement: [
-            {
-              '@type': 'Offer',
-              availability: 'https://schema.org/InStock',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'AI-projecten',
-                description: 'AI-automatisering, chatbots en slimme workflows op maat',
-              },
-            },
             {
               '@type': 'Offer',
               availability: 'https://schema.org/InStock',
@@ -208,6 +195,15 @@ useHead({
                 '@type': 'Service',
                 name: 'SaaS Development',
                 description: 'Custom SaaS-platformen, dashboards en portalen',
+              },
+            },
+            {
+              '@type': 'Offer',
+              availability: 'https://schema.org/InStock',
+              itemOffered: {
+                '@type': 'Service',
+                name: 'AI-projecten',
+                description: 'AI-automatisering, chatbots en slimme workflows op maat',
               },
             },
             {
@@ -229,7 +225,7 @@ useHead({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         '@id': 'https://jukecoding.be/#website',
-        name: 'JukeCoding',
+        name: 'Juke',
         url: 'https://jukecoding.be/',
         publisher: { '@id': 'https://jukecoding.be/#organization' },
       }),

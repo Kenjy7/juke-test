@@ -2,17 +2,8 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
-        <img
-          src="../../src/assets/logo.webp"
-          alt="JUKE Coding"
-          class="footer-logo"
-          width="100"
-          height="100"
-          loading="lazy"
-          decoding="async"
-        />
         <div class="brand-content">
-          <h2 class="brand-title"><span>JUKE</span> CODING</h2>
+          <h2 class="brand-title">juke</h2>
           <p class="brand-tagline">{{ t('footer.tagline') }}</p>
         </div>
       </div>
@@ -21,16 +12,10 @@
         <h3 class="footer-heading">{{ t('footer.headings.services') }}</h3>
         <ul class="footer-list">
           <li>
-            <router-link to="/ai-projecten">{{ t('footer.links.aiProjects') }}</router-link>
-          </li>
-          <li>
             <router-link to="/saas-development">{{ t('footer.links.saas') }}</router-link>
           </li>
           <li>
-            <router-link to="/webdesign">{{ t('footer.links.webdesign') }}</router-link>
-          </li>
-          <li>
-            <router-link to="/gratis-seo-scan">{{ t('footer.links.seoScan') }}</router-link>
+            <router-link to="/ai-projecten">{{ t('footer.links.aiProjects') }}</router-link>
           </li>
         </ul>
       </nav>
@@ -47,18 +32,7 @@
         <h3 class="footer-heading">{{ t('footer.headings.company') }}</h3>
         <ul class="footer-list">
           <li>
-            <router-link to="/website-die-klanten-oplevert">{{
-              t('footer.links.approach')
-            }}</router-link>
-          </li>
-          <li>
             <router-link to="/blog">{{ t('footer.links.blog') }}</router-link>
-          </li>
-          <li>
-            <router-link to="/offerte-aanvraag">{{ t('footer.links.quote') }}</router-link>
-          </li>
-          <li>
-            <router-link to="/contact">{{ t('footer.headings.contact') }}</router-link>
           </li>
         </ul>
       </nav>
@@ -153,7 +127,7 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 JUKE CODING &mdash; All rights reserved</p>
+      <p>&copy; 2026 juke &mdash; All rights reserved</p>
     </div>
   </footer>
 </template>
@@ -187,12 +161,6 @@ const { t } = useI18n()
   align-items: flex-start;
 }
 
-.footer-logo {
-  width: 100px;
-  height: 100px;
-  flex-shrink: 0;
-}
-
 .brand-content {
   display: flex;
   flex-direction: column;
@@ -200,17 +168,13 @@ const { t } = useI18n()
 }
 
 .brand-title {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  font-weight: var(--weight-regular);
+  font-family: var(--font-wordmark);
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
   margin: 0;
-  line-height: 1.2;
-  padding-top: 24px;
+  line-height: 1;
   color: var(--color-text-primary);
-
-  span {
-    font-weight: var(--weight-bold);
-  }
 }
 
 .brand-tagline {

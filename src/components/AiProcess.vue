@@ -27,7 +27,7 @@
       </ol>
 
       <div class="process-cta reveal">
-        <router-link to="/offerte-aanvraag" class="btn btn--accent">
+        <router-link to="/contact" class="btn btn--accent">
           <span>{{ t('aiProcess.cta.label') }}</span>
           <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
             <path
@@ -80,7 +80,7 @@ onMounted(() => {
 <style scoped lang="scss">
 /* ── Section shell ── */
 .process {
-  padding: var(--space-24) var(--space-8) var(--space-16);
+  padding: var(--section-pad-y) var(--space-8);
 }
 
 .container {
@@ -251,7 +251,7 @@ p {
 
 @media (max-width: 768px) {
   .process {
-    padding: var(--space-16) var(--space-5) var(--space-12);
+    padding: var(--section-pad-y) var(--space-5);
   }
 
   .timeline {

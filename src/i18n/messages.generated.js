@@ -2,21 +2,10 @@
 // Do not edit by hand. Run `node scripts/build-locales.mjs` to regenerate.
 export default {
   "nl": {
-    "aIAutomatisationCTA": {
-      "head": {
-        "title": "Klaar om jouw processen te automatiseren met AI?",
-        "leadStart": "Koppel formulieren, leads en opvolging aan slimme AI-automatisering",
-        "leadEnd": "ideaal voor KMO’s die tijd willen winnen en sneller willen groeien."
-      },
-      "cta": {
-        "ariaLabel": "Bekijk AI automatisatie",
-        "label": "Ontdek AI automatisatie"
-      }
-    },
     "aanbodView": {
       "shortAnswer": {
         "title": "Webdesign naast onze AI-expertise",
-        "body": "Naast AI-automatisering bouwt JukeCoding ook professionele websites op maat voor KMO's en zelfstandigen in België. Elke website is snel, mobielvriendelijk en ontworpen om bezoekers om te zetten in aanvragen of klanten. We begeleiden je van strategie en structuur tot design, ontwikkeling en livegang — met focus op duidelijkheid, vertrouwen en meetbaar resultaat."
+        "body": "Naast AI-automatisering bouwt Juke ook professionele websites op maat voor KMO's en zelfstandigen in België. Elke website is snel, mobielvriendelijk en ontworpen om bezoekers om te zetten in aanvragen of klanten. We begeleiden je van strategie en structuur tot design, ontwikkeling en livegang. Met focus op duidelijkheid, vertrouwen en meetbaar resultaat."
       }
     },
     "aiFeaturedrid": {
@@ -32,7 +21,7 @@ export default {
           "highlights": {
             "0": "Sales & support automatisatie",
             "1": "24/7 actief en schaalbaar",
-            "2": "Zelflerend en adaptief"
+            "2": "Koppelt met CRM, ERP & API's"
           }
         },
         "insight": {
@@ -40,7 +29,7 @@ export default {
           "description": "AI analyseert grote hoeveelheden data en vertaalt deze naar duidelijke inzichten voor snellere, betere beslissingen.",
           "highlights": {
             "0": "Realtime dashboards",
-            "1": "Predictive analytics",
+            "1": "Voorspellingen op je data",
             "2": "Datagedreven keuzes"
           }
         },
@@ -78,7 +67,7 @@ export default {
         "lead": "Digitale oplossingen die met",
         "accent": "je bedrijf meegroeien."
       },
-      "lead": "We transformeren bedrijfsprocessen met intelligente automatisering. Van eerste idee tot enterprise-schaal: onze oplossingen evolueren mee met je ambities.",
+      "lead": "We transformeren bedrijfsprocessen met slimme automatisering. Van eerste idee tot grootschalig gebruik: onze oplossingen groeien mee met je ambities.",
       "industriesTitle": "Voor elk bedrijfstype",
       "tags": {
         "startups": "Startups",
@@ -133,7 +122,7 @@ export default {
         },
         "optimalisatie": {
           "title": "Optimalisatie",
-          "desc": "We monitoren, meten en verbeteren. De AI wordt elke week slimmer."
+          "desc": "We monitoren, meten en verbeteren op basis van echte resultaten."
         }
       }
     },
@@ -142,7 +131,7 @@ export default {
         "eyebrow": "Wat AI voor jouw bedrijf doet",
         "titleLine1": "AI die uren",
         "titleLine2": "handmatig werk overneemt.",
-        "lead": "We bouwen AI die daadwerkelijk taken uitvoert — niet alleen adviseert."
+        "lead": "We bouwen AI die daadwerkelijk taken uitvoert, niet alleen adviseert."
       },
       "flow": {
         "step1": "Klant stuurt bericht",
@@ -151,12 +140,12 @@ export default {
       },
       "featured": {
         "title": "Sales & Support Automatisering",
-        "description": "AI die inkomende leads kwalificeert, vragen beantwoordt en opvolging automatiseert. Van eerste contact tot afspraak — zonder handmatig werk."
+        "description": "AI die inkomende leads kwalificeert, vragen beantwoordt en opvolging automatiseert. Van eerste contact tot afspraak, zonder handmatig werk."
       },
       "cards": {
         "content": {
           "title": "Automatische Contentcreatie",
-          "description": "Blogposts, social media, rapportages — AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd."
+          "description": "Blogposts, social media, rapportages: AI genereert content in jouw tone-of-voice. Altijd on-brand, altijd op tijd."
         },
         "data": {
           "title": "Data & Inzichten",
@@ -164,14 +153,14 @@ export default {
         },
         "workflow": {
           "title": "Workflow Integraties",
-          "description": "Koppel AI aan je bestaande tools — CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren."
+          "description": "Koppel AI aan je bestaande tools: CRM, e-mail, boekhouding. Alles praat met elkaar, zonder handmatig kopiëren."
         }
       }
     },
     "aiSolutionsView": {
       "shortAnswer": {
-        "title": "AI-automatisering: de kernexpertise van JukeCoding",
-        "body": "JukeCoding is gespecialiseerd in AI-automatisering voor Belgische bedrijven. We bouwen slimme workflows, chatbots en automatiseringen op maat die repetitieve taken volledig overnemen. Zo besparen teams tot 80% tijd, verminderen ze fouten en kunnen ze zich focussen op groei en strategie."
+        "title": "AI-automatisering: de kernexpertise van Juke",
+        "body": "Juke is gespecialiseerd in AI-automatisering voor Belgische bedrijven. We bouwen slimme workflows, chatbots en automatiseringen op maat die repetitieve taken volledig overnemen. Zo neemt je team repetitief werk uit handen, maakt het minder fouten en houdt het tijd over voor groei en strategie."
       }
     },
     "aiSplitSection": {
@@ -191,10 +180,10 @@ export default {
     },
     "beheerlyView": {
       "hero": {
-        "eyebrow": "Software voor syndici · Een product van JukeCoding",
-        "titleLead": "Beheerly —",
-        "titleHighlight": "het beheer van mede-eigendommen, eindelijk gestroomlijnd.",
-        "subtitle": "Eén platform dat syndici, aannemers en bewoners samenbrengt rond de hele flow van een gebouw: van melding tot oplevering. Met AI die de klassieke administratie — triage, offertes en samenvattingen — voor je wegwerkt.",
+        "eyebrow": "Software voor syndici",
+        "titleLead": "Beheerly stroomlijnt",
+        "titleHighlight": "mede‑eigendom.",
+        "subtitle": "Eén platform dat syndici, aannemers en bewoners samenbrengt rond de hele flow van een gebouw: van melding tot oplevering. Met AI die de klassieke administratie (triage, offertes en samenvattingen) voor je wegwerkt.",
         "ctaPrimary": "Vraag uitleg of een demo",
         "ctaMail": "Mail ons direct",
         "note": "Web & mobiel (PWA) · gebouwd voor Belgische mede-eigendommen"
@@ -244,17 +233,17 @@ export default {
       "intro": {
         "title": "Wat is Beheerly?",
         "paragraph1": "Een syndicus jongleert dagelijks met meldingen van bewoners, offertes van aannemers, werven die opgevolgd moeten worden en een berg administratie. Dat zit vandaag verspreid over mails, telefoontjes en losse documenten.",
-        "paragraph2a": "brengt het allemaal samen in één web- en mobiel platform. Bewoners melden een probleem, de syndicus stuurt in een paar kliks een offerteaanvraag uit, gunt de opdracht, volgt de werf op en levert op — alles op één plek, met een duidelijke status voor elke partij.",
+        "paragraph2a": "brengt het allemaal samen in één web- en mobiel platform. Bewoners melden een probleem, de syndicus stuurt in een paar kliks een offerteaanvraag uit, gunt de opdracht, volgt de werf op en levert op. Alles op één plek, met een duidelijke status voor elke partij.",
         "paragraph2b": "doet het zware tilwerk: meldingen automatisch triëren, offertes samenvatten en vergelijken, en lange documenten in heldere taal samenvatten."
       },
       "flow": {
         "title": "De kernflow van elk gebouw",
-        "subtitle": "Van eerste melding tot oplevering — één doorlopend proces."
+        "subtitle": "Van eerste melding tot oplevering: één doorlopend proces."
       },
       "steps": {
         "complaint": {
           "title": "Klacht",
-          "description": "Een bewoner meldt een probleem via een eenvoudige link of de mobiele app — met foto’s. AI triëert de melding en bepaalt urgentie en categorie."
+          "description": "Een bewoner meldt een probleem via een eenvoudige link of de mobiele app, met foto’s. AI triëert de melding en bepaalt urgentie en categorie."
         },
         "quoteRequest": {
           "title": "Offerteaanvraag",
@@ -270,7 +259,7 @@ export default {
         },
         "delivery": {
           "title": "Oplevering",
-          "description": "Na afronding wordt alles netjes gedocumenteerd en gearchiveerd per gebouw — klaar voor de volgende keer."
+          "description": "Na afronding wordt alles netjes gedocumenteerd en gearchiveerd per gebouw, klaar voor de volgende keer."
         }
       },
       "features": {
@@ -299,7 +288,7 @@ export default {
         },
         "webMobile": {
           "title": "Web & mobiel",
-          "description": "Een installeerbare PWA — werkt op desktop én telefoon, zonder aparte app-store. Onderweg een melding afhandelen kan gewoon."
+          "description": "Een installeerbare PWA. Werkt op desktop én telefoon, zonder aparte app-store. Onderweg een melding afhandelen kan gewoon."
         }
       },
       "shots": {
@@ -330,7 +319,7 @@ export default {
       "faqItems": {
         "q1": {
           "question": "Voor wie is Beheerly bedoeld?",
-          "answer": "In de eerste plaats voor syndici die Belgische mede-eigendommen beheren. Bewoners en aannemers werken mee via eenvoudige links — zij hebben niet meteen een account nodig."
+          "answer": "In de eerste plaats voor syndici die Belgische mede-eigendommen beheren. Bewoners en aannemers werken mee via eenvoudige links. Zij hebben niet meteen een account nodig."
         },
         "q2": {
           "question": "Wat kost het?",
@@ -351,10 +340,9 @@ export default {
       },
       "cta": {
         "title": "Interesse in Beheerly?",
-        "body": "Of je nu een vrijblijvende demo wil, een vraag hebt of gewoon meer uitleg zoekt — we helpen je graag verder. Kies wat voor jou het makkelijkst is.",
+        "body": "Of je nu een vrijblijvende demo wil, een vraag hebt of gewoon meer uitleg zoekt, we helpen je graag verder. Kies wat voor jou het makkelijkst is.",
         "ctaContact": "Via het contactformulier",
-        "ctaFaq": "Lees de FAQ",
-        "ctaMail": "Mail ons direct"
+        "ctaFaq": "Lees de FAQ"
       }
     },
     "blogPostView": {
@@ -370,7 +358,7 @@ export default {
       "readingTime": "min leestijd",
       "cta": {
         "title": "Klaar om te starten?",
-        "text": "Ontdek wat JukeCoding voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.",
+        "text": "Ontdek wat Juke voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.",
         "button": "Gratis offerte aanvragen →"
       },
       "allPosts": "← Alle blogposts"
@@ -387,10 +375,10 @@ export default {
       }
     },
     "casesCta": {
-      "eyebrow": "Cases",
+      "eyebrow": "Aan de slag",
       "head": {
-        "title": "We bouwen momenteel onze eerste AI- en SaaS-projecten.",
-        "lead": "Heb je een idee voor een AI-oplossing of SaaS-platform? We denken graag vrijblijvend met je mee."
+        "title": "Klaar om jouw idee te bouwen?",
+        "lead": "Heb je een idee voor een SaaS-platform of AI-oplossing? We denken graag vrijblijvend met je mee."
       },
       "cta": {
         "discuss": "Bespreek je project"
@@ -398,8 +386,9 @@ export default {
     },
     "contactFormulier": {
       "header": {
+        "eyebrow": "Contact",
         "title": "Stuur ons een bericht",
-        "lead": "Heb je vragen over AI, SaaS of webdesign? Laat van je horen."
+        "lead": "Heb je een idee of een vraag over SaaS, apps of AI? Laat van je horen, we reageren doorgaans binnen 1 werkdag."
       },
       "modal": {
         "close": "Sluiten",
@@ -410,43 +399,48 @@ export default {
       },
       "info": {
         "emailLabel": "E-mail",
-        "phoneLabel": "Telefoon"
+        "phoneLabel": "Telefoon",
+        "responseLabel": "Reactietijd",
+        "responseValue": "Doorgaans binnen 1 werkdag"
       },
       "social": {
         "title": "Vind ons op"
       },
-      "package": {
-        "prefix": "Je hebt",
-        "suffix": "geselecteerd",
-        "clearAria": "Verwijder pakket"
-      },
       "form": {
         "honeypotLabel": "Laat dit veld leeg",
         "serviceLabel": "Waar ben je in geïnteresseerd?",
-        "serviceWebdesign": "Webdesign",
-        "serviceAi": "AI Automatisation",
+        "serviceSaas": "SaaS & apps",
+        "serviceAi": "AI-automatisering",
+        "serviceOther": "Iets anders",
         "firstNameLabel": "Voornaam",
         "lastNameLabel": "Achternaam",
         "emailLabel": "E-mailadres",
         "phoneLabel": "Telefoonnummer",
         "subjectLabel": "Onderwerp",
         "subjectPlaceholder": "Waar kan ik je mee helpen?",
-        "subjectInterest": "Interesse in {package}",
         "messageLabel": "Bericht",
         "messagePlaceholder": "Vertel ons over je project...",
         "submit": "Verstuur bericht",
-        "submitSending": "Versturen..."
+        "submitSending": "Versturen...",
+        "sendAnother": "Nog een bericht sturen"
       },
       "backlinks": {
         "aria": "Gerelateerde pagina’s",
         "label": "Ook interessant:",
-        "quote": "Offerte-aanvraag",
-        "webdesign": "Webdesign op maat",
+        "saas": "SaaS & apps",
         "ai": "AI Automatisatie"
       },
       "validation": {
-        "selectService": "Gelieve een dienst te selecteren.",
-        "nameEmailRequired": "Gelieve minstens je naam en e-mailadres in te vullen."
+        "service": "Kies waar je in geïnteresseerd bent.",
+        "name": "Vul je voornaam in.",
+        "lastname": "Vul je achternaam in.",
+        "email": "Vul je e-mailadres in.",
+        "emailInvalid": "Vul een geldig e-mailadres in."
+      },
+      "prefill": {
+        "beheerly": "Interesse in Beheerly",
+        "saas": "Interesse in SaaS & apps",
+        "ai": "Interesse in AI-automatisering"
       }
     },
     "cookiesPolicy": {
@@ -575,10 +569,10 @@ export default {
       "head": {
         "titleLead": "Websites die snel laden,",
         "titleHighlight": "scoren en converteren.",
-        "lead": "Snelle, conversiegerichte websites die de basis vormen voor je digitale groei — van strategie en design tot livegang. Inclusief technische SEO als fundament."
+        "lead": "Snelle, conversiegerichte websites die de basis vormen voor je digitale groei: van strategie en design tot livegang. Inclusief technische SEO als fundament."
       },
       "buttons": {
-        "packages": "Bekijk de pakketten",
+        "start": "Start je project",
         "intro": "Gratis kennismaking"
       },
       "checks": {
@@ -591,24 +585,24 @@ export default {
       "faq": {
         "label": "FAQ",
         "title": "Veelgestelde vragen",
-        "description": "Heldere antwoorden over AI, SaaS, webdesign en samenwerking."
+        "description": "Heldere antwoorden over SaaS, AI, webdesign en samenwerking."
       },
       "faqs": {
         "what": {
-          "question": "Wat doet JukeCoding precies?",
-          "answer": "JukeCoding is een development studio in Hasselt die AI-oplossingen, SaaS-platformen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om processen te automatiseren, eigen software te ontwikkelen en online sterker te staan."
+          "question": "Wat doet Juke precies?",
+          "answer": "Juke is een development studio in Hasselt die SaaS-platformen, AI-oplossingen en websites bouwt voor bedrijven met ambitie. We helpen scale-ups en KMO's om eigen software te ontwikkelen, processen te automatiseren en online sterker te staan."
         },
         "pricing": {
-          "question": "Wat kosten AI-projecten of SaaS-development?",
-          "answer": "AI-projecten en SaaS-platformen zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope."
+          "question": "Wat kost SaaS-development of een AI-project?",
+          "answer": "SaaS-platformen en AI-projecten zijn maatwerk en worden per project begroot na een vrijblijvend gesprek. We bespreken de prijs altijd persoonlijk en maken vooraf een heldere offerte, afgestemd op de scope."
         },
         "webdesign": {
           "question": "Bieden jullie ook webdesign aan?",
-          "answer": "Ja. Naast AI en SaaS bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO."
+          "answer": "Ja. Naast SaaS en AI bouwen we professionele websites op maat. Onze websites zijn snel, mobielvriendelijk en geoptimaliseerd voor conversie en lokale SEO."
         },
         "audience": {
           "question": "Voor wie zijn jullie diensten bedoeld?",
-          "answer": "Onze AI- en SaaS-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie."
+          "answer": "Onze SaaS- en AI-projecten zijn ideaal voor scale-ups, middelgrote bedrijven en internationale organisaties. Voor webdesign helpen we ook KMO's en zelfstandigen in heel Belgie."
         },
         "process": {
           "question": "Hoe ziet een samenwerking eruit?",
@@ -621,17 +615,17 @@ export default {
       "head": {
         "title": "Laat AI het repetitieve werk doen,",
         "titleHighlight": "zodat je team kan focussen.",
-        "lead": "Van AI die sales, support en e-mail afhandelt tot workflows op maat — we bouwen AI die tijd bespaart, fouten elimineert en meeschaalt met je bedrijf."
+        "lead": "Van AI die sales, support en e-mail afhandelt tot workflows op maat. We bouwen AI die tijd bespaart, fouten elimineert en meeschaalt met je bedrijf."
       },
       "cta": {
         "start": "Start met AI",
         "faq": "Veelgestelde vragen"
       },
       "terminal": {
-        "line1": "→ 142 inkomende e-mails geclassificeerd",
-        "line2": "→ 7 offerteaanvragen herkend & doorgestuurd",
-        "line3": "→ 3 antwoorden opgesteld & gepland",
-        "done": "✓ workflow voltooid · 1.2s · 0 fouten"
+        "line1": "→ nieuwe klantvraag binnen · order #4821",
+        "line2": "→ order opgezocht · levertijd: morgen vóór 17u",
+        "line3": "→ antwoord opgesteld in jouw tone-of-voice",
+        "done": "✓ wacht op je goedkeuring · 1.2s · 0 fouten"
       }
     },
     "klantHighlight": {
@@ -811,176 +805,15 @@ export default {
         }
       }
     },
-    "packagesSection": {
-      "head": {
-        "label": "Webdesign pakketten",
-        "title": "Onze webdesign pakketten",
-        "lead": "Kies een webdesign pakket dat past bij jouw bedrijf: een professionele <strong>bedrijfswebsite op maat</strong>, snel en mobielvriendelijk. Je kan starten met een <strong>eenmalige bouwprijs</strong> of kiezen voor een <strong>abonnement met hosting & onderhoud</strong> zodat je website veilig, snel en up-to-date blijft."
-      },
-      "toggle": {
-        "oneoff": "Eenmalig (website bouwen)",
-        "monthly": "Abonnement",
-        "monthlyPill": "hosting & onderhoud"
-      },
-      "monthlyInfo": {
-        "term": {
-          "title": "Minimaal 12 maanden",
-          "text": "Maandelijks betalen met een looptijd van 12 maanden."
-        },
-        "ownership": {
-          "title": "Na 12 maanden volledig jouw eigendom",
-          "text": "De website is daarna 100% van jou. Stoppen of doorgaan: jij kiest."
-        },
-        "support": {
-          "title": "Onderhoud & support inbegrepen",
-          "text": "Updates, back-ups, monitoring en support zodat je website performant blijft."
-        }
-      },
-      "card": {
-        "popular": "Populair",
-        "priceAria": "Prijs voor {name}",
-        "amount": "Op maat",
-        "periodOneoff": "eenmalige bouwprijs · prijs na kennismaking",
-        "periodMonthly": "maandelijks abonnement · prijs na kennismaking",
-        "includedTitle": "Inbegrepen in abonnement",
-        "includedSub": "Dezelfde website als <strong>{name}</strong>",
-        "cta": "Kies {name}"
-      },
-      "packages": {
-        "lite": {
-          "badge": "Starter",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "Responsive <strong>bedrijfswebsite</strong> tot <strong>4 pagina's</strong>",
-                "1": "Contactformulier + e-mail integratie (meer aanvragen)",
-                "2": "Conversiegerichte call-to-actions"
-              }
-            },
-            "design": {
-              "title": "Design & content",
-              "items": {
-                "0": "Basis grafische elementen + huisstijlkleuren",
-                "1": "Hulp bij structuur van teksten (titels & secties)",
-                "2": "Training & uitleg om zelf aanpassingen te doen"
-              }
-            },
-            "seo": {
-              "title": "SEO & revisies",
-              "items": {
-                "0": "SEO-basis (titels, meta, indexeerbaar)",
-                "1": "Geoptimaliseerde afbeeldingen (sneller laden)",
-                "2": "<strong>2 revisierondes</strong>"
-              }
-            }
-          }
-        },
-        "groove": {
-          "badge": "Aanbevolen",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "<strong>Alles uit Juke Lite</strong>",
-                "1": "Uitgebreide <strong>bedrijfswebsite</strong> tot <strong>7 pagina's</strong>",
-                "2": "Blog of nieuwssectie (extra vindbaarheid)"
-              }
-            },
-            "design": {
-              "title": "Design & UX",
-              "items": {
-                "0": "Custom design op jouw huisstijl",
-                "1": "Interacties en animaties waar nuttig",
-                "2": "Mobile UX optimalisatie (meer conversie)"
-              }
-            },
-            "seo": {
-              "title": "SEO & revisies",
-              "items": {
-                "0": "SEO-optimalisatie op pagina's & afbeeldingen",
-                "1": "Technische SEO check (headings, redirects)",
-                "2": "<strong>3–4 revisierondes</strong>"
-              }
-            }
-          }
-        },
-        "amplify": {
-          "badge": "Premium",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "<strong>Alles uit Juke Groove</strong>",
-                "1": "Tot <strong>10+ pagina's</strong> (groei & schaalbaarheid)",
-                "2": "Uitgebreide blog, portfolio of projectsecties (autoriteit opbouwen)"
-              }
-            },
-            "design": {
-              "title": "Design, UX & features",
-              "items": {
-                "0": "Volledig maatwerk design + UI/UX optimalisatie",
-                "1": "Professionele animaties & micro-interacties",
-                "2": "Online boekingssysteem of agenda",
-                "3": "CRM of nieuwsbrief integratie"
-              }
-            },
-            "seo": {
-              "title": "SEO, performance & revisies",
-              "items": {
-                "0": "SEO-optimalisatie + linkbuilding advies",
-                "1": "Website performance optimalisatie (sneller laden)",
-                "2": "Training & documentatie voor beheer",
-                "3": "<strong>5–6 revisierondes</strong>"
-              }
-            }
-          }
-        }
-      },
-      "monthlyPlans": {
-        "lite": {
-          "badge": "Starter abonnement",
-          "service": {
-            "0": "Hosting & SSL",
-            "1": "Updates & security",
-            "2": "Back-ups",
-            "3": "±60 min content updates",
-            "4": "Support"
-          },
-          "note": "Ideaal voor starters die ontzorgd willen worden."
-        },
-        "groove": {
-          "badge": "Meest gekozen",
-          "service": {
-            "0": "Hosting & SSL",
-            "1": "Updates & back-ups",
-            "2": "Monitoring",
-            "3": "±90 min content updates",
-            "4": "Prioritaire support"
-          },
-          "note": "Ideaal als je website actief mee evolueert."
-        },
-        "amplify": {
-          "badge": "Premium groei",
-          "service": {
-            "0": "Uptime monitoring",
-            "1": "Performance checks",
-            "2": "Updates & back-ups",
-            "3": "±2 uur content updates",
-            "4": "Integratie-onderhoud"
-          },
-          "note": "Voor bedrijven die focussen op conversie."
-        }
-      }
-    },
     "saasDevelopmentView": {
       "hero": {
         "eyebrow": "SaaS & app-development",
         "titleLead": "Eigen software,",
         "titleHighlight": "gebouwd om te schalen.",
-        "subtitle": "Van concept tot live product — dashboards, portalen en platformen op maat die meegroeien van je eerste tien naar tienduizenden gebruikers.",
+        "subtitle": "Van concept tot live product: dashboards, portalen en platformen op maat die meegroeien van je eerste tien naar tienduizenden gebruikers.",
         "ctaPrimary": "Bespreek je project",
-        "ctaSecondary": "Neem contact op"
+        "ctaSecondary": "Neem contact op",
+        "ctaFaq": "Veelgestelde vragen"
       },
       "tiles": {
         "mrr": "MRR",
@@ -1084,7 +917,7 @@ export default {
       "head": {
         "eyebrow": "Wat we bouwen",
         "title": "Van slimme automatisering tot complete platformen.",
-        "lead": "Eén partner voor je hele digitale traject — van slimme automatisering tot software en web, telkens op maat van je bedrijf."
+        "lead": "Eén partner voor je hele digitale traject: van slimme automatisering tot software en web, telkens op maat van je bedrijf."
       },
       "cards": {
         "ai": {
@@ -1096,6 +929,15 @@ export default {
             "API-koppelingen & integraties"
           ],
           "linkText": "Meer over AI"
+        },
+        "digital": {
+          "title": "Digitaliseren",
+          "points": [
+            "Van papier en Excel naar digitale processen",
+            "Bestaande systemen koppelen en stroomlijnen",
+            "Handmatig werk omzetten in slimme workflows",
+            "Een stevige basis voor verdere groei"
+          ]
         },
         "saas": {
           "title": "SaaS-platformen bouwen",
@@ -1119,96 +961,9 @@ export default {
         }
       }
     },
-    "stappenWebdesign": {
-      "imageAlt": "{title} afbeelding {n}",
-      "step1": {
-        "phase": "Stap 1",
-        "duration": "Gesprek",
-        "title": "Kennismaken & Plan maken",
-        "intro": "We bepalen samen wat jouw website moet opleveren.",
-        "paragraphs": [
-          "We starten met een persoonlijk gesprek over je bedrijf, je aanbod en je ideale klant. Heb je al een website? Dan bekijken we wat goed werkt en waar bezoekers afhaken.",
-          "Daarna maken we een helder plan: structuur, pagina’s, inhoud en de volgende stappen. Zo bouwen we gericht aan een website die duidelijk is én aanvragen oplevert."
-        ],
-        "cards": {
-          "conversation": {
-            "title": "Persoonlijk gesprek",
-            "description": "We bespreken jouw ideeën, doelen en verwachtingen zodat we goed op één lijn zitten."
-          },
-          "audience": {
-            "title": "Inzicht in je doelgroep",
-            "description": "We kijken wie je klanten zijn en wat zij nodig hebben op jouw website."
-          },
-          "check": {
-            "title": "Website check",
-            "description": "Als je al een website hebt, bekijken we snelheid, gebruiksgemak en verbeterpunten."
-          },
-          "plan": {
-            "title": "Duidelijk stappenplan",
-            "description": "Je weet precies wat we gaan doen, wanneer en met welk doel."
-          }
-        },
-        "cta": "Start met een gratis strategiesessie"
-      },
-      "step2": {
-        "phase": "Stap 2",
-        "duration": "1 week",
-        "title": "Ontwerp & Uitstraling",
-        "intro": "Een ontwerp dat vertrouwen wekt en bezoekers vlot laat beslissen.",
-        "paragraphs": [
-          "We werken eerst de structuur uit: welke pagina’s zijn nodig en hoe vinden bezoekers snel wat ze zoeken. Alles wordt ontworpen met gebruiksgemak als prioriteit.",
-          "Daarna vertalen we jouw merk naar een professionele uitstraling met kleuren, typografie en beelden die passen bij je doelgroep. Je krijgt een duidelijk voorstel dat we samen verfijnen."
-        ]
-      },
-      "step3": {
-        "phase": "Stap 3",
-        "duration": "2-3 weken",
-        "title": "Website Bouwen",
-        "intro": "We bouwen een snelle, veilige website die klaar is om te groeien.",
-        "paragraphs": [
-          "We ontwikkelen je website met moderne techniek die snel laadt en betrouwbaar werkt op mobiel en desktop. Je kan achteraf zelf eenvoudig teksten en afbeeldingen aanpassen.",
-          "Heb je extra functionaliteiten nodig, zoals formulieren, een webshop of koppelingen met tools? Dan bouwen we die mee in — zonder dat het complex wordt voor jou."
-        ],
-        "cards": {
-          "custom": {
-            "title": "Website op maat",
-            "description": "Een professionele website die volledig aansluit bij jouw wensen en doelen."
-          },
-          "webshop": {
-            "title": "Webshop",
-            "description": "Online verkopen met een gebruiksvriendelijke en veilige webshop."
-          },
-          "integrations": {
-            "title": "Koppelingen & tools",
-            "description": "Integraties met e-mail, betalingen, statistieken en andere systemen."
-          },
-          "portals": {
-            "title": "Portalen & dashboards",
-            "description": "Handige omgevingen voor klanten, medewerkers of overzichtelijke data."
-          }
-        }
-      },
-      "step4": {
-        "phase": "Stap 4",
-        "duration": "Doorlopend",
-        "title": "Testen, Livegang & Verbeteren",
-        "intro": "We lanceren zorgvuldig en blijven optimaliseren voor betere resultaten.",
-        "paragraphs": [
-          "Voor de livegang testen we alles uitgebreid: snelheid, mobielvriendelijkheid, formulieren en weergave in verschillende browsers. Zo gaat je website stabiel en professioneel online.",
-          "Na de lancering blijven we verbeteren. We kijken naar bezoekersgedrag en sturen bij waar nodig, zodat je website stap voor stap meer aanvragen en conversie oplevert."
-        ],
-        "results": [
-          "Goed geteste en stabiele website",
-          "Betere vindbaarheid in Google",
-          "Inzicht in bezoekers en prestaties",
-          "Doorlopende verbeteringen",
-          "Onderhoud en support zonder zorgen"
-        ]
-      }
-    },
     "vibemindView": {
       "hero": {
-        "eyebrow": "Pre-release · Een product van JukeCoding",
+        "eyebrow": "Pre-release · Een product van Juke",
         "titleHighlight": "bouw met meerdere AI-agents tegelijk.",
         "subtitle": "De desktop-tool die we zelf elke dag gebruiken. Start meerdere Claude Code-sessies naast elkaar in panes, sleep taken en skills erin, en zie in één oogopslag welke agent klaar is en welke op jouw input wacht.",
         "ctaBeta": "Schrijf je in voor de beta",
@@ -1219,7 +974,7 @@ export default {
         "workspaces": "Workspaces",
         "buildPrompt": "bouw de checkout-flow af",
         "waitingBadge": "wacht op input",
-        "reviewDone": "Review klaar — 3 fixes.",
+        "reviewDone": "Review klaar: 3 fixes.",
         "reviewAsk": "Zal ik committen?",
         "testsRunning": "running 12 cases…",
         "kanban": {
@@ -1260,7 +1015,7 @@ export default {
           },
           "mcp": {
             "title": "MCP-server ingebouwd",
-            "description": "Claude leest live welke workspaces, taken en panes je open hebt staan — en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
+            "description": "Claude leest live welke workspaces, taken en panes je open hebt staan, en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
           },
           "voice": {
             "title": "Voice-input",
@@ -1307,7 +1062,7 @@ export default {
         "reasonPlaceholder": "Bv. parallel features bouwen, code reviewen, research…",
         "submitSending": "Versturen…",
         "submit": "Inschrijven",
-        "success": "Bedankt! Je staat op de lijst — we nemen contact op zodra er plek is. 🎉",
+        "success": "Bedankt! Je staat op de lijst. We nemen contact op zodra er plek is. 🎉",
         "errorPrefix": "Er ging iets mis. Probeer het opnieuw of mail"
       }
     },
@@ -1372,7 +1127,7 @@ export default {
           },
           "speed": {
             "title": "Snelheid en vertrouwen",
-            "text": "Traag laden of een rommelige layout voelt onbetrouwbaar — en dat kost leads en aanvragen."
+            "text": "Traag laden of een rommelige layout voelt onbetrouwbaar, en dat kost leads en aanvragen."
           }
         }
       },
@@ -1391,7 +1146,7 @@ export default {
           },
           "speed": {
             "title": "Snelheid & technische basis",
-            "text": "Mobielvriendelijk, snel en technisch netjes — met een sterke SEO-basis vanaf dag één."
+            "text": "Mobielvriendelijk, snel en technisch netjes, met een sterke SEO-basis vanaf dag één."
           },
           "cta": {
             "title": "Duidelijke call-to-actions",
@@ -1454,7 +1209,7 @@ export default {
       "audience": {
         "label": "Voor wie?",
         "title": "Ideaal voor bedrijven die meer aanvragen willen",
-        "subtitle": "Voor bedrijven die hun website willen inzetten als groeimotor — niet als online brochure.",
+        "subtitle": "Voor bedrijven die hun website willen inzetten als groeimotor, niet als online brochure.",
         "items": {
           "sme": "KMO's en lokale bedrijven die meer leads of aanvragen willen.",
           "services": "Dienstverleners (consultants, agencies, coaches, …) met een duidelijk aanbod.",
@@ -1483,33 +1238,13 @@ export default {
         "subtitle": "We bekijken je doelen en geven eerlijk advies over wat je website nodig heeft om meer aanvragen op te leveren.",
         "cta": "Gratis kennismaking"
       }
-    },
-    "websiteKlantenCTA": {
-      "badge": "💡 Bestaande website?",
-      "title": "Website die weinig aanvragen oplevert?",
-      "lead": {
-        "line1": "Ontdek hoe we jouw website omzetten in een klantenmagneet",
-        "line2": "met behulp van conversie-optimalisatie."
-      },
-      "cta": "Lees meer over conversie"
     }
   },
   "en": {
-    "aIAutomatisationCTA": {
-      "head": {
-        "title": "Ready to automate your processes with AI?",
-        "leadStart": "Connect forms, leads and follow-up to smart AI automation",
-        "leadEnd": "ideal for SMEs that want to save time and grow faster."
-      },
-      "cta": {
-        "ariaLabel": "View AI automation",
-        "label": "Discover AI automation"
-      }
-    },
     "aanbodView": {
       "shortAnswer": {
         "title": "Web design alongside our AI expertise",
-        "body": "Besides AI automation, JukeCoding also builds professional custom websites for SMEs and self-employed professionals in Belgium. Every website is fast, mobile-friendly and designed to turn visitors into enquiries or customers. We guide you from strategy and structure through design, development and go-live — with a focus on clarity, trust and measurable results."
+        "body": "Besides AI automation, Juke also builds professional custom websites for SMEs and self-employed professionals in Belgium. Every website is fast, mobile-friendly and designed to turn visitors into enquiries or customers. We guide you from strategy and structure through design, development and go-live, with a focus on clarity, trust and measurable results."
       }
     },
     "aiFeaturedrid": {
@@ -1525,7 +1260,7 @@ export default {
           "highlights": {
             "0": "Sales & support automation",
             "1": "Active 24/7 and scalable",
-            "2": "Self-learning and adaptive"
+            "2": "Connects to CRM, ERP & APIs"
           }
         },
         "insight": {
@@ -1533,7 +1268,7 @@ export default {
           "description": "AI analyses large volumes of data and turns it into clear insights for faster, better decisions.",
           "highlights": {
             "0": "Real-time dashboards",
-            "1": "Predictive analytics",
+            "1": "Forecasts from your data",
             "2": "Data-driven choices"
           }
         },
@@ -1571,7 +1306,7 @@ export default {
         "lead": "Digital solutions that grow",
         "accent": "with your business."
       },
-      "lead": "We transform business processes with intelligent automation. From first idea to enterprise scale: our solutions evolve along with your ambitions.",
+      "lead": "We transform business processes with smart automation. From first idea to large-scale use: our solutions grow with your ambitions.",
       "industriesTitle": "For every type of business",
       "tags": {
         "startups": "Startups",
@@ -1626,7 +1361,7 @@ export default {
         },
         "optimalisatie": {
           "title": "Optimisation",
-          "desc": "We monitor, measure and improve. The AI gets smarter every week."
+          "desc": "We monitor, measure and improve based on real results."
         }
       }
     },
@@ -1635,7 +1370,7 @@ export default {
         "eyebrow": "What AI does for your business",
         "titleLine1": "AI that takes over hours",
         "titleLine2": "of manual work.",
-        "lead": "We build AI that actually carries out tasks — not just advises."
+        "lead": "We build AI that actually carries out tasks, not just advises."
       },
       "flow": {
         "step1": "Customer sends a message",
@@ -1644,12 +1379,12 @@ export default {
       },
       "featured": {
         "title": "Sales & Support Automation",
-        "description": "AI that qualifies incoming leads, answers questions and automates follow-up. From first contact to appointment — without manual work."
+        "description": "AI that qualifies incoming leads, answers questions and automates follow-up. From first contact to appointment, without manual work."
       },
       "cards": {
         "content": {
           "title": "Automated Content Creation",
-          "description": "Blog posts, social media, reports — AI generates content in your tone of voice. Always on-brand, always on time."
+          "description": "Blog posts, social media, reports: AI generates content in your tone of voice. Always on-brand, always on time."
         },
         "data": {
           "title": "Data & Insights",
@@ -1657,14 +1392,14 @@ export default {
         },
         "workflow": {
           "title": "Workflow Integrations",
-          "description": "Connect AI to your existing tools — CRM, email, accounting. Everything talks to each other, without manual copying."
+          "description": "Connect AI to your existing tools: CRM, email, accounting. Everything talks to each other, without manual copying."
         }
       }
     },
     "aiSolutionsView": {
       "shortAnswer": {
-        "title": "AI automation: JukeCoding's core expertise",
-        "body": "JukeCoding specialises in AI automation for Belgian businesses. We build smart workflows, chatbots and tailor-made automations that fully take over repetitive tasks. This way teams save up to 80% of their time, reduce errors and can focus on growth and strategy."
+        "title": "AI automation: Juke's core expertise",
+        "body": "Juke specialises in AI automation for Belgian businesses. We build smart workflows, chatbots and tailor-made automations that fully take over repetitive tasks. This way your team takes repetitive work off its plate, makes fewer mistakes and keeps time free for growth and strategy."
       }
     },
     "aiSplitSection": {
@@ -1684,10 +1419,10 @@ export default {
     },
     "beheerlyView": {
       "hero": {
-        "eyebrow": "Software for syndics · A JukeCoding product",
-        "titleLead": "Beheerly —",
-        "titleHighlight": "managing shared property, finally streamlined.",
-        "subtitle": "One platform that brings syndics, contractors and residents together around the entire flow of a building: from report to handover. With AI that handles the classic admin — triage, quotes and summaries — for you.",
+        "eyebrow": "Software for syndics",
+        "titleLead": "Beheerly streamlines",
+        "titleHighlight": "shared property.",
+        "subtitle": "One platform that brings syndics, contractors and residents together around the entire flow of a building: from report to handover. With AI that handles the classic admin (triage, quotes and summaries) for you.",
         "ctaPrimary": "Ask for details or a demo",
         "ctaMail": "Email us directly",
         "note": "Web & mobile (PWA) · built for Belgian shared properties"
@@ -1737,17 +1472,17 @@ export default {
       "intro": {
         "title": "What is Beheerly?",
         "paragraph1": "A syndic juggles resident reports, contractor quotes, sites that need following up and a mountain of admin every day. Today that is scattered across emails, phone calls and loose documents.",
-        "paragraph2a": "brings it all together in one web and mobile platform. Residents report a problem, the syndic sends out a quote request in a few clicks, awards the job, follows up the site and hands it over — all in one place, with a clear status for every party.",
+        "paragraph2a": "brings it all together in one web and mobile platform. Residents report a problem, the syndic sends out a quote request in a few clicks, awards the job, follows up the site and hands it over. All in one place, with a clear status for every party.",
         "paragraph2b": "does the heavy lifting: triaging reports automatically, summarising and comparing quotes, and summarising long documents in plain language."
       },
       "flow": {
         "title": "The core flow of every building",
-        "subtitle": "From first report to handover — one continuous process."
+        "subtitle": "From first report to handover: one continuous process."
       },
       "steps": {
         "complaint": {
           "title": "Report",
-          "description": "A resident reports a problem through a simple link or the mobile app — with photos. AI triages the report and determines urgency and category."
+          "description": "A resident reports a problem through a simple link or the mobile app, with photos. AI triages the report and determines urgency and category."
         },
         "quoteRequest": {
           "title": "Quote request",
@@ -1763,7 +1498,7 @@ export default {
         },
         "delivery": {
           "title": "Handover",
-          "description": "Once finished, everything is neatly documented and archived per building — ready for the next time."
+          "description": "Once finished, everything is neatly documented and archived per building, ready for the next time."
         }
       },
       "features": {
@@ -1792,7 +1527,7 @@ export default {
         },
         "webMobile": {
           "title": "Web & mobile",
-          "description": "An installable PWA — works on desktop and phone, without a separate app store. Handling a report on the go just works."
+          "description": "An installable PWA. Works on desktop and phone, without a separate app store. Handling a report on the go just works."
         }
       },
       "shots": {
@@ -1823,7 +1558,7 @@ export default {
       "faqItems": {
         "q1": {
           "question": "Who is Beheerly for?",
-          "answer": "First and foremost for syndics managing Belgian shared properties. Residents and contractors take part through simple links — they don't immediately need an account."
+          "answer": "First and foremost for syndics managing Belgian shared properties. Residents and contractors take part through simple links. They don't immediately need an account."
         },
         "q2": {
           "question": "What does it cost?",
@@ -1844,10 +1579,9 @@ export default {
       },
       "cta": {
         "title": "Interested in Beheerly?",
-        "body": "Whether you want a no-obligation demo, have a question or are just looking for more details — we're glad to help. Choose whatever is easiest for you.",
+        "body": "Whether you want a no-obligation demo, have a question or are just looking for more details, we're glad to help. Choose whatever is easiest for you.",
         "ctaContact": "Via the contact form",
-        "ctaFaq": "Read the FAQ",
-        "ctaMail": "Email us directly"
+        "ctaFaq": "Read the FAQ"
       }
     },
     "blogPostView": {
@@ -1863,7 +1597,7 @@ export default {
       "readingTime": "min read",
       "cta": {
         "title": "Ready to get started?",
-        "text": "Discover what JukeCoding can do for your business. Request a free quote.",
+        "text": "Discover what Juke can do for your business. Request a free quote.",
         "button": "Request a free quote →"
       },
       "allPosts": "← All blog posts"
@@ -1880,10 +1614,10 @@ export default {
       }
     },
     "casesCta": {
-      "eyebrow": "Cases",
+      "eyebrow": "Get started",
       "head": {
-        "title": "We're currently building our first AI and SaaS projects.",
-        "lead": "Got an idea for an AI solution or SaaS platform? We're happy to think it through with you, no strings attached."
+        "title": "Ready to build your idea?",
+        "lead": "Got an idea for a SaaS platform or AI solution? We're happy to think it through with you, no strings attached."
       },
       "cta": {
         "discuss": "Discuss your project"
@@ -1891,8 +1625,9 @@ export default {
     },
     "contactFormulier": {
       "header": {
+        "eyebrow": "Contact",
         "title": "Send us a message",
-        "lead": "Do you have questions about AI, SaaS or web design? Get in touch."
+        "lead": "Have an idea or a question about SaaS, apps or AI? Get in touch, we usually reply within one business day."
       },
       "modal": {
         "close": "Close",
@@ -1903,43 +1638,48 @@ export default {
       },
       "info": {
         "emailLabel": "Email",
-        "phoneLabel": "Phone"
+        "phoneLabel": "Phone",
+        "responseLabel": "Response time",
+        "responseValue": "Usually within one business day"
       },
       "social": {
         "title": "Find us on"
       },
-      "package": {
-        "prefix": "You selected",
-        "suffix": "",
-        "clearAria": "Remove package"
-      },
       "form": {
         "honeypotLabel": "Leave this field empty",
         "serviceLabel": "What are you interested in?",
-        "serviceWebdesign": "Web design",
-        "serviceAi": "AI Automation",
+        "serviceSaas": "SaaS & apps",
+        "serviceAi": "AI automation",
+        "serviceOther": "Something else",
         "firstNameLabel": "First name",
         "lastNameLabel": "Last name",
         "emailLabel": "Email address",
         "phoneLabel": "Phone number",
         "subjectLabel": "Subject",
         "subjectPlaceholder": "How can we help you?",
-        "subjectInterest": "Interested in {package}",
         "messageLabel": "Message",
         "messagePlaceholder": "Tell us about your project...",
         "submit": "Send message",
-        "submitSending": "Sending..."
+        "submitSending": "Sending...",
+        "sendAnother": "Send another message"
       },
       "backlinks": {
         "aria": "Related pages",
         "label": "Also interesting:",
-        "quote": "Request a quote",
-        "webdesign": "Custom web design",
+        "saas": "SaaS & apps",
         "ai": "AI Automation"
       },
       "validation": {
-        "selectService": "Please select a service.",
-        "nameEmailRequired": "Please fill in at least your name and email address."
+        "service": "Choose what you are interested in.",
+        "name": "Enter your first name.",
+        "lastname": "Enter your last name.",
+        "email": "Enter your email address.",
+        "emailInvalid": "Enter a valid email address."
+      },
+      "prefill": {
+        "beheerly": "Interested in Beheerly",
+        "saas": "Interested in SaaS & apps",
+        "ai": "Interested in AI automation"
       }
     },
     "cookiesPolicy": {
@@ -2068,10 +1808,10 @@ export default {
       "head": {
         "titleLead": "Websites that load fast,",
         "titleHighlight": "rank and convert.",
-        "lead": "Fast, conversion-focused websites that form the foundation for your digital growth — from strategy and design to go-live. Including technical SEO as a foundation."
+        "lead": "Fast, conversion-focused websites that form the foundation for your digital growth: from strategy and design to go-live. Including technical SEO as a foundation."
       },
       "buttons": {
-        "packages": "View the packages",
+        "start": "Start your project",
         "intro": "Free intro call"
       },
       "checks": {
@@ -2084,24 +1824,24 @@ export default {
       "faq": {
         "label": "FAQ",
         "title": "Frequently asked questions",
-        "description": "Clear answers about AI, SaaS, web design and working together."
+        "description": "Clear answers about SaaS, AI, web design and working together."
       },
       "faqs": {
         "what": {
-          "question": "What exactly does JukeCoding do?",
-          "answer": "JukeCoding is a development studio in Hasselt that builds AI solutions, SaaS platforms and websites for ambitious companies. We help scale-ups and SMEs automate processes, develop their own software and strengthen their online presence."
+          "question": "What exactly does Juke do?",
+          "answer": "Juke is a development studio in Hasselt that builds SaaS platforms, AI solutions and websites for ambitious companies. We help scale-ups and SMEs develop their own software, automate processes and strengthen their online presence."
         },
         "pricing": {
-          "question": "What do AI projects or SaaS development cost?",
-          "answer": "AI projects and SaaS platforms are custom-built and quoted per project after a no-obligation conversation. We always discuss pricing personally and provide a clear quote upfront, tailored to the scope."
+          "question": "What does SaaS development or an AI project cost?",
+          "answer": "SaaS platforms and AI projects are custom-built and quoted per project after a no-obligation conversation. We always discuss pricing personally and provide a clear quote upfront, tailored to the scope."
         },
         "webdesign": {
           "question": "Do you also offer web design?",
-          "answer": "Yes. Alongside AI and SaaS, we build professional custom websites. Our websites are fast, mobile-friendly and optimised for conversion and local SEO."
+          "answer": "Yes. Alongside SaaS and AI, we build professional custom websites. Our websites are fast, mobile-friendly and optimised for conversion and local SEO."
         },
         "audience": {
           "question": "Who are your services for?",
-          "answer": "Our AI and SaaS projects are ideal for scale-ups, mid-sized companies and international organisations. For web design, we also help SMEs and self-employed professionals across Belgium."
+          "answer": "Our SaaS and AI projects are ideal for scale-ups, mid-sized companies and international organisations. For web design, we also help SMEs and self-employed professionals across Belgium."
         },
         "process": {
           "question": "What does working together look like?",
@@ -2114,17 +1854,17 @@ export default {
       "head": {
         "title": "Let AI handle the repetitive work,",
         "titleHighlight": "so your team can focus.",
-        "lead": "From AI that handles sales, support and email to custom workflows — we build AI that saves time, eliminates errors and scales with your business."
+        "lead": "From AI that handles sales, support and email to custom workflows. We build AI that saves time, eliminates errors and scales with your business."
       },
       "cta": {
         "start": "Get started with AI",
         "faq": "Frequently asked questions"
       },
       "terminal": {
-        "line1": "→ 142 incoming emails classified",
-        "line2": "→ 7 quote requests detected & forwarded",
-        "line3": "→ 3 replies drafted & scheduled",
-        "done": "✓ workflow completed · 1.2s · 0 errors"
+        "line1": "→ new customer question in · order #4821",
+        "line2": "→ order looked up · delivery: tomorrow before 5 pm",
+        "line3": "→ reply drafted in your tone of voice",
+        "done": "✓ waiting for your approval · 1.2s · 0 errors"
       }
     },
     "klantHighlight": {
@@ -2304,176 +2044,15 @@ export default {
         }
       }
     },
-    "packagesSection": {
-      "head": {
-        "label": "Web design packages",
-        "title": "Our web design packages",
-        "lead": "Choose a web design package that fits your business: a professional <strong>custom company website</strong>, fast and mobile-friendly. You can start with a <strong>one-off build price</strong> or opt for a <strong>subscription with hosting & maintenance</strong> so your website stays secure, fast and up to date."
-      },
-      "toggle": {
-        "oneoff": "One-off (build a website)",
-        "monthly": "Subscription",
-        "monthlyPill": "hosting & maintenance"
-      },
-      "monthlyInfo": {
-        "term": {
-          "title": "Minimum of 12 months",
-          "text": "Pay monthly with a 12-month commitment."
-        },
-        "ownership": {
-          "title": "Fully yours after 12 months",
-          "text": "After that the website is 100% yours. Stop or continue: it's your call."
-        },
-        "support": {
-          "title": "Maintenance & support included",
-          "text": "Updates, back-ups, monitoring and support so your website keeps performing."
-        }
-      },
-      "card": {
-        "popular": "Popular",
-        "priceAria": "Price for {name}",
-        "amount": "Custom quote",
-        "periodOneoff": "one-off build price · price after an intro call",
-        "periodMonthly": "monthly subscription · price after an intro call",
-        "includedTitle": "Included in the subscription",
-        "includedSub": "The same website as <strong>{name}</strong>",
-        "cta": "Choose {name}"
-      },
-      "packages": {
-        "lite": {
-          "badge": "Starter",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "Responsive <strong>company website</strong> with up to <strong>4 pages</strong>",
-                "1": "Contact form + email integration (more enquiries)",
-                "2": "Conversion-focused call-to-actions"
-              }
-            },
-            "design": {
-              "title": "Design & content",
-              "items": {
-                "0": "Basic graphic elements + brand colours",
-                "1": "Help structuring your copy (headings & sections)",
-                "2": "Training & guidance so you can make changes yourself"
-              }
-            },
-            "seo": {
-              "title": "SEO & revisions",
-              "items": {
-                "0": "SEO basics (titles, meta, indexable)",
-                "1": "Optimised images (faster loading)",
-                "2": "<strong>2 revision rounds</strong>"
-              }
-            }
-          }
-        },
-        "groove": {
-          "badge": "Recommended",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "<strong>Everything in Juke Lite</strong>",
-                "1": "Extended <strong>company website</strong> with up to <strong>7 pages</strong>",
-                "2": "Blog or news section (extra findability)"
-              }
-            },
-            "design": {
-              "title": "Design & UX",
-              "items": {
-                "0": "Custom design based on your brand identity",
-                "1": "Interactions and animations where useful",
-                "2": "Mobile UX optimisation (more conversion)"
-              }
-            },
-            "seo": {
-              "title": "SEO & revisions",
-              "items": {
-                "0": "SEO optimisation for pages & images",
-                "1": "Technical SEO check (headings, redirects)",
-                "2": "<strong>3–4 revision rounds</strong>"
-              }
-            }
-          }
-        },
-        "amplify": {
-          "badge": "Premium",
-          "groups": {
-            "website": {
-              "title": "Website",
-              "items": {
-                "0": "<strong>Everything in Juke Groove</strong>",
-                "1": "Up to <strong>10+ pages</strong> (growth & scalability)",
-                "2": "Extensive blog, portfolio or project sections (building authority)"
-              }
-            },
-            "design": {
-              "title": "Design, UX & features",
-              "items": {
-                "0": "Fully bespoke design + UI/UX optimisation",
-                "1": "Professional animations & micro-interactions",
-                "2": "Online booking system or calendar",
-                "3": "CRM or newsletter integration"
-              }
-            },
-            "seo": {
-              "title": "SEO, performance & revisions",
-              "items": {
-                "0": "SEO optimisation + link-building advice",
-                "1": "Website performance optimisation (faster loading)",
-                "2": "Training & documentation for management",
-                "3": "<strong>5–6 revision rounds</strong>"
-              }
-            }
-          }
-        }
-      },
-      "monthlyPlans": {
-        "lite": {
-          "badge": "Starter subscription",
-          "service": {
-            "0": "Hosting & SSL",
-            "1": "Updates & security",
-            "2": "Back-ups",
-            "3": "±60 min content updates",
-            "4": "Support"
-          },
-          "note": "Ideal for starters who want everything taken care of."
-        },
-        "groove": {
-          "badge": "Most chosen",
-          "service": {
-            "0": "Hosting & SSL",
-            "1": "Updates & back-ups",
-            "2": "Monitoring",
-            "3": "±90 min content updates",
-            "4": "Priority support"
-          },
-          "note": "Ideal when your website actively evolves with you."
-        },
-        "amplify": {
-          "badge": "Premium growth",
-          "service": {
-            "0": "Uptime monitoring",
-            "1": "Performance checks",
-            "2": "Updates & back-ups",
-            "3": "±2 hours content updates",
-            "4": "Integration maintenance"
-          },
-          "note": "For businesses that focus on conversion."
-        }
-      }
-    },
     "saasDevelopmentView": {
       "hero": {
         "eyebrow": "SaaS & app development",
         "titleLead": "Your own software,",
         "titleHighlight": "built to scale.",
-        "subtitle": "From concept to live product — custom dashboards, portals and platforms that grow with you, from your first ten to tens of thousands of users.",
+        "subtitle": "From concept to live product: custom dashboards, portals and platforms that grow with you, from your first ten to tens of thousands of users.",
         "ctaPrimary": "Discuss your project",
-        "ctaSecondary": "Get in touch"
+        "ctaSecondary": "Get in touch",
+        "ctaFaq": "Frequently asked questions"
       },
       "tiles": {
         "mrr": "MRR",
@@ -2577,7 +2156,7 @@ export default {
       "head": {
         "eyebrow": "What we build",
         "title": "From smart automation to complete platforms.",
-        "lead": "One partner for your entire digital journey — from smart automation to software and web, always tailored to your business."
+        "lead": "One partner for your entire digital journey: from smart automation to software and web, always tailored to your business."
       },
       "cards": {
         "ai": {
@@ -2589,6 +2168,15 @@ export default {
             "API connections & integrations"
           ],
           "linkText": "More about AI"
+        },
+        "digital": {
+          "title": "Digitalisation",
+          "points": [
+            "From paper and Excel to digital processes",
+            "Connect and streamline existing systems",
+            "Turn manual work into smart workflows",
+            "A solid base for further growth"
+          ]
         },
         "saas": {
           "title": "Building SaaS platforms",
@@ -2612,96 +2200,9 @@ export default {
         }
       }
     },
-    "stappenWebdesign": {
-      "imageAlt": "{title} image {n}",
-      "step1": {
-        "phase": "Step 1",
-        "duration": "Conversation",
-        "title": "Getting to know each other & Making a plan",
-        "intro": "Together we decide what your website should deliver.",
-        "paragraphs": [
-          "We start with a personal conversation about your business, your offering and your ideal customer. Do you already have a website? Then we look at what works well and where visitors drop off.",
-          "After that we create a clear plan: structure, pages, content and the next steps. This way we build, with focus, a website that is clear and brings in enquiries."
-        ],
-        "cards": {
-          "conversation": {
-            "title": "Personal conversation",
-            "description": "We discuss your ideas, goals and expectations so that we are fully on the same page."
-          },
-          "audience": {
-            "title": "Insight into your audience",
-            "description": "We look at who your customers are and what they need on your website."
-          },
-          "check": {
-            "title": "Website check",
-            "description": "If you already have a website, we review its speed, ease of use and points for improvement."
-          },
-          "plan": {
-            "title": "Clear step-by-step plan",
-            "description": "You know exactly what we are going to do, when and with what goal."
-          }
-        },
-        "cta": "Start with a free strategy session"
-      },
-      "step2": {
-        "phase": "Step 2",
-        "duration": "1 week",
-        "title": "Design & Look and feel",
-        "intro": "A design that builds trust and helps visitors decide quickly.",
-        "paragraphs": [
-          "First we map out the structure: which pages are needed and how visitors quickly find what they are looking for. Everything is designed with ease of use as the priority.",
-          "Then we translate your brand into a professional look with colours, typography and imagery that suit your audience. You receive a clear proposal that we refine together."
-        ]
-      },
-      "step3": {
-        "phase": "Step 3",
-        "duration": "2-3 weeks",
-        "title": "Building the website",
-        "intro": "We build a fast, secure website that is ready to grow.",
-        "paragraphs": [
-          "We develop your website with modern technology that loads fast and works reliably on mobile and desktop. Afterwards you can easily update texts and images yourself.",
-          "Do you need extra functionality, such as forms, a webshop or integrations with tools? Then we build those in too — without it becoming complex for you."
-        ],
-        "cards": {
-          "custom": {
-            "title": "Custom website",
-            "description": "A professional website that fully matches your wishes and goals."
-          },
-          "webshop": {
-            "title": "Webshop",
-            "description": "Sell online with a user-friendly and secure webshop."
-          },
-          "integrations": {
-            "title": "Integrations & tools",
-            "description": "Integrations with email, payments, statistics and other systems."
-          },
-          "portals": {
-            "title": "Portals & dashboards",
-            "description": "Handy environments for customers, employees or clear data overviews."
-          }
-        }
-      },
-      "step4": {
-        "phase": "Step 4",
-        "duration": "Ongoing",
-        "title": "Testing, Go-live & Improving",
-        "intro": "We launch carefully and keep optimising for better results.",
-        "paragraphs": [
-          "Before going live we test everything thoroughly: speed, mobile-friendliness, forms and how it displays across different browsers. This way your website goes online stable and professional.",
-          "After the launch we keep improving. We look at visitor behaviour and adjust where needed, so that your website brings in more enquiries and conversions step by step."
-        ],
-        "results": [
-          "Well-tested and stable website",
-          "Better findability in Google",
-          "Insight into visitors and performance",
-          "Ongoing improvements",
-          "Maintenance and support without worries"
-        ]
-      }
-    },
     "vibemindView": {
       "hero": {
-        "eyebrow": "Pre-release · A product by JukeCoding",
+        "eyebrow": "Pre-release · A product by Juke",
         "titleHighlight": "build with several AI agents at once.",
         "subtitle": "The desktop tool we use ourselves every day. Run several Claude Code sessions side by side in panes, drag tasks and skills into them, and see at a glance which agent is done and which is waiting on your input.",
         "ctaBeta": "Sign up for the beta",
@@ -2712,7 +2213,7 @@ export default {
         "workspaces": "Workspaces",
         "buildPrompt": "finish the checkout flow",
         "waitingBadge": "waiting on input",
-        "reviewDone": "Review done — 3 fixes.",
+        "reviewDone": "Review done: 3 fixes.",
         "reviewAsk": "Shall I commit?",
         "testsRunning": "running 12 cases…",
         "kanban": {
@@ -2753,7 +2254,7 @@ export default {
           },
           "mcp": {
             "title": "Built-in MCP server",
-            "description": "Claude reads live which workspaces, tasks and panes you have open — and can create or move tasks. Your agents know what you're working on."
+            "description": "Claude reads live which workspaces, tasks and panes you have open, and can create or move tasks. Your agents know what you're working on."
           },
           "voice": {
             "title": "Voice input",
@@ -2800,7 +2301,7 @@ export default {
         "reasonPlaceholder": "E.g. building features in parallel, reviewing code, research…",
         "submitSending": "Sending…",
         "submit": "Sign up",
-        "success": "Thanks! You're on the list — we'll be in touch as soon as a spot opens up. 🎉",
+        "success": "Thanks! You're on the list. We'll be in touch as soon as a spot opens up. 🎉",
         "errorPrefix": "Something went wrong. Please try again or email"
       }
     },
@@ -2865,7 +2366,7 @@ export default {
           },
           "speed": {
             "title": "Speed and trust",
-            "text": "Slow loading or a cluttered layout feels unreliable — and that costs you leads and enquiries."
+            "text": "Slow loading or a cluttered layout feels unreliable, and that costs you leads and enquiries."
           }
         }
       },
@@ -2884,7 +2385,7 @@ export default {
           },
           "speed": {
             "title": "Speed & technical foundation",
-            "text": "Mobile-friendly, fast and technically clean — with a strong SEO foundation from day one."
+            "text": "Mobile-friendly, fast and technically clean, with a strong SEO foundation from day one."
           },
           "cta": {
             "title": "Clear calls-to-action",
@@ -2947,7 +2448,7 @@ export default {
       "audience": {
         "label": "Who is it for?",
         "title": "Ideal for businesses that want more enquiries",
-        "subtitle": "For businesses that want to use their website as a growth engine — not as an online brochure.",
+        "subtitle": "For businesses that want to use their website as a growth engine, not as an online brochure.",
         "items": {
           "sme": "SMEs and local businesses that want more leads or enquiries.",
           "services": "Service providers (consultants, agencies, coaches, …) with a clear offer.",
@@ -2976,15 +2477,6 @@ export default {
         "subtitle": "We'll look at your goals and give honest advice on what your website needs to bring in more enquiries.",
         "cta": "Free intro call"
       }
-    },
-    "websiteKlantenCTA": {
-      "badge": "💡 Already have a website?",
-      "title": "A website that brings in too few leads?",
-      "lead": {
-        "line1": "Discover how we turn your website into a client magnet",
-        "line2": "through conversion optimization."
-      },
-      "cta": "Read more about conversion"
     }
   }
 }

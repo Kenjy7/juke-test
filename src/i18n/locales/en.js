@@ -98,5 +98,11 @@ export default {
       quote: 'Request a quote',
       contact: 'Get in touch',
     },
+    legal: {
+      aria: 'Legal and privacy',
+      privacy: 'Privacy policy',
+      cookies: 'Cookie policy',
+      cookieSettings: 'Cookie settings',
+    },
   },
 }

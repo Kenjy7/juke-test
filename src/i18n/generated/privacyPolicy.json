@@ -1,0 +1,144 @@
+{
+  "nl": {
+    "header": {
+      "title": "Privacybeleid",
+      "subtitle": "Hoe Juke je persoonsgegevens verzamelt, gebruikt en beschermt.",
+      "lastUpdated": "Laatst bijgewerkt: juni 2026"
+    },
+    "intro": "Juke respecteert je privacy en verwerkt je persoonsgegevens in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG/GDPR). Dit beleid legt uit welke gegevens we verzamelen, waarom we dat doen en welke rechten je hebt.",
+    "controller": {
+      "title": "Wie is verantwoordelijk",
+      "text": "Juke is de verwerkingsverantwoordelijke voor de gegevens die via deze website worden verzameld.",
+      "name": "Juke",
+      "address": "[Straat en nummer], 3500 Hasselt, België"
+    },
+    "data": {
+      "title": "Welke gegevens we verzamelen",
+      "intro": "We verzamelen alleen wat nodig is om je verder te helpen:",
+      "form": "Gegevens die je zelf invult via het contactformulier: je naam, e-mailadres, telefoonnummer en de inhoud van je bericht.",
+      "technical": "Technische gegevens die automatisch worden vastgelegd, zoals je IP-adres, browsertype en bezochte pagina's. Dit gebeurt alleen wanneer je toestemming geeft voor analytische cookies."
+    },
+    "purposes": {
+      "title": "Waarvoor we je gegevens gebruiken",
+      "intro": "We gebruiken je gegevens voor de volgende doeleinden:",
+      "respond": "Je vraag of aanvraag beantwoorden en contact met je opnemen. Grondslag: jouw toestemming of de stappen voorafgaand aan een overeenkomst.",
+      "analytics": "Onze website verbeteren via geanonimiseerde statistieken. Grondslag: jouw toestemming.",
+      "legal": "Voldoen aan onze wettelijke verplichtingen. Grondslag: wettelijke verplichting."
+    },
+    "sharing": {
+      "title": "Met wie we gegevens delen",
+      "intro": "We verkopen je gegevens nooit. We delen ze enkel met dienstverleners die ons helpen de website en dienst te laten werken:",
+      "emailjs": "Verwerkt de verzending van het contactformulier naar ons.",
+      "analytics": "Geanonimiseerde websitestatistieken, alleen met je toestemming.",
+      "hosting": "Host de website en de bijhorende logbestanden.",
+      "outro": "Sommige van deze partijen verwerken gegevens buiten de Europese Economische Ruimte. In dat geval zorgen we voor passende waarborgen, zoals de standaardcontractbepalingen van de Europese Commissie."
+    },
+    "retention": {
+      "title": "Hoe lang we je gegevens bewaren",
+      "text": "We bewaren je gegevens niet langer dan nodig. Contactaanvragen houden we zolang dat nuttig is om je vraag op te volgen en daarna zolang wettelijk vereist. Analytische gegevens worden geanonimiseerd of na een beperkte periode verwijderd."
+    },
+    "rights": {
+      "title": "Jouw rechten",
+      "intro": "Onder de GDPR heb je het recht om:",
+      "access": "Je gegevens in te zien",
+      "rectify": "Onjuiste gegevens te laten corrigeren",
+      "erase": "Je gegevens te laten verwijderen",
+      "restrict": "De verwerking te beperken",
+      "object": "Bezwaar te maken tegen de verwerking",
+      "portability": "Je gegevens te laten overdragen",
+      "withdraw": "Je toestemming op elk moment in te trekken",
+      "outro": "Stuur je verzoek naar contact@jukecoding.be. Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be)."
+    },
+    "security": {
+      "title": "Beveiliging",
+      "text": "We nemen passende technische en organisatorische maatregelen om je gegevens te beschermen tegen verlies, misbruik en ongeoorloofde toegang."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Onze website gebruikt cookies. In ons cookiebeleid lees je precies welke en kun je je voorkeuren op elk moment aanpassen.",
+      "link": "Lees het cookiebeleid"
+    },
+    "changes": {
+      "title": "Wijzigingen",
+      "text": "We kunnen dit privacybeleid van tijd tot tijd aanpassen. De meest recente versie staat altijd op deze pagina."
+    },
+    "contact": {
+      "title": "Vragen of een verzoek?",
+      "text": "Heb je vragen over dit privacybeleid of wil je een van je rechten uitoefenen? Neem gerust contact op.",
+      "emailLabel": "E-mail",
+      "phoneLabel": "Telefoon"
+    },
+    "backLink": "Terug naar home"
+  },
+  "en": {
+    "header": {
+      "title": "Privacy policy",
+      "subtitle": "How Juke collects, uses and protects your personal data.",
+      "lastUpdated": "Last updated: June 2026"
+    },
+    "intro": "Juke respects your privacy and processes your personal data in line with the General Data Protection Regulation (GDPR). This policy explains what data we collect, why we collect it and what rights you have.",
+    "controller": {
+      "title": "Who is responsible",
+      "text": "Juke is the data controller for the data collected through this website.",
+      "name": "Juke",
+      "address": "[Street and number], 3500 Hasselt, Belgium"
+    },
+    "data": {
+      "title": "What data we collect",
+      "intro": "We only collect what we need to help you:",
+      "form": "Data you enter yourself in the contact form: your name, email address, phone number and the content of your message.",
+      "technical": "Technical data recorded automatically, such as your IP address, browser type and pages visited. This only happens when you consent to analytical cookies."
+    },
+    "purposes": {
+      "title": "What we use your data for",
+      "intro": "We use your data for the following purposes:",
+      "respond": "Answering your question or request and getting in touch with you. Basis: your consent or the steps prior to a contract.",
+      "analytics": "Improving our website through anonymised statistics. Basis: your consent.",
+      "legal": "Meeting our legal obligations. Basis: legal obligation."
+    },
+    "sharing": {
+      "title": "Who we share data with",
+      "intro": "We never sell your data. We only share it with service providers that help us run the website and service:",
+      "emailjs": "Handles the delivery of the contact form to us.",
+      "analytics": "Anonymised website statistics, only with your consent.",
+      "hosting": "Hosts the website and the related log files.",
+      "outro": "Some of these parties process data outside the European Economic Area. In that case we ensure appropriate safeguards, such as the European Commission's standard contractual clauses."
+    },
+    "retention": {
+      "title": "How long we keep your data",
+      "text": "We don't keep your data longer than necessary. We keep contact requests for as long as it's useful to follow up on your question, and afterwards for as long as legally required. Analytical data is anonymised or deleted after a limited period."
+    },
+    "rights": {
+      "title": "Your rights",
+      "intro": "Under the GDPR you have the right to:",
+      "access": "Access your data",
+      "rectify": "Have inaccurate data corrected",
+      "erase": "Have your data erased",
+      "restrict": "Restrict the processing",
+      "object": "Object to the processing",
+      "portability": "Have your data transferred",
+      "withdraw": "Withdraw your consent at any time",
+      "outro": "Send your request to contact@jukecoding.be. You also have the right to lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be)."
+    },
+    "security": {
+      "title": "Security",
+      "text": "We take appropriate technical and organisational measures to protect your data against loss, misuse and unauthorised access."
+    },
+    "cookies": {
+      "title": "Cookies",
+      "text": "Our website uses cookies. Our cookie policy explains exactly which ones, and lets you change your preferences at any time.",
+      "link": "Read the cookie policy"
+    },
+    "changes": {
+      "title": "Changes",
+      "text": "We may update this privacy policy from time to time. The most recent version is always on this page."
+    },
+    "contact": {
+      "title": "Questions or a request?",
+      "text": "Have questions about this privacy policy or want to exercise one of your rights? Feel free to get in touch.",
+      "emailLabel": "Email",
+      "phoneLabel": "Phone"
+    },
+    "backLink": "Back to home"
+  }
+}

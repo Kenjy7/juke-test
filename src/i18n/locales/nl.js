@@ -103,5 +103,11 @@ export default {
       quote: 'Offerte aanvragen',
       contact: 'Neem contact op',
     },
+    legal: {
+      aria: 'Juridisch en privacy',
+      privacy: 'Privacybeleid',
+      cookies: 'Cookiebeleid',
+      cookieSettings: 'Cookievoorkeuren',
+    },
   },
 }

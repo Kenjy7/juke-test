@@ -15,6 +15,11 @@ const consentPreferences = ref({
   marketing: false,
 })
 
+// Shared banner visibility so any component (e.g. the footer "Cookievoorkeuren"
+// link) can reopen the consent dialog — under GDPR/ePrivacy, withdrawing or
+// changing consent must be as easy as giving it.
+const bannerVisible = ref(false)
+
 export const useCookieConsent = () => {
   // Initialize consent from localStorage
   const initializeConsent = () => {
@@ -189,11 +194,17 @@ export const useCookieConsent = () => {
     console.log('Marketing scripts loaded')
   }
 
+  // Reopen the consent dialog (called from the footer "Cookievoorkeuren" link).
+  const openSettings = () => {
+    bannerVisible.value = true
+  }
+
   return {
     // State
     consentGiven,
     consentPreferences,
     hasConsent,
+    bannerVisible,
 
     // Methods
     initializeConsent,
@@ -202,6 +213,7 @@ export const useCookieConsent = () => {
     acceptAll,
     acceptNecessary,
     revokeConsent,
+    openSettings,
     setCookie,
     getCookie,
     deleteCookie,

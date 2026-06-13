@@ -127,15 +127,27 @@
     </div>
 
     <div class="footer-bottom">
-      <p>&copy; 2026 juke &mdash; All rights reserved</p>
+      <p class="footer-company">
+        &copy; 2026 Juke &middot; 3500 Hasselt, België
+      </p>
+      <nav class="footer-legal" :aria-label="t('footer.legal.aria')">
+        <router-link to="/privacybeleid">{{ t('footer.legal.privacy') }}</router-link>
+        <router-link to="/cookies">{{ t('footer.legal.cookies') }}</router-link>
+        <button type="button" class="footer-legal__btn" @click="openSettings">
+          {{ t('footer.legal.cookieSettings') }}
+        </button>
+      </nav>
     </div>
   </footer>
 </template>
 
 <script setup>
 import { useI18n } from 'vue-i18n'
+import { useCookieConsent } from '@/composables/useCookieConsent'
 
 const { t } = useI18n()
+// "Cookievoorkeuren" reopens the consent dialog (GDPR: withdraw as easily as given).
+const { openSettings } = useCookieConsent()
 </script>
 
 <style scoped lang="scss">
@@ -278,13 +290,42 @@ const { t } = useI18n()
 
 .footer-bottom {
   border-top: 1px solid var(--color-border);
+  max-width: var(--max-width);
+  margin: 0 auto;
   padding: var(--space-6) var(--space-8);
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-6);
+}
 
-  p {
-    margin: 0;
-    font-size: var(--text-xs);
-    color: var(--color-text-tertiary);
+.footer-company {
+  margin: 0;
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+.footer-legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-5);
+}
+.footer-legal a,
+.footer-legal__btn {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition: color var(--transition-fast);
+
+  &:hover {
+    color: var(--color-text-primary);
   }
 }
 
@@ -326,6 +367,11 @@ const { t } = useI18n()
   }
   .footer-social {
     justify-content: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
   }
 }
 

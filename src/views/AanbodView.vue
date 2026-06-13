@@ -46,7 +46,7 @@ const SITE_CONFIG = {
   email: 'contact@jukecoding.be',
   location: {
     city: 'Hasselt',
-    region: 'Vlaanderen',
+    region: 'Limburg',
     postalCode: '3500',
     country: 'BE',
     lat: '50.9307',
@@ -61,58 +61,8 @@ const SITE_CONFIG = {
 const url = `${SITE_CONFIG.url}/webdesign`
 const ogImage = `${SITE_CONFIG.url}/og-image-webdesign.jpg`
 
-// 1ï¸âƒ£ LocalBusiness Schema
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': `${SITE_CONFIG.url}#organization`,
-  name: SITE_CONFIG.name,
-  alternateName: SITE_CONFIG.alternateName,
-  url: SITE_CONFIG.url,
-  logo: `${SITE_CONFIG.url}/logo.png`,
-  image: `${SITE_CONFIG.url}/og-image.jpg`,
-  description:
-    "AI-automatisering en webdesign voor Belgische KMO's - digitale oplossingen die tijd besparen en meer leads opleveren.",
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: SITE_CONFIG.location.city,
-    addressRegion: SITE_CONFIG.location.region,
-    postalCode: SITE_CONFIG.location.postalCode,
-    addressCountry: SITE_CONFIG.location.country,
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: SITE_CONFIG.location.lat,
-    longitude: SITE_CONFIG.location.lng,
-  },
-  telephone: SITE_CONFIG.phone,
-  email: SITE_CONFIG.email,
-  sameAs: [SITE_CONFIG.social.linkedin, SITE_CONFIG.social.instagram],
-  knowsAbout: [
-    'AI automatisatie',
-    'Workflow Automatisatie',
-    'Webdesign',
-    'Website laten maken',
-    'Web development',
-    'SEO optimalisatie',
-    'UX design',
-    'Responsive design',
-    'Conversie optimalisatie',
-  ],
-  // ðŸŽ¯ Uitgebreide geo-targeting voor betere lokale vindbaarheid
-  areaServed: [
-    { '@type': 'City', name: 'Hasselt' },
-    { '@type': 'City', name: 'Genk' },
-    { '@type': 'City', name: 'Tongeren' },
-    { '@type': 'City', name: 'Sint-Truiden' },
-    { '@type': 'City', name: 'Antwerpen' },
-    { '@type': 'City', name: 'Gent' },
-    { '@type': 'City', name: 'Brussel' },
-    { '@type': 'AdministrativeArea', name: 'Limburg' },
-    { '@type': 'AdministrativeArea', name: 'Vlaanderen' },
-    { '@type': 'Country', name: 'Belgium' },
-  ],
-}
+// Organisatie-schema komt centraal uit App.vue (zie src/data/organizationSchema.js).
+// Andere schema's op deze pagina verwijzen ernaar via { '@id': ORG_ID }.
 
 // 2ï¸âƒ£ WebSite Schema
 const websiteSchema = {
@@ -327,13 +277,8 @@ useHead({
   ],
 
   script: [
-    // âœ… LocalBusiness Schema
-    {
-      key: 'ld-organization',
-      type: 'application/ld+json',
-      children: JSON.stringify(organizationSchema),
-    },
-    // âœ… WebSite Schema
+    // LocalBusiness/Organization-schema komt centraal uit App.vue.
+    // WebSite Schema
     {
       key: 'ld-website',
       type: 'application/ld+json',

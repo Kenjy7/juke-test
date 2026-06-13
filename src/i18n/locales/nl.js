@@ -27,7 +27,7 @@ export default {
     saas: 'SaaS & apps',
     webdesign: 'Webdesign',
     vibemind: 'Vibemind',
-    beheerly: 'Beheerly',
+    beheerly: 'Voor syndici',
     blog: 'Blog',
     contact: 'Contact',
   },

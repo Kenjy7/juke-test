@@ -23,6 +23,7 @@ import Footer from '@/components/Footer.vue'
 import CookiesPopUp from '@/components/CookiesPopUp.vue'
 import { SUPPORTED_LOCALES, DEFAULT_LOCALE, LOCALE_META } from '@/i18n/index.js'
 import { stripLocale, withLocale } from '@/i18n/routing.js'
+import { organizationSchema } from '@/data/organizationSchema.js'
 
 const SITE = 'https://jukecoding.be'
 const route = useRoute()
@@ -65,6 +66,15 @@ useHead({
 
     { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: computed(() => LOCALE_META[locale.value].ogLocale) },
+  ],
+  // Canonieke organisatie-schema, één keer voor de hele site. Andere pagina's
+  // verwijzen ernaar via { '@id': ORG_ID } i.p.v. een eigen org-blok te definiëren.
+  script: [
+    {
+      key: 'ld-organization',
+      type: 'application/ld+json',
+      children: JSON.stringify(organizationSchema),
+    },
   ],
 })
 </script>

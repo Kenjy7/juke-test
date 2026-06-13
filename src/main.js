@@ -1,4 +1,3 @@
-import { blogPosts } from './data/blogs'
 import { ViteSSG } from 'vite-ssg'
 import { createPinia } from 'pinia'
 import App from './App.vue'
@@ -7,6 +6,7 @@ import { routes } from './router/routes'
 import { createHeadCore, createUnhead } from '@unhead/vue'
 
 import { createAppI18n, LOCALE_META } from './i18n/index.js'
+import { canonicalPaths, withLocales } from './router/indexable-paths.js'
 import { localeFromPath, stripLocale } from './i18n/routing.js'
 import LocaleLink from './components/LocaleLink.vue'
 
@@ -94,20 +94,9 @@ export const createApp = ViteSSG(
   },
 )
 
+// Prerender every canonical page in both locales (nl unprefixed, en under /en).
+// Path list lives in router/indexable-paths.js — shared with vite.config.js and
+// the sitemap generator so the three never drift apart again.
 export function includedRoutes() {
-  const nlPaths = [
-    '/',
-    '/webdesign',
-    '/ai-automatisatie',
-    '/contact',
-    '/cookies',
-    '/offerte-aanvraag',
-    '/website-die-klanten-oplevert',
-    '/gratis-seo-scan',
-    '/blog',
-    ...blogPosts.filter((post) => post.published).map((post) => `/blog/${post.slug}`),
-  ]
-  // Prerender every page in both locales: nl unprefixed, en under /en.
-  const enPaths = nlPaths.map((p) => (p === '/' ? '/en' : `/en${p}`))
-  return [...nlPaths, ...enPaths]
+  return withLocales(canonicalPaths)
 }

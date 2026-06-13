@@ -67,69 +67,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
-    <!-- LocalBusiness + Organization Schema -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "LocalBusiness",
-            "@id": "https://jukecoding.be/#organization",
-            "name": "JukeCoding",
-            "alternateName": "Juke Coding",
-            "url": "https://jukecoding.be/",
-            "logo": {
-                "@type": "ImageObject",
-                "url": "https://jukecoding.be/logo.png",
-                "width": 200,
-                "height": 60
-            },
-            "image": "https://jukecoding.be/og-image.jpg",
-            "description": "AI-oplossingen, SaaS-platformen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.",
-            "currenciesAccepted": "EUR",
-            "paymentAccepted": "Bank transfer, Credit Card",
-            "areaServed": [
-                {"@type": "State", "name": "Limburg", "addressCountry": "BE"},
-                {"@type": "State", "name": "Antwerpen", "addressCountry": "BE"},
-                {"@type": "State", "name": "Oost-Vlaanderen", "addressCountry": "BE"},
-                {"@type": "State", "name": "West-Vlaanderen", "addressCountry": "BE"},
-                {"@type": "State", "name": "Vlaams-Brabant", "addressCountry": "BE"}
-            ],
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "Hasselt",
-                "addressRegion": "Limburg",
-                "postalCode": "3500",
-                "addressCountry": "BE"
-            },
-            "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 50.9307,
-                "longitude": 5.3378
-            },
-            "telephone": "+32479131715",
-            "email": "contact@jukecoding.be",
-            "openingHoursSpecification": [
-                {
-                    "@type": "OpeningHoursSpecification",
-                    "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-                    "opens": "09:00",
-                    "closes": "18:00"
-                }
-            ],
-            "hasOfferCatalog": {
-                "@type": "OfferCatalog",
-                "name": "AI, SaaS & Webdesign diensten",
-                "itemListElement": [
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI-projecten"}},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "SaaS Development"}},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Webdesign"}}
-                ]
-            },
-            "sameAs": [
-                "https://www.linkedin.com/company/jukecoding",
-                "https://www.instagram.com/jukecoding"
-            ]
-        }
-    </script>
+    <!-- LocalBusiness/Organization-schema komt centraal uit App.vue
+         (src/data/organizationSchema.js) en wordt door vite-ssg in elke pagina
+         geprerenderd. Hier bewust géén org-blok, om dubbele @id-definities te
+         vermijden. -->
 
     <!-- WebSite Schema met SearchAction -->
     <script type="application/ld+json">

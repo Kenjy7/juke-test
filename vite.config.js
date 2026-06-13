@@ -2,7 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import { blogPosts } from './src/data/blogs/index.js'
+import { canonicalPaths, withLocales } from './src/router/indexable-paths.js'
 
 export default defineConfig({
   plugins: [vue(), vueDevTools()],
@@ -12,27 +12,12 @@ export default defineConfig({
     },
   },
   ssgOptions: {
-    includedRoutes(paths) {
-      // ✅ Base routes
-      const baseRoutes = [
-        '/',
-        '/webdesign',
-        '/ai-projecten',
-        '/saas-development',
-        '/contact',
-        '/cookies',
-        '/offerte-aanvraag',
-        '/website-die-klanten-oplevert',
-        '/gratis-seo-scan',
-        '/blog',
-      ]
-
-      // ✅ Blog post routes (alleen gepubliceerde posts)
-      const blogRoutes = blogPosts
-        .filter(p => p.published)
-        .map(p => `/blog/${p.slug}`)
-
-      return [...baseRoutes, ...blogRoutes]
+    // Canonical pages in both locales. Source of truth lives in
+    // src/router/indexable-paths.js (shared with main.js includedRoutes() and
+    // the sitemap generator). main.js's exported includedRoutes() is
+    // authoritative for vite-ssg; this mirror keeps the two from drifting.
+    includedRoutes() {
+      return withLocales(canonicalPaths)
     },
   },
 })

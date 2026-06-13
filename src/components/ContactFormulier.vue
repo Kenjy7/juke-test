@@ -55,7 +55,7 @@
               </span>
               <span class="method__text">
                 <span class="method__label">{{ t('contactFormulier.info.phoneLabel') }}</span>
-                <span class="method__value">(+32) 0479 13 17 15</span>
+                <span class="method__value">+32 479 13 17 15</span>
               </span>
             </a>
 

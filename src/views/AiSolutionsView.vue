@@ -74,61 +74,8 @@ const faqJsonLd = {
   })),
 }
 
-const organizationSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://jukecoding.be/#organization',
-  name: 'Juke',
-  alternateName: 'Juke Coding',
-  url: 'https://jukecoding.be/',
-  logo: {
-    '@type': 'ImageObject',
-    url: 'https://jukecoding.be/logo.png',
-    width: 200,
-    height: 60,
-  },
-  image: 'https://jukecoding.be/og-image.jpg',
-  description:
-    'Professionele websites en AI-automatisatie voor KMO en zelfstandigen in Hasselt, Limburg en heel Vlaanderen.',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'Hasselt',
-    addressRegion: 'Limburg',
-    postalCode: '3500',
-    addressCountry: 'BE',
-  },
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: 50.9307,
-    longitude: 5.3378,
-  },
-  telephone: '+32479131715',
-  email: 'contact@jukecoding.be',
-  openingHoursSpecification: [
-    {
-      '@type': 'OpeningHoursSpecification',
-      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
-      opens: '09:00',
-      closes: '18:00',
-    },
-  ],
-  sameAs: ['https://www.linkedin.com/company/jukecoding', 'https://www.instagram.com/jukecoding'],
-  knowsAbout: [
-    'AI Automatisatie',
-    'Chatbots',
-    'Workflow Automatisatie',
-    'Web Design',
-    'AI Automation',
-    'Web Development',
-    'Digital Marketing',
-    'SEO',
-  ],
-  areaServed: [
-    { '@type': 'AdministrativeArea', name: 'Limburg', addressCountry: 'BE' },
-    { '@type': 'AdministrativeArea', name: 'Vlaanderen', addressCountry: 'BE' },
-    { '@type': 'Country', name: 'Belgium' },
-  ],
-}
+// Organisatie-schema komt centraal uit App.vue (zie src/data/organizationSchema.js).
+// Andere schema's op deze pagina verwijzen ernaar via { '@id': ORG_ID }.
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -202,11 +149,7 @@ useHead({
   ],
   link: [{ rel: 'canonical', href: url }],
   script: [
-    {
-      key: 'ld-organization',
-      type: 'application/ld+json',
-      children: JSON.stringify(organizationSchema),
-    },
+    // LocalBusiness/Organization-schema komt centraal uit App.vue.
     {
       key: 'ld-website',
       type: 'application/ld+json',

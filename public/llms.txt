@@ -1,0 +1,27 @@
+# Juke (JukeCoding)
+
+> Juke (JukeCoding) is an AI and software studio in Hasselt, Belgium. Juke builds AI solutions, SaaS platforms and websites for ambitious companies, and is developing Beheerly, a new product for property managers (syndici) and co-ownerships (VMEs) in Belgium.
+
+- Brand: Juke, also written JukeCoding / Juke Coding
+- Location: Hasselt, Limburg, Belgium
+- Contact: contact@jukecoding.be · +32 479 13 17 15
+- Languages: Dutch (nl-BE), English (en)
+
+## Products
+
+- [Beheerly](https://jukecoding.be/beheerly): New Juke product, in development (2026), that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. Early access by mail.
+
+## Pages
+
+- [Home](https://jukecoding.be/): AI & SaaS development studio in Hasselt.
+- [AI-projecten](https://jukecoding.be/ai-projecten): Custom AI solutions and automation for businesses.
+- [SaaS Development](https://jukecoding.be/saas-development): SaaS platforms built from scratch.
+- [Vibemind](https://jukecoding.be/vibemind): Juke product page.
+- [Beheerly](https://jukecoding.be/beheerly): Upcoming product for syndici / property managers.
+- [Contact](https://jukecoding.be/contact): Get in touch with Juke.
+
+## Blog
+
+- [Hoeveel kost een website op maat in België?](https://jukecoding.be/blog/hoeveel-kost-een-website-op-maat-belgie)
+- [Custom code vs WordPress: wat kiest een kmo?](https://jukecoding.be/blog/custom-code-vs-wordpress-wat-kiest-een-kmo)
+- [Waarom is een website belangrijk in je onderneming?](https://jukecoding.be/blog/waarom-is-een-website-belangrijk-in-je-onderneming-7-redenen-die-je-niet-mag-negeren)

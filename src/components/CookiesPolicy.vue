@@ -91,9 +91,9 @@
               <span class="contact-label">{{ t('cookiesPolicy.contact.emailLabel') }}</span>
               <span class="contact-value">contact@jukecoding.be</span>
             </a>
-            <a href="tel:+32123456789" class="contact-link">
+            <a href="tel:+32479131715" class="contact-link">
               <span class="contact-label">{{ t('cookiesPolicy.contact.phoneLabel') }}</span>
-              <span class="contact-value">+32 96 42 89 50</span>
+              <span class="contact-value">+32 479 13 17 15</span>
             </a>
           </div>
         </section>

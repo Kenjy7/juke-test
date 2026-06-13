@@ -25,7 +25,7 @@ export default {
     saas: 'SaaS & apps',
     webdesign: 'Web design',
     vibemind: 'Vibemind',
-    beheerly: 'Beheerly',
+    beheerly: 'For property managers',
     blog: 'Blog',
     contact: 'Contact',
   },

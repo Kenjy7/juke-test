@@ -1,9 +1,53 @@
+# Default: alle crawlers mogen de publieke site
 User-agent: *
 Allow: /
 
 # Blokkeer niet-publieke paden
 Disallow: /.netlify/
 Disallow: /api/
+
+# ── Answer-engine crawlers expliciet toegelaten (AEO) ──
+# Search/grounding fetchers
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# AI-training / model-grounding opt-in (laat content toe voor AI Overviews,
+# Gemini en Apple Intelligence). Verwijder een regel om die toestemming in te trekken.
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
 
 # Sitemap locaties
 Sitemap: https://jukecoding.be/sitemap.xml

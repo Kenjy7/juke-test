@@ -1,38 +1,18 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { blogPosts } from '../src/data/blogs/index.js'
+import { staticPages, blogPages } from '../src/router/indexable-paths.js'
 
 const SITE_URL = 'https://jukecoding.be'
 
-const staticRoutes = [
-  {
-    path: '/',
-    changefreq: 'weekly',
-    priority: '1.0',
-    image: {
-      loc: `${SITE_URL}/og-image.jpg`,
-      title: 'JukeCoding - Webdesign & AI Automatisatie Hasselt',
-    },
-  },
-  { path: '/ai-automatisatie', changefreq: 'weekly', priority: '0.8' },
-  { path: '/saas-development', changefreq: 'weekly', priority: '0.8' },
-  { path: '/vibemind', changefreq: 'weekly', priority: '0.8' },
-  { path: '/beheerly', changefreq: 'weekly', priority: '0.8' },
-  { path: '/blog', changefreq: 'weekly', priority: '0.8' },
-  { path: '/contact', changefreq: 'monthly', priority: '0.6' },
-  { path: '/cookies', changefreq: 'yearly', priority: '0.3' },
-]
+// Canonical pages (static + published blog posts) come from the shared source of
+// truth in src/router/indexable-paths.js, so the sitemap can never list a page
+// that isn't prerendered (or omit one that is). `image.loc` is site-relative
+// there; make it absolute for the sitemap.
+const absImage = (image) => (image ? { ...image, loc: `${SITE_URL}${image.loc}` } : null)
 
-const blogRoutes = blogPosts
-  .filter((post) => post.published)
-  .map((post) => ({
-    path: `/blog/${post.slug}`,
-    date: post.publishedAt,
-    changefreq: 'monthly',
-    priority: '0.7',
-    image: post.ogImage ? { loc: `${SITE_URL}${post.ogImage}`, title: post.title } : null,
-  }))
+const staticRoutes = staticPages.map((p) => ({ ...p, image: absImage(p.image) }))
+const blogRoutes = blogPages.map((p) => ({ ...p, image: absImage(p.image) }))
 
 const lastmod = new Date().toISOString().slice(0, 10)
 

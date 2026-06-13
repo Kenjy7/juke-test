@@ -10,21 +10,9 @@
     },
     "mockup": {
       "workspaces": "Workspaces",
-      "buildPrompt": "bouw de checkout-flow af",
-      "waitingBadge": "wacht op input",
-      "reviewDone": "Review klaar: 3 fixes.",
-      "reviewAsk": "Zal ik committen?",
-      "testsRunning": "running 12 cases…",
-      "kanban": {
-        "todo": "Todo",
-        "doing": "Doing",
-        "review": "Review",
-        "done": "Done",
-        "cardWebhook": "Webhook docs",
-        "cardCheckout": "Checkout-flow",
-        "cardAuth": "Auth refactor",
-        "cardLanding": "Landing copy"
-      }
+      "skills": "Skills",
+      "searchSkills": "Search skills",
+      "buildPrompt": "bouw de checkout-flow af"
     },
     "intro": {
       "title": "Wat is Vibemind?",
@@ -71,16 +59,19 @@
       "placeholder": "Screenshot volgt",
       "items": {
         "panes": {
-          "alt": "Meerdere Claude-panes naast elkaar in Vibemind",
-          "caption": "Meerdere agents naast elkaar"
+          "alt": "Meerdere panels naast elkaar geopend in Vibemind",
+          "caption": "Meerdere panels tegelijk open",
+          "desc": "Start zoveel Claude Code-sessies als je wil naast elkaar. Een statuslampje toont meteen welke agent draait, klaar is of op jouw input wacht."
         },
         "kanban": {
-          "alt": "Kanban-taakbord in Vibemind",
-          "caption": "Taken slepen naar een pane"
+          "alt": "Instellingen waar je het thema kan aanpassen in Vibemind",
+          "caption": "Pas het thema aan in de instellingen",
+          "desc": "Kies uit kant-en-klare thema's of stel je eigen kleuren in. De hele app past zich meteen aan jouw voorkeur aan."
         },
         "skills": {
-          "alt": "Skill-picker in Vibemind",
-          "caption": "Skills injecteren met Cmd+P"
+          "alt": "Taken toevoegen en slepen in Vibemind",
+          "caption": "Taken toevoegen en slepen",
+          "desc": "Voeg taken toe op het ingebouwde bord en sleep ze rechtstreeks naar een agent. De opdracht wordt meteen opgepikt."
         }
       }
     },
@@ -115,21 +106,9 @@
     },
     "mockup": {
       "workspaces": "Workspaces",
-      "buildPrompt": "finish the checkout flow",
-      "waitingBadge": "waiting on input",
-      "reviewDone": "Review done: 3 fixes.",
-      "reviewAsk": "Shall I commit?",
-      "testsRunning": "running 12 cases…",
-      "kanban": {
-        "todo": "Todo",
-        "doing": "Doing",
-        "review": "Review",
-        "done": "Done",
-        "cardWebhook": "Webhook docs",
-        "cardCheckout": "Checkout flow",
-        "cardAuth": "Auth refactor",
-        "cardLanding": "Landing copy"
-      }
+      "skills": "Skills",
+      "searchSkills": "Search skills",
+      "buildPrompt": "finish the checkout flow"
     },
     "intro": {
       "title": "What is Vibemind?",
@@ -176,16 +155,19 @@
       "placeholder": "Screenshot coming soon",
       "items": {
         "panes": {
-          "alt": "Several Claude panes side by side in Vibemind",
-          "caption": "Several agents side by side"
+          "alt": "Multiple panels open side by side in Vibemind",
+          "caption": "Multiple panels open at once",
+          "desc": "Start as many Claude Code sessions side by side as you like. A status light instantly shows which agent is running, ready, or waiting for your input."
         },
         "kanban": {
-          "alt": "Kanban task board in Vibemind",
-          "caption": "Drag tasks onto a pane"
+          "alt": "Settings where you can change the theme in Vibemind",
+          "caption": "Change the theme in the settings",
+          "desc": "Pick a ready-made theme or set your own colors. The whole app updates to your preference right away."
         },
         "skills": {
-          "alt": "Skill picker in Vibemind",
-          "caption": "Inject skills with Cmd+P"
+          "alt": "Add and drag tasks in Vibemind",
+          "caption": "Add and drag tasks",
+          "desc": "Add tasks on the built-in board and drag them straight onto an agent. The instruction is picked up immediately."
         }
       }
     },

@@ -21,6 +21,15 @@ const TRUSTED_BOTS = [
   /linkedinbot/i,
   /facebookexternalhit/i,
   /twitterbot/i,
+  // Answer-engine fetchers — real-time citation requests must not be rate-limited.
+  /gptbot/i,
+  /oai-searchbot/i,
+  /chatgpt-user/i,
+  /perplexitybot/i,
+  /perplexity-user/i,
+  /claudebot/i,
+  /claude-searchbot/i,
+  /claude-user/i,
 ]
 
 const SUSPICIOUS_AGENTS = [

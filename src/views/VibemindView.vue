@@ -37,121 +37,99 @@
           </p>
         </div>
 
-        <!-- Faux app window: the real Vibemind UI — dark terminal panes -->
+        <!-- Faux app window: the real Vibemind UI — workspaces · terminal · skills -->
         <div class="hero-visual" aria-hidden="true">
           <div class="vmapp">
-            <!-- Title bar -->
-            <div class="vmapp__bar">
-              <span class="vmapp__lights"><i></i><i></i><i></i></span>
+            <!-- Top bar -->
+            <div class="vmapp__top">
               <span class="vmapp__brand"><span class="vmapp__logo"></span>Vibemind</span>
               <span class="vmapp__crumb">
                 juke-test <span class="vmapp__sep">&rsaquo;</span>
-                <span class="vmapp__path">~/Desktop/juke-test</span>
+                <span class="vmapp__path">~/Desktop/chatbot-/juke-test</span>
               </span>
-              <span class="vmapp__ready"><span class="vmapp__readydot"></span>2 ready</span>
+              <span class="vmapp__actions">
+                <span class="vmapp__ready"><span class="vmapp__readydot"></span>2 ready</span>
+                <span class="vmapp__btn">Files</span>
+                <span class="vmapp__btn">Tasks</span>
+                <span class="vmapp__btn vmapp__btn--cta">+ Spawn</span>
+              </span>
             </div>
 
-            <!-- Body: workspaces rail + tiled terminal panes -->
+            <!-- Body: workspaces rail · terminal pane · skills rail -->
             <div class="vmapp__body">
               <aside class="vmapp__side">
-                <div class="vmapp__sidehead">{{ t('vibemindView.mockup.workspaces') }}</div>
-                <div class="wsrow wsrow--active">
-                  <span class="wsrow__dot" style="background: #34d399"></span>juke-test<span
-                    class="wsrow__n"
-                    >3</span
-                  >
+                <div class="vmapp__sidehead">
+                  {{ t('vibemindView.mockup.workspaces') }}<span class="vmapp__plus">+</span>
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #60a5fa"></span>syndicus<span
+                  <span class="wsrow__dot" style="background: #34d399"></span>Juke
+                </div>
+                <div class="wsrow wsrow--active">
+                  <span class="wsrow__dot" style="background: #60a5fa"></span>juke-test<span
                     class="wsrow__n"
                     >1</span
                   >
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #a78bfa"></span>vibemind
+                  <span class="wsrow__dot" style="background: #a78bfa"></span>Syndicus
+                </div>
+                <div class="wsrow">
+                  <span class="wsrow__dot" style="background: #34d399"></span>vibemind
                 </div>
                 <div class="wsrow">
                   <span class="wsrow__dot" style="background: #f59e0b"></span>research
                 </div>
               </aside>
 
-              <div class="vmapp__panes">
-                <!-- Left: running build agent -->
-                <div class="term term--tall">
-                  <div class="term__head">
-                    <span class="term__dot term__dot--run"></span>claude · build<span
-                      class="term__tag"
-                      >running</span
-                    >
-                  </div>
-                  <div class="term__screen">
-                    <p class="t-dim">~/juke-test on main</p>
-                    <p>
-                      <span class="t-acc">&rsaquo;</span> {{ t('vibemindView.mockup.buildPrompt') }}
-                    </p>
-                    <p class="t-bul">● Edit <span class="t-file">CheckoutView.vue</span></p>
-                    <p class="t-bul">● Bash <span class="t-dim">npm run test</span></p>
-                    <p class="t-ok">✓ 24 passed</p>
-                    <p class="t-cur">▋</p>
-                  </div>
+              <!-- Center terminal pane — a live Claude Code session -->
+              <div class="vmapp__main">
+                <div class="term__head">
+                  <span class="term__dot term__dot--run"></span>Claude
+                  <span class="term__sub">claude</span>
+                  <span class="term__win">&hellip; &#x21bb; &times;</span>
                 </div>
-                <!-- Right top: review agent waiting on input -->
-                <div class="term term--wait">
-                  <div class="term__head">
-                    <span class="term__dot term__dot--wait"></span>claude · review<span
-                      class="term__badge"
-                      >{{ t('vibemindView.mockup.waitingBadge') }}</span
-                    >
-                  </div>
-                  <div class="term__screen">
-                    <p class="t-bul">● {{ t('vibemindView.mockup.reviewDone') }}</p>
-                    <p>{{ t('vibemindView.mockup.reviewAsk') }}</p>
-                    <p class="t-prompt"><span class="t-acc">❯</span><span class="t-cur">▋</span></p>
-                  </div>
-                </div>
-                <!-- Right bottom: tests agent running -->
-                <div class="term">
-                  <div class="term__head">
-                    <span class="term__dot term__dot--run"></span>claude · tests
-                  </div>
-                  <div class="term__screen">
-                    <p class="t-bul">● Bash <span class="t-dim">pytest -q</span></p>
-                    <p class="t-dim">{{ t('vibemindView.mockup.testsRunning') }}</p>
-                  </div>
+                <div class="term__screen">
+                  <p class="t-dim">─ Claude Code v2.1.177 ───────────────</p>
+                  <p class="t-strong">Welcome back kenjy!</p>
+                  <p class="t-dim">Opus 4.8 (1M context) · Claude Max</p>
+                  <p class="t-dim">~/Desktop/chatbot-/juke-test</p>
+                  <p>&nbsp;</p>
+                  <p>
+                    <span class="t-acc">&rsaquo;</span> {{ t('vibemindView.mockup.buildPrompt') }}
+                  </p>
+                  <p class="t-bul">● Edit <span class="t-file">CheckoutView.vue</span></p>
+                  <p class="t-bul">● Bash <span class="t-dim">npm run test</span></p>
+                  <p class="t-ok">✓ 24 passed</p>
+                  <p class="t-cur">▋</p>
                 </div>
               </div>
-            </div>
 
-            <!-- Task drawer: todo / doing / review / done -->
-            <div class="vmapp__drawer">
-              <div class="kcol">
-                <span class="kcol__h"
-                  ><i style="background: #94a3b8"></i
-                  >{{ t('vibemindView.mockup.kanban.todo') }}</span
-                ><span class="kcard">{{ t('vibemindView.mockup.kanban.cardWebhook') }}</span>
-              </div>
-              <div class="kcol">
-                <span class="kcol__h"
-                  ><i style="background: #fbbf24"></i
-                  >{{ t('vibemindView.mockup.kanban.doing') }}</span
-                ><span class="kcard kcard--act">{{
-                  t('vibemindView.mockup.kanban.cardCheckout')
-                }}</span>
-              </div>
-              <div class="kcol">
-                <span class="kcol__h"
-                  ><i style="background: #60a5fa"></i
-                  >{{ t('vibemindView.mockup.kanban.review') }}</span
-                ><span class="kcard">{{ t('vibemindView.mockup.kanban.cardAuth') }}</span>
-              </div>
-              <div class="kcol">
-                <span class="kcol__h"
-                  ><i style="background: #34d399"></i
-                  >{{ t('vibemindView.mockup.kanban.done') }}</span
-                ><span class="kcard kcard--done">{{
-                  t('vibemindView.mockup.kanban.cardLanding')
-                }}</span>
-              </div>
+              <!-- Skills rail -->
+              <aside class="vmapp__skills">
+                <div class="vmapp__sidehead">
+                  {{ t('vibemindView.mockup.skills') }}<span class="vmapp__count">60</span>
+                </div>
+                <div class="skillsearch">{{ t('vibemindView.mockup.searchSkills') }}</div>
+                <div class="skillcat">Frontend</div>
+                <div class="skillcard">
+                  <span class="skillcard__name">VibeA11y</span><span class="skillcard__tag">A11Y</span>
+                </div>
+                <div class="skillcard">
+                  <span class="skillcard__name">VibeResponsive</span
+                  ><span class="skillcard__tag">RESP</span>
+                </div>
+                <div class="skillcard">
+                  <span class="skillcard__name">VibeFormulieren</span
+                  ><span class="skillcard__tag">FORMS</span>
+                </div>
+                <div class="skillcard">
+                  <span class="skillcard__name">VibeData</span><span class="skillcard__tag">DATA</span>
+                </div>
+                <div class="skillcard">
+                  <span class="skillcard__name">VibeTokens</span
+                  ><span class="skillcard__tag">TOKENS</span>
+                </div>
+              </aside>
             </div>
           </div>
         </div>
@@ -199,10 +177,14 @@
           <h2>{{ t('vibemindView.shots.title') }}</h2>
           <p>{{ t('vibemindView.shots.subtitle') }}</p>
         </div>
-        <div class="shots-grid">
-          <figure class="shot" v-for="(s, i) in shots" :key="i">
-            <div class="shot__frame">
-              <div class="shot__bar"><span></span><span></span><span></span></div>
+        <div class="shots-rows">
+          <figure
+            class="shot"
+            :class="{ 'shot--reverse': i % 2 === 1 }"
+            v-for="(s, i) in shots"
+            :key="i"
+          >
+            <div class="shot__media">
               <img
                 v-if="!s.broken"
                 :src="s.src"
@@ -227,7 +209,10 @@
                 <span>{{ t('vibemindView.shots.placeholder') }}</span>
               </div>
             </div>
-            <figcaption>{{ s.caption }}</figcaption>
+            <figcaption class="shot__text">
+              <h3>{{ s.caption }}</h3>
+              <p>{{ s.desc }}</p>
+            </figcaption>
           </figure>
         </div>
       </div>
@@ -328,9 +313,11 @@
 <script setup>
 import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import emailjs from '@emailjs/browser'
 import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
+import vibemind1 from '@/assets/Vibemind1.webp'
+import vibemind2 from '@/assets/Vibemind2.webp'
+import vibemind3 from '@/assets/Vibemind3.webp'
 
 const { t } = useI18n()
 
@@ -367,25 +354,26 @@ const features = computed(() => [
   },
 ])
 
-// Drop real screenshots in /public/screenshots/ with these filenames to replace
-// the placeholders. Until then a tasteful "Screenshot volgt" frame is shown.
 const shots = reactive([
   {
-    src: '/screenshots/vibemind-panes.png',
+    src: vibemind1,
     alt: t('vibemindView.shots.items.panes.alt'),
     caption: t('vibemindView.shots.items.panes.caption'),
+    desc: t('vibemindView.shots.items.panes.desc'),
     broken: false,
   },
   {
-    src: '/screenshots/vibemind-kanban.png',
+    src: vibemind2,
     alt: t('vibemindView.shots.items.kanban.alt'),
     caption: t('vibemindView.shots.items.kanban.caption'),
+    desc: t('vibemindView.shots.items.kanban.desc'),
     broken: false,
   },
   {
-    src: '/screenshots/vibemind-skills.png',
+    src: vibemind3,
     alt: t('vibemindView.shots.items.skills.alt'),
     caption: t('vibemindView.shots.items.skills.caption'),
+    desc: t('vibemindView.shots.items.skills.desc'),
     broken: false,
   },
 ])
@@ -394,32 +382,40 @@ const form = reactive({ name: '', email: '', reason: '', website: '' })
 const status = ref('idle') // idle | sending | success | error
 
 const submitBeta = async () => {
-  if (form.website) return // honeypot tripped → silently ignore bots
+  if (form.website) {
+    // honeypot tripped → pretend it worked, store nothing
+    status.value = 'success'
+    return
+  }
   if (!form.email) {
     status.value = 'error'
     return
   }
   status.value = 'sending'
-  try {
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-    const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-    // Map onto the existing contact EmailJS template fields.
-    await emailjs.send(
-      serviceId,
-      templateId,
-      {
-        service: 'Vibemind beta-inschrijving',
-        name: form.name || 'Onbekend',
-        lastname: '',
-        email: form.email,
-        phone: '',
-        subject: 'Vibemind beta-inschrijving',
-        message: form.reason || 'Geen toelichting opgegeven.',
+  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
+  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+
+  try {
+    // INSERT into the Supabase `signups` table via the REST API. RLS only
+    // allows INSERT with the anon key, so this is safe to run client-side.
+    const res = await fetch(`${supabaseUrl}/rest/v1/signups`, {
+      method: 'POST',
+      headers: {
+        apikey: supabaseAnonKey,
+        Authorization: `Bearer ${supabaseAnonKey}`,
+        'Content-Type': 'application/json',
+        Prefer: 'return=minimal',
       },
-      publicKey,
-    )
+      body: JSON.stringify({
+        email: form.email,
+        name: form.name || null,
+        reason: form.reason || null,
+        source: 'website',
+      }),
+    })
+
+    if (!res.ok) throw new Error(`Supabase responded ${res.status}`)
 
     status.value = 'success'
     form.name = ''
@@ -432,15 +428,15 @@ const submitBeta = async () => {
 }
 
 useHead({
-  title: 'Vibemind — Parallelle AI-agents in één app | Juke',
+  title: 'Vibemind — Parallelle AI-agents in één app | JukeCoding',
   meta: [
     {
       name: 'description',
       content:
-        'Vibemind is de desktop-tool van Juke om meerdere Claude Code-agents parallel te draaien: panes, kanban, skills en een MCP-server. Schrijf je in voor de beta.',
+        'Vibemind is de desktop-tool van JukeCoding om meerdere Claude Code-agents parallel te draaien: panes, kanban, skills en een MCP-server. Schrijf je in voor de beta.',
     },
     { name: 'robots', content: 'index, follow' },
-    { property: 'og:title', content: 'Vibemind — Parallelle AI-agents in één app | Juke' },
+    { property: 'og:title', content: 'Vibemind — Parallelle AI-agents in één app | JukeCoding' },
     {
       property: 'og:description',
       content:
@@ -449,7 +445,7 @@ useHead({
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/vibemind' },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
-    { property: 'og:site_name', content: 'Juke' },
+    { property: 'og:site_name', content: 'JukeCoding' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Vibemind — Parallelle AI-agents in één app' },
@@ -471,7 +467,7 @@ useHead({
         description:
           'Desktop-tool om meerdere Claude Code-agents parallel te draaien met panes, kanban, skills en een MCP-server.',
         url: 'https://jukecoding.be/vibemind',
-        author: { '@type': 'Organization', name: 'Juke', url: 'https://jukecoding.be' },
+        author: { '@type': 'Organization', name: 'JukeCoding', url: 'https://jukecoding.be' },
         offers: {
           '@type': 'Offer',
           price: '0',
@@ -492,11 +488,7 @@ useHead({
 
 /* ── Hero ── */
 .vm-hero {
-  padding: var(--hero-pad-top) var(--space-8) var(--hero-pad-bottom);
-  min-height: var(--hero-min-height);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: calc(var(--space-32) + 1rem) var(--space-8) var(--space-20);
 }
 
 .hero-grid {
@@ -504,7 +496,6 @@ useHead({
   grid-template-columns: 1fr 1.05fr;
   gap: var(--space-16);
   align-items: center;
-  width: 100%;
 }
 
 .hero-copy {
@@ -598,8 +589,8 @@ h1 {
   color: var(--vm-text);
 }
 
-/* Title bar */
-.vmapp__bar {
+/* Top bar */
+.vmapp__top {
   display: flex;
   align-items: center;
   gap: var(--space-3);
@@ -607,27 +598,25 @@ h1 {
   background: var(--vm-panel);
   border-bottom: 1px solid var(--vm-line);
 }
-.vmapp__lights {
+.vmapp__actions {
   display: inline-flex;
-  gap: 6px;
+  align-items: center;
+  gap: var(--space-2);
+  flex-shrink: 0;
 }
-.vmapp__lights i {
-  width: 9px;
-  height: 9px;
-  border-radius: 50%;
-  background: #2a323d;
+.vmapp__btn {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  color: var(--vm-dim);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--vm-line);
 }
-.vmapp__lights i:nth-child(1) {
-  background: #ff5f57;
-  opacity: 0.85;
-}
-.vmapp__lights i:nth-child(2) {
-  background: #febc2e;
-  opacity: 0.85;
-}
-.vmapp__lights i:nth-child(3) {
-  background: #28c840;
-  opacity: 0.85;
+.vmapp__btn--cta {
+  color: var(--vm-warn);
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.1);
+  font-weight: var(--weight-semibold);
 }
 .vmapp__brand {
   display: inline-flex;
@@ -668,9 +657,9 @@ h1 {
   flex-shrink: 0;
   font-size: 10px;
   font-weight: var(--weight-semibold);
-  color: var(--vm-accent);
-  background: rgba(52, 211, 153, 0.12);
-  border: 1px solid rgba(52, 211, 153, 0.25);
+  color: var(--vm-warn);
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.28);
   padding: 3px 8px;
   border-radius: var(--radius-full);
 }
@@ -678,8 +667,8 @@ h1 {
   width: 6px;
   height: 6px;
   border-radius: 50%;
-  background: var(--vm-accent);
-  box-shadow: 0 0 6px var(--vm-accent);
+  background: var(--vm-warn);
+  box-shadow: 0 0 6px var(--vm-warn);
   animation: vm-pulse 1.8s ease-in-out infinite;
 }
 @keyframes vm-pulse {
@@ -692,21 +681,30 @@ h1 {
   }
 }
 
-/* Body */
+/* Body: workspaces · terminal · skills */
 .vmapp__body {
   display: grid;
-  grid-template-columns: 116px 1fr;
-  min-height: 268px;
+  grid-template-columns: 116px 1fr 158px;
+  min-height: 320px;
 }
-.vmapp__side {
-  border-right: 1px solid var(--vm-line);
+.vmapp__side,
+.vmapp__skills {
   background: var(--vm-panel);
   padding: var(--space-3);
   display: flex;
   flex-direction: column;
   gap: 3px;
+  min-width: 0;
+}
+.vmapp__side {
+  border-right: 1px solid var(--vm-line);
+}
+.vmapp__skills {
+  border-left: 1px solid var(--vm-line);
 }
 .vmapp__sidehead {
+  display: flex;
+  align-items: center;
   font-size: 9px;
   letter-spacing: var(--tracking-wide);
   text-transform: uppercase;
@@ -715,6 +713,18 @@ h1 {
   font-weight: var(--weight-semibold);
   margin-bottom: var(--space-2);
   padding-left: 4px;
+}
+.vmapp__plus {
+  margin-left: auto;
+  color: var(--vm-muted);
+}
+.vmapp__count {
+  margin-left: auto;
+  font-size: 9px;
+  color: var(--vm-muted);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1px 5px;
+  border-radius: var(--radius-full);
 }
 .wsrow {
   display: flex;
@@ -727,7 +737,7 @@ h1 {
   color: var(--vm-dim);
 }
 .wsrow--active {
-  background: rgba(52, 211, 153, 0.1);
+  background: rgba(96, 165, 250, 0.12);
   color: var(--vm-text);
 }
 .wsrow__dot {
@@ -745,23 +755,12 @@ h1 {
   border-radius: var(--radius-full);
 }
 
-/* Tiled terminal panes (mosaic: one tall left, two stacked right) */
-.vmapp__panes {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 1px;
-  background: var(--vm-line);
-}
-.term {
-  background: var(--vm-panel);
+/* Center terminal pane */
+.vmapp__main {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  overflow: hidden;
-}
-.term--tall {
-  grid-row: span 2;
+  background: var(--vm-screen);
 }
 .term__head {
   display: flex;
@@ -769,9 +768,10 @@ h1 {
   gap: var(--space-2);
   padding: 7px var(--space-3);
   font-size: 10px;
+  font-family: var(--font-sans);
   color: var(--vm-dim);
   border-bottom: 1px solid var(--vm-line);
-  background: rgba(255, 255, 255, 0.015);
+  background: var(--vm-panel);
 }
 .term__dot {
   width: 6px;
@@ -783,35 +783,20 @@ h1 {
   background: var(--vm-accent);
   box-shadow: 0 0 6px var(--vm-accent);
 }
-.term__dot--wait {
-  background: var(--vm-warn);
-  box-shadow: 0 0 6px var(--vm-warn);
-}
-.term__tag {
-  margin-left: auto;
-  font-size: 9px;
+.term__sub {
   color: var(--vm-muted);
+  font-family: var(--font-mono);
 }
-.term__badge {
+.term__win {
   margin-left: auto;
-  font-size: 8.5px;
-  font-weight: var(--weight-semibold);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--vm-warn);
-  background: rgba(245, 158, 11, 0.12);
-  padding: 2px 6px;
-  border-radius: var(--radius-full);
-}
-.term--wait {
-  background: rgba(245, 158, 11, 0.04);
+  color: var(--vm-muted);
+  letter-spacing: 1px;
 }
 .term__screen {
   flex: 1;
-  background: var(--vm-screen);
-  padding: var(--space-3);
-  font-size: 10.5px;
-  line-height: 1.55;
+  padding: var(--space-4);
+  font-size: 11px;
+  line-height: 1.6;
   overflow: hidden;
 }
 .term__screen p {
@@ -822,6 +807,10 @@ h1 {
 }
 .t-dim {
   color: var(--vm-muted);
+}
+.t-strong {
+  color: var(--vm-text);
+  font-weight: var(--weight-semibold);
 }
 .t-acc {
   color: var(--vm-accent);
@@ -834,9 +823,6 @@ h1 {
 }
 .t-ok {
   color: var(--vm-accent);
-}
-.t-prompt {
-  margin-top: 2px;
 }
 .t-cur {
   color: var(--vm-accent);
@@ -852,56 +838,51 @@ h1 {
   }
 }
 
-/* Task drawer */
-.vmapp__drawer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-2);
-  padding: var(--space-3) var(--space-4);
-  background: var(--vm-panel);
-  border-top: 1px solid var(--vm-line);
-}
-.kcol {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  min-width: 0;
-}
-.kcol__h {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--vm-muted);
-  font-family: var(--font-sans);
-  font-weight: var(--weight-semibold);
-  i {
-    width: 6px;
-    height: 6px;
-    border-radius: 2px;
-  }
-}
-.kcard {
+/* Skills rail */
+.skillsearch {
   font-size: 10px;
-  color: var(--vm-dim);
+  color: var(--vm-muted);
   background: var(--vm-bg);
   border: 1px solid var(--vm-line);
   border-radius: var(--radius-sm);
-  padding: 5px 7px;
+  padding: 5px 8px;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-sans);
+}
+.skillcat {
+  font-size: 8.5px;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--vm-muted);
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  margin: 2px 0 4px;
+  padding-left: 2px;
+}
+.skillcard {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border: 1px solid var(--vm-line);
+  border-radius: var(--radius-sm);
+  background: var(--vm-bg);
+}
+.skillcard__name {
+  font-size: 10.5px;
+  font-family: var(--font-sans);
+  font-weight: var(--weight-semibold);
+  color: var(--vm-text);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.kcard--act {
-  border-color: rgba(245, 158, 11, 0.4);
-  color: var(--vm-text);
-}
-.kcard--done {
+.skillcard__tag {
+  margin-left: auto;
+  font-size: 7.5px;
+  letter-spacing: 0.04em;
   color: var(--vm-muted);
-  text-decoration: line-through;
-  opacity: 0.7;
+  flex-shrink: 0;
 }
 
 /* ── Intro ── */
@@ -1013,33 +994,40 @@ h1 {
   color: var(--color-text-secondary);
   margin: 0;
 }
-.shots-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+.shots-rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
 }
 .shot {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  gap: var(--space-10);
   margin: 0;
 }
-.shot__frame {
+.shot--reverse .shot__media {
+  order: 2;
+}
+.shot__media {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-surface);
   box-shadow: var(--shadow-ambient);
 }
-.shot__bar {
-  display: flex;
-  gap: 5px;
-  padding: var(--space-3) var(--space-4);
-  background: var(--color-bg-sunken);
-  border-bottom: 1px solid var(--color-border);
-  span {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--color-border-hover);
-  }
+.shot__text h3 {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-bold);
+  color: var(--color-text-primary);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-3);
+}
+.shot__text p {
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin: 0;
 }
 .shot__img {
   display: block;
@@ -1064,13 +1052,6 @@ h1 {
     font-size: var(--text-small);
   }
 }
-.shot figcaption {
-  margin-top: var(--space-3);
-  text-align: center;
-  font-size: var(--text-small);
-  color: var(--color-text-tertiary);
-}
-
 /* ── Beta ── */
 .vm-beta {
   padding: var(--space-16) var(--space-8) var(--space-24);
@@ -1217,8 +1198,7 @@ h1 {
     grid-template-columns: 1fr;
     gap: var(--space-6);
   }
-  .features-grid,
-  .shots-grid {
+  .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .beta-card {
@@ -1230,7 +1210,7 @@ h1 {
 
 @media (max-width: 768px) {
   .vm-hero {
-    padding: var(--hero-pad-top) var(--space-6) var(--hero-pad-bottom);
+    padding: var(--space-32) var(--space-6) var(--space-16);
   }
   h1 {
     font-size: var(--text-h2);
@@ -1243,11 +1223,23 @@ h1 {
       width: 100%;
     }
   }
-  .features-grid,
-  .shots-grid {
+  .features-grid {
     grid-template-columns: 1fr;
     max-width: 460px;
     margin: 0 auto;
+  }
+  .shot {
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+  }
+  .shot--reverse .shot__media {
+    order: 0;
+  }
+  .vmapp__body {
+    grid-template-columns: 104px 1fr;
+  }
+  .vmapp__skills {
+    display: none;
   }
   .vm-intro,
   .vm-features,

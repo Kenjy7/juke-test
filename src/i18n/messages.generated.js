@@ -178,6 +178,76 @@ export default {
         "customWorkflows": "Custom AI-workflows"
       }
     },
+    "beheerlyTeaser": {
+      "seo": {
+        "title": "Beheerly — een nieuw product van Juke voor syndici | Juke",
+        "description": "Beheerly is een nieuw product van Juke voor syndici en mede-eigendommen (VME's) in België, momenteel in ontwikkeling. Meld je aan via mail en krijg als een van de eersten toegang."
+      },
+      "meta": {
+        "byline": "Door het Juke-team",
+        "updatedLabel": "Laatst bijgewerkt",
+        "updatedDate": "13 juni 2026"
+      },
+      "hero": {
+        "eyebrow": "In ontwikkeling · Een nieuw product van Juke",
+        "titleLead": "We bouwen",
+        "titleHighlight": "Beheerly",
+        "titleTail": "voor syndici.",
+        "subtitle": "Beheerly is een nieuw product van Juke dat het dagelijkse werk van syndici en mede-eigendommen (VME's) in België een pak eenvoudiger maakt. Wat het precies allemaal doet, houden we voorlopig nog even voor onszelf — maar het komt eraan.",
+        "note": "We zitten volop in ontwikkeling. Geïnteresseerden krijgen als eerste een seintje."
+      },
+      "about": {
+        "question": "Wat is Beheerly?",
+        "answer": "Beheerly is een nieuw softwareproduct van Juke, momenteel in ontwikkeling, dat de administratie van syndici en mede-eigendommen (VME's) in België vereenvoudigt. De volledige functionaliteit maakt Juke bekend bij de lancering."
+      },
+      "hints": {
+        "title": "Een tipje van de sluier",
+        "items": {
+          "one": {
+            "title": "Minder administratie",
+            "desc": "Beheerly pakt het rondsturen, opvolgen en napluizen aan waar syndici vandaag uren mee verliezen."
+          },
+          "two": {
+            "title": "Alles op één plek",
+            "desc": "Beheerly brengt bewoners, dossiers en partijen samen in één helder overzicht. Meer verklappen we nog niet."
+          },
+          "three": {
+            "title": "Slim ingebouwd",
+            "desc": "Beheerly zet dezelfde technologie in waar Juke om bekendstaat. De rest hoor je bij de lancering."
+          }
+        }
+      },
+      "faq": {
+        "title": "Veelgestelde vragen over Beheerly",
+        "items": {
+          "launch": {
+            "question": "Wanneer lanceert Beheerly?",
+            "answer": "Beheerly is in 2026 volop in ontwikkeling en nog niet publiek beschikbaar. Syndici die zich nu via mail aanmelden, krijgen als eersten toegang zodra Beheerly live gaat."
+          },
+          "who": {
+            "question": "Voor wie is Beheerly bedoeld?",
+            "answer": "Beheerly is gemaakt voor syndici, vastgoedbeheerders en mede-eigendommen (VME's) die minder tijd willen verliezen aan administratie en alles op één plek willen beheren."
+          },
+          "access": {
+            "question": "Hoe krijg ik vroege toegang tot Beheerly?",
+            "answer": "Stuur een mail naar contact{'@'}jukecoding.be met je naam, beheervennootschap en aantal panden. Juke reageert doorgaans binnen 1 werkdag en geeft aanmelders als eersten toegang."
+          },
+          "maker": {
+            "question": "Wie maakt Beheerly?",
+            "answer": "Beheerly wordt gebouwd door Juke (JukeCoding), een AI- en softwarestudio uit Hasselt, België, die dezelfde technologie inzet waar Juke om bekendstaat."
+          }
+        }
+      },
+      "syndic": {
+        "eyebrow": "Voor syndici",
+        "title": "Ben je syndicus en nieuwsgierig?",
+        "body": "Beheer je mede-eigendommen en wil je weten waar we aan werken? Stuur Juke een mail en we vertellen je als een van de eersten meer over Beheerly — vrijblijvend.",
+        "ctaMail": "Stuur ons een mail",
+        "mailSubject": "Interesse in Beheerly, het nieuwe Juke-product voor syndici",
+        "mailBody": "Hallo Juke,\n\nIk ben syndicus en ben benieuwd naar Beheerly, het product waar jullie aan werken. Kunnen jullie me meer info bezorgen?\n\nNaam:\nBeheervennootschap:\nAantal panden:\nTelefoon:\n\nAlvast bedankt!",
+        "footnote": "We reageren doorgaans binnen 1 werkdag."
+      }
+    },
     "beheerlyView": {
       "hero": {
         "eyebrow": "Software voor syndici",
@@ -972,21 +1042,9 @@ export default {
       },
       "mockup": {
         "workspaces": "Workspaces",
-        "buildPrompt": "bouw de checkout-flow af",
-        "waitingBadge": "wacht op input",
-        "reviewDone": "Review klaar: 3 fixes.",
-        "reviewAsk": "Zal ik committen?",
-        "testsRunning": "running 12 cases…",
-        "kanban": {
-          "todo": "Todo",
-          "doing": "Doing",
-          "review": "Review",
-          "done": "Done",
-          "cardWebhook": "Webhook docs",
-          "cardCheckout": "Checkout-flow",
-          "cardAuth": "Auth refactor",
-          "cardLanding": "Landing copy"
-        }
+        "skills": "Skills",
+        "searchSkills": "Search skills",
+        "buildPrompt": "bouw de checkout-flow af"
       },
       "intro": {
         "title": "Wat is Vibemind?",
@@ -1033,16 +1091,19 @@ export default {
         "placeholder": "Screenshot volgt",
         "items": {
           "panes": {
-            "alt": "Meerdere Claude-panes naast elkaar in Vibemind",
-            "caption": "Meerdere agents naast elkaar"
+            "alt": "Meerdere panels naast elkaar geopend in Vibemind",
+            "caption": "Meerdere panels tegelijk open",
+            "desc": "Start zoveel Claude Code-sessies als je wil naast elkaar. Een statuslampje toont meteen welke agent draait, klaar is of op jouw input wacht."
           },
           "kanban": {
-            "alt": "Kanban-taakbord in Vibemind",
-            "caption": "Taken slepen naar een pane"
+            "alt": "Instellingen waar je het thema kan aanpassen in Vibemind",
+            "caption": "Pas het thema aan in de instellingen",
+            "desc": "Kies uit kant-en-klare thema's of stel je eigen kleuren in. De hele app past zich meteen aan jouw voorkeur aan."
           },
           "skills": {
-            "alt": "Skill-picker in Vibemind",
-            "caption": "Skills injecteren met Cmd+P"
+            "alt": "Taken toevoegen en slepen in Vibemind",
+            "caption": "Taken toevoegen en slepen",
+            "desc": "Voeg taken toe op het ingebouwde bord en sleep ze rechtstreeks naar een agent. De opdracht wordt meteen opgepikt."
           }
         }
       },
@@ -1415,6 +1476,76 @@ export default {
         "integrations": "Integrations (CRM, ERP, APIs)",
         "dataAnalysis": "Data analysis & reporting",
         "customWorkflows": "Custom AI workflows"
+      }
+    },
+    "beheerlyTeaser": {
+      "seo": {
+        "title": "Beheerly — a new product from Juke for property managers | Juke",
+        "description": "Beheerly is a new product from Juke for property managers and co-ownerships in Belgium, currently in development. Send a mail to be among the first to get access."
+      },
+      "meta": {
+        "byline": "By the Juke team",
+        "updatedLabel": "Last updated",
+        "updatedDate": "13 June 2026"
+      },
+      "hero": {
+        "eyebrow": "In development · A new product from Juke",
+        "titleLead": "We're building",
+        "titleHighlight": "Beheerly",
+        "titleTail": "for property managers.",
+        "subtitle": "Beheerly is a new product from Juke that makes the daily work of property managers and co-ownerships (VMEs) in Belgium a whole lot simpler. Exactly what it does, we're keeping to ourselves for now — but it's on its way.",
+        "note": "We're deep in development. Those who are interested will be the first to hear."
+      },
+      "about": {
+        "question": "What is Beheerly?",
+        "answer": "Beheerly is a new software product from Juke, currently in development, that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. Juke will reveal the full feature set at launch."
+      },
+      "hints": {
+        "title": "A glimpse behind the curtain",
+        "items": {
+          "one": {
+            "title": "Less admin",
+            "desc": "Beheerly tackles the forwarding, chasing and digging that property managers lose hours to today."
+          },
+          "two": {
+            "title": "Everything in one place",
+            "desc": "Beheerly brings residents, files and parties together in one clear overview. That's all we'll reveal for now."
+          },
+          "three": {
+            "title": "Smartly built in",
+            "desc": "Beheerly uses the very technology Juke is known for. You'll hear the rest at launch."
+          }
+        }
+      },
+      "faq": {
+        "title": "Frequently asked questions about Beheerly",
+        "items": {
+          "launch": {
+            "question": "When does Beheerly launch?",
+            "answer": "Beheerly is in active development in 2026 and not yet publicly available. Property managers who sign up by mail now get first access once Beheerly goes live."
+          },
+          "who": {
+            "question": "Who is Beheerly for?",
+            "answer": "Beheerly is built for property managers, real-estate managers and co-ownerships (VMEs) who want to lose less time on admin and manage everything in one place."
+          },
+          "access": {
+            "question": "How do I get early access to Beheerly?",
+            "answer": "Send a mail to contact{'@'}jukecoding.be with your name, management company and number of properties. Juke usually replies within one business day and gives sign-ups first access."
+          },
+          "maker": {
+            "question": "Who makes Beheerly?",
+            "answer": "Beheerly is built by Juke (JukeCoding), an AI and software studio from Hasselt, Belgium, using the very technology Juke is known for."
+          }
+        }
+      },
+      "syndic": {
+        "eyebrow": "For property managers",
+        "title": "Are you a property manager and curious?",
+        "body": "Managing co-ownerships and want to know what we're working on? Send Juke a mail and we'll be among the first to tell you more about Beheerly — no strings attached.",
+        "ctaMail": "Send us a mail",
+        "mailSubject": "Interested in Beheerly, the new Juke product for property managers",
+        "mailBody": "Hi Juke,\n\nI'm a property manager and I'm curious about Beheerly, the product you're working on. Could you send me more info?\n\nName:\nManagement company:\nNumber of properties:\nPhone:\n\nThanks in advance!",
+        "footnote": "We usually reply within 1 business day."
       }
     },
     "beheerlyView": {
@@ -2211,21 +2342,9 @@ export default {
       },
       "mockup": {
         "workspaces": "Workspaces",
-        "buildPrompt": "finish the checkout flow",
-        "waitingBadge": "waiting on input",
-        "reviewDone": "Review done: 3 fixes.",
-        "reviewAsk": "Shall I commit?",
-        "testsRunning": "running 12 cases…",
-        "kanban": {
-          "todo": "Todo",
-          "doing": "Doing",
-          "review": "Review",
-          "done": "Done",
-          "cardWebhook": "Webhook docs",
-          "cardCheckout": "Checkout flow",
-          "cardAuth": "Auth refactor",
-          "cardLanding": "Landing copy"
-        }
+        "skills": "Skills",
+        "searchSkills": "Search skills",
+        "buildPrompt": "finish the checkout flow"
       },
       "intro": {
         "title": "What is Vibemind?",
@@ -2272,16 +2391,19 @@ export default {
         "placeholder": "Screenshot coming soon",
         "items": {
           "panes": {
-            "alt": "Several Claude panes side by side in Vibemind",
-            "caption": "Several agents side by side"
+            "alt": "Multiple panels open side by side in Vibemind",
+            "caption": "Multiple panels open at once",
+            "desc": "Start as many Claude Code sessions side by side as you like. A status light instantly shows which agent is running, ready, or waiting for your input."
           },
           "kanban": {
-            "alt": "Kanban task board in Vibemind",
-            "caption": "Drag tasks onto a pane"
+            "alt": "Settings where you can change the theme in Vibemind",
+            "caption": "Change the theme in the settings",
+            "desc": "Pick a ready-made theme or set your own colors. The whole app updates to your preference right away."
           },
           "skills": {
-            "alt": "Skill picker in Vibemind",
-            "caption": "Inject skills with Cmd+P"
+            "alt": "Add and drag tasks in Vibemind",
+            "caption": "Add and drag tasks",
+            "desc": "Add tasks on the built-in board and drag them straight onto an agent. The instruction is picked up immediately."
           }
         }
       },

@@ -10,7 +10,7 @@
       "title": "Wie is verantwoordelijk",
       "text": "Juke is de verwerkingsverantwoordelijke voor de gegevens die via deze website worden verzameld.",
       "name": "Juke",
-      "address": "[Straat en nummer], 3500 Hasselt, België"
+      "address": "3500 Hasselt, België"
     },
     "data": {
       "title": "Welke gegevens we verzamelen",
@@ -47,7 +47,7 @@
       "object": "Bezwaar te maken tegen de verwerking",
       "portability": "Je gegevens te laten overdragen",
       "withdraw": "Je toestemming op elk moment in te trekken",
-      "outro": "Stuur je verzoek naar contact@jukecoding.be. Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be)."
+      "outro": "Stuur je verzoek naar contact{'@'}jukecoding.be. Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be)."
     },
     "security": {
       "title": "Beveiliging",
@@ -81,7 +81,7 @@
       "title": "Who is responsible",
       "text": "Juke is the data controller for the data collected through this website.",
       "name": "Juke",
-      "address": "[Street and number], 3500 Hasselt, Belgium"
+      "address": "3500 Hasselt, Belgium"
     },
     "data": {
       "title": "What data we collect",
@@ -118,7 +118,7 @@
       "object": "Object to the processing",
       "portability": "Have your data transferred",
       "withdraw": "Withdraw your consent at any time",
-      "outro": "Send your request to contact@jukecoding.be. You also have the right to lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be)."
+      "outro": "Send your request to contact{'@'}jukecoding.be. You also have the right to lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be)."
     },
     "security": {
       "title": "Security",

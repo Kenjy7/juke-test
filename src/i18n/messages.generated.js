@@ -189,19 +189,18 @@ export default {
         "updatedDate": "13 juni 2026"
       },
       "hero": {
-        "eyebrow": "In ontwikkeling · Een nieuw product van Juke",
+        "eyebrow": "In ontwikkeling",
         "titleLead": "We bouwen",
         "titleHighlight": "Beheerly",
         "titleTail": "voor syndici.",
-        "subtitle": "Beheerly is een nieuw product van Juke dat het dagelijkse werk van syndici en mede-eigendommen (VME's) in België een pak eenvoudiger maakt. Wat het precies allemaal doet, houden we voorlopig nog even voor onszelf — maar het komt eraan.",
+        "subtitle": "Beheerly is een nieuw product van Juke dat het werk van syndici en mede-eigendommen (VME's) in België een pak eenvoudiger maakt. De details houden we nog even voor onszelf.",
         "note": "We zitten volop in ontwikkeling. Geïnteresseerden krijgen als eerste een seintje."
       },
       "about": {
         "question": "Wat is Beheerly?",
-        "answer": "Beheerly is een nieuw softwareproduct van Juke, momenteel in ontwikkeling, dat de administratie van syndici en mede-eigendommen (VME's) in België vereenvoudigt. De volledige functionaliteit maakt Juke bekend bij de lancering."
+        "answer": "Beheerly is een nieuw softwareproduct van Juke dat de administratie van syndici en mede-eigendommen (VME's) in België vereenvoudigt. Het is momenteel in ontwikkeling."
       },
       "hints": {
-        "title": "Een tipje van de sluier",
         "items": {
           "one": {
             "title": "Minder administratie",
@@ -209,11 +208,11 @@ export default {
           },
           "two": {
             "title": "Alles op één plek",
-            "desc": "Beheerly brengt bewoners, dossiers en partijen samen in één helder overzicht. Meer verklappen we nog niet."
+            "desc": "Beheerly brengt bewoners, dossiers en partijen samen in één helder overzicht."
           },
           "three": {
             "title": "Slim ingebouwd",
-            "desc": "Beheerly zet dezelfde technologie in waar Juke om bekendstaat. De rest hoor je bij de lancering."
+            "desc": "Beheerly zet dezelfde technologie in waar Juke om bekendstaat."
           }
         }
       },
@@ -223,10 +222,6 @@ export default {
           "launch": {
             "question": "Wanneer lanceert Beheerly?",
             "answer": "Beheerly is in 2026 volop in ontwikkeling en nog niet publiek beschikbaar. Syndici die zich nu via mail aanmelden, krijgen als eersten toegang zodra Beheerly live gaat."
-          },
-          "who": {
-            "question": "Voor wie is Beheerly bedoeld?",
-            "answer": "Beheerly is gemaakt voor syndici, vastgoedbeheerders en mede-eigendommen (VME's) die minder tijd willen verliezen aan administratie en alles op één plek willen beheren."
           },
           "access": {
             "question": "Hoe krijg ik vroege toegang tot Beheerly?",
@@ -239,13 +234,12 @@ export default {
         }
       },
       "syndic": {
-        "eyebrow": "Voor syndici",
         "title": "Ben je syndicus en nieuwsgierig?",
-        "body": "Beheer je mede-eigendommen en wil je weten waar we aan werken? Stuur Juke een mail en we vertellen je als een van de eersten meer over Beheerly — vrijblijvend.",
+        "body": "Beheer je mede-eigendommen en wil je weten waar we aan werken? Laat iets weten via het contactformulier en je hoort als een van de eersten meer over Beheerly. Volledig vrijblijvend.",
+        "ctaContact": "Neem contact op",
         "ctaMail": "Stuur ons een mail",
         "mailSubject": "Interesse in Beheerly, het nieuwe Juke-product voor syndici",
-        "mailBody": "Hallo Juke,\n\nIk ben syndicus en ben benieuwd naar Beheerly, het product waar jullie aan werken. Kunnen jullie me meer info bezorgen?\n\nNaam:\nBeheervennootschap:\nAantal panden:\nTelefoon:\n\nAlvast bedankt!",
-        "footnote": "We reageren doorgaans binnen 1 werkdag."
+        "mailBody": "Hallo Juke,\n\nIk ben syndicus en ben benieuwd naar Beheerly, het product waar jullie aan werken. Kunnen jullie me meer info bezorgen?\n\nNaam:\nBeheervennootschap:\nAantal panden:\nTelefoon:\n\nAlvast bedankt!"
       }
     },
     "beheerlyView": {
@@ -889,7 +883,7 @@ export default {
         "title": "Wie is verantwoordelijk",
         "text": "Juke is de verwerkingsverantwoordelijke voor de gegevens die via deze website worden verzameld.",
         "name": "Juke",
-        "address": "[Straat en nummer], 3500 Hasselt, België"
+        "address": "3500 Hasselt, België"
       },
       "data": {
         "title": "Welke gegevens we verzamelen",
@@ -926,7 +920,7 @@ export default {
         "object": "Bezwaar te maken tegen de verwerking",
         "portability": "Je gegevens te laten overdragen",
         "withdraw": "Je toestemming op elk moment in te trekken",
-        "outro": "Stuur je verzoek naar contact@jukecoding.be. Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be)."
+        "outro": "Stuur je verzoek naar contact{'@'}jukecoding.be. Je hebt ook het recht om een klacht in te dienen bij de Gegevensbeschermingsautoriteit (gegevensbeschermingsautoriteit.be)."
       },
       "security": {
         "title": "Beveiliging",
@@ -1107,12 +1101,14 @@ export default {
     },
     "vibemindView": {
       "hero": {
-        "eyebrow": "Pre-release · Een product van Juke",
-        "titleHighlight": "bouw met meerdere AI-agents tegelijk.",
-        "subtitle": "De desktop-tool die we zelf elke dag gebruiken. Start meerdere Claude Code-sessies naast elkaar in panes, sleep taken en skills erin, en zie in één oogopslag welke agent klaar is en welke op jouw input wacht.",
+        "eyebrow": "Pre-release",
+        "titleLead": "Vibemind laat je bouwen met",
+        "titleHighlight": "meerdere AI-agents tegelijk.",
+        "subtitle": "De desktop-tool die we zelf elke dag gebruiken. Draai meerdere Claude Code-sessies naast elkaar, sleep taken en skills erin, en zie in één oogopslag welke agent klaar is.",
         "ctaBeta": "Schrijf je in voor de beta",
         "ctaApp": "Bekijk de app",
-        "note": "Gratis tijdens de beta · macOS · werkt met je bestaande Claude Code-installatie"
+        "note": "Gratis tijdens de beta · macOS & Windows",
+        "worksWith": "Werkt met Claude, Shell, Aider (GPT-4o & DeepSeek) en Ollama (Llama 3)"
       },
       "mockup": {
         "workspaces": "Workspaces",
@@ -1123,12 +1119,7 @@ export default {
       "intro": {
         "title": "Wat is Vibemind?",
         "p1": "Werken met AI-agents betekent vaak heen-en-weer schakelen tussen losse terminals: de ene wacht op jou, de andere is allang klaar en je merkt het niet. Vibemind brengt al die sessies samen in één helder venster.",
-        "p2a": "Je organiseert je werk in",
-        "p2b": "per project, splitst elke workspace in zoveel",
-        "p2c": "als je wil, en koppelt taken vanuit een ingebouwd kanban-bord rechtstreeks aan een agent. Een",
-        "p2skill": "skill-bibliotheek",
-        "p2d": "en",
-        "p2e": "zorgen dat je herbruikbare prompts en live projectcontext altijd binnen handbereik hebt. Keyboard-first, gebouwd voor snelheid."
+        "p2": "Zo laat je meerdere agents parallel doorwerken in plaats van te wachten op één. Je ziet in één oogopslag wat elke agent doet, schakelt met sneltoetsen tussen projecten en houdt het overzicht. Gebouwd voor flow, niet voor muiskliks."
       },
       "features": {
         "title": "Alles om parallel te werken",
@@ -1143,15 +1134,15 @@ export default {
           },
           "skills": {
             "title": "Skill-bibliotheek",
-            "description": "Bewaar herbruikbare prompts en workflows als skills en injecteer ze met één toets (Cmd+P) in elke sessie. Nooit meer dezelfde instructies typen."
+            "description": "Kies uit 60+ ingebouwde skills of bewaar je eigen prompts, en injecteer ze met één toets (Cmd+P) in elke sessie. Nooit meer dezelfde instructies typen."
           },
           "mcp": {
             "title": "MCP-server ingebouwd",
             "description": "Claude leest live welke workspaces, taken en panes je open hebt staan, en kan taken aanmaken of verplaatsen. Je agents weten waar je mee bezig bent."
           },
-          "voice": {
-            "title": "Voice-input",
-            "description": "Spreek je opdracht in plaats van te typen (Cmd+M). Handig voor lange prompts of wanneer je je handen vrij wil houden."
+          "local": {
+            "title": "Lokaal & je eigen keys",
+            "description": "Vibemind draait op je eigen machine, op de agents en API-keys die je al hebt. Geen extra inferentiekosten en je code verlaat je computer niet."
           },
           "workspaces": {
             "title": "Workspaces & keyboard-first",
@@ -1164,39 +1155,32 @@ export default {
         "subtitle": "Zo ziet werken met meerdere agents er in de praktijk uit.",
         "placeholder": "Screenshot volgt",
         "items": {
-          "panes": {
-            "alt": "Meerdere panels naast elkaar geopend in Vibemind",
-            "caption": "Meerdere panels tegelijk open",
-            "desc": "Start zoveel Claude Code-sessies als je wil naast elkaar. Een statuslampje toont meteen welke agent draait, klaar is of op jouw input wacht."
-          },
-          "kanban": {
-            "alt": "Instellingen waar je het thema kan aanpassen in Vibemind",
-            "caption": "Pas het thema aan in de instellingen",
-            "desc": "Kies uit kant-en-klare thema's of stel je eigen kleuren in. De hele app past zich meteen aan jouw voorkeur aan."
-          },
-          "skills": {
-            "alt": "Taken toevoegen en slepen in Vibemind",
-            "caption": "Taken toevoegen en slepen",
-            "desc": "Voeg taken toe op het ingebouwde bord en sleep ze rechtstreeks naar een agent. De opdracht wordt meteen opgepikt."
+          "themes": {
+            "alt": "Thema-instellingen in Vibemind",
+            "caption": "Maak de app van jou",
+            "desc": "Kies een kant-en-klaar thema of stel je eigen accentkleuren in. Je keuze geldt meteen in elke workspace, pane en het kanban-bord."
           }
         }
       },
       "beta": {
         "eyebrow": "Pre-release toegang",
         "title": "Word een van de eerste beta-gebruikers",
-        "lead": "Vibemind zit in besloten pre-release. Laat je gegevens achter en we sturen je een toegangscode plus de download zodra er plek vrijkomt. Geen verplichtingen, gratis tijdens de beta.",
+        "lead": "Vibemind zit in besloten pre-release. Laat je gegevens achter en we sturen je een toegangscode plus de download zodra er plek vrijkomt. Gratis tijdens de beta, daarna een eerlijke prijs voor het gebruik van het platform.",
         "point1": "Vroege toegang tot nieuwe features",
         "point2": "Directe lijn met het team voor feedback",
         "point3": "Gratis zolang de beta loopt",
         "formTitle": "Inschrijven voor de beta",
         "nameLabel": "Naam",
-        "namePlaceholder": "Je naam",
+        "namePlaceholder": "John Doe",
         "emailLabel": "E-mailadres",
         "reasonLabel": "Waarvoor wil je het gebruiken?",
         "optional": "(optioneel)",
         "reasonPlaceholder": "Bv. parallel features bouwen, code reviewen, research…",
         "submitSending": "Versturen…",
         "submit": "Inschrijven",
+        "privacyBefore": "Door je in te schrijven ga je akkoord met ons",
+        "privacyLink": "privacybeleid",
+        "privacyAfter": ".",
         "success": "Bedankt! Je staat op de lijst. We nemen contact op zodra er plek is. 🎉",
         "errorPrefix": "Er ging iets mis. Probeer het opnieuw of mail"
       }
@@ -1563,19 +1547,18 @@ export default {
         "updatedDate": "13 June 2026"
       },
       "hero": {
-        "eyebrow": "In development · A new product from Juke",
+        "eyebrow": "In development",
         "titleLead": "We're building",
         "titleHighlight": "Beheerly",
         "titleTail": "for property managers.",
-        "subtitle": "Beheerly is a new product from Juke that makes the daily work of property managers and co-ownerships (VMEs) in Belgium a whole lot simpler. Exactly what it does, we're keeping to ourselves for now — but it's on its way.",
+        "subtitle": "Beheerly is a new product from Juke that makes the work of property managers and co-ownerships (VMEs) in Belgium a whole lot simpler. The details we're keeping to ourselves for now.",
         "note": "We're deep in development. Those who are interested will be the first to hear."
       },
       "about": {
         "question": "What is Beheerly?",
-        "answer": "Beheerly is a new software product from Juke, currently in development, that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. Juke will reveal the full feature set at launch."
+        "answer": "Beheerly is a new software product from Juke that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. It's currently in development."
       },
       "hints": {
-        "title": "A glimpse behind the curtain",
         "items": {
           "one": {
             "title": "Less admin",
@@ -1583,11 +1566,11 @@ export default {
           },
           "two": {
             "title": "Everything in one place",
-            "desc": "Beheerly brings residents, files and parties together in one clear overview. That's all we'll reveal for now."
+            "desc": "Beheerly brings residents, files and parties together in one clear overview."
           },
           "three": {
             "title": "Smartly built in",
-            "desc": "Beheerly uses the very technology Juke is known for. You'll hear the rest at launch."
+            "desc": "Beheerly uses the very technology Juke is known for."
           }
         }
       },
@@ -1597,10 +1580,6 @@ export default {
           "launch": {
             "question": "When does Beheerly launch?",
             "answer": "Beheerly is in active development in 2026 and not yet publicly available. Property managers who sign up by mail now get first access once Beheerly goes live."
-          },
-          "who": {
-            "question": "Who is Beheerly for?",
-            "answer": "Beheerly is built for property managers, real-estate managers and co-ownerships (VMEs) who want to lose less time on admin and manage everything in one place."
           },
           "access": {
             "question": "How do I get early access to Beheerly?",
@@ -1613,13 +1592,12 @@ export default {
         }
       },
       "syndic": {
-        "eyebrow": "For property managers",
         "title": "Are you a property manager and curious?",
-        "body": "Managing co-ownerships and want to know what we're working on? Send Juke a mail and we'll be among the first to tell you more about Beheerly — no strings attached.",
+        "body": "Managing co-ownerships and want to know what we're working on? Reach out via the contact form and you'll be among the first to hear more about Beheerly. No strings attached.",
+        "ctaContact": "Get in touch",
         "ctaMail": "Send us a mail",
         "mailSubject": "Interested in Beheerly, the new Juke product for property managers",
-        "mailBody": "Hi Juke,\n\nI'm a property manager and I'm curious about Beheerly, the product you're working on. Could you send me more info?\n\nName:\nManagement company:\nNumber of properties:\nPhone:\n\nThanks in advance!",
-        "footnote": "We usually reply within 1 business day."
+        "mailBody": "Hi Juke,\n\nI'm a property manager and I'm curious about Beheerly, the product you're working on. Could you send me more info?\n\nName:\nManagement company:\nNumber of properties:\nPhone:\n\nThanks in advance!"
       }
     },
     "beheerlyView": {
@@ -2263,7 +2241,7 @@ export default {
         "title": "Who is responsible",
         "text": "Juke is the data controller for the data collected through this website.",
         "name": "Juke",
-        "address": "[Street and number], 3500 Hasselt, Belgium"
+        "address": "3500 Hasselt, Belgium"
       },
       "data": {
         "title": "What data we collect",
@@ -2300,7 +2278,7 @@ export default {
         "object": "Object to the processing",
         "portability": "Have your data transferred",
         "withdraw": "Withdraw your consent at any time",
-        "outro": "Send your request to contact@jukecoding.be. You also have the right to lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be)."
+        "outro": "Send your request to contact{'@'}jukecoding.be. You also have the right to lodge a complaint with the Belgian Data Protection Authority (gegevensbeschermingsautoriteit.be)."
       },
       "security": {
         "title": "Security",
@@ -2481,12 +2459,14 @@ export default {
     },
     "vibemindView": {
       "hero": {
-        "eyebrow": "Pre-release · A product by Juke",
-        "titleHighlight": "build with several AI agents at once.",
-        "subtitle": "The desktop tool we use ourselves every day. Run several Claude Code sessions side by side in panes, drag tasks and skills into them, and see at a glance which agent is done and which is waiting on your input.",
+        "eyebrow": "Pre-release",
+        "titleLead": "Vibemind lets you build with",
+        "titleHighlight": "several AI agents at once.",
+        "subtitle": "The desktop tool we use ourselves every day. Run several Claude Code sessions side by side, drag tasks and skills into them, and see at a glance which agent is done.",
         "ctaBeta": "Sign up for the beta",
         "ctaApp": "See the app",
-        "note": "Free during the beta · macOS · works with your existing Claude Code install"
+        "note": "Free during the beta · macOS & Windows",
+        "worksWith": "Works with Claude, Shell, Aider (GPT-4o & DeepSeek) and Ollama (Llama 3)"
       },
       "mockup": {
         "workspaces": "Workspaces",
@@ -2497,12 +2477,7 @@ export default {
       "intro": {
         "title": "What is Vibemind?",
         "p1": "Working with AI agents often means switching back and forth between separate terminals: one is waiting on you, another finished long ago and you don't notice. Vibemind brings all those sessions together in one clear window.",
-        "p2a": "You organise your work into",
-        "p2b": "per project, split each workspace into as many",
-        "p2c": "as you like, and link tasks from a built-in kanban board straight to an agent. A",
-        "p2skill": "skill library",
-        "p2d": "and",
-        "p2e": "make sure your reusable prompts and live project context are always within reach. Keyboard-first, built for speed."
+        "p2": "That way several agents keep working in parallel instead of you waiting on one. You see at a glance what each is doing, switch between projects with shortcuts, and stay on top of it all. Built for flow, not for mouse clicks."
       },
       "features": {
         "title": "Everything you need to work in parallel",
@@ -2517,15 +2492,15 @@ export default {
           },
           "skills": {
             "title": "Skill library",
-            "description": "Save reusable prompts and workflows as skills and inject them into any session with a single key (Cmd+P). Never type the same instructions again."
+            "description": "Pick from 60+ built-in skills or save your own prompts, and inject them into any session with one key (Cmd+P). Never type the same instructions again."
           },
           "mcp": {
             "title": "Built-in MCP server",
             "description": "Claude reads live which workspaces, tasks and panes you have open, and can create or move tasks. Your agents know what you're working on."
           },
-          "voice": {
-            "title": "Voice input",
-            "description": "Speak your task instead of typing it (Cmd+M). Handy for long prompts or when you want to keep your hands free."
+          "local": {
+            "title": "Local & your own keys",
+            "description": "Vibemind runs on your own machine, on the agents and API keys you already have. No extra inference cost and your code never leaves your computer."
           },
           "workspaces": {
             "title": "Workspaces & keyboard-first",
@@ -2538,39 +2513,32 @@ export default {
         "subtitle": "This is what working with several agents looks like in practice.",
         "placeholder": "Screenshot coming soon",
         "items": {
-          "panes": {
-            "alt": "Multiple panels open side by side in Vibemind",
-            "caption": "Multiple panels open at once",
-            "desc": "Start as many Claude Code sessions side by side as you like. A status light instantly shows which agent is running, ready, or waiting for your input."
-          },
-          "kanban": {
-            "alt": "Settings where you can change the theme in Vibemind",
-            "caption": "Change the theme in the settings",
-            "desc": "Pick a ready-made theme or set your own colors. The whole app updates to your preference right away."
-          },
-          "skills": {
-            "alt": "Add and drag tasks in Vibemind",
-            "caption": "Add and drag tasks",
-            "desc": "Add tasks on the built-in board and drag them straight onto an agent. The instruction is picked up immediately."
+          "themes": {
+            "alt": "Theme settings in Vibemind",
+            "caption": "Make the app your own",
+            "desc": "Pick a ready-made theme or set your own accent colours. Your choice applies instantly across every workspace, pane and the kanban board."
           }
         }
       },
       "beta": {
         "eyebrow": "Pre-release access",
         "title": "Become one of the first beta users",
-        "lead": "Vibemind is in closed pre-release. Leave your details and we'll send you an access code plus the download as soon as a spot opens up. No obligations, free during the beta.",
+        "lead": "Vibemind is in closed pre-release. Leave your details and we'll send you an access code plus the download as soon as a spot opens up. Free during the beta, then a fair price for using the platform.",
         "point1": "Early access to new features",
         "point2": "A direct line to the team for feedback",
         "point3": "Free for as long as the beta runs",
         "formTitle": "Sign up for the beta",
         "nameLabel": "Name",
-        "namePlaceholder": "Your name",
+        "namePlaceholder": "John Doe",
         "emailLabel": "Email address",
         "reasonLabel": "What do you want to use it for?",
         "optional": "(optional)",
         "reasonPlaceholder": "E.g. building features in parallel, reviewing code, research…",
         "submitSending": "Sending…",
         "submit": "Sign up",
+        "privacyBefore": "By signing up you agree to our",
+        "privacyLink": "privacy policy",
+        "privacyAfter": ".",
         "success": "Thanks! You're on the list. We'll be in touch as soon as a spot opens up. 🎉",
         "errorPrefix": "Something went wrong. Please try again or email"
       }

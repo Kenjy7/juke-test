@@ -4,7 +4,11 @@
     <Navbar />
     <CookiesPopUp />
     <main id="main" tabindex="-1">
-      <router-view />
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
     </main>
     <Footer />
   </div>
@@ -106,6 +110,34 @@ a {
 ::selection {
   background: var(--color-primary);
   color: var(--color-text-on-accent);
+}
+
+/* ---- Page transition — subtle fade + rise on every route change ---- */
+.page-enter-active {
+  transition:
+    opacity 0.24s var(--ease-smooth),
+    transform 0.24s var(--ease-smooth);
+}
+.page-leave-active {
+  transition: opacity 0.12s var(--ease-smooth);
+}
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(8px);
+}
+.page-leave-to {
+  opacity: 0;
+}
+/* Reduced motion: swap pages instantly, no fade or movement. */
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+  .page-enter-from {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ---- Scroll reveal — quiet fade, no blur, minimal movement ---- */

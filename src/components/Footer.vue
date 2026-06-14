@@ -2,95 +2,8 @@
   <footer class="footer">
     <div class="footer-container">
       <div class="footer-brand">
-        <div class="brand-content">
-          <h2 class="brand-title">juke</h2>
-          <p class="brand-tagline">{{ t('footer.tagline') }}</p>
-        </div>
-      </div>
-
-      <nav class="footer-nav">
-        <h3 class="footer-heading">{{ t('footer.headings.services') }}</h3>
-        <ul class="footer-list">
-          <li>
-            <router-link to="/saas-development">{{ t('footer.links.saas') }}</router-link>
-          </li>
-          <li>
-            <router-link to="/ai-projecten">{{ t('footer.links.aiProjects') }}</router-link>
-          </li>
-        </ul>
-      </nav>
-
-      <nav class="footer-nav">
-        <h3 class="footer-heading">{{ t('footer.headings.products') }}</h3>
-        <ul class="footer-list">
-          <li><router-link to="/vibemind">Vibemind</router-link></li>
-          <li><router-link to="/beheerly">{{ t('nav.beheerly') }}</router-link></li>
-        </ul>
-      </nav>
-
-      <nav class="footer-nav">
-        <h3 class="footer-heading">{{ t('footer.headings.company') }}</h3>
-        <ul class="footer-list">
-          <li>
-            <router-link to="/blog">{{ t('footer.links.blog') }}</router-link>
-          </li>
-        </ul>
-      </nav>
-
-      <div class="footer-contact">
-        <h3 class="footer-heading">{{ t('footer.headings.contact') }}</h3>
-        <ul class="footer-list">
-          <li>
-            <router-link to="/contact" class="contact-link">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-              </svg>
-              {{ t('footer.links.contact') }}
-            </router-link>
-          </li>
-          <li>
-            <a href="mailto:contact@jukecoding.be" class="contact-link">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-                />
-                <polyline points="22,6 12,13 2,6" />
-              </svg>
-              contact@jukecoding.be
-            </a>
-          </li>
-          <li>
-            <a href="tel:+32479131715" class="contact-link">
-              <svg
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-              >
-                <path
-                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-                />
-              </svg>
-              +32 479 13 17 15
-            </a>
-          </li>
-        </ul>
+        <h2 class="brand-title">juke</h2>
+        <p class="brand-tagline">{{ t('footer.tagline') }}</p>
 
         <div class="footer-social">
           <a
@@ -123,6 +36,54 @@
             </svg>
           </a>
         </div>
+      </div>
+
+      <div class="footer-links">
+        <nav class="footer-nav">
+          <h3 class="footer-heading">{{ t('footer.headings.services') }}</h3>
+          <ul class="footer-list">
+            <li>
+              <router-link to="/saas-development">{{ t('nav.saas') }}</router-link>
+            </li>
+            <li>
+              <router-link to="/ai-projecten">{{ t('nav.ai') }}</router-link>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="footer-col">
+          <nav class="footer-nav">
+            <h3 class="footer-heading">{{ t('footer.headings.products') }}</h3>
+            <ul class="footer-list">
+              <li><router-link to="/vibemind">Vibemind</router-link></li>
+              <li><router-link to="/beheerly">{{ t('nav.beheerly') }}</router-link></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h3 class="footer-heading">{{ t('footer.headings.company') }}</h3>
+            <ul class="footer-list">
+              <li>
+                <router-link to="/blog">{{ t('footer.links.blog') }}</router-link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <nav class="footer-nav footer-contact">
+          <h3 class="footer-heading">{{ t('footer.headings.contact') }}</h3>
+          <ul class="footer-list">
+            <li>
+              <router-link to="/contact">{{ t('footer.links.contact') }}</router-link>
+            </li>
+            <li>
+              <a href="mailto:contact@jukecoding.be">contact@jukecoding.be</a>
+            </li>
+            <li>
+              <a href="tel:+32479131715">+32 479 13 17 15</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
 
@@ -162,26 +123,22 @@ const { openSettings } = useCookieConsent()
   margin: 0 auto;
   padding: var(--space-16) var(--space-8) var(--space-12);
   display: grid;
-  grid-template-columns: 1.8fr 1fr 1fr 1fr 1.4fr;
-  gap: var(--space-12) var(--space-8);
+  grid-template-columns: 1.3fr 1.7fr;
+  gap: var(--space-16) var(--space-12);
   align-items: start;
 }
 
+/* ─── Brand zone (anchor on the left) ─── */
 .footer-brand {
   display: flex;
+  flex-direction: column;
   gap: var(--space-4);
   align-items: flex-start;
 }
 
-.brand-content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-2);
-}
-
 .brand-title {
   font-family: var(--font-wordmark);
-  font-size: 2rem;
+  font-size: clamp(2.25rem, 3.5vw, 2.75rem);
   font-weight: 600;
   letter-spacing: -0.04em;
   margin: 0;
@@ -193,6 +150,22 @@ const { openSettings } = useCookieConsent()
   font-size: var(--text-small);
   color: var(--color-text-tertiary);
   margin: 0;
+  max-width: 30ch;
+  line-height: var(--leading-normal);
+}
+
+/* ─── Link cluster (right zone) ─── */
+.footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.2fr;
+  gap: var(--space-12) var(--space-8);
+  align-items: start;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
 }
 
 .footer-heading {
@@ -201,73 +174,42 @@ const { openSettings } = useCookieConsent()
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   color: var(--color-text-tertiary);
-  margin: 0 0 var(--space-6) 0;
+  margin: 0 0 var(--space-5) 0;
 }
 
-.footer-nav {
-  .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
 
-    a {
-      color: var(--color-text-secondary);
-      text-decoration: none;
-      font-size: var(--text-small);
-      transition: color var(--transition-fast);
+.footer-list a {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--text-small);
+  /* Emerald underline-on-hover — intentional, calm. */
+  background-image: linear-gradient(var(--color-primary), var(--color-primary));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 0% 1px;
+  transition: color var(--transition-fast), background-size var(--transition-fast);
 
-      &:hover {
-        color: var(--color-text-primary);
-      }
-    }
+  &:hover {
+    color: var(--color-text-primary);
+    background-size: 100% 1px;
   }
 }
 
-.footer-list--locations li {
-  break-inside: avoid;
-}
-.footer-all-locations {
-  padding-top: var(--space-3);
-}
-
-.footer-contact {
-  .footer-list {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 var(--space-6) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-3);
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: var(--space-2);
-    color: var(--color-text-secondary);
-    text-decoration: none;
-    font-size: var(--text-small);
-    transition: color var(--transition-fast);
-
-    svg {
-      flex-shrink: 0;
-      opacity: 0.5;
-    }
-    &:hover {
-      color: var(--color-text-primary);
-      svg {
-        opacity: 1;
-      }
-    }
-  }
-}
-
+/* ─── Social tiles (hairline, calm — no lift) ─── */
 .footer-social {
   display: flex;
-  gap: var(--space-3);
+  gap: var(--space-2);
+  margin-top: var(--space-2);
 }
 
 .social-link {
@@ -277,17 +219,20 @@ const { openSettings } = useCookieConsent()
   align-items: center;
   justify-content: center;
   background: var(--color-bg-surface);
-  border-radius: 50%;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
   color: var(--color-text-tertiary);
-  transition: all var(--transition-fast);
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background var(--transition-fast);
 
   &:hover {
-    background: var(--color-primary-subtle);
     color: var(--color-primary);
-    transform: translateY(-2px);
+    border-color: var(--color-primary-border);
+    background: var(--color-primary-subtle);
   }
 }
 
+/* ─── Bottom bar ─── */
 .footer-bottom {
   border-top: 1px solid var(--color-border);
   max-width: var(--max-width);
@@ -329,56 +274,37 @@ const { openSettings } = useCookieConsent()
   }
 }
 
+/* ─── Responsive ─── */
 @media (max-width: 1024px) {
   .footer-container {
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-12) var(--space-8);
-  }
-  .footer-brand {
-    grid-column: 1 / -1;
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: 1fr;
+    gap: var(--space-12);
   }
 }
 
 @media (max-width: 768px) {
   .footer-container {
-    grid-template-columns: 1fr;
-    gap: var(--space-12);
     padding: var(--space-12) var(--space-6) var(--space-8);
+    text-align: center;
   }
   .footer-brand {
-    justify-content: center;
-    text-align: center;
-    flex-direction: column;
     align-items: center;
   }
-  .footer-nav,
-  .footer-contact {
-    text-align: center;
-    .footer-list {
-      align-items: center;
-    }
+  .footer-links {
+    grid-template-columns: 1fr;
+    gap: var(--space-10);
+    justify-items: center;
   }
-  .contact-link {
-    justify-content: center;
+  .footer-col {
+    gap: var(--space-10);
   }
-  .footer-social {
-    justify-content: center;
+  .footer-list {
+    align-items: center;
   }
   .footer-bottom {
     flex-direction: column;
     justify-content: center;
     text-align: center;
-  }
-}
-
-@media (min-width: 769px) {
-  .footer-list--locations {
-    columns: 2;
-    column-gap: var(--space-6);
   }
 }
 </style>

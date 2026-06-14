@@ -1,7 +1,7 @@
 <template>
-  <section class="hero">
+  <section class="hero" ref="heroRef">
     <div class="container hero-top">
-      <div class="eyebrow reveal-on-load delay-0">
+      <div class="eyebrow">
         <span class="eyebrow__dot"></span>
         {{ t('home.hero.eyebrow') }}
       </div>
@@ -156,7 +156,7 @@
 </template>
 
 <script setup>
-import { onMounted, computed } from 'vue'
+import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { Cpu, AppWindow, Workflow, ArrowUpRight, Search, LayoutDashboard, BarChart3, PieChart, Users, Wallet, Settings, Target, User, ArrowUp, ArrowDown, CircleCheck, Clock } from 'lucide-vue-next'
 
@@ -183,11 +183,32 @@ const caps = computed(() => [
   { title: t('home.hero.caps.digital'), icon: Workflow, to: null },
 ])
 
+// The homepage is the heavy landing page — a pure CSS entrance would finish
+// during initial load before first paint. So we hold the hero hidden and start
+// the staggered fade-up only once it's on screen (after paint), matching the
+// reveal pattern used elsewhere on the site.
+const heroRef = ref(null)
+let observer = null
 onMounted(() => {
-  requestAnimationFrame(() => {
-    document.querySelectorAll('.reveal-on-load').forEach((el) => el.classList.add('visible'))
-  })
+  const els = heroRef.value?.querySelectorAll('.reveal-on-load') ?? []
+  if (!('IntersectionObserver' in window)) {
+    els.forEach((el) => el.classList.add('visible'))
+    return
+  }
+  observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible')
+          obs.unobserve(e.target)
+        }
+      })
+    },
+    { threshold: 0.1 },
+  )
+  els.forEach((el) => observer.observe(el))
 })
+onBeforeUnmount(() => observer?.disconnect())
 </script>
 
 <style scoped lang="scss">
@@ -208,32 +229,36 @@ onMounted(() => {
   align-items: center;
 }
 
-/* Reveal */
+/* Staggered hero entrance — same fade-up reveal as the AI-automation page.
+   The eyebrow stays put; the rise cascade starts at the heading. Held hidden
+   until JS adds .visible once the hero is on screen (see script). */
 .reveal-on-load {
   opacity: 0;
-  transform: translateY(0.75rem);
-  transition:
-    opacity var(--duration-reveal) var(--ease-smooth),
-    transform var(--duration-reveal) var(--ease-smooth);
-  &.visible {
+}
+.reveal-on-load.visible {
+  animation: fade-up 0.7s var(--ease-out-expo) both;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-.delay-0 {
-  transition-delay: 0ms;
+.delay-1.visible {
+  animation-delay: 80ms;
 }
-.delay-1 {
-  transition-delay: 80ms;
+.delay-2.visible {
+  animation-delay: 160ms;
 }
-.delay-2 {
-  transition-delay: 160ms;
+.delay-3.visible {
+  animation-delay: 240ms;
 }
-.delay-3 {
-  transition-delay: 240ms;
-}
-.delay-4 {
-  transition-delay: 360ms;
+.delay-4.visible {
+  animation-delay: 360ms;
 }
 
 .eyebrow {

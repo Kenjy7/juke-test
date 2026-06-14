@@ -68,18 +68,13 @@
       </div>
     </section>
 
-    <!-- ───────────── Wat is Beheerly? (snippet-target answer) ───────────── -->
+    <!-- ───────────── Wat is Beheerly? (snippet-target answer + hints) ───────────── -->
     <section class="bt-about">
-      <div class="container bt-about__inner">
-        <h2 class="bt-about__q">{{ t('beheerlyTeaser.about.question') }}</h2>
-        <p class="bt-about__answer">{{ t('beheerlyTeaser.about.answer') }}</p>
-      </div>
-    </section>
-
-    <!-- ───────────── Vage hints ───────────── -->
-    <section class="bt-hints">
       <div class="container">
-        <h2>{{ t('beheerlyTeaser.hints.title') }}</h2>
+        <div class="bt-about__inner">
+          <h2 class="bt-about__q">{{ t('beheerlyTeaser.about.question') }}</h2>
+          <p class="bt-about__answer">{{ t('beheerlyTeaser.about.answer') }}</p>
+        </div>
         <div class="hints-grid">
           <div class="hint-card" v-for="(h, i) in hints" :key="h.title">
             <div class="hint-card__num">{{ String(i + 1).padStart(2, '0') }}</div>
@@ -95,7 +90,7 @@
       <div class="container bt-faq__inner">
         <h2>{{ t('beheerlyTeaser.faq.title') }}</h2>
         <div class="faq-list">
-          <div class="faq-item" v-for="f in faq" :key="f.question">
+          <div class="faq-item" v-for="f in faqVisible" :key="f.question">
             <h3 class="faq-item__q">{{ f.question }}</h3>
             <p class="faq-item__a">{{ f.answer }}</p>
           </div>
@@ -103,28 +98,30 @@
       </div>
     </section>
 
-    <!-- ───────────── Syndicus CTA ───────────── -->
+    <!-- ───────────── Syndicus CTA (shared dark closing panel) ───────────── -->
     <section class="bt-syndic" id="syndicus">
-      <div class="container syndic-card">
-        <div class="eyebrow eyebrow--center">
-          <span class="eyebrow__dot"></span>
-          {{ t('beheerlyTeaser.syndic.eyebrow') }}
+      <div class="container">
+        <div class="syndic-card band--dark">
+          <h2>{{ t('beheerlyTeaser.syndic.title') }}</h2>
+          <p>{{ t('beheerlyTeaser.syndic.body') }}</p>
+          <div class="cta-group">
+            <router-link
+              :to="{ path: '/contact', query: { interesse: 'beheerly' } }"
+              class="btn btn--accent btn--lg"
+            >
+              {{ t('beheerlyTeaser.syndic.ctaContact') }}
+              <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path
+                  d="M4 12L12 4M12 4H5M12 4V11"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </router-link>
+          </div>
         </div>
-        <h2>{{ t('beheerlyTeaser.syndic.title') }}</h2>
-        <p>{{ t('beheerlyTeaser.syndic.body') }}</p>
-        <a :href="mailto" class="btn btn--accent btn--lg">
-          {{ t('beheerlyTeaser.syndic.ctaMail') }}
-          <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-            <path
-              d="M4 12L12 4M12 4H5M12 4V11"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
-        <p class="syndic-note">{{ t('beheerlyTeaser.syndic.footnote') }}</p>
       </div>
     </section>
   </BackgroundWeb>
@@ -159,13 +156,18 @@ const hints = computed(() => [
   { title: t('beheerlyTeaser.hints.items.three.title'), desc: t('beheerlyTeaser.hints.items.three.desc') },
 ])
 
-// "Wat is Beheerly?" leads the FAQ entity so the definition is the first quotable answer.
-const faq = computed(() => [
-  { question: t('beheerlyTeaser.about.question'), answer: t('beheerlyTeaser.about.answer') },
+// Visible FAQ — the "Wat is Beheerly?" definition lives in the About section above,
+// so it isn't repeated here. These three answers each cover distinct ground.
+const faqVisible = computed(() => [
   { question: t('beheerlyTeaser.faq.items.launch.question'), answer: t('beheerlyTeaser.faq.items.launch.answer') },
-  { question: t('beheerlyTeaser.faq.items.who.question'), answer: t('beheerlyTeaser.faq.items.who.answer') },
   { question: t('beheerlyTeaser.faq.items.access.question'), answer: t('beheerlyTeaser.faq.items.access.answer') },
   { question: t('beheerlyTeaser.faq.items.maker.question'), answer: t('beheerlyTeaser.faq.items.maker.answer') },
+])
+
+// FAQPage schema still leads with the definition so it stays the first quotable answer for AEO.
+const faqSchema = computed(() => [
+  { question: t('beheerlyTeaser.about.question'), answer: t('beheerlyTeaser.about.answer') },
+  ...faqVisible.value,
 ])
 
 // ── Structured data (JSON-LD). Org/Website @ids are defined globally in index.html
@@ -199,7 +201,7 @@ const faqJsonLd = computed(() => ({
   '@type': 'FAQPage',
   '@id': `${pageUrl.value}#faq`,
   inLanguage: locale.value === 'en' ? 'en' : 'nl-BE',
-  mainEntity: faq.value.map((f) => ({
+  mainEntity: faqSchema.value.map((f) => ({
     '@type': 'Question',
     name: f.question,
     acceptedAnswer: { '@type': 'Answer', text: f.answer },
@@ -291,9 +293,13 @@ useHead(() => ({
   align-items: center;
   width: 100%;
 }
-.hero-copy {
-  animation: fade-up 0.7s var(--ease-out-expo) 0.1s both;
-}
+/* Staggered hero entrance — same fade-up reveal as the AI-automation page.
+   The eyebrow stays put; the rise cascade starts at the heading. */
+.hero-copy h1 { animation: fade-up 0.7s var(--ease-out-expo) 0.08s both; }
+.hero-copy .subtitle { animation: fade-up 0.7s var(--ease-out-expo) 0.16s both; }
+.hero-copy .byline { animation: fade-up 0.7s var(--ease-out-expo) 0.22s both; }
+.hero-copy .hero-buttons { animation: fade-up 0.7s var(--ease-out-expo) 0.28s both; }
+.hero-copy .hero-note { animation: fade-up 0.7s var(--ease-out-expo) 0.34s both; }
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -315,9 +321,6 @@ useHead(() => ({
   text-transform: uppercase;
   color: var(--color-text-secondary);
   margin-bottom: var(--space-5);
-}
-.eyebrow--center {
-  margin-bottom: var(--space-4);
 }
 .eyebrow__dot {
   width: 6px;
@@ -362,7 +365,9 @@ h1 {
 
 /* ── Locked / redacted preview ── */
 .hero-visual {
-  animation: fade-up 0.7s var(--ease-out-expo) both;
+  /* Delayed so it cascades in after the text (and past the page fade-in),
+     otherwise a delay-0 rise plays while the page is still invisible. */
+  animation: fade-up 0.7s var(--ease-out-expo) 0.42s both;
 }
 .vault {
   position: relative;
@@ -426,12 +431,13 @@ h1 {
   }
 }
 
-/* ── Wat is Beheerly? ── */
+/* ── Wat is Beheerly? (+ hints) ── */
 .bt-about {
-  padding: var(--space-4) var(--space-8) var(--space-8);
+  padding: var(--space-12) var(--space-8) var(--space-16);
 }
 .bt-about__inner {
   max-width: 70ch;
+  margin-bottom: var(--space-12);
 }
 .bt-about__q {
   font-size: var(--text-h3);
@@ -447,17 +453,6 @@ h1 {
 }
 
 /* ── Hints ── */
-.bt-hints {
-  padding: var(--space-12) var(--space-8) var(--space-16);
-}
-.bt-hints h2 {
-  font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
-  color: var(--color-text-primary);
-  letter-spacing: var(--tracking-tight);
-  text-align: center;
-  margin: 0 0 var(--space-12);
-}
 .hints-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -539,39 +534,44 @@ h1 {
   margin: 0;
 }
 
-/* ── Syndicus CTA ── */
+/* ── Syndicus CTA — shared dark closing panel ── */
 .bt-syndic {
-  padding: var(--space-8) var(--space-8) var(--space-20);
+  padding: var(--section-pad-y) var(--space-8) var(--space-24);
+}
+.bt-syndic .container {
+  max-width: var(--max-width-cta);
 }
 .syndic-card {
-  text-align: center;
   border: 1px solid var(--color-border);
-  border-radius: var(--radius-xl);
-  background: var(--color-bg-surface);
-  box-shadow: var(--shadow-ambient);
-  padding: var(--space-16) var(--space-8);
-}
-.syndic-card .eyebrow {
-  justify-content: center;
+  border-radius: var(--radius-lg);
+  padding: var(--space-20) var(--space-12);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .syndic-card h2 {
-  font-size: var(--text-h2);
+  font-size: var(--text-h1);
   font-weight: var(--weight-bold);
   color: var(--color-text-primary);
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  margin: 0 0 var(--space-4);
+  margin: 0 0 var(--space-5);
+  max-width: 22ch;
+  text-wrap: balance;
 }
 .syndic-card p {
   font-size: var(--text-body-lg);
   line-height: var(--leading-relaxed);
   color: var(--color-text-secondary);
-  max-width: 56ch;
-  margin: 0 auto var(--space-8);
+  max-width: 52ch;
+  margin: 0 0 var(--space-12);
 }
-.syndic-note {
-  margin: var(--space-5) 0 0;
-  font-size: var(--text-small);
-  color: var(--color-text-tertiary);
+.cta-group {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 /* ── Responsive ── */
@@ -589,14 +589,21 @@ h1 {
 @media (max-width: 768px) {
   .bt-hero,
   .bt-about,
-  .bt-hints,
   .bt-faq,
   .bt-syndic {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
   .syndic-card {
-    padding: var(--space-10) var(--space-6);
+    padding: var(--space-12) var(--space-6);
+  }
+  .cta-group {
+    flex-direction: column;
+    width: 100%;
+    max-width: 340px;
+  }
+  .cta-group .btn {
+    width: 100%;
   }
 }
 </style>

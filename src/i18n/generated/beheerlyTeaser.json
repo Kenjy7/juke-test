@@ -10,19 +10,18 @@
       "updatedDate": "13 juni 2026"
     },
     "hero": {
-      "eyebrow": "In ontwikkeling · Een nieuw product van Juke",
+      "eyebrow": "In ontwikkeling",
       "titleLead": "We bouwen",
       "titleHighlight": "Beheerly",
       "titleTail": "voor syndici.",
-      "subtitle": "Beheerly is een nieuw product van Juke dat het dagelijkse werk van syndici en mede-eigendommen (VME's) in België een pak eenvoudiger maakt. Wat het precies allemaal doet, houden we voorlopig nog even voor onszelf — maar het komt eraan.",
+      "subtitle": "Beheerly is een nieuw product van Juke dat het werk van syndici en mede-eigendommen (VME's) in België een pak eenvoudiger maakt. De details houden we nog even voor onszelf.",
       "note": "We zitten volop in ontwikkeling. Geïnteresseerden krijgen als eerste een seintje."
     },
     "about": {
       "question": "Wat is Beheerly?",
-      "answer": "Beheerly is een nieuw softwareproduct van Juke, momenteel in ontwikkeling, dat de administratie van syndici en mede-eigendommen (VME's) in België vereenvoudigt. De volledige functionaliteit maakt Juke bekend bij de lancering."
+      "answer": "Beheerly is een nieuw softwareproduct van Juke dat de administratie van syndici en mede-eigendommen (VME's) in België vereenvoudigt. Het is momenteel in ontwikkeling."
     },
     "hints": {
-      "title": "Een tipje van de sluier",
       "items": {
         "one": {
           "title": "Minder administratie",
@@ -30,11 +29,11 @@
         },
         "two": {
           "title": "Alles op één plek",
-          "desc": "Beheerly brengt bewoners, dossiers en partijen samen in één helder overzicht. Meer verklappen we nog niet."
+          "desc": "Beheerly brengt bewoners, dossiers en partijen samen in één helder overzicht."
         },
         "three": {
           "title": "Slim ingebouwd",
-          "desc": "Beheerly zet dezelfde technologie in waar Juke om bekendstaat. De rest hoor je bij de lancering."
+          "desc": "Beheerly zet dezelfde technologie in waar Juke om bekendstaat."
         }
       }
     },
@@ -44,10 +43,6 @@
         "launch": {
           "question": "Wanneer lanceert Beheerly?",
           "answer": "Beheerly is in 2026 volop in ontwikkeling en nog niet publiek beschikbaar. Syndici die zich nu via mail aanmelden, krijgen als eersten toegang zodra Beheerly live gaat."
-        },
-        "who": {
-          "question": "Voor wie is Beheerly bedoeld?",
-          "answer": "Beheerly is gemaakt voor syndici, vastgoedbeheerders en mede-eigendommen (VME's) die minder tijd willen verliezen aan administratie en alles op één plek willen beheren."
         },
         "access": {
           "question": "Hoe krijg ik vroege toegang tot Beheerly?",
@@ -60,13 +55,12 @@
       }
     },
     "syndic": {
-      "eyebrow": "Voor syndici",
       "title": "Ben je syndicus en nieuwsgierig?",
-      "body": "Beheer je mede-eigendommen en wil je weten waar we aan werken? Stuur Juke een mail en we vertellen je als een van de eersten meer over Beheerly — vrijblijvend.",
+      "body": "Beheer je mede-eigendommen en wil je weten waar we aan werken? Laat iets weten via het contactformulier en je hoort als een van de eersten meer over Beheerly. Volledig vrijblijvend.",
+      "ctaContact": "Neem contact op",
       "ctaMail": "Stuur ons een mail",
       "mailSubject": "Interesse in Beheerly, het nieuwe Juke-product voor syndici",
-      "mailBody": "Hallo Juke,\n\nIk ben syndicus en ben benieuwd naar Beheerly, het product waar jullie aan werken. Kunnen jullie me meer info bezorgen?\n\nNaam:\nBeheervennootschap:\nAantal panden:\nTelefoon:\n\nAlvast bedankt!",
-      "footnote": "We reageren doorgaans binnen 1 werkdag."
+      "mailBody": "Hallo Juke,\n\nIk ben syndicus en ben benieuwd naar Beheerly, het product waar jullie aan werken. Kunnen jullie me meer info bezorgen?\n\nNaam:\nBeheervennootschap:\nAantal panden:\nTelefoon:\n\nAlvast bedankt!"
     }
   },
   "en": {
@@ -80,19 +74,18 @@
       "updatedDate": "13 June 2026"
     },
     "hero": {
-      "eyebrow": "In development · A new product from Juke",
+      "eyebrow": "In development",
       "titleLead": "We're building",
       "titleHighlight": "Beheerly",
       "titleTail": "for property managers.",
-      "subtitle": "Beheerly is a new product from Juke that makes the daily work of property managers and co-ownerships (VMEs) in Belgium a whole lot simpler. Exactly what it does, we're keeping to ourselves for now — but it's on its way.",
+      "subtitle": "Beheerly is a new product from Juke that makes the work of property managers and co-ownerships (VMEs) in Belgium a whole lot simpler. The details we're keeping to ourselves for now.",
       "note": "We're deep in development. Those who are interested will be the first to hear."
     },
     "about": {
       "question": "What is Beheerly?",
-      "answer": "Beheerly is a new software product from Juke, currently in development, that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. Juke will reveal the full feature set at launch."
+      "answer": "Beheerly is a new software product from Juke that simplifies the administration of property managers and co-ownerships (VMEs) in Belgium. It's currently in development."
     },
     "hints": {
-      "title": "A glimpse behind the curtain",
       "items": {
         "one": {
           "title": "Less admin",
@@ -100,11 +93,11 @@
         },
         "two": {
           "title": "Everything in one place",
-          "desc": "Beheerly brings residents, files and parties together in one clear overview. That's all we'll reveal for now."
+          "desc": "Beheerly brings residents, files and parties together in one clear overview."
         },
         "three": {
           "title": "Smartly built in",
-          "desc": "Beheerly uses the very technology Juke is known for. You'll hear the rest at launch."
+          "desc": "Beheerly uses the very technology Juke is known for."
         }
       }
     },
@@ -114,10 +107,6 @@
         "launch": {
           "question": "When does Beheerly launch?",
           "answer": "Beheerly is in active development in 2026 and not yet publicly available. Property managers who sign up by mail now get first access once Beheerly goes live."
-        },
-        "who": {
-          "question": "Who is Beheerly for?",
-          "answer": "Beheerly is built for property managers, real-estate managers and co-ownerships (VMEs) who want to lose less time on admin and manage everything in one place."
         },
         "access": {
           "question": "How do I get early access to Beheerly?",
@@ -130,13 +119,12 @@
       }
     },
     "syndic": {
-      "eyebrow": "For property managers",
       "title": "Are you a property manager and curious?",
-      "body": "Managing co-ownerships and want to know what we're working on? Send Juke a mail and we'll be among the first to tell you more about Beheerly — no strings attached.",
+      "body": "Managing co-ownerships and want to know what we're working on? Reach out via the contact form and you'll be among the first to hear more about Beheerly. No strings attached.",
+      "ctaContact": "Get in touch",
       "ctaMail": "Send us a mail",
       "mailSubject": "Interested in Beheerly, the new Juke product for property managers",
-      "mailBody": "Hi Juke,\n\nI'm a property manager and I'm curious about Beheerly, the product you're working on. Could you send me more info?\n\nName:\nManagement company:\nNumber of properties:\nPhone:\n\nThanks in advance!",
-      "footnote": "We usually reply within 1 business day."
+      "mailBody": "Hi Juke,\n\nI'm a property manager and I'm curious about Beheerly, the product you're working on. Could you send me more info?\n\nName:\nManagement company:\nNumber of properties:\nPhone:\n\nThanks in advance!"
     }
   }
 }

@@ -37,7 +37,10 @@
       "messagePlaceholder": "Vertel ons over je project...",
       "submit": "Verstuur bericht",
       "submitSending": "Versturen...",
-      "sendAnother": "Nog een bericht sturen"
+      "sendAnother": "Nog een bericht sturen",
+      "privacyBefore": "Door te versturen ga je akkoord met ons ",
+      "privacyLink": "privacybeleid",
+      "privacyAfter": "."
     },
     "backlinks": {
       "aria": "Gerelateerde pagina’s",
@@ -96,7 +99,10 @@
       "messagePlaceholder": "Tell us about your project...",
       "submit": "Send message",
       "submitSending": "Sending...",
-      "sendAnother": "Send another message"
+      "sendAnother": "Send another message",
+      "privacyBefore": "By submitting you agree to our ",
+      "privacyLink": "privacy policy",
+      "privacyAfter": "."
     },
     "backlinks": {
       "aria": "Related pages",

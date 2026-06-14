@@ -211,6 +211,17 @@ useHead({
 .cta-group { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
 .hero-copy .cta-group { justify-content: flex-start; }
 
+/* Staggered hero entrance — same fade-up reveal as the AI-automation page.
+   The eyebrow stays put; the rise cascade starts at the heading. */
+.saas-hero h1 { animation: fade-up 0.7s var(--ease-out-expo) 0.08s both; }
+.hero-lead { animation: fade-up 0.7s var(--ease-out-expo) 0.16s both; }
+.hero-copy .cta-group { animation: fade-up 0.7s var(--ease-out-expo) 0.24s both; }
+.hero-visual { animation: fade-up 0.7s var(--ease-out-expo) 0.2s both; }
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(1rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 /* ── Closing CTA ── */
 .saas-cta { padding: var(--section-pad-y) var(--space-8) var(--space-24); }
 .saas-cta .container { max-width: var(--max-width-cta); }

@@ -9,7 +9,7 @@
             {{ t('vibemindView.hero.eyebrow') }}
           </div>
           <h1>
-            Vibemind —
+            {{ t('vibemindView.hero.titleLead') }}
             <span class="highlight">{{ t('vibemindView.hero.titleHighlight') }}</span>
           </h1>
           <p class="subtitle">
@@ -35,6 +35,9 @@
           <p class="hero-note">
             {{ t('vibemindView.hero.note') }}
           </p>
+          <p class="hero-note hero-note--compat">
+            {{ t('vibemindView.hero.worksWith') }}
+          </p>
         </div>
 
         <!-- Faux app window: the real Vibemind UI — workspaces · terminal · skills -->
@@ -42,10 +45,10 @@
           <div class="vmapp">
             <!-- Top bar -->
             <div class="vmapp__top">
-              <span class="vmapp__brand"><span class="vmapp__logo"></span>Vibemind</span>
+              <span class="vmapp__brand">Vibemind</span>
               <span class="vmapp__crumb">
-                juke-test <span class="vmapp__sep">&rsaquo;</span>
-                <span class="vmapp__path">~/Desktop/chatbot-/juke-test</span>
+                saas <span class="vmapp__sep">&rsaquo;</span>
+                <span class="vmapp__path">~/Projects/saas</span>
               </span>
               <span class="vmapp__actions">
                 <span class="vmapp__ready"><span class="vmapp__readydot"></span>2 ready</span>
@@ -62,45 +65,59 @@
                   {{ t('vibemindView.mockup.workspaces') }}<span class="vmapp__plus">+</span>
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #34d399"></span>Juke
+                  <span class="wsrow__dot" style="background: #34d399"></span>Webshop
                 </div>
                 <div class="wsrow wsrow--active">
-                  <span class="wsrow__dot" style="background: #60a5fa"></span>juke-test<span
+                  <span class="wsrow__dot" style="background: #60a5fa"></span>saas<span
                     class="wsrow__n"
                     >1</span
                   >
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #a78bfa"></span>Syndicus
+                  <span class="wsrow__dot" style="background: #a78bfa"></span>Marketing
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #34d399"></span>vibemind
+                  <span class="wsrow__dot" style="background: #34d399"></span>mobile-app
                 </div>
                 <div class="wsrow">
-                  <span class="wsrow__dot" style="background: #f59e0b"></span>research
+                  <span class="wsrow__dot" style="background: #f59e0b"></span>api
                 </div>
               </aside>
 
-              <!-- Center terminal pane — a live Claude Code session -->
+              <!-- Two live Claude Code sessions running in parallel -->
               <div class="vmapp__main">
-                <div class="term__head">
-                  <span class="term__dot term__dot--run"></span>Claude
-                  <span class="term__sub">claude</span>
-                  <span class="term__win">&hellip; &#x21bb; &times;</span>
+                <div class="term">
+                  <div class="term__head">
+                    <span class="term__dot term__dot--run"></span>Claude
+                    <span class="term__sub">saas</span>
+                    <span class="term__win">&hellip;</span>
+                  </div>
+                  <div class="term__screen">
+                    <p class="t-dim">─ Claude Code v2.1 ──────</p>
+                    <p>&nbsp;</p>
+                    <p>
+                      <span class="t-acc">&rsaquo;</span> {{ t('vibemindView.mockup.buildPrompt') }}
+                    </p>
+                    <p class="t-bul">● Edit <span class="t-file">Checkout.vue</span></p>
+                    <p class="t-bul">● Bash <span class="t-dim">npm test</span></p>
+                    <p class="t-ok">✓ 24 passed</p>
+                    <p><span class="t-acc">&rsaquo;</span> <span class="t-cur" aria-hidden="true"></span></p>
+                  </div>
                 </div>
-                <div class="term__screen">
-                  <p class="t-dim">─ Claude Code v2.1.177 ───────────────</p>
-                  <p class="t-strong">Welcome back kenjy!</p>
-                  <p class="t-dim">Opus 4.8 (1M context) · Claude Max</p>
-                  <p class="t-dim">~/Desktop/chatbot-/juke-test</p>
-                  <p>&nbsp;</p>
-                  <p>
-                    <span class="t-acc">&rsaquo;</span> {{ t('vibemindView.mockup.buildPrompt') }}
-                  </p>
-                  <p class="t-bul">● Edit <span class="t-file">CheckoutView.vue</span></p>
-                  <p class="t-bul">● Bash <span class="t-dim">npm run test</span></p>
-                  <p class="t-ok">✓ 24 passed</p>
-                  <p class="t-cur">▋</p>
+                <div class="term">
+                  <div class="term__head">
+                    <span class="term__dot term__dot--wait"></span>Claude
+                    <span class="term__sub">Webshop</span>
+                    <span class="term__win">&hellip;</span>
+                  </div>
+                  <div class="term__screen">
+                    <p class="t-dim">─ Claude Code v2.1 ──────</p>
+                    <p>&nbsp;</p>
+                    <p><span class="t-acc">&rsaquo;</span> refactor App.vue</p>
+                    <p class="t-bul">● Read <span class="t-file">App.vue</span></p>
+                    <p class="t-wait">● waiting for input</p>
+                    <p><span class="t-acc">&rsaquo;</span> <span class="t-cur" aria-hidden="true"></span></p>
+                  </div>
                 </div>
               </div>
 
@@ -112,22 +129,40 @@
                 <div class="skillsearch">{{ t('vibemindView.mockup.searchSkills') }}</div>
                 <div class="skillcat">Frontend</div>
                 <div class="skillcard">
-                  <span class="skillcard__name">VibeA11y</span><span class="skillcard__tag">A11Y</span>
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeA11y</span><span class="skillcard__tag">A11Y</span>
+                  </div>
+                  <span class="skillcard__desc">WCAG 2.2 AA · ARIA · focus</span>
                 </div>
                 <div class="skillcard">
-                  <span class="skillcard__name">VibeResponsive</span
-                  ><span class="skillcard__tag">RESP</span>
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeResponsive</span><span class="skillcard__tag">RESP</span>
+                  </div>
+                  <span class="skillcard__desc">320px tot ultrawide · overflow</span>
                 </div>
                 <div class="skillcard">
-                  <span class="skillcard__name">VibeFormulieren</span
-                  ><span class="skillcard__tag">FORMS</span>
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeFormulieren</span><span class="skillcard__tag">FORMS</span>
+                  </div>
+                  <span class="skillcard__desc">Validatie · autocomplete · mobiel</span>
                 </div>
                 <div class="skillcard">
-                  <span class="skillcard__name">VibeData</span><span class="skillcard__tag">DATA</span>
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeData</span><span class="skillcard__tag">DATA</span>
+                  </div>
+                  <span class="skillcard__desc">Fetching · server state · caching</span>
                 </div>
                 <div class="skillcard">
-                  <span class="skillcard__name">VibeTokens</span
-                  ><span class="skillcard__tag">TOKENS</span>
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeTokens</span><span class="skillcard__tag">TOKENS</span>
+                  </div>
+                  <span class="skillcard__desc">Design-tokens · theming · W3C</span>
+                </div>
+                <div class="skillcard">
+                  <div class="skillcard__top">
+                    <span class="skillcard__name">VibeUX</span><span class="skillcard__tag">UX</span>
+                  </div>
+                  <span class="skillcard__desc">Flows · copy · microinteracties</span>
                 </div>
               </aside>
             </div>
@@ -145,12 +180,7 @@
             {{ t('vibemindView.intro.p1') }}
           </p>
           <p>
-            {{ t('vibemindView.intro.p2a') }} <strong>workspaces</strong>
-            {{ t('vibemindView.intro.p2b') }} <strong>panes</strong>
-            {{ t('vibemindView.intro.p2c') }}
-            <strong>{{ t('vibemindView.intro.p2skill') }}</strong>
-            {{ t('vibemindView.intro.p2d') }} <strong>MCP-server</strong>
-            {{ t('vibemindView.intro.p2e') }}
+            {{ t('vibemindView.intro.p2') }}
           </p>
         </div>
       </div>
@@ -170,13 +200,18 @@
       </div>
     </section>
 
-    <!-- ───────────── Screenshots ───────────── -->
+    <!-- ───────────── Media: demo video + captioned stills ───────────── -->
     <section class="vm-shots" id="screenshots">
       <div class="container">
         <div class="section-head">
           <h2>{{ t('vibemindView.shots.title') }}</h2>
           <p>{{ t('vibemindView.shots.subtitle') }}</p>
         </div>
+
+        <!-- Live, choreographed preview of the app — no backend, plays on scroll. -->
+        <VibemindDemo class="vm-demo" />
+
+        <!-- Two captioned stills, each adding detail the video doesn't show -->
         <div class="shots-rows">
           <figure
             class="shot"
@@ -220,7 +255,7 @@
 
     <!-- ───────────── Beta signup ───────────── -->
     <section class="vm-beta" id="beta">
-      <div class="container beta-card">
+      <div class="container beta-card band--dark">
         <div class="beta-copy">
           <div class="eyebrow">
             <span class="eyebrow__dot"></span>
@@ -260,7 +295,7 @@
               type="email"
               v-model.trim="form.email"
               required
-              placeholder="je@email.com"
+              placeholder="john@example.com"
               autocomplete="email"
             />
           </div>
@@ -297,6 +332,12 @@
             <span v-else>{{ t('vibemindView.beta.submit') }}</span>
           </button>
 
+          <p class="form-privacy">
+            {{ t('vibemindView.beta.privacyBefore') }}
+            <router-link to="/privacybeleid">{{ t('vibemindView.beta.privacyLink') }}</router-link
+            >{{ t('vibemindView.beta.privacyAfter') }}
+          </p>
+
           <p v-if="status === 'success'" class="form-msg form-msg--ok" role="status">
             {{ t('vibemindView.beta.success') }}
           </p>
@@ -315,9 +356,8 @@ import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
-import vibemind1 from '@/assets/Vibemind1.webp'
+import VibemindDemo from '@/components/VibemindDemo.vue'
 import vibemind2 from '@/assets/Vibemind2.webp'
-import vibemind3 from '@/assets/Vibemind3.webp'
 
 const { t } = useI18n()
 
@@ -343,9 +383,9 @@ const features = computed(() => [
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l3 3M16 16l3 3M19 5l-3 3M8 16l-3 3"/></svg>',
   },
   {
-    title: t('vibemindView.features.items.voice.title'),
-    description: t('vibemindView.features.items.voice.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>',
+    title: t('vibemindView.features.items.local.title'),
+    description: t('vibemindView.features.items.local.description'),
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3l7 3v5c0 4.5-3 8-7 10-4-2-7-5.5-7-10V6l7-3z"/><path d="M9 12l2 2 4-4"/></svg>',
   },
   {
     title: t('vibemindView.features.items.workspaces.title'),
@@ -356,24 +396,10 @@ const features = computed(() => [
 
 const shots = reactive([
   {
-    src: vibemind1,
-    alt: t('vibemindView.shots.items.panes.alt'),
-    caption: t('vibemindView.shots.items.panes.caption'),
-    desc: t('vibemindView.shots.items.panes.desc'),
-    broken: false,
-  },
-  {
     src: vibemind2,
-    alt: t('vibemindView.shots.items.kanban.alt'),
-    caption: t('vibemindView.shots.items.kanban.caption'),
-    desc: t('vibemindView.shots.items.kanban.desc'),
-    broken: false,
-  },
-  {
-    src: vibemind3,
-    alt: t('vibemindView.shots.items.skills.alt'),
-    caption: t('vibemindView.shots.items.skills.caption'),
-    desc: t('vibemindView.shots.items.skills.desc'),
+    alt: t('vibemindView.shots.items.themes.alt'),
+    caption: t('vibemindView.shots.items.themes.caption'),
+    desc: t('vibemindView.shots.items.themes.desc'),
     broken: false,
   },
 ])
@@ -463,7 +489,7 @@ useHead({
         '@type': 'SoftwareApplication',
         name: 'Vibemind',
         applicationCategory: 'DeveloperApplication',
-        operatingSystem: 'macOS',
+        operatingSystem: 'macOS, Windows',
         description:
           'Desktop-tool om meerdere Claude Code-agents parallel te draaien met panes, kanban, skills en een MCP-server.',
         url: 'https://jukecoding.be/vibemind',
@@ -498,9 +524,12 @@ useHead({
   align-items: center;
 }
 
-.hero-copy {
-  animation: fade-up 0.7s var(--ease-out-expo) 0.1s both;
-}
+/* Staggered hero entrance — same fade-up reveal as the AI-automation page.
+   The eyebrow stays put; the rise cascade starts at the heading. */
+.hero-copy h1 { animation: fade-up 0.7s var(--ease-out-expo) 0.08s both; }
+.hero-copy .subtitle { animation: fade-up 0.7s var(--ease-out-expo) 0.16s both; }
+.hero-copy .hero-buttons { animation: fade-up 0.7s var(--ease-out-expo) 0.24s both; }
+.hero-copy .hero-note { animation: fade-up 0.7s var(--ease-out-expo) 0.3s both; }
 @keyframes fade-up {
   from {
     opacity: 0;
@@ -560,13 +589,18 @@ h1 {
   font-size: var(--text-small);
   color: var(--color-text-tertiary);
 }
+.hero-note--compat {
+  margin-top: var(--space-2);
+}
 
 /* ── Vibemind app mockup — authentic dark terminal UI ──
    Self-contained dark palette (matches the real app: --bg #06080c,
    mint accent #34d399), so the window reads as a real product shot
    against the light marketing page. */
 .hero-visual {
-  animation: fade-up 0.7s var(--ease-out-expo) both;
+  /* Delayed so it cascades in after the text (and past the page fade-in),
+     otherwise a delay-0 rise plays while the page is still invisible. */
+  animation: fade-up 0.7s var(--ease-out-expo) 0.36s both;
 }
 .vmapp {
   --vm-bg: #090d13;
@@ -626,13 +660,6 @@ h1 {
   font-weight: var(--weight-semibold);
   font-size: 12px;
   color: var(--vm-text);
-}
-.vmapp__logo {
-  width: 16px;
-  height: 16px;
-  border-radius: 5px;
-  background: linear-gradient(135deg, #34d399 0%, #60a5fa 100%);
-  box-shadow: 0 0 10px rgba(52, 211, 153, 0.4);
 }
 .vmapp__crumb {
   flex: 1;
@@ -755,12 +782,20 @@ h1 {
   border-radius: var(--radius-full);
 }
 
-/* Center terminal pane */
+/* Center: two parallel terminal panes */
 .vmapp__main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-width: 0;
+  background: var(--vm-screen);
+}
+.term {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  background: var(--vm-screen);
+}
+.term + .term {
+  border-left: 1px solid var(--vm-line);
 }
 .term__head {
   display: flex;
@@ -783,6 +818,13 @@ h1 {
   background: var(--vm-accent);
   box-shadow: 0 0 6px var(--vm-accent);
 }
+.term__dot--wait {
+  background: var(--vm-warn);
+  box-shadow: 0 0 6px var(--vm-warn);
+}
+.t-wait {
+  color: var(--vm-warn);
+}
 .term__sub {
   color: var(--vm-muted);
   font-family: var(--font-mono);
@@ -794,8 +836,8 @@ h1 {
 }
 .term__screen {
   flex: 1;
-  padding: var(--space-4);
-  font-size: 11px;
+  padding: var(--space-3);
+  font-size: 10.5px;
   line-height: 1.6;
   overflow: hidden;
 }
@@ -807,10 +849,6 @@ h1 {
 }
 .t-dim {
   color: var(--vm-muted);
-}
-.t-strong {
-  color: var(--vm-text);
-  font-weight: var(--weight-semibold);
 }
 .t-acc {
   color: var(--vm-accent);
@@ -824,9 +862,14 @@ h1 {
 .t-ok {
   color: var(--vm-accent);
 }
+/* Blinking green caret — same "ready for input" signal as the AI-automation terminal. */
 .t-cur {
-  color: var(--vm-accent);
-  animation: vm-blink 1.1s step-end infinite;
+  display: inline-block;
+  width: 7px;
+  height: 12px;
+  vertical-align: -1px;
+  background: var(--vm-accent);
+  animation: vm-blink 1.4s var(--ease-smooth) infinite;
 }
 @keyframes vm-blink {
   0%,
@@ -835,6 +878,13 @@ h1 {
   }
   50% {
     opacity: 0;
+  }
+}
+/* Keep the caret breathing even under the global reduced-motion reset. */
+@media (prefers-reduced-motion: reduce) {
+  .t-cur {
+    animation-duration: 1.4s !important;
+    animation-iteration-count: infinite !important;
   }
 }
 
@@ -861,12 +911,17 @@ h1 {
 }
 .skillcard {
   display: flex;
-  align-items: center;
-  gap: 6px;
+  flex-direction: column;
+  gap: 3px;
   padding: 6px 8px;
   border: 1px solid var(--vm-line);
   border-radius: var(--radius-sm);
   background: var(--vm-bg);
+}
+.skillcard__top {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 .skillcard__name {
   font-size: 10.5px;
@@ -883,6 +938,15 @@ h1 {
   letter-spacing: 0.04em;
   color: var(--vm-muted);
   flex-shrink: 0;
+}
+.skillcard__desc {
+  font-family: var(--font-sans);
+  font-size: 8.5px;
+  line-height: 1.35;
+  color: var(--vm-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* ── Intro ── */
@@ -994,6 +1058,12 @@ h1 {
   color: var(--color-text-secondary);
   margin: 0;
 }
+/* Live app demo — the showpiece */
+.vm-demo {
+  display: block;
+  margin-bottom: var(--space-16);
+}
+
 .shots-rows {
   display: flex;
   flex-direction: column;
@@ -1054,14 +1124,14 @@ h1 {
 }
 /* ── Beta ── */
 .vm-beta {
-  padding: var(--space-16) var(--space-8) var(--space-24);
+  padding: var(--section-pad-y) var(--space-8) var(--space-24);
 }
+/* Dark closing panel — matches the band--dark CTA on the other pages. */
 .beta-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-16);
   align-items: center;
-  background: var(--color-bg-elevated);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   padding: var(--space-16);
@@ -1105,9 +1175,24 @@ h1 {
 }
 
 .beta-form {
+  /* Re-light the form inside the dark panel so it reads as a white card
+     popping off the dark band, with fully legible inputs. */
+  --color-bg-surface: #ffffff;
+  --color-bg-elevated: #ffffff;
+  --color-text-primary: #0e1c16;
+  --color-text-secondary: #45524b;
+  --color-text-tertiary: #67746c;
+  --color-border: #e5eae7;
+  --color-border-active: #0c6b50;
+  --color-primary: #0c6b50;
+  --color-accent: #0c6b50;
+  --color-text-on-accent: #ffffff;
+  --color-error: #c63a2b;
+  --color-success: #0c6b50;
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-elevated);
   padding: var(--space-8);
   h3 {
     font-size: var(--text-h3);
@@ -1167,6 +1252,17 @@ h1 {
   justify-content: center;
   margin-top: var(--space-2);
 }
+.form-privacy {
+  margin: var(--space-4) 0 0;
+  font-size: var(--text-xs);
+  line-height: var(--leading-normal);
+  color: var(--color-text-tertiary);
+  text-align: center;
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+}
 .form-msg {
   margin: var(--space-4) 0 0;
   font-size: var(--text-small);
@@ -1204,7 +1300,6 @@ h1 {
   .beta-card {
     grid-template-columns: 1fr;
     gap: var(--space-10);
-    padding: var(--space-12);
   }
 }
 
@@ -1241,15 +1336,19 @@ h1 {
   .vmapp__skills {
     display: none;
   }
+  /* One pane is enough on a phone-width mockup */
+  .vmapp__main {
+    grid-template-columns: 1fr;
+  }
+  .term + .term {
+    display: none;
+  }
   .vm-intro,
   .vm-features,
   .vm-shots,
   .vm-beta {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
-  }
-  .beta-card {
-    padding: var(--space-8);
   }
 }
 </style>

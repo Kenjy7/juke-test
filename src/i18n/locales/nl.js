@@ -27,7 +27,7 @@ export default {
     saas: 'SaaS & apps',
     webdesign: 'Webdesign',
     vibemind: 'Vibemind',
-    beheerly: 'Voor syndici',
+    beheerly: 'Beheerly',
     blog: 'Blog',
     contact: 'Contact',
   },
@@ -86,7 +86,7 @@ export default {
 
   // Footer (seeded for when you wire the footer to t())
   footer: {
-    tagline: 'Software op maat, van idee tot schaal.',
+    tagline: 'Software die blijft werken.',
     headings: {
       services: 'Diensten',
       products: 'Producten',
@@ -102,6 +102,12 @@ export default {
       blog: 'Blog',
       quote: 'Offerte aanvragen',
       contact: 'Neem contact op',
+    },
+    legal: {
+      aria: 'Juridisch en privacy',
+      privacy: 'Privacybeleid',
+      cookies: 'Cookiebeleid',
+      cookieSettings: 'Cookievoorkeuren',
     },
   },
 }

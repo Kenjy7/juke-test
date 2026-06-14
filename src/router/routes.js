@@ -56,6 +56,12 @@ const baseRoutes = [
     alias: ['/cookiebeleid', '/privacy-cookies'],
   },
   {
+    path: '/privacybeleid',
+    name: 'privacybeleid',
+    component: () => import('@/views/PrivacyBeleidView.vue'),
+    alias: ['/privacy', '/privacy-policy'],
+  },
+  {
     path: '/blog',
     name: 'blog',
     component: () => import('@/views/BlogView.vue'),

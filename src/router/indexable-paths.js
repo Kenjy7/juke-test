@@ -29,6 +29,7 @@ export const staticPages = [
   { path: '/blog', changefreq: 'weekly', priority: '0.8' },
   { path: '/contact', changefreq: 'monthly', priority: '0.6' },
   { path: '/cookies', changefreq: 'yearly', priority: '0.3' },
+  { path: '/privacybeleid', changefreq: 'yearly', priority: '0.3' },
 ]
 
 // Published blog posts, in sitemap-ready shape.

@@ -346,6 +346,12 @@
               </svg>
             </button>
 
+            <p class="form-privacy">
+              {{ t('contactFormulier.form.privacyBefore') }}
+              <RouterLink to="/privacybeleid">{{ t('contactFormulier.form.privacyLink') }}</RouterLink
+              >{{ t('contactFormulier.form.privacyAfter') }}
+            </p>
+
             <div class="form-backlinks" :aria-label="t('contactFormulier.backlinks.aria')">
               <span class="form-backlinks-label">{{ t('contactFormulier.backlinks.label') }}</span>
 
@@ -886,6 +892,24 @@ a.method:hover {
   &:disabled {
     opacity: 0.5;
     cursor: not-allowed;
+  }
+}
+
+/* ========= Privacy note under submit ========= */
+.form-privacy {
+  margin: var(--space-3) 0 0;
+  font-size: var(--text-xs);
+  line-height: var(--leading-snug);
+  color: var(--color-text-tertiary);
+  text-align: center;
+
+  a {
+    color: var(--color-text-secondary);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    &:hover {
+      color: var(--color-primary);
+    }
   }
 }
 

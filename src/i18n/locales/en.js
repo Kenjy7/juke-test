@@ -25,7 +25,7 @@ export default {
     saas: 'SaaS & apps',
     webdesign: 'Web design',
     vibemind: 'Vibemind',
-    beheerly: 'For property managers',
+    beheerly: 'Beheerly',
     blog: 'Blog',
     contact: 'Contact',
   },
@@ -81,7 +81,7 @@ export default {
   },
 
   footer: {
-    tagline: 'Custom software, from idea to scale.',
+    tagline: 'Software that keeps working.',
     headings: {
       services: 'Services',
       products: 'Products',
@@ -97,6 +97,12 @@ export default {
       blog: 'Blog',
       quote: 'Request a quote',
       contact: 'Get in touch',
+    },
+    legal: {
+      aria: 'Legal and privacy',
+      privacy: 'Privacy policy',
+      cookies: 'Cookie policy',
+      cookieSettings: 'Cookie settings',
     },
   },
 }

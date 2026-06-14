@@ -1,6 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="showBanner" class="cookie-banner-overlay">
+    <div v-if="bannerVisible" class="cookie-banner-overlay">
       <div class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
         <div class="cookie-content">
           <div class="cookie-header">
@@ -114,9 +114,9 @@ import { useCookieConsent } from '../composables/useCookieConsent'
 const { t } = useI18n()
 
 // Gebruik de composable
-const { initializeConsent, saveConsent, acceptAll, acceptNecessary } = useCookieConsent()
+const { initializeConsent, saveConsent, acceptAll, acceptNecessary, bannerVisible } =
+  useCookieConsent()
 
-const showBanner = ref(false)
 const showDetails = ref(false)
 const primaryBtnRef = ref(null)
 
@@ -127,7 +127,7 @@ const preferences = ref({
 })
 
 const handleKeyDown = (e) => {
-  if (e.key === 'Escape' && showBanner.value) {
+  if (e.key === 'Escape' && bannerVisible.value) {
     handleRejectAll()
   }
 }
@@ -139,7 +139,7 @@ onMounted(() => {
   if (!hasExistingConsent) {
     // Geen bestaande voorkeuren, toon banner
     setTimeout(() => {
-      showBanner.value = true
+      bannerVisible.value = true
       nextTick(() => {
         primaryBtnRef.value?.focus()
       })
@@ -162,20 +162,20 @@ const toggleDetails = () => {
 
 const handleAcceptAll = () => {
   acceptAll() // Composable functie - accepteert alles
-  showBanner.value = false
+  bannerVisible.value = false
   console.log('✅ Alle cookies geaccepteerd')
 }
 
 const handleRejectAll = () => {
   acceptNecessary() // Composable functie - alleen noodzakelijke
-  showBanner.value = false
+  bannerVisible.value = false
   console.log('❌ Alleen noodzakelijke cookies geaccepteerd')
 }
 
 const handleSavePreferences = () => {
   // Sla custom voorkeuren op via composable
   saveConsent(preferences.value)
-  showBanner.value = false
+  bannerVisible.value = false
   console.log('💾 Custom voorkeuren opgeslagen:', preferences.value)
 }
 </script>

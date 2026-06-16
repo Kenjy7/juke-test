@@ -59,7 +59,7 @@ const SITE_CONFIG = {
 }
 
 const url = `${SITE_CONFIG.url}/webdesign`
-const ogImage = `${SITE_CONFIG.url}/og-image-webdesign.jpg`
+const ogImage = `${SITE_CONFIG.url}/og-image.jpg`
 
 // Organisatie-schema komt centraal uit App.vue (zie src/data/organizationSchema.js).
 // Andere schema's op deze pagina verwijzen ernaar via { '@id': ORG_ID }.

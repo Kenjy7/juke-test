@@ -105,7 +105,7 @@ useHead(() => {
       { property: 'og:url', content: canonicalUrl.value },
       {
         property: 'og:image',
-        content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}`,
+        content: `https://jukecoding.be${post.value.ogImage || '/og-blog.jpg'}`,
       },
       { property: 'og:image:alt', content: post.value.title },
       { property: 'og:image:width', content: '1200' },
@@ -129,7 +129,7 @@ useHead(() => {
       { name: 'twitter:description', content: post.value.metaDescription },
       {
         name: 'twitter:image',
-        content: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}`,
+        content: `https://jukecoding.be${post.value.ogImage || '/og-blog.jpg'}`,
       },
       { name: 'twitter:image:alt', content: post.value.title },
     ],
@@ -159,12 +159,12 @@ useHead(() => {
             name: 'Juke',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://jukecoding.be/logo.png',
+              url: 'https://jukecoding.be/favicon-512x512.png',
             },
           },
           image: {
             '@type': 'ImageObject',
-            url: `https://jukecoding.be${post.value.ogImage || '/og-image.jpg'}`,
+            url: `https://jukecoding.be${post.value.ogImage || '/og-blog.jpg'}`,
             width: 1200,
             height: 630,
           },

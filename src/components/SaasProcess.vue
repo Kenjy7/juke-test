@@ -86,7 +86,7 @@ onMounted(() => {
 }
 .eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 .section-head h2 {
-  font-size: var(--text-h1); font-weight: var(--weight-bold);
+  font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0; text-wrap: balance;
 }
@@ -115,7 +115,7 @@ onMounted(() => {
 }
 .step-body { flex: 1; }
 .step-card h3 {
-  font-size: var(--text-h3); font-weight: var(--weight-bold); color: var(--color-text-primary);
+  font-size: var(--text-h3); font-weight: var(--weight-semibold); color: var(--color-text-primary);
   margin: 0 0 var(--space-3); letter-spacing: var(--tracking-tight); text-wrap: balance;
 }
 .step-card p { font-size: var(--text-small); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0; }

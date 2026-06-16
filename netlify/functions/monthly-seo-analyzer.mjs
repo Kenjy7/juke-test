@@ -175,7 +175,7 @@ async function sendToDiscord(webhookUrl, analysis, pageAudits, month) {
 
   const payload = {
     username: 'JukeCoding SEO Bot',
-    avatar_url: 'https://jukecoding.be/logo.png',
+    avatar_url: 'https://jukecoding.be/favicon-512x512.png',
     embeds: [
       {
         title: `📊 Maandelijks SEO Rapport — ${month}`,

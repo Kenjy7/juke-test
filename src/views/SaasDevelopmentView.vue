@@ -163,7 +163,7 @@ useHead({
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
-    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { property: 'og:image', content: 'https://jukecoding.be/og-saas.jpg' },
     { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -231,7 +231,7 @@ useHead({
   display: flex; flex-direction: column; align-items: center;
 }
 .saas-cta__panel h2 {
-  font-size: var(--text-h1); font-weight: var(--weight-bold);
+  font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-5);
   max-width: 22ch; text-wrap: balance;

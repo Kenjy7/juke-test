@@ -42,7 +42,7 @@
 
         <!-- Faux app window: the real Vibemind UI — workspaces · terminal · skills -->
         <div class="hero-visual" aria-hidden="true">
-          <div class="vmapp">
+          <div class="vmapp" v-scale-fit="540">
             <!-- Top bar -->
             <div class="vmapp__top">
               <span class="vmapp__brand">Vibemind</span>
@@ -209,7 +209,9 @@
         </div>
 
         <!-- Live, choreographed preview of the app — no backend, plays on scroll. -->
-        <VibemindDemo class="vm-demo" />
+        <div class="vm-demo-wrap">
+          <VibemindDemo class="vm-demo" v-scale-fit="540" />
+        </div>
 
         <!-- Two captioned stills, each adding detail the video doesn't show -->
         <div class="shots-rows">
@@ -355,6 +357,7 @@
 import { reactive, ref, computed } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
+import emailjs from '@emailjs/browser'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import VibemindDemo from '@/components/VibemindDemo.vue'
 import vibemind2 from '@/assets/Vibemind2.webp'
@@ -419,29 +422,26 @@ const submitBeta = async () => {
   }
   status.value = 'sending'
 
-  const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-  const supabaseAnonKey = import.meta.env.VITE_SUPABASE_ANON_KEY
-
   try {
-    // INSERT into the Supabase `signups` table via the REST API. RLS only
-    // allows INSERT with the anon key, so this is safe to run client-side.
-    const res = await fetch(`${supabaseUrl}/rest/v1/signups`, {
-      method: 'POST',
-      headers: {
-        apikey: supabaseAnonKey,
-        Authorization: `Bearer ${supabaseAnonKey}`,
-        'Content-Type': 'application/json',
-        Prefer: 'return=minimal',
-      },
-      body: JSON.stringify({
-        email: form.email,
-        name: form.name || null,
-        reason: form.reason || null,
-        source: 'website',
-      }),
-    })
+    // Same proven delivery path as the contact & offer forms: EmailJS to the
+    // Juke inbox. Maps the beta fields onto the shared contact template.
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-    if (!res.ok) throw new Error(`Supabase responded ${res.status}`)
+    const templateParams = {
+      service: 'Vibemind beta',
+      firstName: form.name || 'Onbekend',
+      lastName: '',
+      email: form.email,
+      phone: '',
+      subject: 'Vibemind beta-aanvraag',
+      message: form.reason || 'Schrijf me in voor de Vibemind beta.',
+    }
+
+    const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
+
+    if (response.status !== 200) throw new Error(`EmailJS responded ${response.status}`)
 
     status.value = 'success'
     form.name = ''
@@ -470,7 +470,7 @@ useHead({
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/vibemind' },
-    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { property: 'og:image', content: 'https://jukecoding.be/og-vibemind.jpg' },
     { property: 'og:site_name', content: 'JukeCoding' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -519,7 +519,9 @@ useHead({
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
+  /* minmax(0, …) so the visual column can't grow to the mock's content width and
+     push the hero copy past the viewport. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: var(--space-16);
   align-items: center;
 }
@@ -961,7 +963,7 @@ h1 {
 }
 .vm-intro h2 {
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0;
@@ -986,7 +988,7 @@ h1 {
 }
 .vm-features h2 {
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   text-align: center;
   margin: 0 0 var(--space-12) 0;
@@ -1048,7 +1050,7 @@ h1 {
 }
 .section-head h2 {
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-3);
@@ -1058,10 +1060,21 @@ h1 {
   color: var(--color-text-secondary);
   margin: 0;
 }
-/* Live app demo — the showpiece */
+/* Live app demo — the showpiece. The wrapper flex-centres the scaled mock so it
+   stays centred even when its fixed design width overflows the column. */
+.vm-demo-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-16);
+}
 .vm-demo {
   display: block;
-  margin-bottom: var(--space-16);
+  flex-shrink: 0;
+  /* Fill the container on desktop/tablet — its original size. As a flex item it
+     would otherwise shrink to its content's max-content width. On phones the
+     scale-fit directive sets an inline 540px width that overrides this, and the
+     wrapper centres the zoomed-down mock. */
+  width: 100%;
 }
 
 .shots-rows {
@@ -1088,7 +1101,7 @@ h1 {
 }
 .shot__text h3 {
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-3);
@@ -1129,7 +1142,9 @@ h1 {
 /* Dark closing panel — matches the band--dark CTA on the other pages. */
 .beta-card {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* minmax(0, …) so a column can't grow to the form's min-content and push the
+     copy past the card/viewport. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   gap: var(--space-16);
   align-items: center;
   border: 1px solid var(--color-border);
@@ -1138,7 +1153,7 @@ h1 {
 }
 .beta-copy h2 {
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-4);
@@ -1281,7 +1296,7 @@ h1 {
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-12);
   }
   .hero-copy {
@@ -1298,7 +1313,7 @@ h1 {
     grid-template-columns: repeat(2, 1fr);
   }
   .beta-card {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
   }
 }
@@ -1330,25 +1345,16 @@ h1 {
   .shot--reverse .shot__media {
     order: 0;
   }
-  .vmapp__body {
-    grid-template-columns: 104px 1fr;
-  }
-  .vmapp__skills {
-    display: none;
-  }
-  /* One pane is enough on a phone-width mockup */
-  .vmapp__main {
-    grid-template-columns: 1fr;
-  }
-  .term + .term {
-    display: none;
-  }
   .vm-intro,
   .vm-features,
   .vm-shots,
   .vm-beta {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
+  }
+  /* The 64px card padding is too much on a phone — give the form room. */
+  .beta-card {
+    padding: var(--space-8);
   }
 }
 </style>

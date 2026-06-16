@@ -128,10 +128,10 @@ useHead({
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
-    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { property: 'og:image', content: 'https://jukecoding.be/og-ai.jpg' },
     { property: 'og:image:alt', content: 'AI-automatisering door Juke' },
-    { property: 'og:image:width', content: '1200' },
-    { property: 'og:image:height', content: '630' },
+    { property: 'og:image:width', content: '2245' },
+    { property: 'og:image:height', content: '1181' },
     { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
@@ -141,7 +141,7 @@ useHead({
       content:
         'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage.',
     },
-    { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { name: 'twitter:image', content: 'https://jukecoding.be/og-ai.jpg' },
     {
       name: 'twitter:image:alt',
       content: "Juke - AI automatisatie voor Belgische KMO's",

@@ -58,25 +58,6 @@
                 <span class="method__value">+32 479 13 17 15</span>
               </span>
             </a>
-
-            <div class="method method--static">
-              <span class="method__icon" aria-hidden="true">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2" />
-                  <path
-                    d="M12 7v5l3 2"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-              </span>
-              <span class="method__text">
-                <span class="method__label">{{ t('contactFormulier.info.responseLabel') }}</span>
-                <span class="method__value">{{ t('contactFormulier.info.responseValue') }}</span>
-              </span>
-            </div>
           </div>
 
           <div class="contact-social">

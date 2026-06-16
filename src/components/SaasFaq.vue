@@ -71,7 +71,7 @@ onBeforeUnmount(() => { if (observer) observer.disconnect() })
 }
 .eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 .faq-header h2 {
-  font-size: var(--text-h1); font-weight: var(--weight-bold);
+  font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0; text-wrap: balance;
 }

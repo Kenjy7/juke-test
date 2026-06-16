@@ -16,7 +16,10 @@
             {{ t('beheerlyView.hero.subtitle') }}
           </p>
           <div class="hero-buttons">
-            <router-link to="/contact" class="btn btn--accent btn--lg">
+            <router-link
+              :to="{ path: '/contact', query: { interesse: 'beheerly' } }"
+              class="btn btn--accent btn--lg"
+            >
               {{ t('beheerlyView.hero.ctaPrimary') }}
               <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
@@ -28,29 +31,42 @@
                 />
               </svg>
             </router-link>
-            <router-link
-              :to="{ path: '/contact', query: { interesse: 'beheerly' } }"
-              class="btn btn--secondary btn--lg"
-            >
-              {{ t('beheerlyView.hero.ctaMail') }}
-            </router-link>
+            <a href="#functies" class="btn btn--secondary btn--lg">
+              {{ t('beheerlyView.hero.ctaSecondary') }}
+            </a>
           </div>
           <p class="hero-note">
             {{ t('beheerlyView.hero.note') }}
           </p>
         </div>
 
-        <!-- App visual: syndicus dashboard mockup -->
+        <!-- App visual: Beheerly dashboard mockup (mirrors the real product UI) -->
         <div class="hero-visual" aria-hidden="true">
-          <div class="appwin">
+          <div class="appwin" ref="appwinEl">
             <div class="appwin__bar">
               <span class="dd"></span><span class="dd"></span><span class="dd"></span>
               <span class="appwin__title">app.beheerly.be/dashboard</span>
             </div>
+            <!-- Product top bar -->
+            <div class="appwin__top">
+              <span class="brand">
+                <span class="brand__logo">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+                    <path d="M4 11.5 12 5l8 6.5" />
+                    <path d="M6 10.5V19h12v-8.5" />
+                    <path d="M10.5 19v-4h3v4" />
+                  </svg>
+                </span>
+                <span class="brand__name">Beheerly</span>
+              </span>
+              <span class="appwin__account">
+                <span class="appwin__email">kenjy@test.be</span>
+                <span class="appwin__logout">{{ t('beheerlyView.mockup.logout') }}</span>
+              </span>
+            </div>
             <div class="appwin__shell">
               <!-- Sidebar -->
               <aside class="appnav">
-                <div class="appnav__brand">Beheerly</div>
                 <nav class="appnav__list">
                   <span
                     class="appnav__item"
@@ -80,12 +96,12 @@
 
                 <div class="tickets">
                   <span class="tickets__head">{{ t('beheerlyView.mockup.recentTickets') }}</span>
-                  <div class="trow" v-for="(t, i) in tickets" :key="i">
+                  <div class="trow" v-for="(tk, i) in tickets" :key="i">
                     <span class="trow__main">
                       <span class="trow__title">
-                        {{ t.title }}
+                        {{ tk.title }}
                         <svg
-                          v-if="t.ai"
+                          v-if="tk.ai"
                           class="trow__ai"
                           viewBox="0 0 24 24"
                           fill="currentColor"
@@ -96,9 +112,9 @@
                           />
                         </svg>
                       </span>
-                      <span class="trow__meta">{{ t.meta }}</span>
+                      <span class="trow__meta">{{ tk.meta }}</span>
                     </span>
-                    <span class="badge" :class="'badge--' + t.tone">{{ t.badge }}</span>
+                    <span class="badge" :class="'badge--' + tk.tone">{{ tk.badge }}</span>
                   </div>
                 </div>
               </div>
@@ -141,39 +157,40 @@
       </div>
     </section>
 
-    <!-- ───────────── Features ───────────── -->
-    <section class="bh-features">
-      <div class="container">
-        <h2>{{ t('beheerlyView.features.title') }}</h2>
-        <div class="features-grid">
-          <div class="feature-card" v-for="f in features" :key="f.title">
-            <div class="feature-card__icon" v-html="f.icon" aria-hidden="true"></div>
-            <h3>{{ f.title }}</h3>
-            <p>{{ f.description }}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ───────────── Screenshots ───────────── -->
-    <section class="bh-shots" id="screenshots">
+    <!-- ───────────── Feature spotlights (real screenshots) ───────────── -->
+    <section class="bh-spot" id="functies">
       <div class="container">
         <div class="section-head">
-          <h2>{{ t('beheerlyView.shots.title') }}</h2>
-          <p>{{ t('beheerlyView.shots.subtitle') }}</p>
+          <h2>{{ t('beheerlyView.spotlights.title') }}</h2>
+          <p>{{ t('beheerlyView.spotlights.subtitle') }}</p>
         </div>
-        <div class="shots-grid">
-          <figure class="shot" v-for="(s, i) in shots" :key="i">
+
+        <div
+          class="spot"
+          v-for="(s, i) in spotlights"
+          :key="s.key"
+          :class="{ 'spot--reverse': i % 2 === 1 }"
+        >
+          <div class="spot__text">
+            <span class="spot__label">{{ s.label }}</span>
+            <h3>{{ s.title }}</h3>
+            <p>{{ s.body }}</p>
+            <ul class="checks">
+              <li v-for="c in s.checks" :key="c"><Check :size="16" :stroke-width="2.5" />{{ c }}</li>
+            </ul>
+          </div>
+          <figure class="spot__visual">
             <div class="shot__frame">
               <div class="shot__bar"><span></span><span></span><span></span></div>
               <img
-                v-if="!s.broken"
+                v-if="!broken[s.key]"
                 :src="s.src"
                 :alt="s.alt"
                 loading="lazy"
                 decoding="async"
                 class="shot__img"
-                @error="s.broken = true"
+                @click="openLightbox(s)"
+                @error="broken[s.key] = true"
               />
               <div v-else class="shot__placeholder">
                 <svg
@@ -187,42 +204,72 @@
                   <circle cx="8.5" cy="9.5" r="1.5" />
                   <path d="M21 15l-5-5L5 18" />
                 </svg>
-                <span>{{ t('beheerlyView.shots.placeholder') }}</span>
+                <span>{{ t('beheerlyView.spotlights.placeholder') }}</span>
               </div>
             </div>
-            <figcaption>{{ s.caption }}</figcaption>
           </figure>
         </div>
       </div>
     </section>
 
-    <!-- ───────────── FAQ ───────────── -->
-    <section class="bh-faq" id="faq">
-      <div class="container faq-narrow">
+    <!-- ───────────── Rest of the platform ───────────── -->
+    <section class="bh-platform">
+      <div class="container">
         <div class="section-head">
+          <h2>{{ t('beheerlyView.platform.title') }}</h2>
+          <p>{{ t('beheerlyView.platform.subtitle') }}</p>
+        </div>
+        <div class="mod-grid">
+          <div class="mod-card" v-for="m in platformItems" :key="m.title">
+            <div class="mod-card__icon">
+              <component :is="m.icon" :size="20" :stroke-width="1.8" aria-hidden="true" />
+            </div>
+            <h3>{{ m.title }}</h3>
+            <p>{{ m.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── Why syndics benefit ───────────── -->
+    <section class="bh-why">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ t('beheerlyView.why.title') }}</h2>
+          <p>{{ t('beheerlyView.why.subtitle') }}</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-card" v-for="w in whyItems" :key="w.title">
+            <div class="why-card__icon">
+              <component :is="w.icon" :size="22" :stroke-width="1.8" aria-hidden="true" />
+            </div>
+            <h3>{{ w.title }}</h3>
+            <p>{{ w.description }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ───────────── FAQ — shared FaqItem design (same as SaaS & AI pages) ───────────── -->
+    <section class="bh-faq" id="faq">
+      <div class="container">
+        <header class="faq-header">
+          <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('beheerlyView.faq.eyebrow') }}</span>
           <h2>{{ t('beheerlyView.faq.title') }}</h2>
-          <p>
+          <p class="lead">
             {{ t('beheerlyView.faq.leadBefore') }}
             <router-link to="/contact">{{ t('beheerlyView.faq.leadLink') }}</router-link>
             {{ t('beheerlyView.faq.leadAfter') }}
           </p>
-        </div>
+        </header>
         <div class="faq-list">
-          <details class="faq-item" v-for="(q, i) in faqs" :key="i">
-            <summary>
-              {{ q.question }}
-              <svg class="faq-chevron" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                <path
-                  d="M4 6l4 4 4-4"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </summary>
-            <p>{{ q.answer }}</p>
-          </details>
+          <FaqItem
+            v-for="(q, index) in faqs"
+            :key="index"
+            :question="q.question"
+            :answer="q.answer"
+            :index="index"
+          />
         </div>
       </div>
     </section>
@@ -234,7 +281,10 @@
           <h2>{{ t('beheerlyView.cta.title') }}</h2>
           <p>{{ t('beheerlyView.cta.body') }}</p>
           <div class="cta-actions">
-            <router-link to="/contact" class="btn btn--accent btn--lg">
+            <router-link
+              :to="{ path: '/contact', query: { interesse: 'beheerly' } }"
+              class="btn btn--accent btn--lg"
+            >
               {{ t('beheerlyView.cta.ctaContact') }}
               <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
@@ -251,17 +301,59 @@
         </div>
       </div>
     </section>
+    <Teleport to="body">
+      <div
+        v-if="lightbox.src"
+        class="lightbox"
+        role="dialog"
+        aria-modal="true"
+        aria-label="Vergrote schermafbeelding"
+        @click="closeLightbox"
+      >
+        <button class="lightbox__close" type="button" aria-label="Sluiten" @click="closeLightbox">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
+          </svg>
+        </button>
+        <img :src="lightbox.src" :alt="lightbox.alt" class="lightbox__img" />
+      </div>
+    </Teleport>
   </BackgroundWeb>
 </template>
 
 <script setup>
-import { reactive, computed } from 'vue'
+import { reactive, ref, watch, nextTick, computed, onMounted, onBeforeUnmount } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
+import {
+  Check,
+  LayoutDashboard,
+  Users,
+  FileCheck,
+  HelpCircle,
+  Megaphone,
+  Inbox,
+  HardHat,
+  Settings,
+  Layers,
+  ShieldCheck,
+  Scale,
+  Sparkles,
+} from 'lucide-vue-next'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
+import FaqItem from '@/components/FaqItem.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
+const SITE = 'https://jukecoding.be'
+const ORG_ID = `${SITE}/#organization`
+const UPDATED_ISO = '2026-06-16'
+
+// nl is the default (unprefixed) locale; en lives under /en.
+const pageUrl = computed(() => (locale.value === 'en' ? `${SITE}/en/beheerly` : `${SITE}/beheerly`))
+const ogLocale = computed(() => (locale.value === 'en' ? 'en_US' : 'nl_BE'))
+
+// ── Hero mock: shared product shell (CSS, not a screenshot, so it loads instantly) ──
 const nav = computed(() => [
   {
     label: t('beheerlyView.mockup.nav.dashboard'),
@@ -274,23 +366,27 @@ const nav = computed(() => [
   },
   {
     label: t('beheerlyView.mockup.nav.tickets'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8l9 5 9-5M3 8l9-5 9 5v8l-9 5-9-5V8z"/></svg>',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 13l2.2-7h11.6L20 13"/><path d="M4 13v5h16v-5"/><path d="M4 13h4l1 2h6l1-2h4"/></svg>',
   },
   {
     label: t('beheerlyView.mockup.nav.inbox'),
     icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 4h16v12H4zM4 16l3-3h10l3 3"/><path d="M9 13a3 3 0 0 0 6 0"/></svg>',
   },
   {
-    label: t('beheerlyView.mockup.nav.quotes'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>',
+    label: t('beheerlyView.mockup.nav.documentQa'),
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6"/><path d="M9.6 12.4a1.6 1.6 0 1 1 2.4 1.4c-.5.3-.9.6-.9 1.3"/><path d="M11 18h.01"/></svg>',
   },
   {
     label: t('beheerlyView.mockup.nav.siteFollowup'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 20h20M4 20V10l8-6 8 6v10"/><path d="M9 20v-6h6v6"/></svg>',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 4h6l1 2h3a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h3z"/><path d="M9 13l2 2 4-4"/></svg>',
   },
   {
     label: t('beheerlyView.mockup.nav.claims'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3l9 16H3L12 3z"/><path d="M12 10v4M12 17h.01"/></svg>',
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M15.5 9.2a4 4 0 1 0 0 5.6"/><path d="M7.5 11h6M7.5 13.2h6"/></svg>',
+  },
+  {
+    label: t('beheerlyView.mockup.nav.quotes'),
+    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg>',
   },
   {
     label: t('beheerlyView.mockup.nav.meetings'),
@@ -299,8 +395,8 @@ const nav = computed(() => [
 ])
 
 const stats = computed(() => [
-  { value: '12', label: t('beheerlyView.mockup.stats.buildings') },
-  { value: '5', label: t('beheerlyView.mockup.stats.openTickets') },
+  { value: '3', label: t('beheerlyView.mockup.stats.buildings') },
+  { value: '11', label: t('beheerlyView.mockup.stats.openTickets') },
   { value: '3', label: t('beheerlyView.mockup.stats.openQuotes') },
 ])
 
@@ -309,26 +405,28 @@ const tickets = computed(() => [
     title: t('beheerlyView.mockup.tickets.t1.title'),
     meta: t('beheerlyView.mockup.tickets.t1.meta'),
     badge: t('beheerlyView.mockup.tickets.t1.badge'),
-    tone: 'urgent',
+    tone: 'warn',
     ai: true,
   },
   {
     title: t('beheerlyView.mockup.tickets.t2.title'),
     meta: t('beheerlyView.mockup.tickets.t2.meta'),
     badge: t('beheerlyView.mockup.tickets.t2.badge'),
-    tone: 'open',
+    tone: 'danger',
+    ai: true,
   },
   {
     title: t('beheerlyView.mockup.tickets.t3.title'),
     meta: t('beheerlyView.mockup.tickets.t3.meta'),
     badge: t('beheerlyView.mockup.tickets.t3.badge'),
-    tone: 'accent',
+    tone: 'warn',
+    ai: true,
   },
   {
     title: t('beheerlyView.mockup.tickets.t4.title'),
     meta: t('beheerlyView.mockup.tickets.t4.meta'),
     badge: t('beheerlyView.mockup.tickets.t4.badge'),
-    tone: 'done',
+    tone: 'normal',
   },
 ])
 
@@ -355,145 +453,294 @@ const steps = computed(() => [
   },
 ])
 
-const features = computed(() => [
+// ── Feature spotlights — real screenshots. Drop the PNGs in /public/screenshots/
+// with the filenames below; until a file exists, a "Screenshot volgt" frame shows.
+// `broken` tracks load failures per spotlight key so the fallback is reactive
+// without losing locale-reactivity on the copy. ──
+const broken = reactive({})
+
+// Click a screenshot to view it enlarged in a lightbox.
+const lightbox = reactive({ src: '', alt: '' })
+function openLightbox(s) {
+  lightbox.src = s.src
+  lightbox.alt = s.alt
+  document.body.style.overflow = 'hidden'
+}
+function closeLightbox() {
+  lightbox.src = ''
+  lightbox.alt = ''
+  document.body.style.overflow = ''
+}
+function onLightboxKey(e) {
+  if (e.key === 'Escape') closeLightbox()
+}
+
+// ── Keep the hero dashboard mock fully visible on every screen ──
+// The mock is built at a fixed "design width" so its internal proportions match
+// the desktop product exactly. Rather than reflow those internals on small
+// screens — which made the sidebar crowd the panel and look unrealistic — we
+// shrink the whole window as a single unit (like zooming out on a photo) so it
+// always fits its column: identical proportions, no cropping, no overflow.
+const appwinEl = ref(null)
+// Desktop keeps the wider, approved proportions; small screens use a more
+// compact design so the same column renders the window noticeably bigger.
+const DESIGN_WIDTH_DESKTOP = 600
+const DESIGN_WIDTH_MOBILE = 480
+let appwinResizeObserver = null
+let lastFitWidth = -1
+
+function fitDashboardMock() {
+  const el = appwinEl.value
+  const parent = el?.parentElement
+  if (!el || !parent) return
+  const available = parent.clientWidth
+  // Skip when the available width hasn't changed (e.g. a height-only resize),
+  // which also stops our own tweaks from re-triggering the observer.
+  if (available === lastFitWidth) return
+  lastFitWidth = available
+
+  // Pin the mock to its design width, then scale the whole window with `zoom`
+  // so it exactly fills its (centred) column. Unlike `transform`, `zoom`
+  // collapses the layout box too, so there's no leftover gap and the parent's
+  // `text-align: center` keeps it centred — fully visible, proportional, no
+  // cropping, no overflow. The compact mobile design lets it render bigger on
+  // phones than the 600 desktop design would allow.
+  const designWidth = window.innerWidth >= 900 ? DESIGN_WIDTH_DESKTOP : DESIGN_WIDTH_MOBILE
+  el.style.width = `${designWidth}px`
+  el.style.zoom = String(available / designWidth)
+}
+
+// Re-fit when the locale flips (translated copy can change the mock's height).
+watch(locale, () => {
+  lastFitWidth = -1
+  nextTick(fitDashboardMock)
+})
+
+onMounted(() => {
+  window.addEventListener('keydown', onLightboxKey)
+  nextTick(fitDashboardMock)
+  const parent = appwinEl.value?.parentElement
+  if (parent && 'ResizeObserver' in window) {
+    appwinResizeObserver = new ResizeObserver(() => fitDashboardMock())
+    appwinResizeObserver.observe(parent)
+  } else {
+    window.addEventListener('resize', fitDashboardMock)
+  }
+})
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onLightboxKey)
+  window.removeEventListener('resize', fitDashboardMock)
+  appwinResizeObserver?.disconnect()
+  document.body.style.overflow = ''
+})
+
+const spotlights = computed(() => [
   {
-    title: t('beheerlyView.featureCards.syndics.title'),
-    description: t('beheerlyView.featureCards.syndics.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"/><path d="M9 9h.01M9 13h.01M9 17h.01"/></svg>',
+    key: 'buildings',
+    src: '/screenshots/beheerly-gebouwen.png',
+    label: t('beheerlyView.spotlights.buildings.label'),
+    title: t('beheerlyView.spotlights.buildings.title'),
+    body: t('beheerlyView.spotlights.buildings.body'),
+    checks: [
+      t('beheerlyView.spotlights.buildings.check1'),
+      t('beheerlyView.spotlights.buildings.check2'),
+      t('beheerlyView.spotlights.buildings.check3'),
+    ],
+    alt: t('beheerlyView.spotlights.buildings.alt'),
+    caption: t('beheerlyView.spotlights.buildings.caption'),
   },
   {
-    title: t('beheerlyView.featureCards.residents.title'),
-    description: t('beheerlyView.featureCards.residents.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10z"/><circle cx="12" cy="11" r="2.5"/></svg>',
+    key: 'tickets',
+    src: '/screenshots/beheerly-tickets.png',
+    label: t('beheerlyView.spotlights.tickets.label'),
+    title: t('beheerlyView.spotlights.tickets.title'),
+    body: t('beheerlyView.spotlights.tickets.body'),
+    checks: [
+      t('beheerlyView.spotlights.tickets.check1'),
+      t('beheerlyView.spotlights.tickets.check2'),
+      t('beheerlyView.spotlights.tickets.check3'),
+    ],
+    alt: t('beheerlyView.spotlights.tickets.alt'),
+    caption: t('beheerlyView.spotlights.tickets.caption'),
   },
   {
-    title: t('beheerlyView.featureCards.contractors.title'),
-    description: t('beheerlyView.featureCards.contractors.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 7l-1.5-1.5a2 2 0 0 0-2.8 0L4 11.2V14h2.8l5.7-5.7a2 2 0 0 0 0-2.8z"/><path d="M14 7l3 3M4 20h16"/></svg>',
+    key: 'quotes',
+    src: '/screenshots/beheerly-offertes.png',
+    label: t('beheerlyView.spotlights.quotes.label'),
+    title: t('beheerlyView.spotlights.quotes.title'),
+    body: t('beheerlyView.spotlights.quotes.body'),
+    checks: [
+      t('beheerlyView.spotlights.quotes.check1'),
+      t('beheerlyView.spotlights.quotes.check2'),
+      t('beheerlyView.spotlights.quotes.check3'),
+    ],
+    alt: t('beheerlyView.spotlights.quotes.alt'),
+    caption: t('beheerlyView.spotlights.quotes.caption'),
   },
   {
-    title: t('beheerlyView.featureCards.ai.title'),
-    description: t('beheerlyView.featureCards.ai.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M5 5l2 2M17 17l2 2M19 5l-2 2M7 17l-2 2"/></svg>',
+    key: 'site',
+    src: '/screenshots/beheerly-werfopvolging.png',
+    label: t('beheerlyView.spotlights.site.label'),
+    title: t('beheerlyView.spotlights.site.title'),
+    body: t('beheerlyView.spotlights.site.body'),
+    checks: [
+      t('beheerlyView.spotlights.site.check1'),
+      t('beheerlyView.spotlights.site.check2'),
+      t('beheerlyView.spotlights.site.check3'),
+    ],
+    alt: t('beheerlyView.spotlights.site.alt'),
+    caption: t('beheerlyView.spotlights.site.caption'),
   },
   {
-    title: t('beheerlyView.featureCards.perBuilding.title'),
-    description: t('beheerlyView.featureCards.perBuilding.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 12l9 4 9-4M3 17l9 4 9-4"/></svg>',
-  },
-  {
-    title: t('beheerlyView.featureCards.webMobile.title'),
-    description: t('beheerlyView.featureCards.webMobile.description'),
-    icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg>',
+    key: 'arrears',
+    src: '/screenshots/beheerly-achterstanden.png',
+    label: t('beheerlyView.spotlights.arrears.label'),
+    title: t('beheerlyView.spotlights.arrears.title'),
+    body: t('beheerlyView.spotlights.arrears.body'),
+    checks: [
+      t('beheerlyView.spotlights.arrears.check1'),
+      t('beheerlyView.spotlights.arrears.check2'),
+      t('beheerlyView.spotlights.arrears.check3'),
+    ],
+    alt: t('beheerlyView.spotlights.arrears.alt'),
+    caption: t('beheerlyView.spotlights.arrears.caption'),
   },
 ])
 
-// Drop real screenshots in /public/screenshots/ with these filenames to replace
-// the placeholders. Until then a tasteful "Screenshot volgt" frame is shown.
-const shots = reactive([
-  {
-    src: '/screenshots/beheerly-dashboard.png',
-    alt: t('beheerlyView.shotsItems.dashboard.alt'),
-    caption: t('beheerlyView.shotsItems.dashboard.caption'),
-    broken: false,
-  },
-  {
-    src: '/screenshots/beheerly-melding.png',
-    alt: t('beheerlyView.shotsItems.report.alt'),
-    caption: t('beheerlyView.shotsItems.report.caption'),
-    broken: false,
-  },
-  {
-    src: '/screenshots/beheerly-offertes.png',
-    alt: t('beheerlyView.shotsItems.quotes.alt'),
-    caption: t('beheerlyView.shotsItems.quotes.caption'),
-    broken: false,
-  },
+// ── Rest of the platform (no screenshot) — compact module grid. ──
+const platformItems = computed(() => [
+  { icon: LayoutDashboard, title: t('beheerlyView.platform.dashboard.title'), description: t('beheerlyView.platform.dashboard.description') },
+  { icon: Users, title: t('beheerlyView.platform.meetings.title'), description: t('beheerlyView.platform.meetings.description') },
+  { icon: FileCheck, title: t('beheerlyView.platform.certificates.title'), description: t('beheerlyView.platform.certificates.description') },
+  { icon: HelpCircle, title: t('beheerlyView.platform.documentQa.title'), description: t('beheerlyView.platform.documentQa.description') },
+  { icon: Megaphone, title: t('beheerlyView.platform.announcements.title'), description: t('beheerlyView.platform.announcements.description') },
+  { icon: Inbox, title: t('beheerlyView.platform.inbox.title'), description: t('beheerlyView.platform.inbox.description') },
+  { icon: HardHat, title: t('beheerlyView.platform.contractors.title'), description: t('beheerlyView.platform.contractors.description') },
+  { icon: Settings, title: t('beheerlyView.platform.team.title'), description: t('beheerlyView.platform.team.description') },
+])
+
+// ── Why a syndic benefits — outcomes, not features. ──
+const whyItems = computed(() => [
+  { icon: Layers, title: t('beheerlyView.why.onePlatform.title'), description: t('beheerlyView.why.onePlatform.description') },
+  { icon: ShieldCheck, title: t('beheerlyView.why.transparency.title'), description: t('beheerlyView.why.transparency.description') },
+  { icon: Scale, title: t('beheerlyView.why.legal.title'), description: t('beheerlyView.why.legal.description') },
+  { icon: Sparkles, title: t('beheerlyView.why.ai.title'), description: t('beheerlyView.why.ai.description') },
 ])
 
 const faqs = computed(() => [
-  {
-    question: t('beheerlyView.faqItems.q1.question'),
-    answer: t('beheerlyView.faqItems.q1.answer'),
-  },
-  {
-    question: t('beheerlyView.faqItems.q2.question'),
-    answer: t('beheerlyView.faqItems.q2.answer'),
-  },
-  {
-    question: t('beheerlyView.faqItems.q3.question'),
-    answer: t('beheerlyView.faqItems.q3.answer'),
-  },
-  {
-    question: t('beheerlyView.faqItems.q4.question'),
-    answer: t('beheerlyView.faqItems.q4.answer'),
-  },
-  {
-    question: t('beheerlyView.faqItems.q5.question'),
-    answer: t('beheerlyView.faqItems.q5.answer'),
-  },
+  { question: t('beheerlyView.faqItems.q1.question'), answer: t('beheerlyView.faqItems.q1.answer') },
+  { question: t('beheerlyView.faqItems.q2.question'), answer: t('beheerlyView.faqItems.q2.answer') },
+  { question: t('beheerlyView.faqItems.q3.question'), answer: t('beheerlyView.faqItems.q3.answer') },
+  { question: t('beheerlyView.faqItems.q4.question'), answer: t('beheerlyView.faqItems.q4.answer') },
+  { question: t('beheerlyView.faqItems.q5.question'), answer: t('beheerlyView.faqItems.q5.answer') },
+  { question: t('beheerlyView.faqItems.q6.question'), answer: t('beheerlyView.faqItems.q6.answer') },
 ])
 
-useHead({
-  title: 'Beheerly — Software voor syndici & mede-eigendommen | Juke',
+// ── SEO. Title/description stay Dutch (don't translate meta/schema for SEO).
+// Org/Website @ids are defined globally in index.html and referenced here so the
+// page joins one entity graph. ──
+const SEO_TITLE = 'Beheerly — Software voor syndici & mede-eigendommen | Juke'
+const SEO_DESC =
+  'Beheerly is het platform voor Belgische syndici en VME’s: meldingen, offertes, werfopvolging en achterstanden in één systeem, met AI voor triage en samenvattingen. Boek een demo.'
+
+const softwareJsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'SoftwareApplication',
+  '@id': `${pageUrl.value}#beheerly`,
+  name: 'Beheerly',
+  applicationCategory: 'BusinessApplication',
+  operatingSystem: 'Web, iOS, Android (PWA)',
+  url: pageUrl.value,
+  inLanguage: locale.value === 'en' ? 'en' : 'nl-BE',
+  description: SEO_DESC,
+  creator: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  audience: {
+    '@type': 'Audience',
+    audienceType:
+      locale.value === 'en'
+        ? 'Property managers and co-ownerships (VMEs)'
+        : "Syndici en mede-eigendommen (VME's)",
+  },
+  areaServed: { '@type': 'Country', name: 'Belgium' },
+  datePublished: UPDATED_ISO,
+  dateModified: UPDATED_ISO,
+}))
+
+const faqJsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  '@id': `${pageUrl.value}#faq`,
+  inLanguage: locale.value === 'en' ? 'en' : 'nl-BE',
+  mainEntity: faqs.value.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+}))
+
+const webPageJsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': `${pageUrl.value}#webpage`,
+  url: pageUrl.value,
+  name: SEO_TITLE,
+  description: SEO_DESC,
+  inLanguage: locale.value === 'en' ? 'en' : 'nl-BE',
+  isPartOf: { '@id': `${SITE}/#website` },
+  about: { '@id': `${pageUrl.value}#beheerly` },
+  primaryImageOfPage: `${SITE}/og-beheerly.jpg`,
+  datePublished: UPDATED_ISO,
+  dateModified: UPDATED_ISO,
+  author: { '@id': ORG_ID },
+  publisher: { '@id': ORG_ID },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.bh-intro h2', '.intro-body'],
+  },
+}))
+
+const breadcrumbJsonLd = computed(() => ({
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: locale.value === 'en' ? `${SITE}/en` : `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'Beheerly', item: pageUrl.value },
+  ],
+}))
+
+useHead(() => ({
+  title: SEO_TITLE,
   meta: [
-    {
-      name: 'description',
-      content:
-        'Beheerly is het platform van Juke voor het beheer van Belgische mede-eigendommen: van melding tot oplevering, met AI voor triage, offertes en samenvattingen. Vraag een demo.',
-    },
+    { name: 'description', content: SEO_DESC },
     { name: 'robots', content: 'index, follow' },
-    {
-      property: 'og:title',
-      content: 'Beheerly — Software voor syndici & mede-eigendommen | Juke',
-    },
-    {
-      property: 'og:description',
-      content:
-        'Eén platform voor syndici, aannemers en bewoners: melding → offerte → gunning → werf → oplevering, met AI. Vraag uitleg of een demo.',
-    },
+    { property: 'og:title', content: SEO_TITLE },
+    { property: 'og:description', content: SEO_DESC },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://jukecoding.be/beheerly' },
-    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { property: 'og:url', content: pageUrl.value },
+    { property: 'og:image', content: `${SITE}/og-beheerly.jpg` },
+    { property: 'og:image:width', content: '2256' },
+    { property: 'og:image:height', content: '1187' },
     { property: 'og:site_name', content: 'Juke' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: ogLocale.value },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Beheerly — Software voor syndici & mede-eigendommen' },
-    {
-      name: 'twitter:description',
-      content: 'Eén platform voor het beheer van mede-eigendommen, met AI. Vraag een demo.',
-    },
+    { name: 'twitter:title', content: SEO_TITLE },
+    { name: 'twitter:description', content: SEO_DESC },
+    { name: 'twitter:image', content: `${SITE}/og-beheerly.jpg` },
   ],
-  link: [{ rel: 'canonical', href: 'https://jukecoding.be/beheerly' }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/beheerly` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/beheerly` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/beheerly` },
+  ],
   script: [
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'SoftwareApplication',
-        name: 'Beheerly',
-        applicationCategory: 'BusinessApplication',
-        operatingSystem: 'Web, iOS, Android (PWA)',
-        description:
-          'Web- en mobiel platform voor het beheer van Belgische mede-eigendommen. Verbindt syndici, aannemers en bewoners van melding tot oplevering, met AI.',
-        url: 'https://jukecoding.be/beheerly',
-        author: { '@type': 'Organization', name: 'Juke', url: 'https://jukecoding.be' },
-      }),
-    },
-    {
-      type: 'application/ld+json',
-      children: JSON.stringify({
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: faqs.value.map((f) => ({
-          '@type': 'Question',
-          name: f.question,
-          acceptedAnswer: { '@type': 'Answer', text: f.answer },
-        })),
-      }),
-    },
+    { key: 'ld-beheerly-software', type: 'application/ld+json', children: JSON.stringify(softwareJsonLd.value) },
+    { key: 'ld-beheerly-faq', type: 'application/ld+json', children: JSON.stringify(faqJsonLd.value) },
+    { key: 'ld-beheerly-webpage', type: 'application/ld+json', children: JSON.stringify(webPageJsonLd.value) },
+    { key: 'ld-beheerly-breadcrumb', type: 'application/ld+json', children: JSON.stringify(breadcrumbJsonLd.value) },
   ],
-})
+}))
 </script>
 
 <style scoped lang="scss">
@@ -579,16 +826,31 @@ h1 {
   color: var(--color-text-tertiary);
 }
 
-/* ── Dashboard app mockup ── */
+/* ── Beheerly dashboard mockup (mirrors the real product UI) ──
+   The product runs its own navy + serif identity; we keep that inside the
+   window frame so it reads as "the app", not as a recolour of the site. */
 .hero-visual {
   animation: fade-up 0.7s var(--ease-out-expo) both;
+  /* Centre the (script-zoomed) dashboard window. text-align centres the
+     inline-block reliably by its rendered size — unlike auto margins, which
+     don't re-centre a `zoom`-scaled box. */
+  text-align: center;
 }
 .appwin {
+  display: inline-block;
+  vertical-align: top;
+  text-align: left; /* reset, so the mock's own content stays left-aligned */
+  width: min(600px, 100%); /* design width; script pins it and scales via zoom */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  background: var(--color-bg-surface);
+  background: #ffffff;
   box-shadow: var(--shadow-elevated);
+  --bee-navy: #1f2d3d;
+  --bee-ink: #16202c;
+  --bee-line: #e7ebef;
+  --bee-muted: #6b7785;
+  --bee-active: #eef1f4;
 }
 .appwin__bar {
   display: flex;
@@ -610,31 +872,71 @@ h1 {
   color: var(--color-text-tertiary);
   font-family: var(--font-mono);
 }
+
+/* Product top bar */
+.appwin__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 9px var(--space-4);
+  background: #ffffff;
+  border-bottom: 1px solid var(--bee-line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.brand__logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  background: var(--bee-navy);
+  color: #f3c969;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  :deep(svg) {
+    width: 13px;
+    height: 13px;
+  }
+}
+.brand__name {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--bee-navy);
+  letter-spacing: -0.01em;
+}
+.appwin__account {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.appwin__email,
+.appwin__logout {
+  font-size: 10px;
+  color: var(--bee-muted);
+}
+.appwin__logout {
+  font-weight: var(--weight-semibold);
+}
+
 .appwin__shell {
   display: grid;
-  grid-template-columns: 132px 1fr;
-  min-height: 318px;
-  background: var(--color-bg-elevated);
+  grid-template-columns: 140px 1fr;
+  min-height: 300px;
+  background: #ffffff;
 }
 
 /* Sidebar */
 .appnav {
-  border-right: 1px solid var(--color-border);
-  background: var(--color-bg-surface);
+  border-right: 1px solid var(--bee-line);
+  background: #ffffff;
   padding: var(--space-3) var(--space-2);
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-}
-.appnav__brand {
-  display: flex;
-  align-items: center;
-  gap: var(--space-2);
-  padding: 0 var(--space-2);
-  font-size: 12px;
-  font-weight: var(--weight-bold);
-  color: var(--color-text-primary);
-  letter-spacing: var(--tracking-tight);
+  gap: 1px;
 }
 .appnav__list {
   display: flex;
@@ -644,30 +946,33 @@ h1 {
 .appnav__item {
   display: flex;
   align-items: center;
-  gap: var(--space-2);
-  padding: 5px var(--space-2);
-  border-radius: var(--radius-sm);
+  gap: 9px;
+  padding: 6px var(--space-2);
+  border-radius: var(--radius-md);
   font-size: 11px;
-  color: var(--color-text-tertiary);
+  color: var(--bee-muted);
   white-space: nowrap;
 }
 .appnav__item--active {
-  background: var(--color-primary-subtle);
-  color: var(--color-accent);
+  background: var(--bee-active);
+  color: var(--bee-ink);
   font-weight: var(--weight-semibold);
 }
 .appnav__ico {
   display: flex;
   flex-shrink: 0;
   :deep(svg) {
-    width: 13px;
-    height: 13px;
+    width: 14px;
+    height: 14px;
   }
+}
+.appnav__item--active .appnav__ico {
+  color: var(--bee-navy);
 }
 
 /* Main panel */
 .appmain {
-  padding: var(--space-4);
+  padding: var(--space-4) var(--space-5);
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -678,13 +983,14 @@ h1 {
   gap: 2px;
 }
 .appmain__title {
-  font-size: 14px;
-  font-weight: var(--weight-bold);
-  color: var(--color-text-primary);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--bee-ink);
 }
 .appmain__sub {
   font-size: 10px;
-  color: var(--color-text-tertiary);
+  color: var(--bee-muted);
 }
 
 .statrow {
@@ -693,9 +999,9 @@ h1 {
   gap: var(--space-2);
 }
 .stat {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--bee-line);
   border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
+  background: #fff;
   padding: var(--space-3);
   display: flex;
   flex-direction: column;
@@ -703,19 +1009,19 @@ h1 {
 }
 .stat__val {
   font-size: 18px;
-  font-weight: var(--weight-bold);
-  color: var(--color-text-primary);
+  font-weight: 700;
+  color: var(--bee-navy);
   line-height: 1;
 }
 .stat__lbl {
   font-size: 9px;
-  color: var(--color-text-tertiary);
+  color: var(--bee-muted);
 }
 
 .tickets {
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--bee-line);
   border-radius: var(--radius-md);
-  background: var(--color-bg-surface);
+  background: #fff;
   overflow: hidden;
 }
 .tickets__head {
@@ -725,9 +1031,9 @@ h1 {
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   font-weight: var(--weight-semibold);
-  color: var(--color-text-tertiary);
-  background: var(--color-bg-sunken);
-  border-bottom: 1px solid var(--color-border);
+  color: var(--bee-muted);
+  background: #f7f9fb;
+  border-bottom: 1px solid var(--bee-line);
 }
 .trow {
   display: flex;
@@ -735,7 +1041,7 @@ h1 {
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-2) var(--space-3);
-  border-bottom: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--bee-line);
   &:last-child {
     border-bottom: 0;
   }
@@ -749,44 +1055,44 @@ h1 {
 .trow__title {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   font-size: 11px;
   font-weight: var(--weight-medium);
-  color: var(--color-text-primary);
+  color: var(--bee-ink);
 }
 .trow__ai {
   width: 11px;
   height: 11px;
-  color: var(--color-accent);
+  color: #d99e22;
   flex-shrink: 0;
 }
 .trow__meta {
   font-size: 9px;
-  color: var(--color-text-tertiary);
+  color: var(--bee-muted);
 }
 .badge {
   flex-shrink: 0;
   font-size: 9px;
   font-weight: var(--weight-semibold);
-  padding: 2px 7px;
+  padding: 2px 8px;
   border-radius: var(--radius-full);
   white-space: nowrap;
 }
-.badge--urgent {
-  color: var(--color-error);
-  background: rgba(198, 58, 43, 0.1);
+.badge--danger {
+  color: #ffffff;
+  background: #d6452f;
 }
-.badge--open {
-  color: var(--color-warning);
-  background: rgba(183, 121, 31, 0.12);
+.badge--warn {
+  color: #97631a;
+  background: #fbedd6;
+}
+.badge--normal {
+  color: #5b6776;
+  background: #eef1f4;
 }
 .badge--accent {
-  color: var(--color-accent);
-  background: var(--color-primary-subtle);
-}
-.badge--done {
-  color: var(--color-success);
-  background: var(--color-primary-subtle);
+  color: var(--bee-navy);
+  background: #e9eef4;
 }
 
 /* ── Intro ── */
@@ -801,7 +1107,7 @@ h1 {
 }
 .bh-intro h2 {
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0;
@@ -824,13 +1130,17 @@ h1 {
 .section-head {
   text-align: center;
   margin-bottom: var(--space-12);
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .section-head h2 {
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-3);
+  text-wrap: balance;
 }
 .section-head p {
   font-size: var(--text-body-lg);
@@ -887,82 +1197,82 @@ h1 {
   }
 }
 
-/* ── Features ── */
-.bh-features {
-  padding: var(--space-16) var(--space-8);
+/* ── Feature spotlights ── */
+.bh-spot {
+  padding: var(--section-pad-y) var(--space-8);
 }
-.bh-features h2 {
-  font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+.spot {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: var(--space-16);
+  align-items: center;
+  padding: var(--space-12) 0;
+}
+.spot--reverse .spot__text {
+  order: 2;
+}
+.spot--reverse .spot__visual {
+  order: 1;
+}
+.spot__label {
+  display: inline-block;
+  font-size: var(--text-xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-4);
+}
+.spot__text h3 {
+  font-size: var(--text-h2);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
-  text-align: center;
-  margin: 0 0 var(--space-12) 0;
+  line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--space-4);
+  text-wrap: balance;
 }
-.features-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
+.spot__text > p {
+  font-size: var(--text-body-lg);
+  color: var(--color-text-secondary);
+  line-height: var(--leading-relaxed);
+  margin: 0 0 var(--space-6);
 }
-.feature-card {
-  background: var(--color-bg-elevated);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  transition: all var(--transition-smooth);
-  &:hover {
-    border-color: var(--color-border-hover);
-    transform: translateY(-4px);
-  }
-  &__icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--radius-md);
-    background: var(--color-primary-subtle);
-    color: var(--color-accent);
-    margin-bottom: var(--space-5);
-    :deep(svg) {
-      width: 22px;
-      height: 22px;
-    }
-  }
-  h3 {
-    font-size: var(--text-h3);
-    font-weight: var(--weight-semibold);
-    color: var(--color-text-primary);
-    margin: 0 0 var(--space-3) 0;
-  }
-  p {
-    font-size: var(--text-body);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-    margin: 0;
+.checks {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.checks li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-body);
+  color: var(--color-text-primary);
+  svg {
+    flex-shrink: 0;
+    color: var(--color-primary);
   }
 }
-
-/* ── Screenshots ── */
-.bh-shots {
-  padding: var(--space-16) var(--space-8);
-}
-.shots-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-6);
-}
-.shot {
+.spot__visual {
   margin: 0;
 }
+
+/* ── Screenshot frame (shared by spotlights) ── */
 .shot__frame {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--color-bg-surface);
-  box-shadow: var(--shadow-ambient);
+  box-shadow: var(--shadow-elevated);
 }
 .shot__bar {
+  /* Sits above the screenshot so the image's top edge can tuck underneath it. */
+  position: relative;
+  z-index: 1;
   display: flex;
   gap: 5px;
   padding: var(--space-3) var(--space-4);
@@ -979,6 +1289,11 @@ h1 {
   display: block;
   width: 100%;
   height: auto;
+  cursor: zoom-in;
+  /* Nudge the capture up just enough to tuck the thin dark line at the very top
+     under the bar, while keeping the Beheerly logo (and a px or two above it)
+     fully visible. */
+  margin-top: -2px;
 }
 .shot__placeholder {
   aspect-ratio: 16 / 10;
@@ -998,62 +1313,184 @@ h1 {
     font-size: var(--text-small);
   }
 }
-.shot figcaption {
-  margin-top: var(--space-3);
-  text-align: center;
-  font-size: var(--text-small);
-  color: var(--color-text-tertiary);
+/* Lightbox — click a screenshot to view it enlarged. */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8);
+  background: rgba(14, 28, 22, 0.82);
+  cursor: zoom-out;
+  animation: lightbox-fade var(--duration-fast) var(--ease-smooth);
+}
+.lightbox__img {
+  max-width: min(1180px, 96vw);
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-overlay);
+}
+.lightbox__close {
+  position: absolute;
+  top: var(--space-5);
+  right: var(--space-6);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.92);
+  color: var(--color-text-primary);
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+.lightbox__close:hover {
+  background: #ffffff;
+}
+.lightbox__close svg {
+  width: 22px;
+  height: 22px;
+}
+@keyframes lightbox-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .lightbox {
+    animation: none;
+  }
 }
 
-/* ── FAQ ── */
+/* ── Rest of the platform (module grid) ── */
+.bh-platform {
+  padding: var(--space-16) var(--space-8);
+}
+.mod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-5);
+}
+.mod-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  transition: all var(--transition-smooth);
+  &:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+  }
+  &__icon {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-subtle);
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+  h3 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-2);
+  }
+  p {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+}
+
+/* ── Why syndics benefit ── */
+.bh-why {
+  padding: var(--space-16) var(--space-8);
+}
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-6);
+}
+.why-card {
+  background: var(--color-bg-elevated);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  &__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    background: var(--color-primary-subtle);
+    color: var(--color-accent);
+    margin-bottom: var(--space-5);
+  }
+  h3 {
+    font-size: var(--text-h3);
+    font-weight: var(--weight-semibold);
+    color: var(--color-text-primary);
+    margin: 0 0 var(--space-3);
+    text-wrap: balance;
+  }
+  p {
+    font-size: var(--text-body);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin: 0;
+  }
+}
+
+/* ── FAQ — same design as the SaaS & AI pages (shared FaqItem component) ── */
 .bh-faq {
   padding: var(--section-pad-y) var(--space-8);
 }
-.faq-narrow {
-  max-width: var(--max-width-narrow);
+.bh-faq .container {
+  max-width: 900px;
+}
+.faq-header {
+  text-align: center;
+  margin-bottom: var(--space-16);
+}
+.faq-header h2 {
+  font-size: var(--text-h1);
+  font-weight: var(--weight-semibold);
+  color: var(--color-text-primary);
+  line-height: var(--leading-snug);
+  letter-spacing: var(--tracking-tight);
+  margin: 0;
+  text-wrap: balance;
+}
+.faq-header .lead {
+  margin: var(--space-5) auto 0;
+  max-width: 58ch;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+}
+.faq-header .lead a {
+  color: var(--color-accent);
 }
 .faq-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-}
-.faq-item {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  background: var(--color-bg-elevated);
-  overflow: hidden;
-  summary {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: var(--space-4);
-    padding: var(--space-5) var(--space-6);
-    cursor: pointer;
-    font-size: var(--text-body-lg);
-    font-weight: var(--weight-medium);
-    color: var(--color-text-primary);
-    list-style: none;
-    &::-webkit-details-marker {
-      display: none;
-    }
-  }
-  .faq-chevron {
-    width: 16px;
-    height: 16px;
-    flex-shrink: 0;
-    color: var(--color-text-tertiary);
-    transition: transform var(--transition-fast);
-  }
-  &[open] .faq-chevron {
-    transform: rotate(180deg);
-  }
-  p {
-    margin: 0;
-    padding: 0 var(--space-6) var(--space-5);
-    font-size: var(--text-body);
-    color: var(--color-text-secondary);
-    line-height: var(--leading-relaxed);
-  }
+  gap: var(--space-4);
 }
 
 /* ── CTA — shared dark closing-panel pattern ── */
@@ -1098,6 +1535,15 @@ h1 {
 }
 
 /* ── Responsive ── */
+@media (max-width: 980px) {
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .mod-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
@@ -1107,7 +1553,11 @@ h1 {
     order: -1;
   }
   .hero-visual {
-    max-width: 540px;
+    /* Give the mock more room on larger phones/tablets so it renders bigger;
+       it still fills smaller columns. */
+    max-width: 600px;
+    /* Centre the column so the script-scaled mock sits in the middle. */
+    margin-inline: auto;
   }
   .intro-grid {
     grid-template-columns: 1fr;
@@ -1116,9 +1566,19 @@ h1 {
   .flow-steps {
     grid-template-columns: repeat(2, 1fr);
   }
-  .features-grid,
-  .shots-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .spot,
+  .spot--reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  .spot--reverse .spot__text {
+    order: 1;
+  }
+  .spot--reverse .spot__visual {
+    order: 2;
+  }
+  .spot__text {
+    max-width: 560px;
   }
 }
 
@@ -1142,16 +1602,21 @@ h1 {
     max-width: 460px;
     margin: 0 auto;
   }
-  .features-grid,
-  .shots-grid {
+  .mod-grid {
+    grid-template-columns: 1fr;
+    max-width: 460px;
+    margin: 0 auto;
+  }
+  .why-grid {
     grid-template-columns: 1fr;
     max-width: 460px;
     margin: 0 auto;
   }
   .bh-intro,
   .bh-flow,
-  .bh-features,
-  .bh-shots,
+  .bh-spot,
+  .bh-platform,
+  .bh-why,
   .bh-faq,
   .bh-cta {
     padding-left: var(--space-6);
@@ -1173,19 +1638,8 @@ h1 {
   }
 }
 
-@media (max-width: 540px) {
-  .appwin__shell {
-    grid-template-columns: 108px 1fr;
-  }
-  .statrow {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-  }
-  .stat {
-    padding: var(--space-2);
-  }
-  .stat__val {
-    font-size: 15px;
-  }
-}
+/* ── Hero dashboard mock ──
+   `fitDashboardMock()` in the script shrinks the whole window with `zoom` to
+   fit its column (proportional, no reflow, no cropping, no overflow); the
+   parent's `text-align: center` keeps it centred. */
 </style>

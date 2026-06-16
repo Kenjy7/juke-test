@@ -72,7 +72,7 @@ useHead(() => ({
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: 'https://jukecoding.be/blog' },
-    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { property: 'og:image', content: 'https://jukecoding.be/og-blog.jpg' },
     {
       property: 'og:image:alt',
       content: 'Juke blog over webdesign en AI voor KMO in Belgie',
@@ -87,7 +87,7 @@ useHead(() => ({
       name: 'twitter:description',
       content: 'Tips over websites, lokale SEO en AI voor Belgische KMO en zelfstandigen.',
     },
-    { name: 'twitter:image', content: 'https://jukecoding.be/og-image.jpg' },
+    { name: 'twitter:image', content: 'https://jukecoding.be/og-blog.jpg' },
     { name: 'twitter:image:alt', content: 'Juke blog - webdesign en AI voor KMO in Belgie' },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/blog' }],

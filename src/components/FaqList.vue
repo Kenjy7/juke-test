@@ -79,12 +79,11 @@ onBeforeUnmount(() => {
   position: relative;
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
-  overflow: hidden;
 }
 
 .container {
   position: relative;
-  max-width: 1300px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--space-8);
   z-index: 1;
@@ -116,7 +115,7 @@ onBeforeUnmount(() => {
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  margin: 0 0 var(--space-4);
+  margin: 0;
   text-wrap: balance;
 }
 
@@ -124,7 +123,7 @@ onBeforeUnmount(() => {
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
   max-width: 58ch;
-  margin: 0 auto;
+  margin: var(--space-5) auto 0;
   line-height: var(--leading-relaxed);
 }
 
@@ -140,37 +139,9 @@ onBeforeUnmount(() => {
 }
 
 .faq-list {
-  max-width: 820px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-}
-
-/* Flatten the shared FaqItem to match the newer FAQ styling — scoped to this
-   component so other raw FaqItem usages stay unchanged. */
-.faq-section :deep(.faq-item) {
-  border-radius: var(--radius-lg);
-  box-shadow: none;
-  padding: var(--space-5) var(--space-6);
-}
-.faq-section :deep(.faq-item:hover) {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--color-border-hover);
-}
-.faq-section :deep(.faq-question h3) {
-  font-weight: var(--weight-semibold);
-}
-.faq-section :deep(.toggle-button) {
-  width: 28px;
-  height: 28px;
-  background: transparent;
-  border: none;
-  color: var(--color-text-tertiary);
-}
-.faq-section :deep(.toggle-button:hover) {
-  background: transparent;
+  gap: var(--space-4);
 }
 
 @media (max-width: 768px) {

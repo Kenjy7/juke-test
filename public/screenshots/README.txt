@@ -12,10 +12,12 @@ Vibemind  (/vibemind)
   - vibemind-kanban.png     → het kanban-taakbord
   - vibemind-skills.png     → de skill-picker (Cmd+P)
 
-Beheerly  (/beheerly)
-  - beheerly-dashboard.png  → dashboard met gebouwen/meldingen
-  - beheerly-melding.png    → een melding aanmaken (met foto)
-  - beheerly-offertes.png   → offertes vergelijken
+Beheerly  (/beheerly)  — de 5 feature-spotlights, in deze volgorde
+  - beheerly-gebouwen.png       → overzicht van gebouwen + adressen
+  - beheerly-tickets.png        → actieve tickets met urgentie + status
+  - beheerly-offertes.png       → offerteaanvragen met status (concept/verzonden/gegund)
+  - beheerly-werfopvolging.png  → werfopvolging met privacy-instellingen + veldbezoeken
+  - beheerly-achterstanden.png  → openstaande achterstanden per eigenaar
 
 Tips:
   - Liefst breedformaat (bv. 16:10), bv. 1600×1000 px.

@@ -507,7 +507,7 @@ h1 {
 }
 .bt-faq h2 {
   font-size: var(--text-h2);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   letter-spacing: var(--tracking-tight);
   margin: 0 0 var(--space-8);
@@ -552,7 +552,7 @@ h1 {
 }
 .syndic-card h2 {
   font-size: var(--text-h1);
-  font-weight: var(--weight-bold);
+  font-weight: var(--weight-semibold);
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);

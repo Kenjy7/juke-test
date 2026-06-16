@@ -74,7 +74,7 @@
               <button class="term__x" type="button" @click="closeTerm(term.id)">&times;</button>
             </div>
             <div class="term__screen">
-              <div class="term__splash">
+              <div v-if="!term.lines.length && term.status !== 'live'" class="term__splash">
                 <p class="t-strong">Claude Code</p>
                 <p class="t-dim">Opus 4.8 (1M context) · Claude Max</p>
                 <p class="t-dim">~/Projects/{{ activeProject.name }}</p>
@@ -169,19 +169,25 @@ const MAX_TERMS = 2
 
 let uid = 0
 const newId = () => ++uid
-const term = (prompt) => reactive({ id: newId(), status: 'ready', prompt, lines: [] })
+const term = (prompt, lines = []) => reactive({ id: newId(), status: 'ready', prompt, lines: [...lines] })
 
-// Projects each keep their own set of terminals (max 4 per project).
+// Projects each keep their own set of terminals (max 4 per project). The visible
+// ones start with a short transcript (like the hero mock) so they read as active
+// running sessions rather than empty splash screens. Dragging a skill still
+// replaces the content with that skill's live run.
 const projects = reactive([
-  { id: 'webshop', name: 'Webshop', dot: '#34d399', terminals: [term('Try "fix lint errors"')] },
+  { id: 'webshop', name: 'Webshop', dot: '#34d399', terminals: [term('fix lint errors', ['● Lint src/', '✓ 0 errors'])] },
   {
     id: 'saas',
     name: 'saas',
     dot: '#60a5fa',
-    terminals: [term('Try "fix typecheck errors"'), term('Try "refactor App.vue"')],
+    terminals: [
+      term('bouw de checkout-flow af', ['● Edit Checkout.vue', '● Bash npm test', '✓ 24 passed']),
+      term('refactor App.vue', ['● Read App.vue', '● waiting for input']),
+    ],
   },
   { id: 'marketing', name: 'Marketing', dot: '#a78bfa', terminals: [] },
-  { id: 'api', name: 'api', dot: '#f59e0b', terminals: [term('Try "add a health check"')] },
+  { id: 'api', name: 'api', dot: '#f59e0b', terminals: [term('add a health check', ['● Add /health route', '✓ 200 OK'])] },
 ])
 const activeId = ref('saas')
 const activeProject = computed(() => projects.find((p) => p.id === activeId.value))
@@ -938,21 +944,22 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
 }
 
 /* Responsive */
+/* The whole demo is scaled to fit on mobile (v-scale-fit), so it keeps its full
+   3-column desktop layout — workspaces, both terminals side by side, and skills —
+   rather than reflowing/hiding content. */
 @media (max-width: 860px) {
-  .vmdemo__body {
-    grid-template-columns: 130px 1fr;
-  }
-  .vmdemo__skills {
-    display: none;
-  }
   .tasks__cols {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (max-width: 560px) {
-  .vmdemo__main {
-    grid-template-columns: 1fr !important;
+@media (max-width: 768px) {
+  /* Compact the rails to the hero window's proportions so the scaled demo fits
+     and reads the same way the hero mock does. */
+  .vmdemo__body {
+    grid-template-columns: 116px 1fr 158px;
   }
+}
+@media (max-width: 560px) {
   .tasks__cols {
     grid-template-columns: 1fr;
   }

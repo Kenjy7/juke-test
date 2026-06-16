@@ -62,12 +62,11 @@ onBeforeUnmount(() => {
   position: relative;
   padding-top: var(--section-pad-y);
   padding-bottom: var(--section-pad-y);
-  overflow: hidden;
 }
 
 .container {
   position: relative;
-  max-width: 1300px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 0 var(--space-8);
   z-index: 1;
@@ -99,7 +98,7 @@ onBeforeUnmount(() => {
   color: var(--color-text-primary);
   line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight);
-  margin: 0 0 var(--space-4);
+  margin: 0;
   text-wrap: balance;
 }
 
@@ -107,7 +106,7 @@ onBeforeUnmount(() => {
   font-size: var(--text-body-lg);
   color: var(--color-text-secondary);
   max-width: 58ch;
-  margin: 0 auto;
+  margin: var(--space-5) auto 0;
   line-height: var(--leading-relaxed);
 }
 
@@ -123,37 +122,9 @@ onBeforeUnmount(() => {
 }
 
 .faq-list {
-  max-width: 820px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
-}
-
-/* Refine the cards to match the site — scoped to this FAQ via the section id,
-   so the shared FaqItem stays unchanged on other pages. */
-#faqlistai :deep(.faq-item) {
-  border-radius: var(--radius-lg);
-  box-shadow: none;
-  padding: var(--space-5) var(--space-6);
-}
-#faqlistai :deep(.faq-item:hover) {
-  transform: none;
-  box-shadow: none;
-  border-color: var(--color-border-hover);
-}
-#faqlistai :deep(.faq-question h3) {
-  font-weight: var(--weight-semibold);
-}
-#faqlistai :deep(.toggle-button) {
-  width: 28px;
-  height: 28px;
-  background: transparent;
-  border: none;
-  color: var(--color-text-tertiary);
-}
-#faqlistai :deep(.toggle-button:hover) {
-  background: transparent;
+  gap: var(--space-4);
 }
 
 @media (max-width: 768px) {

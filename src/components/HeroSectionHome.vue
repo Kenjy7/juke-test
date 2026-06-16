@@ -71,7 +71,7 @@
                 <span class="ops-sub">{{ t('home.hero.demo.subtitle') }}</span>
               </div>
               <div class="ops-user">
-                <span class="ops-user__name">Emily Hilton</span>
+                <span class="ops-user__name">Emma Janssens</span>
                 <span class="ops-user__av"><User :size="14" :stroke-width="2" /></span>
               </div>
             </div>

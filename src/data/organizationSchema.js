@@ -25,9 +25,9 @@ export const organizationSchema = {
   url: `${SITE_URL}/`,
   logo: {
     '@type': 'ImageObject',
-    url: `${SITE_URL}/logo.png`,
-    width: 200,
-    height: 60,
+    url: `${SITE_URL}/favicon-512x512.png`,
+    width: 512,
+    height: 512,
   },
   image: `${SITE_URL}/og-image.jpg`,
   description:

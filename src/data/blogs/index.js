@@ -24,7 +24,7 @@ export const blogPosts = [
       'website kostprijs België',
     ],
     readingTime: 6,
-    ogImage: '/og-image-webdesign.jpg',
+    ogImage: '/og-blog.jpg',
     content: `
 <h2>Wat kost een website laten maken in België?</h2>
 <p>Een van de meest gestelde vragen die we bij Juke krijgen: <strong>"Wat kost een website?"</strong>. Het eerlijke antwoord is: dat hangt af van wat je wil bereiken. In dit artikel geven we je een helder overzicht van de prijzen in 2026, zodat je een weloverwogen keuze kan maken.</p>
@@ -64,7 +64,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 
 <p>We werken vooral met ondernemingen die hun website niet zien als een digitaal visitekaartje, maar als een belangrijk onderdeel van hun uitstraling, communicatie en groei.</p>
 
-<p>Wil je weten welk pakket het best past bij jouw situatie? <a href="/offerte-aanvraag">Vraag vrijblijvend een offerte aan</a> en we denken met je mee.</p>
+<p>Wil je weten welk pakket het best past bij jouw situatie? <a href="/contact">Vraag vrijblijvend een offerte aan</a> en we denken met je mee.</p>
 
 <h2>Conclusie</h2>
 <p>Een goede website is geen kost die je “moet hebben”, maar een investering in je zichtbaarheid en professionele uitstraling. Hoe groter je ambities, hoe belangrijker het wordt dat je website niet alleen mooi oogt, maar ook logisch opgebouwd is en vertrouwen uitstraalt. Kies dus niet alleen op basis van prijs, maar vooral op basis van wat je website voor je onderneming moet doen.</p>
@@ -89,7 +89,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
       'custom website voordelen',
     ],
     readingTime: 7,
-    ogImage: '/og-image-webdesign.jpg',
+    ogImage: '/og-blog.jpg',
     content: `
 <h2>WordPress of custom code?</h2>
 <p>WordPress is het meest gebruikte CMS ter wereld. Maar dat betekent niet dat het automatisch de beste keuze is voor elk bedrijf. In dit artikel vergelijken we WordPress met een volledig custom-gebouwde website — eerlijk en zonder verkooppraat.</p>
@@ -132,7 +132,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 
 <h2>Wat doet Juke?</h2>
 <p>Bij Juke bouwen we websites met focus op structuur, performantie en gebruikservaring. Dat betekent niet dat elk project “zwaar maatwerk” moet zijn, maar wel dat we bewust kiezen voor oplossingen die passen bij de noden van de klant — zonder onnodige complexiteit.</p>
-<p><a href="/offerte-aanvraag">Vraag een gratis offerte aan</a> en ontdek welke aanpak het best past bij jouw bedrijf.</p>
+<p><a href="/contact">Vraag een gratis offerte aan</a> en ontdek welke aanpak het best past bij jouw bedrijf.</p>
     `,
   },
 
@@ -155,7 +155,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
       'website voor bedrijf',
     ],
     readingTime: 7,
-    ogImage: '/og-image.jpg',
+    ogImage: '/og-blog.jpg',
     content: `
 <h2>Waarom is een website belangrijk in je onderneming?</h2>
 <p>Je hebt een goed draaiende zaak, tevreden klanten en voldoende werk. Waarom zou je dan nog investeren in een website? Dat is een vraag die we bij Juke regelmatig horen van ondernemers. Het antwoord is eigenlijk vrij simpel: <strong>waarom is een website belangrijk in je onderneming</strong>? Omdat je klanten je anders gewoon niet vinden. Veel mensen zoeken vandaag eerst online voor ze contact opnemen met een bedrijf. Geen website hebben is dus alsof je een winkel opent zonder uithangbord, ergens in een zijstraatje waar niemand passeert.</p>
@@ -163,14 +163,14 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 <p>In dit artikel geven we je zeven concrete redenen waarom een professionele website onmisbaar is voor jouw onderneming. Geen vaag marketingverhaal, maar eerlijke argumenten die je meteen kunt toetsen aan je eigen situatie.</p>
 
 <h2>1. Je bent 24/7 bereikbaar — ook als je slaapt</h2>
-<p>Een website werkt voor je terwijl jij thuis zit, op vakantie bent of gewoon aan het werk bent met andere klanten. Potentiële klanten kunnen op elk moment van de dag informatie opzoeken over je diensten, je portfolio bekijken of een <a href="/offerte-aanvraag">offerte aanvragen</a>. Dat is een enorm voordeel ten opzichte van ondernemingen die alleen bereikbaar zijn tijdens kantooruren.</p>
+<p>Een website werkt voor je terwijl jij thuis zit, op vakantie bent of gewoon aan het werk bent met andere klanten. Potentiële klanten kunnen op elk moment van de dag informatie opzoeken over je diensten, je portfolio bekijken of een <a href="/contact">offerte aanvragen</a>. Dat is een enorm voordeel ten opzichte van ondernemingen die alleen bereikbaar zijn tijdens kantooruren.</p>
 
 <p>Stel je voor: iemand zoekt ’s avonds naar een partner voor een nieuwe website of een specifieke dienst. Als jouw concurrent wél duidelijk online staat en jij niet, is de kans groot dat die aanvraag daar terechtkomt.</p>
 
 <h2>2. Geloofwaardigheid en vertrouwen opbouwen</h2>
 <p>Laten we eerlijk zijn: als je vandaag geen website hebt, wekt dat sneller twijfel. Klanten verwachten dat ze je online kunnen vinden. Een professionele website geeft je onderneming direct meer geloofwaardigheid. Het toont dat je je zaak serieus neemt en dat je aandacht besteedt aan hoe je overkomt.</p>
 
-<p>Dat betekent niet dat je een peperdure website nodig hebt met allerlei toeters en bellen. Wél eentje die er verzorgd uitziet, snel laadt en duidelijk communiceert wat je doet. Bij Juke bouwen we <a href="/webdesign">websites op maat</a> die gericht zijn op vertrouwen én gebruiksgemak — met een duidelijke structuur, sterke opbouw en een design dat professioneel aanvoelt.</p>
+<p>Dat betekent niet dat je een peperdure website nodig hebt met allerlei toeters en bellen. Wél eentje die er verzorgd uitziet, snel laadt en duidelijk communiceert wat je doet. Bij Juke bouwen we <a href="/contact">websites op maat</a> die gericht zijn op vertrouwen én gebruiksgemak — met een duidelijke structuur, sterke opbouw en een design dat professioneel aanvoelt.</p>
 
 <h2>3. Je hebt controle over je eigen verhaal</h2>
 <p>Social media zijn handig, maar je blijft er afhankelijk van algoritmes, beperkingen en regels die voortdurend veranderen. Op je eigen website bepaal jij het verhaal. Je kiest zelf welke informatie er staat, hoe die gepresenteerd wordt en welke actie bezoekers moeten ondernemen.</p>
@@ -223,7 +223,7 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
   <li><strong>Technische basis:</strong> veiligheid, indexeerbaarheid en gebruiksgemak moeten in orde zijn</li>
 </ul>
 
-<p>Bij Juke bouwen we websites op maat, met focus op snelheid, structuur en gebruikservaring. Geen overbodige complexiteit, maar een doordachte opbouw die past bij jouw onderneming. Benieuwd wat dat voor jouw bedrijf kan betekenen? <a href="/offerte-aanvraag">Vraag vrijblijvend een offerte aan</a> en we bekijken samen de mogelijkheden.</p>
+<p>Bij Juke bouwen we websites op maat, met focus op snelheid, structuur en gebruikservaring. Geen overbodige complexiteit, maar een doordachte opbouw die past bij jouw onderneming. Benieuwd wat dat voor jouw bedrijf kan betekenen? <a href="/contact">Vraag vrijblijvend een offerte aan</a> en we bekijken samen de mogelijkheden.</p>
 
 <h2>Conclusie: een website is geen kost, maar een investering</h2>
 <p>De vraag is niet langer of je een website nodig hebt, maar hoe belangrijk die website wordt binnen je onderneming. Een professionele website vormt de basis van je online zichtbaarheid, je geloofwaardigheid en je communicatie. Het is geen overbodige kost, maar een investering in hoe klanten jouw bedrijf zien en vinden.</p>
@@ -249,6 +249,6 @@ Voor ondernemingen die hun website actief willen inzetten als verkoop- en groeik
 //   category: 'Webdesign', // of: 'Automatisering', 'SEO', 'AI'
 //   keywords: ['zoekwoord 1', 'zoekwoord 2'],
 //   readingTime: 5,
-//   ogImage: '/og-image.jpg',
+//   ogImage: '/og-blog.jpg',
 //   content: `<h2>...</h2><p>...</p>`,
 // },

@@ -12,7 +12,7 @@
 
       <div class="visual reveal reveal-delay-1">
         <!-- Decorative product illustration: hidden from assistive tech, not tabbable -->
-        <div class="mock" aria-hidden="true">
+        <div class="mock" v-scale-fit="470" aria-hidden="true">
           <div class="mock__bar">
             <span class="tl"></span><span class="tl"></span><span class="tl"></span>
             <span class="mock__url code">{{ t('url') }}</span>
@@ -140,7 +140,7 @@ onMounted(() => {
 /* Mirrored vs AiInAction — visual left, copy right — so the stacked demos alternate. */
 .container {
   max-width: var(--max-width); margin: 0 auto;
-  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: var(--space-16); align-items: center;
+  display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr); gap: var(--space-16); align-items: center;
 }
 .content { order: 2; }
 .visual { order: 1; }
@@ -216,9 +216,9 @@ onMounted(() => {
   .ai-overview { padding: var(--section-pad-y) var(--space-5); }
 }
 @media (max-width: 560px) {
-  .mock__side { width: 48px; }
-  .navitem span { display: none; }
-  .navitem { justify-content: center; padding: 0.45rem; }
-  .mock__main { padding: var(--space-4); }
+  /* Responsive only: smaller, wrapping flow text so names like "Factuurverwerking"
+     fit the scaled dashboard without truncation. Desktop keeps the full size. */
+  .frow__name { font-size: 0.625rem; white-space: normal; overflow-wrap: break-word; line-height: 1.2; }
+  .frow__does { font-size: 0.5rem; white-space: normal; overflow-wrap: break-word; line-height: 1.2; }
 }
 </style>

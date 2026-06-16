@@ -9,12 +9,14 @@ import { createAppI18n, LOCALE_META } from './i18n/index.js'
 import { canonicalPaths, withLocales } from './router/indexable-paths.js'
 import { localeFromPath, stripLocale } from './i18n/routing.js'
 import LocaleLink from './components/LocaleLink.vue'
+import { vScaleFit } from './directives/scaleFit.js'
 
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },
   ({ app, router, isClient }) => {
     app.use(createPinia())
+    app.directive('scale-fit', vScaleFit)
 
     // Per-app i18n (see createAppI18n) — avoids locale bleed between concurrent
     // SSG renders.

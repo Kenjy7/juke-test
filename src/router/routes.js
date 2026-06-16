@@ -38,9 +38,9 @@ const baseRoutes = [
   {
     path: '/beheerly',
     name: 'beheerly',
-    // Teaser/coming-soon page is live for now. The full BeheerlyView.vue is kept
-    // in the repo and can be swapped back in once Beheerly launches publicly.
-    component: () => import('@/views/BeheerlyTeaserView.vue'),
+    // Full product page (Beheerly has launched). The coming-soon teaser lives on
+    // in BeheerlyTeaserView.vue if we ever need it again.
+    component: () => import('@/views/BeheerlyView.vue'),
     alias: ['/syndicus'],
   },
   {

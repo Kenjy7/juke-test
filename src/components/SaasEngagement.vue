@@ -111,7 +111,7 @@ onMounted(() => {
 }
 .eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 .section-head h2 {
-  font-size: var(--text-h1); font-weight: var(--weight-bold);
+  font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0; text-wrap: balance;
 }
@@ -133,7 +133,7 @@ onMounted(() => {
   border-radius: var(--radius-full); padding: 0.25rem 0.6rem;
 }
 .card h3 {
-  font-size: var(--text-h3); font-weight: var(--weight-bold); color: var(--color-text-primary);
+  font-size: var(--text-h3); font-weight: var(--weight-semibold); color: var(--color-text-primary);
   margin: 0 0 var(--space-2); letter-spacing: var(--tracking-tight);
 }
 .card__price { font-size: var(--text-body); font-weight: var(--weight-semibold); color: var(--color-primary); margin: 0 0 var(--space-4); }

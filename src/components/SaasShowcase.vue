@@ -18,7 +18,7 @@
           </ul>
         </div>
         <div class="row__visual">
-          <div class="mock" aria-hidden="true">
+          <div class="mock" v-scale-fit="560" aria-hidden="true">
             <div class="mock__bar">
               <span class="tl"></span><span class="tl"></span><span class="tl"></span>
               <span class="mock__url code">{{ t('rcUrl') }}</span>
@@ -62,7 +62,7 @@
 
       <!-- ════════ Screen 2: Order pipeline — full-width process view ════════ -->
       <div class="feature-wide reveal">
-        <div class="mock" aria-hidden="true">
+        <div class="mock" v-scale-fit="760" aria-hidden="true">
           <div class="mock__bar">
             <span class="tl"></span><span class="tl"></span><span class="tl"></span>
             <span class="mock__url code">{{ t('r1url') }}</span>
@@ -259,18 +259,20 @@ onMounted(() => {
 }
 .eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 .showcase-header h2 {
-  font-size: var(--text-h1); font-weight: var(--weight-bold);
+  font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0; text-wrap: balance;
 }
 .lead { margin: var(--space-5) auto 0; max-width: 62ch; font-size: var(--text-body-lg); line-height: var(--leading-relaxed); color: var(--color-text-secondary); }
 
 /* Split rows */
-.row { display: grid; grid-template-columns: 1fr 1.2fr; gap: var(--space-16); align-items: center; padding: var(--space-12) 0; }
+/* minmax(0, …) so the visual column tracks its fr-share instead of growing to
+   the mock's content width (which overflowed the row at 2-column tablet sizes). */
+.row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: var(--space-16); align-items: center; padding: var(--space-12) 0; }
 .row--reverse .row__text { order: 2; }
 .row--reverse .row__visual { order: 1; }
 .row__label { display: inline-block; font-size: var(--text-xs); font-weight: var(--weight-semibold); letter-spacing: 0.04em; text-transform: uppercase; color: var(--color-primary); margin-bottom: var(--space-4); }
-.row__text h3 { font-size: var(--text-h2); font-weight: var(--weight-bold); color: var(--color-text-primary); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-4); text-wrap: balance; }
+.row__text h3 { font-size: var(--text-h2); font-weight: var(--weight-semibold); color: var(--color-text-primary); line-height: var(--leading-snug); letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-4); text-wrap: balance; }
 .row__text p { font-size: var(--text-body-lg); color: var(--color-text-secondary); line-height: var(--leading-relaxed); margin: 0 0 var(--space-6); }
 .checks { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--space-3); }
 .checks li { display: flex; align-items: center; gap: var(--space-3); font-size: var(--text-body); color: var(--color-text-primary); svg { flex-shrink: 0; color: var(--color-primary); } }
@@ -341,7 +343,9 @@ onMounted(() => {
 
 /* Responsive */
 @media (max-width: 900px) {
-  .row, .row--reverse { grid-template-columns: 1fr; gap: var(--space-8); }
+  /* minmax(0, …) stops the single column from growing to the mock's min-content,
+     which otherwise pushed the heading/body wider than the viewport. */
+  .row, .row--reverse { grid-template-columns: minmax(0, 1fr); gap: var(--space-8); }
   .row--reverse .row__text { order: 1; }
   .row--reverse .row__visual { order: 2; }
   .row__text { max-width: 560px; }
@@ -349,13 +353,10 @@ onMounted(() => {
 @media (max-width: 768px) {
   .showcase { padding: var(--section-pad-y) var(--space-5); }
   .showcase-header { margin-bottom: var(--space-12); }
-  .kanban { grid-template-columns: repeat(5, minmax(124px, 1fr)); overflow-x: auto; }
-}
-@media (max-width: 560px) {
-  .mock__side { width: 48px; }
-  .navitem span { display: none; }
-  .navitem { justify-content: center; padding: 0.45rem; }
-  .mock__search { display: none; }
-  .mock__main { padding: var(--space-4); }
+  /* Pipeline cards on mobile only: smaller customer names that wrap so the full
+     name shows (no truncation) in the scaled mock, and drop the backorder flag.
+     Desktop keeps the full single-line name and the flag. */
+  .kcard__name { font-size: 0.4375rem; white-space: normal; overflow-wrap: break-word; line-height: 1.2; }
+  .kcard__flag { display: none; }
 }
 </style>

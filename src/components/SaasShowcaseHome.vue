@@ -20,7 +20,7 @@
         <!-- Decorative product illustration: hidden from assistive tech, not tabbable.
              A custom stock-management app (web + mobile, shared data). Shown in an
              in-use state — sorted lowest-stock-first, one row selected. -->
-        <div class="pair" aria-hidden="true">
+        <div class="pair" v-scale-fit="540" aria-hidden="true">
           <!-- Desktop -->
           <div class="device device--web">
             <div class="web__bar">
@@ -221,7 +221,7 @@ onMounted(() => {
 .saas-home { padding: var(--section-pad-y) var(--space-8); }
 .container {
   max-width: var(--max-width); margin: 0 auto;
-  display: grid; grid-template-columns: 0.88fr 1.12fr; gap: var(--space-12); align-items: center;
+  display: grid; grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr); gap: var(--space-12); align-items: center;
 }
 .code { font-family: var(--font-mono); }
 .num { font-variant-numeric: tabular-nums; }
@@ -365,14 +365,10 @@ onMounted(() => {
   .content { max-width: 560px; }
   .lead { max-width: none; }
   .pair { margin-bottom: var(--space-8); }
+  /* Tuck the phone fully inside the dashboard so the scaled mock has no overhang. */
+  .device--phone { right: 0; bottom: -24px; }
 }
 @media (max-width: 768px) {
   .saas-home { padding: var(--section-pad-y) var(--space-5); }
-}
-@media (max-width: 480px) {
-  .device--phone { width: 132px; right: -6px; bottom: -28px; }
-  .th--sku, .td--sku, .th--mod, .td--mod { display: none; }
-  .tbl__head, .tbl__row { grid-template-columns: 18px minmax(0, 1.4fr) 46px 78px 18px; }
-  .web__tabs { display: none; }
 }
 </style>

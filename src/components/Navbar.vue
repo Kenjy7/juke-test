@@ -43,56 +43,81 @@
       </button>
     </nav>
 
-    <!-- Full-screen mobile menu -->
-    <transition name="menu-reveal">
-      <div
-        v-if="isMenuOpen"
-        ref="menuRef"
-        id="mobile-menu"
-        class="mobile-menu"
-        role="dialog"
-        aria-modal="true"
-        :aria-label="t('a11y.mainMenu')"
-        @click="closeMenu"
-      >
-        <div class="mobile-menu-inner" @click.stop>
-          <nav class="mobile-nav-links">
-            <router-link
-              v-for="(link, i) in navLinks"
-              :key="link.to"
-              :to="link.to"
-              class="mobile-link"
-              :style="{ animationDelay: `${80 + i * 50}ms` }"
-              @click="closeMenu"
-            >
-              {{ t(link.labelKey) }}
-            </router-link>
-          </nav>
+    <!-- Full-screen mobile menu — teleported to <body> so its position:fixed
+         resolves against the viewport. Left inside the header, the navbar's
+         backdrop-filter (when scrolled) becomes the containing block and
+         collapses this overlay to the bar's height: the background appears to
+         go transparent and the bottom actions drift up into the page. -->
+    <Teleport to="body">
+      <transition name="menu-reveal">
+        <div
+          v-if="isMenuOpen"
+          ref="menuRef"
+          id="mobile-menu"
+          class="mobile-menu"
+          role="dialog"
+          aria-modal="true"
+          :aria-label="t('a11y.mainMenu')"
+          @click="closeMenu"
+        >
+          <div class="mobile-menu-inner" @click.stop>
+            <nav class="mobile-nav-links">
+              <router-link
+                v-for="(link, i) in navLinks"
+                :key="link.to"
+                :to="link.to"
+                class="mobile-link"
+                :class="{ active: $route.path === link.to }"
+                :style="{ animationDelay: `${60 + i * 45}ms` }"
+                @click="closeMenu"
+              >
+                <span class="mobile-link__label">{{ t(link.labelKey) }}</span>
+                <svg
+                  class="mobile-link__arrow"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  aria-hidden="true"
+                >
+                  <path
+                    d="M4 12L12 4M12 4H6M12 4V10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </router-link>
+            </nav>
 
-          <div
-            class="mobile-bottom"
-            :style="{ animationDelay: `${80 + navLinks.length * 50 + 40}ms` }"
-          >
-            <LocaleSwitcher class="locale-switcher-mobile" @click="closeMenu" />
-            <router-link to="/contact" class="mobile-cta" @click="closeMenu">
-              {{ t('cta.startProject') }}
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                <path
-                  d="M4 12L12 4M12 4H6M12 4V10"
-                  stroke="currentColor"
-                  stroke-width="1.5"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                />
-              </svg>
-            </router-link>
-            <div class="mobile-contact">
-              <a href="mailto:contact@jukecoding.be">contact@jukecoding.be</a>
+            <div
+              class="mobile-bottom"
+              :style="{ animationDelay: `${60 + navLinks.length * 45 + 40}ms` }"
+            >
+              <router-link to="/contact" class="mobile-cta" @click="closeMenu">
+                {{ t('cta.startProject') }}
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path
+                    d="M4 12L12 4M12 4H6M12 4V10"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </router-link>
+              <div class="mobile-foot">
+                <LocaleSwitcher class="locale-switcher-mobile" @click="closeMenu" />
+                <a class="mobile-contact-link" href="mailto:contact@jukecoding.be"
+                  >contact@jukecoding.be</a
+                >
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </transition>
+      </transition>
+    </Teleport>
   </header>
 </template>
 
@@ -120,9 +145,36 @@ const hamburgerRef = ref(null)
 const getFocusable = () =>
   menuRef.value ? Array.from(menuRef.value.querySelectorAll('a[href], button:not([disabled])')) : []
 
+// Robust scroll lock. `body { overflow: hidden }` alone doesn't stop touch
+// scrolling on mobile (the document element is usually the scroller), so we pin
+// the body with position:fixed at a negative offset and restore the exact
+// scroll position when the menu closes.
+let savedScrollY = 0
+const lockScroll = () => {
+  savedScrollY = window.scrollY || window.pageYOffset || 0
+  const b = document.body.style
+  b.position = 'fixed'
+  b.top = `-${savedScrollY}px`
+  b.left = '0'
+  b.right = '0'
+  b.width = '100%'
+  b.overflow = 'hidden'
+}
+const unlockScroll = () => {
+  const b = document.body.style
+  b.position = ''
+  b.top = ''
+  b.left = ''
+  b.right = ''
+  b.width = ''
+  b.overflow = ''
+  window.scrollTo(0, savedScrollY)
+}
+
 const toggleMenu = () => {
   isMenuOpen.value = !isMenuOpen.value
-  document.body.style.overflow = isMenuOpen.value ? 'hidden' : ''
+  if (isMenuOpen.value) lockScroll()
+  else unlockScroll()
   // Flag the open state on <body> so other top-layer UI (e.g. the cookie
   // banner) can step aside while the full-screen menu is up.
   document.body.classList.toggle('menu-open', isMenuOpen.value)
@@ -132,7 +184,7 @@ const toggleMenu = () => {
 const closeMenu = (restoreFocus = false) => {
   const wasOpen = isMenuOpen.value
   isMenuOpen.value = false
-  document.body.style.overflow = ''
+  if (wasOpen) unlockScroll()
   document.body.classList.remove('menu-open')
   // Only restore focus to the trigger on keyboard close (ESC); navigation
   // and pointer closes let the SPA route-focus take over.
@@ -140,6 +192,9 @@ const closeMenu = (restoreFocus = false) => {
 }
 
 const onScroll = () => {
+  // Skip while the menu is open: locking the body resets the document scroll to
+  // 0, which would otherwise flip the navbar out of its scrolled state.
+  if (isMenuOpen.value) return
   hasScrolled.value = window.scrollY > 20
 }
 
@@ -180,7 +235,7 @@ onBeforeUnmount(() => {
   window.removeEventListener('scroll', onScroll)
   window.removeEventListener('resize', handleResize)
   window.removeEventListener('keydown', onKeydown)
-  document.body.style.overflow = ''
+  if (isMenuOpen.value) unlockScroll()
   document.body.classList.remove('menu-open')
 })
 </script>
@@ -192,7 +247,7 @@ onBeforeUnmount(() => {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 100;
+  z-index: 1000;
   transition:
     background var(--duration-slow) var(--ease-smooth),
     border-color var(--duration-slow) var(--ease-smooth);
@@ -201,7 +256,7 @@ onBeforeUnmount(() => {
 }
 
 .navbar-wrap.scrolled {
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.97);
   backdrop-filter: saturate(180%) blur(12px);
   -webkit-backdrop-filter: saturate(180%) blur(12px);
   border-bottom-color: var(--color-border);
@@ -359,21 +414,25 @@ onBeforeUnmount(() => {
   }
 }
 
-/* ─── Full-screen mobile menu ─── */
+/* ─── Full-screen mobile menu ───
+   Teleported to <body>, so position:fixed resolves against the viewport even
+   when the navbar carries a backdrop-filter (which would otherwise become the
+   containing block and collapse this overlay to the bar's height). It sits
+   below the navbar (z 1000) so the brand + animated hamburger-X stay on top. */
 .mobile-menu {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 900;
   background: var(--color-bg-primary);
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .menu-reveal-enter-active {
-  transition: opacity 0.3s var(--ease-out-expo);
+  transition: opacity 0.32s var(--ease-out-expo);
 }
 .menu-reveal-leave-active {
-  transition: opacity 0.25s var(--ease-smooth);
+  transition: opacity 0.24s var(--ease-smooth);
 }
 .menu-reveal-enter-from,
 .menu-reveal-leave-to {
@@ -381,77 +440,142 @@ onBeforeUnmount(() => {
 }
 
 .mobile-menu-inner {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 6.5rem 2rem 2.5rem;
+}
+
+/* ─── Nav links: big display rows with hairline dividers ─── */
+.mobile-nav-links {
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 6rem 2.5rem 3rem;
-}
-
-.mobile-nav-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
 }
 
 .mobile-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--color-border);
   font-family: var(--font-display);
-  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-size: clamp(1.6rem, 6.5vw, 2.6rem);
   font-weight: var(--weight-medium);
-  color: var(--color-text-tertiary);
-  text-decoration: none;
   letter-spacing: var(--tracking-tight);
-  padding: 0.25rem 0;
-  transition: color var(--duration-fast) var(--ease-smooth);
+  line-height: 1.1;
+  color: var(--color-text-primary);
+  text-decoration: none;
   opacity: 0;
-  transform: translateY(1.5rem);
+  transform: translateY(1.25rem);
   animation: slideUp 0.5s var(--ease-out-expo) forwards;
+  transition: color var(--duration-fast) var(--ease-smooth);
 
-  &:hover {
+  &:first-child {
+    border-top: 1px solid var(--color-border);
+  }
+
+  .mobile-link__arrow {
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transform: translateX(-0.4rem);
+    transition:
+      opacity var(--duration-fast) var(--ease-smooth),
+      transform var(--duration-fast) var(--ease-smooth),
+      color var(--duration-fast) var(--ease-smooth);
+  }
+
+  &:hover,
+  &:focus-visible {
     color: var(--color-text-primary);
+
+    .mobile-link__label {
+      transform: translateX(0.25rem);
+    }
+    .mobile-link__arrow {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  &.active {
+    color: var(--color-primary);
+
+    .mobile-link__arrow {
+      color: var(--color-primary);
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
 }
 
+.mobile-link__label {
+  transition: transform var(--duration-base) var(--ease-out-expo);
+}
+
+/* ─── Bottom: full-width CTA + language / contact row ─── */
 .mobile-bottom {
-  margin-top: auto;
-  padding-top: var(--space-12);
+  padding-top: var(--space-8);
   opacity: 0;
   transform: translateY(1rem);
   animation: slideUp 0.5s var(--ease-out-expo) forwards;
 }
 
-.locale-switcher-mobile {
-  display: inline-flex;
-  margin-bottom: var(--space-6);
-}
-
 .mobile-cta {
   display: flex;
-  width: fit-content;
   align-items: center;
-  gap: 0.625rem;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
   background: var(--color-accent);
   color: var(--color-text-on-accent);
-  font-weight: var(--weight-medium);
-  font-size: 1rem;
-  padding: 0.875rem 1.75rem;
+  font-weight: var(--weight-semibold);
+  font-size: 1.0625rem;
+  padding: 1rem 1.5rem;
   border-radius: var(--radius-md);
   text-decoration: none;
-  margin-bottom: var(--space-6);
+  box-shadow: var(--shadow-elevated);
+  transition:
+    background var(--transition-base),
+    transform var(--transition-base);
 
   svg {
-    opacity: 0.85;
+    opacity: 0.9;
+    transition: transform var(--transition-base);
+  }
+
+  &:hover {
+    background: var(--color-accent-hover);
+
+    svg {
+      transform: translate(2px, -2px);
+    }
   }
 }
 
-.mobile-contact {
-  a {
-    font-size: var(--text-small);
-    color: var(--color-text-tertiary);
-    text-decoration: none;
-    &:hover {
-      color: var(--color-text-secondary);
-    }
+.mobile-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.locale-switcher-mobile {
+  display: inline-flex;
+}
+
+.mobile-contact-link {
+  font-size: var(--text-small);
+  color: var(--color-text-tertiary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-smooth);
+
+  &:hover {
+    color: var(--color-text-secondary);
   }
 }
 
@@ -482,7 +606,7 @@ onBeforeUnmount(() => {
     font-size: 1.375rem;
   }
   .mobile-menu-inner {
-    padding: 5rem 1.5rem 2rem;
+    padding: 5.75rem 1.5rem 2rem;
   }
 }
 </style>

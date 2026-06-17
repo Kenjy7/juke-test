@@ -499,15 +499,34 @@ function fitDashboardMock() {
   if (available === lastFitWidth) return
   lastFitWidth = available
 
-  // Pin the mock to its design width, then scale the whole window with `zoom`
-  // so it exactly fills its (centred) column. Unlike `transform`, `zoom`
-  // collapses the layout box too, so there's no leftover gap and the parent's
-  // `text-align: center` keeps it centred — fully visible, proportional, no
-  // cropping, no overflow. The compact mobile design lets it render bigger on
-  // phones than the 600 desktop design would allow.
+  // Pin the mock to its design width, then scale the whole window with
+  // `transform: scale()` so it exactly fills its (centred) column. We avoid
+  // `zoom` here because iOS Safari handles fractional `zoom` on a fixed-width
+  // box unreliably — it kept the window at full width and cropped it off the
+  // right edge on phones. `transform` is universally supported and scales the
+  // window as a single unit: identical proportions, no reflow.
+  //
+  // Two follow-ups make `transform` behave like `zoom` did: (1) the layout box
+  // isn't shrunk by `transform`, so a down-scaled window would still overflow
+  // its column — `.hero-visual { overflow: hidden }` clips that stray box while
+  // the visible (centred) content fits exactly; (2) the reserved height isn't
+  // shrunk either, so we set the parent's height to the scaled height to remove
+  // the leftover vertical gap. The compact mobile design lets it render bigger
+  // on phones than the 600 desktop design would allow.
   const designWidth = window.innerWidth >= 900 ? DESIGN_WIDTH_DESKTOP : DESIGN_WIDTH_MOBILE
+  const scale = available / designWidth
+  el.style.zoom = '' // clear any value left by older builds
   el.style.width = `${designWidth}px`
-  el.style.zoom = String(available / designWidth)
+  // Anchor top-left and scale from there: the painted width equals `available`,
+  // so a left-anchored box fills the column exactly from its left edge. A
+  // `center` origin only lands centred when the (over-wide) box is itself
+  // centred first — but an inline-block wider than its line stays flush-left, so
+  // a centre pivot pushed the window's right edge off-screen on phones.
+  el.style.transformOrigin = 'top left'
+  el.style.transform = `scale(${scale})`
+  // `offsetHeight` is the untransformed layout height; the visible height is
+  // that times the scale. Pin the column to it so nothing below floats away.
+  parent.style.height = `${el.offsetHeight * scale}px`
 }
 
 // Re-fit when the locale flips (translated copy can change the mock's height).
@@ -759,7 +778,11 @@ useHead(() => ({
 }
 .hero-grid {
   display: grid;
-  grid-template-columns: 1fr 1.05fr;
+  /* minmax(0, …) instead of 1fr: a bare 1fr track has min-width:auto, so the
+     fixed-width (script-scaled) dashboard window would force its column to the
+     window's full design width and overflow the page. The 0 floor lets the
+     column shrink and the window scales to fit it. */
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
   gap: var(--space-16);
   align-items: center;
   width: 100%;
@@ -831,16 +854,23 @@ h1 {
    window frame so it reads as "the app", not as a recolour of the site. */
 .hero-visual {
   animation: fade-up 0.7s var(--ease-out-expo) both;
-  /* Centre the (script-zoomed) dashboard window. text-align centres the
-     inline-block reliably by its rendered size — unlike auto margins, which
-     don't re-centre a `zoom`-scaled box. */
-  text-align: center;
+  /* Left-align the window: the script scales it from its top-left corner to
+     fill this column exactly, so the box must start at the column's left edge.
+     The column spans the container, so the filled result reads as centred on
+     the page. (Centring an over-wide inline-block here let the scale pivot
+     off-centre and cropped the window's right edge on phones.) */
+  text-align: left;
+  /* The mock is pinned to a fixed design width and scaled down with
+     `transform`, which leaves the (wider) layout box in place. Clip it so that
+     stray box can never widen the page or crop off-screen on mobile — the
+     visible, centred content scales to fit exactly. */
+  overflow: hidden;
 }
 .appwin {
   display: inline-block;
   vertical-align: top;
   text-align: left; /* reset, so the mock's own content stays left-aligned */
-  width: min(600px, 100%); /* design width; script pins it and scales via zoom */
+  width: min(600px, 100%); /* design width; script pins it and scales via transform */
   border: 1px solid var(--color-border);
   border-radius: var(--radius-xl);
   overflow: hidden;
@@ -1546,17 +1576,22 @@ h1 {
 
 @media (max-width: 900px) {
   .hero-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-12);
   }
   .hero-copy {
     order: -1;
   }
   .hero-visual {
+    /* Fill the column. Without an explicit width, `margin-inline: auto` makes
+       this grid item shrink to its content — i.e. the fixed-width window —
+       which overflowed the column and defeated the scale-to-fit. width:100%
+       pins it to the (capped) track so the script measures the real column. */
+    width: 100%;
     /* Give the mock more room on larger phones/tablets so it renders bigger;
        it still fills smaller columns. */
     max-width: 600px;
-    /* Centre the column so the script-scaled mock sits in the middle. */
+    /* Centre the capped column on wide single-column layouts (tablets). */
     margin-inline: auto;
   }
   .intro-grid {
@@ -1639,7 +1674,9 @@ h1 {
 }
 
 /* ── Hero dashboard mock ──
-   `fitDashboardMock()` in the script shrinks the whole window with `zoom` to
-   fit its column (proportional, no reflow, no cropping, no overflow); the
-   parent's `text-align: center` keeps it centred. */
+   `fitDashboardMock()` in the script shrinks the whole window with
+   `transform: scale()` to fit its column (proportional, no reflow, no cropping,
+   no overflow); `.hero-visual { overflow: hidden }` clips the untransformed
+   layout box and the script pins the column height to the scaled height, while
+   `text-align: center` keeps it centred. */
 </style>

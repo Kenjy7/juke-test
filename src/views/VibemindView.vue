@@ -410,6 +410,44 @@ const shots = reactive([
 const form = reactive({ name: '', email: '', reason: '', website: '' })
 const status = ref('idle') // idle | sending | success | error
 
+// Beta-aanmeldingen landen in de `signups`-tabel van het Vibemind Supabase-
+// project: de duurzame bron, die je uitleest in Supabase → Table Editor →
+// signups. De anon/publishable key mag in de browser-bundle staan — RLS staat
+// enkel INSERT toe (geen reads/updates). Env override blijft mogelijk; de
+// fallback zorgt dat het werkt zonder extra Netlify-config.
+const SUPABASE_URL =
+  import.meta.env.VITE_SUPABASE_URL || 'https://sjgrpqnohfbgevrqtqtp.supabase.co'
+const SUPABASE_ANON_KEY =
+  import.meta.env.VITE_SUPABASE_ANON_KEY || 'sb_publishable_fdJYO6zblUUYsOm5bP6KAA_WfZVWxsu'
+
+// Best-effort e-mailmelding naar de Juke-inbox via EmailJS, bovenop de
+// database-insert. Een mislukte mail mag de inschrijving nooit doen falen.
+const notifyByEmail = async () => {
+  try {
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
+    const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    if (!serviceId || !templateId || !publicKey) return
+
+    await emailjs.send(
+      serviceId,
+      templateId,
+      {
+        service: 'Vibemind beta',
+        firstName: form.name || 'Onbekend',
+        lastName: '',
+        email: form.email,
+        phone: '',
+        subject: 'Vibemind beta-aanvraag',
+        message: form.reason || 'Schrijf me in voor de Vibemind beta.',
+      },
+      publicKey,
+    )
+  } catch (err) {
+    console.warn('Vibemind beta e-mailmelding faalde (inschrijving is wel opgeslagen):', err)
+  }
+}
+
 const submitBeta = async () => {
   if (form.website) {
     // honeypot tripped → pretend it worked, store nothing
@@ -423,25 +461,31 @@ const submitBeta = async () => {
   status.value = 'sending'
 
   try {
-    // Same proven delivery path as the contact & offer forms: EmailJS to the
-    // Juke inbox. Maps the beta fields onto the shared contact template.
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID
-    const templateId = import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    // Schrijf weg naar de signups-tabel. De ?apikey in de URL is nodig voor de
+    // nieuwe sb_publishable_-sleutels (naast de header).
+    const res = await fetch(
+      `${SUPABASE_URL}/rest/v1/signups?apikey=${encodeURIComponent(SUPABASE_ANON_KEY)}`,
+      {
+        method: 'POST',
+        headers: {
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json',
+          Prefer: 'return=minimal',
+        },
+        body: JSON.stringify({
+          email: form.email,
+          name: form.name || null,
+          reason: form.reason || null,
+          source: 'website',
+        }),
+      },
+    )
 
-    const templateParams = {
-      service: 'Vibemind beta',
-      firstName: form.name || 'Onbekend',
-      lastName: '',
-      email: form.email,
-      phone: '',
-      subject: 'Vibemind beta-aanvraag',
-      message: form.reason || 'Schrijf me in voor de Vibemind beta.',
-    }
+    if (!res.ok) throw new Error(`Supabase responded ${res.status}`)
 
-    const response = await emailjs.send(serviceId, templateId, templateParams, publicKey)
-
-    if (response.status !== 200) throw new Error(`EmailJS responded ${response.status}`)
+    // Inschrijving staat veilig in de database — stuur nog een melding.
+    await notifyByEmail()
 
     status.value = 'success'
     form.name = ''
@@ -1064,11 +1108,7 @@ h1 {
    stays centred even when its fixed design width overflows the column. */
 .vm-demo-wrap {
   display: flex;
-  /* Left-align, not center: the scale-fit directive scales the mock from its
-     top-left corner, so the box must start at the container's left edge or the
-     scaled result shifts off-screen. On desktop the mock is width:100% so this
-     looks identical to centering. */
-  justify-content: flex-start;
+  justify-content: center;
   margin-bottom: var(--space-16);
 }
 .vm-demo {

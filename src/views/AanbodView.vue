@@ -1,4 +1,4 @@
-﻿<template>
+<template>
   <BackgroundWeb>
     <HeroSectionAanbod />
     <ShortAnswer class="”stylewebdesign”" :title="t('aanbodView.shortAnswer.title')">
@@ -106,27 +106,6 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_CONFIG.url },
     { '@type': 'ListItem', position: 2, name: 'Webdesign', item: url },
   ],
-}
-
-// 5ï¸âƒ£ OfferCatalog Schema - Voor prijsweergave in Google
-// 6ï¸âƒ£ Service Schema met OfferCatalog
-const serviceSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Service',
-  '@id': `${url}#service`,
-  name: 'Website laten maken in Limburg',
-  serviceType: 'Webdesign',
-  description:
-    "Professionele websites op maat voor Belgische KMO's â€” snel, mobielvriendelijk en conversiegericht.",
-  provider: { '@id': `${SITE_CONFIG.url}#organization` },
-  areaServed: { '@type': 'Country', name: 'Belgium' },
-  url,
-  termsOfService: `${SITE_CONFIG.url}/algemene-voorwaarden`,
-  // ðŸŽ¯ Service features
-  serviceOutput: {
-    '@type': 'WebSite',
-    name: 'Professionele website op maat',
-  },
 }
 
 // 7ï¸âƒ£ HowTo Schema - Kans op featured snippet
@@ -295,12 +274,6 @@ useHead({
       key: 'ld-breadcrumb',
       type: 'application/ld+json',
       children: JSON.stringify(breadcrumbSchema),
-    },
-    // âœ… Service Schema (met OfferCatalog)
-    {
-      key: 'ld-service',
-      type: 'application/ld+json',
-      children: JSON.stringify(serviceSchema),
     },
     // âœ… HowTo Schema (kans op featured snippet!)
     {

@@ -361,7 +361,10 @@ onMounted(() => {
 .ph__home { width: 64px; height: 3px; border-radius: var(--radius-full); background: var(--color-text-primary); opacity: 0.25; margin: 3px auto 6px; }
 
 @media (max-width: 900px) {
-  .container { grid-template-columns: 1fr; gap: var(--space-10); }
+  /* minmax(0, …) so the column can't grow to the scaled dashboard's width on
+     Safari (its `zoom` doesn't shrink the grid track) — which pushed the copy
+     and dashboard off-screen on iOS. */
+  .container { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
   .content { max-width: 560px; }
   .lead { max-width: none; }
   .pair { margin-bottom: var(--space-8); }

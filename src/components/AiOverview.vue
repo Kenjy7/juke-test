@@ -207,7 +207,7 @@ onMounted(() => {
 @keyframes ov-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
 @media (max-width: 900px) {
-  .container { grid-template-columns: 1fr; gap: var(--space-10); }
+  .container { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
   .content { order: 0; max-width: 560px; }
   .visual { order: 1; }
   .lead { max-width: none; }

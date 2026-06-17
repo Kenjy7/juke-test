@@ -13,7 +13,7 @@
       <div class="visual reveal reveal-delay-1">
         <!-- Decorative product illustration: hidden from assistive tech, not tabbable.
              Same product shell as AiOverview — a different screen (the support inbox). -->
-        <div class="mock" :class="{ 'is-live': live }" aria-hidden="true">
+        <div class="mock" :class="{ 'is-live': live }" v-scale-fit="470" aria-hidden="true">
           <div class="mock__bar">
             <span class="tl"></span><span class="tl"></span><span class="tl"></span>
             <span class="mock__url code">{{ t('url') }}</span>
@@ -141,7 +141,7 @@ onMounted(() => {
 .ai-action { padding: var(--section-pad-y) var(--space-8); }
 .container {
   max-width: var(--max-width); margin: 0 auto;
-  display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--space-16); align-items: center;
+  display: grid; grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); gap: var(--space-16); align-items: center;
 }
 .code { font-family: var(--font-mono); }
 
@@ -205,17 +205,11 @@ onMounted(() => {
 @keyframes ai-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.45; } }
 
 @media (max-width: 900px) {
-  .container { grid-template-columns: 1fr; gap: var(--space-10); }
+  .container { grid-template-columns: minmax(0, 1fr); gap: var(--space-10); }
   .content { max-width: 560px; }
   .lead { max-width: none; }
 }
 @media (max-width: 768px) {
   .ai-action { padding: var(--section-pad-y) var(--space-5); }
-}
-@media (max-width: 560px) {
-  .mock__side { width: 48px; }
-  .navitem span { display: none; }
-  .navitem { justify-content: center; padding: 0.45rem; }
-  .mock__main { padding: var(--space-4); }
 }
 </style>

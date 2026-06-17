@@ -74,7 +74,6 @@ export const organizationSchema = {
     'AI Automatisering',
     'Chatbots',
     'Workflow Automatisatie',
-    'Webdesign',
     'Web Development',
     'SEO',
   ],
@@ -84,7 +83,7 @@ export const organizationSchema = {
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'SaaS, AI & Webdesign diensten',
+    name: 'SaaS & AI diensten',
     itemListElement: [
       {
         '@type': 'Offer',
@@ -102,15 +101,6 @@ export const organizationSchema = {
           '@type': 'Service',
           name: 'AI-projecten',
           description: 'AI-automatisering, chatbots en slimme workflows op maat',
-        },
-      },
-      {
-        '@type': 'Offer',
-        availability: 'https://schema.org/InStock',
-        itemOffered: {
-          '@type': 'Service',
-          name: 'Webdesign',
-          description: "Professionele websites op maat voor KMO's en zelfstandigen",
         },
       },
     ],

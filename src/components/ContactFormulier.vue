@@ -670,9 +670,10 @@ a.method:hover {
   letter-spacing: var(--tracking-wide);
 }
 .method__value {
-  font-size: var(--text-body);
+  font-size: clamp(0.85rem, 3.6vw, var(--text-body));
   color: var(--color-text-primary);
   font-weight: var(--weight-semibold);
+  overflow-wrap: anywhere;
 }
 
 #bericht label {

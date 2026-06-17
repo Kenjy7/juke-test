@@ -31,7 +31,7 @@ export const organizationSchema = {
   },
   image: `${SITE_URL}/og-image.jpg`,
   description:
-    "SaaS-platformen, AI-oplossingen en websites voor Belgische KMO's. Development studio in Hasselt (Limburg) — digitale oplossingen die tijd besparen en meer leads opleveren.",
+    "SaaS-platformen en AI-oplossingen voor Belgische KMO's. Development studio in Hasselt (Limburg) — digitale oplossingen die tijd besparen en meer leads opleveren.",
   // Service-area business: geen streetAddress, adres verborgen. Enkel plaats/regio.
   address: {
     '@type': 'PostalAddress',
@@ -74,7 +74,6 @@ export const organizationSchema = {
     'AI Automatisering',
     'Chatbots',
     'Workflow Automatisatie',
-    'Web Development',
     'SEO',
   ],
   sameAs: [

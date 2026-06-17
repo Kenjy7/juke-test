@@ -5,6 +5,17 @@ import { staticPages, blogPages } from '../src/router/indexable-paths.js'
 
 const SITE_URL = 'https://jukecoding.be'
 
+// XML-escape interpolated text (titles, URLs). A raw & (e.g. "SaaS & AI") makes
+// the sitemap invalid XML — browsers and Google reject it with
+// "xmlParseEntityRef: no name".
+const xmlEscape = (value) =>
+  String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+
 // Canonical pages (static + published blog posts) come from the shared source of
 // truth in src/router/indexable-paths.js, so the sitemap can never list a page
 // that isn't prerendered (or omit one that is). `image.loc` is site-relative
@@ -27,20 +38,20 @@ const alternateTags = (routePath) =>
     { hreflang: 'en', loc: `${SITE_URL}${localePath(routePath, 'en')}` },
     { hreflang: 'x-default', loc: `${SITE_URL}${localePath(routePath, 'nl')}` },
   ]
-    .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${a.loc}"/>\n`)
+    .map((a) => `    <xhtml:link rel="alternate" hreflang="${a.hreflang}" href="${xmlEscape(a.loc)}"/>\n`)
     .join('')
 
 // One <url> per locale, each carrying the full set of alternates.
 const toUrls = ({ path: routePath, date, changefreq, priority, image }) => {
   const imageTag = image
-    ? `    <image:image>\n      <image:loc>${image.loc}</image:loc>\n      <image:title>${image.title}</image:title>\n    </image:image>\n`
+    ? `    <image:image>\n      <image:loc>${xmlEscape(image.loc)}</image:loc>\n      <image:title>${xmlEscape(image.title)}</image:title>\n    </image:image>\n`
     : ''
   const alternates = alternateTags(routePath)
 
   return ['nl', 'en'].map(
     (locale) =>
       `  <url>\n` +
-      `    <loc>${SITE_URL}${localePath(routePath, locale)}</loc>\n` +
+      `    <loc>${xmlEscape(`${SITE_URL}${localePath(routePath, locale)}`)}</loc>\n` +
       `    <lastmod>${date || lastmod}</lastmod>\n` +
       `    <changefreq>${changefreq}</changefreq>\n` +
       `    <priority>${priority}</priority>\n` +

@@ -20,7 +20,7 @@ export const staticPages = [
     path: '/',
     changefreq: 'weekly',
     priority: '1.0',
-    image: { loc: '/og-image.jpg', title: 'Juke — SaaS, AI & Webdesign studio Hasselt' },
+    image: { loc: '/og-image.jpg', title: 'Juke — SaaS & AI studio Hasselt' },
   },
   { path: '/ai-projecten', changefreq: 'weekly', priority: '0.8' },
   { path: '/saas-development', changefreq: 'weekly', priority: '0.8' },

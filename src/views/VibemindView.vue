@@ -1064,7 +1064,11 @@ h1 {
    stays centred even when its fixed design width overflows the column. */
 .vm-demo-wrap {
   display: flex;
-  justify-content: center;
+  /* Left-align, not center: the scale-fit directive scales the mock from its
+     top-left corner, so the box must start at the container's left edge or the
+     scaled result shifts off-screen. On desktop the mock is width:100% so this
+     looks identical to centering. */
+  justify-content: flex-start;
   margin-bottom: var(--space-16);
 }
 .vm-demo {

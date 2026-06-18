@@ -2,10 +2,6 @@
   <section class="cases-section" ref="sectionRef">
     <div class="cases-shell">
       <div class="cases-panel band--dark reveal">
-        <span class="eyebrow">
-          <span class="eyebrow__dot"></span>
-          {{ t('casesCta.eyebrow') }}
-        </span>
         <h2>
           {{ t('casesCta.head.title') }}
         </h2>

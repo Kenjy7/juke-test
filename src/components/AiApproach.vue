@@ -2,7 +2,6 @@
   <section class="approach" ref="sectionRef">
     <div class="container">
       <header class="approach__head reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('eyebrow') }}</span>
         <h2>{{ t('title') }}</h2>
         <p class="approach__lead">{{ t('intro') }}</p>
       </header>

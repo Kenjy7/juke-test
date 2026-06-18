@@ -2,7 +2,6 @@
   <section class="scope" ref="sectionRef">
     <div class="container">
       <header class="scope__head reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('eyebrow') }}</span>
         <h2>{{ t('title') }}</h2>
         <p class="scope__lead">{{ t('lead') }}</p>
       </header>

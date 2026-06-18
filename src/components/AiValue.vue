@@ -2,7 +2,6 @@
   <section class="value" ref="sectionRef">
     <div class="container">
       <header class="section-head reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('aiFeaturedrid.head.eyebrow') }}</span>
         <h2>
           {{ t('aiFeaturedrid.head.titleLine1') }}
           <span class="accent">{{ t('aiFeaturedrid.head.titleLine2') }}</span>

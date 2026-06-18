@@ -2,11 +2,6 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-copy">
-        <div class="eyebrow">
-          <span class="eyebrow__dot"></span>
-          {{ t('heroSectionAanbod.eyebrow') }}
-        </div>
-
         <h1>
           {{ t('heroSectionAanbod.head.titleLead') }}
           <span class="highlight">{{ t('heroSectionAanbod.head.titleHighlight') }}</span>

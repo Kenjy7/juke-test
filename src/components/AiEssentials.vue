@@ -2,7 +2,6 @@
   <section class="essentials" ref="sectionRef">
     <div class="container">
       <header class="essentials__head reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('eyebrow') }}</span>
         <h2>{{ t('title') }}</h2>
         <p class="essentials__lead">{{ t('lead') }}</p>
       </header>

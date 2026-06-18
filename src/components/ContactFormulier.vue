@@ -8,9 +8,6 @@
           <div class="contact-aside__glow" aria-hidden="true"></div>
 
           <div class="contact-aside__head">
-            <span class="eyebrow"
-              ><span class="eyebrow__dot"></span>{{ t('contactFormulier.header.eyebrow') }}</span
-            >
             <h2>{{ t('contactFormulier.header.title') }}</h2>
             <p>{{ t('contactFormulier.header.lead') }}</p>
           </div>

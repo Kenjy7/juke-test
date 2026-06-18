@@ -5,10 +5,6 @@
       <div class="why-us__layout">
         <!-- Left column: editorial lead -->
         <aside class="why-us__lead reveal">
-          <span class="eyebrow">
-            <span class="eyebrow__dot" aria-hidden="true"></span>
-            {{ t('waaromJuke.eyebrow') }}
-          </span>
           <h2>{{ t('waaromJuke.head.title') }}</h2>
           <p class="lead">{{ t('waaromJuke.head.lead') }}</p>
         </aside>

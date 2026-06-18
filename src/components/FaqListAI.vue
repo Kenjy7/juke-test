@@ -2,7 +2,6 @@
   <section ref="rootEl" id="faqlistai" class="faq-section">
     <div class="container">
       <div class="faq-header">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('faqListAI.head.label') }}</span>
         <h2>{{ t('faqListAI.head.title') }}</h2>
         <p>{{ t('faqListAI.head.lead') }}</p>
       </div>

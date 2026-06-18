@@ -3,10 +3,6 @@
     <div class="container">
       <!-- Editorial header: left-aligned, generous whitespace -->
       <header class="showcase-header reveal">
-        <span class="eyebrow">
-          <span class="eyebrow__dot"></span>
-          {{ t('aiShowcase.head.eyebrow') }}
-        </span>
         <h2>{{ t('aiShowcase.head.titleLine1') }}<br />{{ t('aiShowcase.head.titleLine2') }}</h2>
         <p class="lead">{{ t('aiShowcase.head.lead') }}</p>
       </header>

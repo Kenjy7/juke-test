@@ -2,7 +2,6 @@
   <section class="process" ref="sectionRef">
     <div class="container">
       <header class="section-head reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('eyebrow') }}</span>
         <h2>{{ t('title') }}</h2>
         <p class="lead">{{ t('lead') }}</p>
       </header>

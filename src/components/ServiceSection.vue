@@ -2,10 +2,6 @@
   <section class="services band--sunken" ref="sectionRef">
     <div class="container">
       <header class="section-head reveal">
-        <span class="eyebrow">
-          <span class="eyebrow__dot"></span>
-          {{ t('serviceSection.head.eyebrow') }}
-        </span>
         <h2>{{ t('serviceSection.head.title') }}</h2>
         <p class="lead">
           {{ t('serviceSection.head.lead') }}

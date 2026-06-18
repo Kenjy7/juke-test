@@ -2,7 +2,6 @@
   <section ref="rootEl" class="faq-section">
     <div class="container">
       <div class="faq-header">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ labelText }}</span>
         <h2>{{ titleText }}</h2>
         <p>{{ descriptionText }}</p>
       </div>

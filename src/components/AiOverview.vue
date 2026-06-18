@@ -2,7 +2,6 @@
   <section class="ai-overview" ref="sectionRef">
     <div class="container">
       <div class="content reveal">
-        <span class="eyebrow"><span class="eyebrow__dot"></span>{{ t('eyebrow') }}</span>
         <h2>{{ t('title') }}</h2>
         <p class="lead">{{ t('lead') }}</p>
         <ul class="checks">

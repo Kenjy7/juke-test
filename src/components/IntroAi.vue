@@ -2,11 +2,6 @@
 <template>
   <section class="intro-ai" :class="{ 'is-dark': dark }">
     <div class="container intro-content">
-      <div class="eyebrow">
-        <span class="eyebrow__dot"></span>
-        {{ t('introAi.eyebrow') }}
-      </div>
-
       <h1>
         {{ t('introAi.head.title') }}
         <span class="highlight">{{ t('introAi.head.titleHighlight') }}</span>

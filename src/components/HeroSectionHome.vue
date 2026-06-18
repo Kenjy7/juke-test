@@ -1,11 +1,6 @@
 <template>
   <section class="hero" ref="heroRef">
     <div class="container hero-top">
-      <div class="eyebrow">
-        <span class="eyebrow__dot"></span>
-        {{ t('home.hero.eyebrow') }}
-      </div>
-
       <h1 class="reveal-on-load delay-1">
         {{ t('home.hero.titleLead') }}
         <span class="highlight">{{ t('home.hero.titleHighlight') }}</span>

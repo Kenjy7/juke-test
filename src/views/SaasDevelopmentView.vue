@@ -3,10 +3,6 @@
     <section class="saas-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
-          <div class="eyebrow">
-            <span class="eyebrow__dot"></span>
-            {{ tg('saasDevelopmentView.hero.eyebrow') }}
-          </div>
           <h1>
             {{ tg('saasDevelopmentView.hero.titleLead') }}
             <span class="highlight">{{ tg('saasDevelopmentView.hero.titleHighlight') }}</span>

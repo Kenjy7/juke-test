@@ -109,8 +109,14 @@ const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   '@id': `${url}#service`,
-  name: 'SaaS- & app-development op maat',
-  serviceType: ['SaaS Development', 'Web Application Development', 'Custom Software Development'],
+  name: 'Software op maat — SaaS- & app-development',
+  serviceType: [
+    'Software op maat',
+    'Software ontwikkeling op maat',
+    'SaaS Development',
+    'Web Application Development',
+    'Custom Software Development',
+  ],
   description:
     'Custom SaaS-platformen, dashboards, klantportalen en bedrijfssoftware op maat. Van concept en MVP tot een schaalbaar product dat je zelf bezit en beheert.',
   areaServed: { '@type': 'Country', name: 'Belgium' },
@@ -143,19 +149,19 @@ const breadcrumbJsonLd = {
 }
 
 useHead({
-  title: 'SaaS Development op Maat | Juke',
+  title: 'Software op maat & SaaS-development | Juke',
   meta: [
     {
       name: 'description',
       content:
-        'Custom SaaS-platformen, dashboards en portalen op maat. Van concept tot schaalbaar product. Development studio in Hasselt, Belgie.',
+        'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit. Development studio in Hasselt, België.',
     },
     { name: 'robots', content: 'index, follow' },
-    { property: 'og:title', content: 'SaaS Development op Maat | Juke' },
+    { property: 'og:title', content: 'Software op maat & SaaS-development | Juke' },
     {
       property: 'og:description',
       content:
-        'Custom SaaS-platformen, dashboards en portalen op maat. Van concept tot schaalbaar product.',
+        'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url },
@@ -163,10 +169,10 @@ useHead({
     { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'SaaS Development op Maat | Juke' },
+    { name: 'twitter:title', content: 'Software op maat & SaaS-development | Juke' },
     {
       name: 'twitter:description',
-      content: 'Custom SaaS-platformen, dashboards en portalen op maat.',
+      content: 'Software op maat: custom SaaS-platformen, dashboards en klantportalen.',
     },
   ],
   link: [{ rel: 'canonical', href: url }],

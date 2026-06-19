@@ -658,16 +658,26 @@ const faqs = computed(() => [
 // ── SEO. Title/description stay Dutch (don't translate meta/schema for SEO).
 // Org/Website @ids are defined globally in index.html and referenced here so the
 // page joins one entity graph. ──
-const SEO_TITLE = 'Beheerly — Software voor syndici & mede-eigendommen | Juke'
+const SEO_TITLE = 'Beheerly — Software voor syndicus, VME & mede-eigendom | Juke'
 const SEO_DESC =
-  'Beheerly is het platform voor Belgische syndici en VME’s: meldingen, offertes, werfopvolging en achterstanden in één systeem, met AI voor triage en samenvattingen. Boek een demo.'
+  'Beheerly is de syndicussoftware voor Belgische syndici en VME’s: meldingen, offertes, werfopvolging en achterstanden (bestuurdersbeheer) in één systeem, met AI voor triage en samenvattingen. Boek een demo.'
 
 const softwareJsonLd = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'SoftwareApplication',
   '@id': `${pageUrl.value}#beheerly`,
   name: 'Beheerly',
+  alternateName:
+    locale.value === 'en'
+      ? ['Property management software', 'VME software']
+      : ['Syndicussoftware', 'VME-software', 'Bestuurdersbeheersoftware'],
   applicationCategory: 'BusinessApplication',
+  applicationSubCategory:
+    locale.value === 'en' ? 'Property management software' : 'Syndicus- & VME-beheersoftware',
+  keywords:
+    locale.value === 'en'
+      ? 'property management software, VME software, co-ownership management, syndic software'
+      : 'software voor syndicus, syndicussoftware, VME-software, beheersoftware mede-eigendom, bestuurdersbeheersoftware',
   operatingSystem: 'Web, iOS, Android (PWA)',
   url: pageUrl.value,
   inLanguage: locale.value === 'en' ? 'en' : 'nl-BE',

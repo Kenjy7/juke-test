@@ -70,6 +70,82 @@
   status = 200
   force = true
 
+# ── 301-redirects: oude (verwijderde) URLs van vóór de rebrand ──
+# Behoudt opgebouwde SEO-autoriteit en voorkomt soft-404's. MOET vóór de
+# SPA-fallback staan: Netlify verwerkt regels van boven naar onder, eerste
+# match wint. force=true zorgt dat de 301 wint van de catch-all hieronder.
+
+# Offerte-/lead-pagina's → contact (zelfde conversie-intentie)
+[[redirects]]
+  from = "/offerte-aanvraag"
+  to = "/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/offerte-aanvraag"
+  to = "/en/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/gratis-seo-scan"
+  to = "/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/gratis-seo-scan"
+  to = "/en/contact"
+  status = 301
+  force = true
+
+# Webdesign + lokale stadspagina's (dienst vervalt na rebrand) → homepage
+[[redirects]]
+  from = "/webdesign"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/webdesign-*"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/webdesign/*"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/webdesigner-*"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/website-laten-maken-*"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/webdesign"
+  to = "/en"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/webdesign-*"
+  to = "/en"
+  status = 301
+  force = true
+
+# Overige verwijderde pagina's → homepage
+[[redirects]]
+  from = "/website-die-klanten-oplevert"
+  to = "/"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/locaties"
+  to = "/"
+  status = 301
+  force = true
+
 # Dan pas de SPA fallback
 [[redirects]]
   from = "/*"

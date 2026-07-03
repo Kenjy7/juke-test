@@ -38,7 +38,10 @@ import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import { blogPosts } from '@/data/blogs/index.js'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const SITE = 'https://jukecoding.be'
+const pageUrl = computed(() => (locale.value === 'en' ? `${SITE}/en/blog` : `${SITE}/blog`))
 
 const publishedPosts = computed(() =>
   [...blogPosts]
@@ -71,7 +74,7 @@ useHead(() => ({
         'Tips over websites, lokale SEO en AI voor Belgische KMO en zelfstandigen die online slimmer willen groeien.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://jukecoding.be/blog' },
+    { property: 'og:url', content: pageUrl.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-blog.jpg' },
     {
       property: 'og:image:alt',
@@ -79,7 +82,7 @@ useHead(() => ({
     },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { property: 'og:site_name', content: 'Juke' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Blog | Webdesign & AI tips voor KMO | Juke' },
@@ -90,7 +93,12 @@ useHead(() => ({
     { name: 'twitter:image', content: 'https://jukecoding.be/og-blog.jpg' },
     { name: 'twitter:image:alt', content: 'Juke blog - webdesign en AI voor KMO in Belgie' },
   ],
-  link: [{ rel: 'canonical', href: 'https://jukecoding.be/blog' }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/blog` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/blog` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/blog` },
+  ],
   script: [
     {
       type: 'application/ld+json',

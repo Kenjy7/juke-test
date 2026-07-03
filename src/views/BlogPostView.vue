@@ -57,7 +57,7 @@ import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import { blogPosts } from '@/data/blogs/index.js'
 import { sanitizeBlogContent } from '@/utils/sanitizeHtml.js'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const route = useRoute()
 const slug = computed(() => route.params.slug)
 const post = computed(() => blogPosts.find((p) => p.slug === slug.value && p.published) || null)
@@ -73,7 +73,12 @@ function formatDate(dateStr) {
   })
 }
 
-const canonicalUrl = computed(() => `https://jukecoding.be/blog/${slug.value}`)
+const SITE = 'https://jukecoding.be'
+// JSON-LD entity-IDs blijven op de canonieke nl-URL; de canonical zelf volgt de locale.
+const canonicalUrl = computed(() => `${SITE}/blog/${slug.value}`)
+const pageUrl = computed(() =>
+  locale.value === 'en' ? `${SITE}/en/blog/${slug.value}` : canonicalUrl.value,
+)
 
 useHead(() => {
   if (!post.value) {
@@ -102,7 +107,7 @@ useHead(() => {
       { property: 'og:title', content: post.value.metaTitle || post.value.title },
       { property: 'og:description', content: post.value.metaDescription },
       { property: 'og:type', content: 'article' },
-      { property: 'og:url', content: canonicalUrl.value },
+      { property: 'og:url', content: pageUrl.value },
       {
         property: 'og:image',
         content: `https://jukecoding.be${post.value.ogImage || '/og-blog.jpg'}`,
@@ -110,7 +115,7 @@ useHead(() => {
       { property: 'og:image:alt', content: post.value.title },
       { property: 'og:image:width', content: '1200' },
       { property: 'og:image:height', content: '630' },
-      { property: 'og:locale', content: 'nl_BE' },
+      { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
       { property: 'og:site_name', content: 'Juke' },
       // Article specific
       { property: 'article:published_time', content: post.value.publishedAt },
@@ -133,7 +138,12 @@ useHead(() => {
       },
       { name: 'twitter:image:alt', content: post.value.title },
     ],
-    link: [{ rel: 'canonical', href: canonicalUrl.value }],
+    link: [
+      { rel: 'canonical', href: pageUrl.value },
+      { rel: 'alternate', hreflang: 'nl-BE', href: canonicalUrl.value },
+      { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/blog/${slug.value}` },
+      { rel: 'alternate', hreflang: 'x-default', href: canonicalUrl.value },
+    ],
     script: [
       // Article schema
       {

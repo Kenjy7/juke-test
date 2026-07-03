@@ -41,6 +41,11 @@ export const faqsAI = {
       answer:
         'Ja. Naast standaard automatiseringen bouwen we volledig op maat gemaakte workflows en integraties die exact aansluiten op jouw systemen, processen en doelen.',
     },
+    {
+      question: 'Kan AI ook helpen bij kwaliteitscontrole?',
+      answer:
+        'Ja. AI-kwaliteitscontrole controleert automatisch documenten, data, offertes of productinformatie op fouten en afwijkingen — sneller en consistenter dan handmatige controle. Zo spoor je afwijkingen op vóór ze bij je klant terechtkomen en verlaag je het aantal fouten structureel.',
+    },
   ],
   en: [
     {
@@ -82,6 +87,11 @@ export const faqsAI = {
       question: 'Do you also offer custom solutions?',
       answer:
         'Yes. Alongside standard automations, we build fully custom workflows and integrations that fit your systems, processes and goals exactly.',
+    },
+    {
+      question: 'Can AI help with quality control?',
+      answer:
+        'Yes. AI quality control automatically checks documents, data, quotes or product information for errors and anomalies — faster and more consistently than manual review. You catch deviations before they reach your customer and structurally reduce error rates.',
     },
   ],
 }

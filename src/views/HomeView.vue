@@ -28,7 +28,10 @@ import WaaromJuke from '@/components/WaaromJuke.vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import FaqList from '@/components/FaqList.vue'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const SITE = 'https://jukecoding.be'
+const pageUrl = computed(() => (locale.value === 'en' ? `${SITE}/en` : `${SITE}/`))
 
 const homeFaqs = [
   {
@@ -66,7 +69,7 @@ const homeFaqsDisplay = computed(() => [
   { question: t('homeView.faqs.process.question'), answer: t('homeView.faqs.process.answer') },
 ])
 
-useHead({
+useHead(() => ({
   title: 'SaaS & AI Development Studio Hasselt | Juke',
   meta: [
     {
@@ -100,12 +103,12 @@ useHead({
         'Juke bouwt SaaS-platformen, AI-oplossingen en websites voor bedrijven met ambitie. Development studio in Hasselt, Belgie.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://jukecoding.be/' },
+    { property: 'og:url', content: pageUrl.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:site_name', content: 'Juke' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     {
       name: 'twitter:title',
@@ -121,7 +124,12 @@ useHead({
       content: 'Juke - SaaS & AI development studio in Hasselt',
     },
   ],
-  link: [{ rel: 'canonical', href: 'https://jukecoding.be/' }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/` },
+  ],
   script: [
     // Organisatie-schema komt centraal uit App.vue (zie src/data/organizationSchema.js).
     {
@@ -159,5 +167,5 @@ useHead({
       }),
     },
   ],
-})
+}))
 </script>

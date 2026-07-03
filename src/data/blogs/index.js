@@ -7,6 +7,92 @@
 
 export const blogPosts = [
   {
+    slug: 'syndicussoftware-vergelijken-waar-let-je-op',
+    title: 'Syndicussoftware vergelijken in 2026: waar let je op als syndicus?',
+    metaTitle: 'Syndicussoftware vergelijken (2026): waar op letten? | Juke',
+    metaDescription:
+      'Software voor syndicus kiezen? Vergelijk syndicussoftware op meldingenbeheer, offertes, werfopvolging, achterstanden en AI. Praktische checklist voor 2026.',
+    excerpt:
+      'Welke software voor syndicus past bij jouw kantoor? We zetten de belangrijkste criteria op een rij — van meldingenbeheer tot AI — zodat je syndicussoftware objectief kunt vergelijken.',
+    publishedAt: '2026-07-03',
+    published: true,
+    category: 'Software',
+    keywords: [
+      'software voor syndicus',
+      'syndicussoftware vergelijken',
+      'syndicus software vergelijken',
+      'bestuurdersbeheersoftware',
+      'VME software',
+      'beheersoftware mede-eigendom',
+    ],
+    readingTime: 8,
+    ogImage: '/og-beheerly.jpg',
+    content: `
+<h2>Waarom syndicussoftware vergelijken loont</h2>
+<p>Als syndicus beheer je tientallen gebouwen, honderden mede-eigenaars en een constante stroom aan meldingen, offertes en vergaderingen. De juiste <strong>software voor syndicus</strong> bepaalt of dat vlot loopt of dat je team verdrinkt in e-mails en Excel-lijsten. Toch kiezen veel kantoren hun pakket op basis van een demo van een half uur — en zitten er daarna jaren aan vast.</p>
+<p>In deze gids zetten we op een rij waar je op moet letten als je <strong>syndicussoftware wil vergelijken</strong>, zodat je een keuze maakt die past bij hoe jouw kantoor echt werkt.</p>
+
+<h2>1. Meldingenbeheer: van klacht tot oplossing</h2>
+<p>Het grootste tijdverlies bij de meeste syndici zit in meldingen: een lek in de garage, een defecte lift, een klacht over lawaai. Vergelijk pakketten op deze punten:</p>
+<ul>
+  <li><strong>Kunnen bewoners zelf melden</strong> via een portaal of app, of komt alles via e-mail en telefoon binnen?</li>
+  <li><strong>Wordt elke melding automatisch een ticket</strong> met status, prioriteit en verantwoordelijke?</li>
+  <li><strong>Zien mede-eigenaars de status</strong> van hun melding, of blijven ze bellen voor een update?</li>
+</ul>
+<p>Software die meldingen automatisch triageert en koppelt aan het juiste gebouw en de juiste aannemer, bespaart al snel meerdere uren per week.</p>
+
+<h2>2. Offertes en werfopvolging</h2>
+<p>Na de melding komt het echte werk: offertes opvragen bij aannemers, vergelijken, laten goedkeuren door de raad van mede-eigendom en de werf opvolgen. Let bij het vergelijken op:</p>
+<ul>
+  <li>Kun je vanuit een ticket <strong>rechtstreeks offertes aanvragen</strong> bij meerdere aannemers?</li>
+  <li>Worden offertes <strong>naast elkaar gezet</strong> zodat de VME snel kan beslissen?</li>
+  <li>Is er <strong>werfopvolging</strong>: planning, foto's, oplevering en facturatie in hetzelfde dossier?</li>
+</ul>
+
+<h2>3. Achterstanden en bestuurdersbeheer</h2>
+<p>Achterstallige bijdragen zijn een gevoelig maar cruciaal onderdeel van het beheer. Goede <strong>bestuurdersbeheersoftware</strong> toont per gebouw en per eigenaar wie achterstaat, verstuurt automatisch herinneringen en houdt de historiek bij voor als het tot een procedure komt. Vraag bij elke leverancier hoe aanmaningen, afbetalingsplannen en rapportering aan de raad van mede-eigendom verlopen.</p>
+
+<h2>4. AI: het nieuwe onderscheid tussen pakketten</h2>
+<p>De klassieke spelers automatiseren administratie; de nieuwe generatie syndicussoftware gebruikt <strong>AI om ook het denkwerk te versnellen</strong>:</p>
+<ul>
+  <li><strong>Automatische triage</strong>: AI leest een binnenkomende melding en bepaalt urgentie, categorie en gebouw</li>
+  <li><strong>Samenvattingen</strong>: lange e-mailconversaties of verslagen in enkele zinnen samengevat</li>
+  <li><strong>Document-QA</strong>: vragen stellen aan je basisakte, reglement of verslagen en meteen het antwoord krijgen</li>
+</ul>
+<p>Wie vandaag software kiest zonder AI-roadmap, vergelijkt eigenlijk pakketten van gisteren.</p>
+
+<h2>5. Prijsmodel en instapkosten</h2>
+<p>Vergelijk niet alleen het maandbedrag, maar het volledige plaatje:</p>
+<ul>
+  <li>Betaal je <strong>per gebouw, per kavel of per gebruiker</strong>?</li>
+  <li>Zijn er <strong>setup- of migratiekosten</strong> voor je bestaande dossiers?</li>
+  <li>Zit <strong>support en opleiding</strong> in de prijs, of komt dat erbovenop?</li>
+</ul>
+
+<h2>6. Belgische context: VME-wetgeving en GDPR</h2>
+<p>Syndicuswerk is Belgisch werk: de wet op de mede-eigendom, verplichte verslagen, de rol van de raad van mede-eigendom. Buitenlandse property-management-tools missen die context vaak volledig. Controleer of de software gebouwd is rond de <strong>Belgische VME-praktijk</strong> en of je data GDPR-conform in de EU wordt gehost.</p>
+
+<h2>Checklist: syndicussoftware vergelijken in 5 minuten</h2>
+<ul>
+  <li>✔ Bewonersportaal met automatische ticketcreatie</li>
+  <li>✔ Offerteaanvraag en -vergelijking vanuit het dossier</li>
+  <li>✔ Werfopvolging tot en met oplevering</li>
+  <li>✔ Achterstandenbeheer met automatische herinneringen</li>
+  <li>✔ AI voor triage, samenvattingen en document-QA</li>
+  <li>✔ Transparant prijsmodel zonder verborgen kosten</li>
+  <li>✔ Gebouwd voor de Belgische VME-wetgeving, GDPR-conform</li>
+</ul>
+
+<h2>Waar past Beheerly in deze vergelijking?</h2>
+<p>Wij bouwden <a href="/beheerly">Beheerly</a> precies omdat bestaande pakketten sterk zijn in boekhouding, maar zwak in het dagelijkse operationele werk: meldingen, offertes, werfopvolging en communicatie met bewoners. Beheerly combineert die hele flow in één systeem, met AI voor triage en samenvattingen — gebouwd in België, voor Belgische syndici en VME's.</p>
+<p>Benieuwd hoe Beheerly zich verhoudt tot je huidige werkwijze? <a href="/contact">Boek een vrijblijvende demo</a> en vergelijk het gewoon zelf.</p>
+
+<h2>Conclusie</h2>
+<p>Syndicussoftware vergelijken doe je niet op features-lijstjes, maar op je eigen dagelijkse flow: hoe komt een melding binnen, hoe snel ligt er een goedgekeurde offerte, en hoeveel handmatig werk zit ertussen? Neem die flow als meetlat, leg er twee of drie pakketten naast, en de juiste keuze wordt snel duidelijk.</p>
+    `,
+  },
+
+  {
     slug: 'hoeveel-kost-een-website-op-maat-belgie',
     title: 'Hoeveel kost een website op maat in België? (2026 prijsgids)',
     metaTitle: 'Hoeveel kost een website op maat in België? | Juke',

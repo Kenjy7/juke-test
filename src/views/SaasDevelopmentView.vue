@@ -103,12 +103,18 @@ onMounted(() => {
   ctaRef.value?.querySelectorAll('.reveal').forEach((el) => observer.observe(el))
 })
 
-const url = 'https://jukecoding.be/saas-development'
+const SITE = 'https://jukecoding.be'
+const url = computed(() =>
+  locale.value === 'en' ? `${SITE}/en/saas-development` : `${SITE}/saas-development`,
+)
+
+// JSON-LD entity-IDs blijven op de canonieke nl-URL, ook op /en.
+const NL_URL = `${SITE}/saas-development`
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  '@id': `${url}#service`,
+  '@id': `${NL_URL}#service`,
   name: 'Software op maat — SaaS- & app-development',
   serviceType: [
     'Software op maat',
@@ -120,7 +126,7 @@ const serviceJsonLd = {
   description:
     'Custom SaaS-platformen, dashboards, klantportalen en bedrijfssoftware op maat. Van concept en MVP tot een schaalbaar product dat je zelf bezit en beheert.',
   areaServed: { '@type': 'Country', name: 'Belgium' },
-  url,
+  url: NL_URL,
   provider: { '@type': 'Organization', '@id': 'https://jukecoding.be/#organization' },
   offers: {
     '@type': 'Offer',
@@ -144,11 +150,11 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jukecoding.be/' },
-    { '@type': 'ListItem', position: 2, name: 'SaaS-development', item: url },
+    { '@type': 'ListItem', position: 2, name: 'SaaS-development', item: NL_URL },
   ],
 }
 
-useHead({
+useHead(() => ({
   title: 'Software op maat & SaaS-development | Juke',
   meta: [
     {
@@ -164,10 +170,10 @@ useHead({
         'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url },
+    { property: 'og:url', content: url.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-saas.jpg' },
     { property: 'og:site_name', content: 'Juke' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Software op maat & SaaS-development | Juke' },
     {
@@ -175,13 +181,18 @@ useHead({
       content: 'Software op maat: custom SaaS-platformen, dashboards en klantportalen.',
     },
   ],
-  link: [{ rel: 'canonical', href: url }],
+  link: [
+    { rel: 'canonical', href: url.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: NL_URL },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/saas-development` },
+    { rel: 'alternate', hreflang: 'x-default', href: NL_URL },
+  ],
   script: [
     { key: 'ld-service-saas', type: 'application/ld+json', children: JSON.stringify(serviceJsonLd) },
     { key: 'ld-faq-saas', type: 'application/ld+json', children: JSON.stringify(faqJsonLd) },
     { key: 'ld-breadcrumb-saas', type: 'application/ld+json', children: JSON.stringify(breadcrumbJsonLd) },
   ],
-})
+}))
 </script>
 
 <style scoped lang="scss">

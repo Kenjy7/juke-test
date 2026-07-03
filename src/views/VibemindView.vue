@@ -362,7 +362,12 @@ import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import VibemindDemo from '@/components/VibemindDemo.vue'
 import vibemind2 from '@/assets/Vibemind2.webp'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const SITE = 'https://jukecoding.be'
+const pageUrl = computed(() =>
+  locale.value === 'en' ? `${SITE}/en/vibemind` : `${SITE}/vibemind`,
+)
 
 const features = computed(() => [
   {
@@ -497,7 +502,7 @@ const submitBeta = async () => {
   }
 }
 
-useHead({
+useHead(() => ({
   title: 'Vibemind — Parallelle AI-agents in één app | JukeCoding',
   meta: [
     {
@@ -513,10 +518,10 @@ useHead({
         'Draai meerdere Claude Code-agents naast elkaar: panes, kanban, skills en MCP. Schrijf je in voor de pre-release beta.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://jukecoding.be/vibemind' },
+    { property: 'og:url', content: pageUrl.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-vibemind.jpg' },
     { property: 'og:site_name', content: 'JukeCoding' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Vibemind — Parallelle AI-agents in één app' },
     {
@@ -524,7 +529,12 @@ useHead({
       content: 'Draai meerdere Claude Code-agents naast elkaar. Schrijf je in voor de beta.',
     },
   ],
-  link: [{ rel: 'canonical', href: 'https://jukecoding.be/vibemind' }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/vibemind` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/vibemind` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/vibemind` },
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -547,7 +557,7 @@ useHead({
       }),
     },
   ],
-})
+}))
 </script>
 
 <style scoped lang="scss">

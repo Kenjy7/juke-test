@@ -35,34 +35,43 @@ const { t, locale } = useI18n()
 
 const aiFaqs = computed(() => faqsAI[locale.value] ?? faqsAI.nl)
 
-const url = 'https://jukecoding.be/ai-automatisatie'
+// Canonical pad is /ai-projecten (NIET /ai-automatisatie — dat is een 301).
+const SITE = 'https://jukecoding.be'
+const pageUrl = computed(() =>
+  locale.value === 'en' ? `${SITE}/en/ai-projecten` : `${SITE}/ai-projecten`,
+)
 
-const breadcrumbAiJsonLd = {
+const breadcrumbAiJsonLd = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
   itemListElement: [
-    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jukecoding.be/' },
-    { '@type': 'ListItem', position: 2, name: 'AI automatisering', item: url },
+    { '@type': 'ListItem', position: 1, name: 'Home', item: locale.value === 'en' ? `${SITE}/en` : `${SITE}/` },
+    { '@type': 'ListItem', position: 2, name: 'AI automatisering', item: pageUrl.value },
   ],
-}
+}))
 
-const serviceJsonLd = {
+const serviceJsonLd = computed(() => ({
   '@context': 'https://schema.org',
   '@type': 'Service',
-  '@id': `${url}#service`,
+  '@id': `${pageUrl.value}#service`,
   name: 'AI-automatisering voor KMO in Belgie',
-  serviceType: ['AI Automation', 'Chatbot Development', 'Workflow Automatisatie'],
+  serviceType: [
+    'AI Automation',
+    'Chatbot Development',
+    'Workflow Automatisatie',
+    'AI-kwaliteitscontrole',
+  ],
   description:
-    'Slimme workflows, chatbots en automatiseringen die repetitieve taken overnemen voor KMO en zelfstandigen in Belgie. Bespaar tijd, verminder fouten en groei sneller.',
+    'Slimme workflows, chatbots, AI-kwaliteitscontrole en automatiseringen die repetitieve taken overnemen voor KMO en zelfstandigen in Belgie. Bespaar tijd, verminder fouten en groei sneller.',
   areaServed: { '@type': 'Country', name: 'Belgium' },
-  url,
+  url: pageUrl.value,
   provider: { '@type': 'Organization', '@id': 'https://jukecoding.be/#organization' },
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
     description: 'AI-automatisering op maat voor KMO, prijs op aanvraag na kennismaking',
   },
-}
+}))
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
@@ -96,13 +105,13 @@ const websiteSchema = {
   },
 }
 
-useHead({
+useHead(() => ({
   title: "AI Automatisatie voor KMO's in Belgie | Juke",
   meta: [
     {
       name: 'description',
       content:
-        'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
+        'AI automatisering voor KMO in Belgie: slimme workflows voor offertes, opvolging, rapportage en kwaliteitscontrole met AI. Actief in Hasselt en Limburg.',
     },
     {
       name: 'robots',
@@ -111,7 +120,7 @@ useHead({
     {
       name: 'keywords',
       content:
-        'AI automatisatie Belgie, slimme workflows, chatbots, workflow automatisatie, KMO automatisatie, bedrijfsprocessen automatiseren',
+        'AI automatisatie Belgie, slimme workflows, chatbots, workflow automatisatie, KMO automatisatie, bedrijfsprocessen automatiseren, kwaliteitscontrole AI, AI kwaliteitscontrole',
     },
     { name: 'geo.region', content: 'BE-VLG' },
     { name: 'geo.placename', content: 'Hasselt' },
@@ -127,13 +136,13 @@ useHead({
         'AI automatisering voor KMO in Belgie met slimme workflows voor offertes, opvolging en rapportage. Actief in Hasselt en Limburg.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: url },
+    { property: 'og:url', content: pageUrl.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-ai.jpg' },
     { property: 'og:image:alt', content: 'AI-automatisering door Juke' },
     { property: 'og:image:width', content: '2245' },
     { property: 'og:image:height', content: '1181' },
     { property: 'og:site_name', content: 'Juke' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: "AI Automatisatie voor KMO's | Juke" },
     {
@@ -147,7 +156,12 @@ useHead({
       content: "Juke - AI automatisatie voor Belgische KMO's",
     },
   ],
-  link: [{ rel: 'canonical', href: url }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/ai-projecten` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/ai-projecten` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/ai-projecten` },
+  ],
   script: [
     // LocalBusiness/Organization-schema komt centraal uit App.vue.
     {
@@ -158,12 +172,12 @@ useHead({
     {
       key: 'ld-breadcrumb-ai',
       type: 'application/ld+json',
-      children: JSON.stringify(breadcrumbAiJsonLd),
+      children: JSON.stringify(breadcrumbAiJsonLd.value),
     },
     {
       key: 'ld-service-ai',
       type: 'application/ld+json',
-      children: JSON.stringify(serviceJsonLd),
+      children: JSON.stringify(serviceJsonLd.value),
     },
     {
       key: 'ld-faq-ai',
@@ -171,5 +185,5 @@ useHead({
       children: JSON.stringify(faqJsonLd),
     },
   ],
-})
+}))
 </script>

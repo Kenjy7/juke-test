@@ -7,9 +7,18 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import ContactComponent from '@/components/ContactFormulier.vue'
+
+const { locale } = useI18n()
+
+const SITE = 'https://jukecoding.be'
+const pageUrl = computed(() =>
+  locale.value === 'en' ? `${SITE}/en/contact` : `${SITE}/contact`,
+)
 
 const contactFaqs = [
   {
@@ -34,7 +43,7 @@ const contactFaqs = [
   },
 ]
 
-useHead({
+useHead(() => ({
   title: 'Contact Opnemen | AI & Webdesign Hasselt | Juke',
   meta: [
     {
@@ -59,7 +68,7 @@ useHead({
         'Plan een gratis kennismakingsgesprek voor je AI-project of website in Hasselt en Limburg. Snel antwoord, geen verplichtingen.',
     },
     { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: 'https://jukecoding.be/contact' },
+    { property: 'og:url', content: pageUrl.value },
     { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     {
       property: 'og:image:alt',
@@ -68,7 +77,7 @@ useHead({
     { property: 'og:image:width', content: '1200' },
     { property: 'og:image:height', content: '630' },
     { property: 'og:site_name', content: 'Juke' },
-    { property: 'og:locale', content: 'nl_BE' },
+    { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
     { name: 'twitter:title', content: 'Contact Opnemen | Juke Hasselt' },
     {
@@ -82,7 +91,12 @@ useHead({
       content: 'Juke - AI automatisering en webdesign in Hasselt en Limburg',
     },
   ],
-  link: [{ rel: 'canonical', href: 'https://jukecoding.be/contact' }],
+  link: [
+    { rel: 'canonical', href: pageUrl.value },
+    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/contact` },
+    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/contact` },
+    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/contact` },
+  ],
   script: [
     {
       type: 'application/ld+json',
@@ -124,7 +138,7 @@ useHead({
       }),
     },
   ],
-})
+}))
 </script>
 
 <style scoped>

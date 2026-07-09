@@ -126,15 +126,12 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/` },
   ],
   script: [
     // Organisatie-schema komt centraal uit App.vue (zie src/data/organizationSchema.js).
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'WebSite',
         '@id': 'https://jukecoding.be/#website',
@@ -145,7 +142,7 @@ useHead(() => ({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -155,7 +152,7 @@ useHead(() => ({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         '@id': 'https://jukecoding.be/#faq',

@@ -173,10 +173,17 @@ export const useCookieConsent = () => {
 
     gtag('js', new Date())
 
-    // ✅ CONSENT MODE (dit is de upgrade)
+    // ✅ CONSENT MODE v2 — deze loader draait pas ná accept van de analytics-
+    // categorie, dus analytics_storage='granted'. De vier ad-signalen blijven
+    // 'denied' (marketing niet geaccepteerd). ad_user_data + ad_personalization
+    // zijn sinds maart 2024 verplicht; zonder deze twee degradeert elke latere
+    // Google Ads-conversie-import. Zet ze mee op 'granted' in loadMarketingScripts
+    // zodra de marketing-categorie wordt geaccepteerd.
     gtag('consent', 'default', {
       analytics_storage: 'granted',
       ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
     })
 
     // ✅ GA configuratie

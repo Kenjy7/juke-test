@@ -261,31 +261,31 @@ useHead({
     {
       key: 'ld-website',
       type: 'application/ld+json',
-      children: JSON.stringify(websiteSchema),
+      innerHTML: JSON.stringify(websiteSchema),
     },
     // âœ… WebPage Schema
     {
       key: 'ld-webpage',
       type: 'application/ld+json',
-      children: JSON.stringify(webPageSchema),
+      innerHTML: JSON.stringify(webPageSchema),
     },
     // âœ… BreadcrumbList Schema
     {
       key: 'ld-breadcrumb',
       type: 'application/ld+json',
-      children: JSON.stringify(breadcrumbSchema),
+      innerHTML: JSON.stringify(breadcrumbSchema),
     },
     // âœ… HowTo Schema (kans op featured snippet!)
     {
       key: 'ld-howto',
       type: 'application/ld+json',
-      children: JSON.stringify(howToSchema),
+      innerHTML: JSON.stringify(howToSchema),
     },
     // âœ… FAQPage Schema
     {
       key: 'ld-faq',
       type: 'application/ld+json',
-      children: JSON.stringify(faqSchema),
+      innerHTML: JSON.stringify(faqSchema),
     },
   ],
 })

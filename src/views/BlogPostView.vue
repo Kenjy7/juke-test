@@ -140,15 +140,12 @@ useHead(() => {
     ],
     link: [
       { rel: 'canonical', href: pageUrl.value },
-      { rel: 'alternate', hreflang: 'nl-BE', href: canonicalUrl.value },
-      { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/blog/${slug.value}` },
-      { rel: 'alternate', hreflang: 'x-default', href: canonicalUrl.value },
     ],
     script: [
       // Article schema
       {
         type: 'application/ld+json',
-        children: JSON.stringify({
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'Article',
           '@id': `${canonicalUrl.value}#article`,
@@ -187,7 +184,7 @@ useHead(() => {
       // BreadcrumbList
       {
         type: 'application/ld+json',
-        children: JSON.stringify({
+        innerHTML: JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [

@@ -8,7 +8,7 @@
           <div class="contact-aside__glow" aria-hidden="true"></div>
 
           <div class="contact-aside__head">
-            <h2>{{ t('contactFormulier.header.title') }}</h2>
+            <h1>{{ t('contactFormulier.header.title') }}</h1>
             <p>{{ t('contactFormulier.header.lead') }}</p>
           </div>
 
@@ -567,7 +567,7 @@ export default {
   border-radius: 50%;
   background: var(--color-accent);
 }
-.contact-aside__head h2 {
+.contact-aside__head h1 {
   font-family: var(--font-display);
   font-size: var(--text-h1);
   font-weight: var(--weight-semibold);

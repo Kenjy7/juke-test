@@ -49,6 +49,19 @@ Allow: /
 User-agent: ClaudeBot
 Allow: /
 
+# Overige AI-assistenten / crawlers expliciet toegelaten
+User-agent: Amazonbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
 # Sitemap locaties
 Sitemap: https://jukecoding.be/sitemap.xml
 Sitemap: https://www.jukecoding.be/sitemap.xml

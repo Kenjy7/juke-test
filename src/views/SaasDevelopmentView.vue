@@ -162,7 +162,7 @@ useHead(() => ({
       content:
         'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit. Development studio in Hasselt, België.',
     },
-    { name: 'robots', content: 'index, follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
     { property: 'og:title', content: 'Software op maat & SaaS-development | Juke' },
     {
       property: 'og:description',
@@ -183,14 +183,11 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: url.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: NL_URL },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/saas-development` },
-    { rel: 'alternate', hreflang: 'x-default', href: NL_URL },
   ],
   script: [
-    { key: 'ld-service-saas', type: 'application/ld+json', children: JSON.stringify(serviceJsonLd) },
-    { key: 'ld-faq-saas', type: 'application/ld+json', children: JSON.stringify(faqJsonLd) },
-    { key: 'ld-breadcrumb-saas', type: 'application/ld+json', children: JSON.stringify(breadcrumbJsonLd) },
+    { key: 'ld-service-saas', type: 'application/ld+json', innerHTML: JSON.stringify(serviceJsonLd) },
+    { key: 'ld-faq-saas', type: 'application/ld+json', innerHTML: JSON.stringify(faqJsonLd) },
+    { key: 'ld-breadcrumb-saas', type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbJsonLd) },
   ],
 }))
 </script>

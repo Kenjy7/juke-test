@@ -22,6 +22,7 @@
 
 ## Blog
 
+- [Syndicussoftware vergelijken: waar let je op?](https://jukecoding.be/blog/syndicussoftware-vergelijken-waar-let-je-op)
 - [Hoeveel kost een website op maat in België?](https://jukecoding.be/blog/hoeveel-kost-een-website-op-maat-belgie)
 - [Custom code vs WordPress: wat kiest een kmo?](https://jukecoding.be/blog/custom-code-vs-wordpress-wat-kiest-een-kmo)
 - [Waarom is een website belangrijk in je onderneming?](https://jukecoding.be/blog/waarom-is-een-website-belangrijk-in-je-onderneming-7-redenen-die-je-niet-mag-negeren)

@@ -510,7 +510,7 @@ useHead(() => ({
       content:
         'Vibemind is de desktop-tool van JukeCoding om meerdere Claude Code-agents parallel te draaien: panes, kanban, skills en een MCP-server. Schrijf je in voor de beta.',
     },
-    { name: 'robots', content: 'index, follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
     { property: 'og:title', content: 'Vibemind — Parallelle AI-agents in één app | JukeCoding' },
     {
       property: 'og:description',
@@ -531,14 +531,11 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/vibemind` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/vibemind` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/vibemind` },
   ],
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'SoftwareApplication',
         name: 'Vibemind',

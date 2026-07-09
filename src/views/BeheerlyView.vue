@@ -742,7 +742,7 @@ useHead(() => ({
   title: SEO_TITLE,
   meta: [
     { name: 'description', content: SEO_DESC },
-    { name: 'robots', content: 'index, follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
     { property: 'og:title', content: SEO_TITLE },
     { property: 'og:description', content: SEO_DESC },
     { property: 'og:type', content: 'website' },
@@ -759,15 +759,12 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/beheerly` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/beheerly` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/beheerly` },
   ],
   script: [
-    { key: 'ld-beheerly-software', type: 'application/ld+json', children: JSON.stringify(softwareJsonLd.value) },
-    { key: 'ld-beheerly-faq', type: 'application/ld+json', children: JSON.stringify(faqJsonLd.value) },
-    { key: 'ld-beheerly-webpage', type: 'application/ld+json', children: JSON.stringify(webPageJsonLd.value) },
-    { key: 'ld-beheerly-breadcrumb', type: 'application/ld+json', children: JSON.stringify(breadcrumbJsonLd.value) },
+    { key: 'ld-beheerly-software', type: 'application/ld+json', innerHTML: JSON.stringify(softwareJsonLd.value) },
+    { key: 'ld-beheerly-faq', type: 'application/ld+json', innerHTML: JSON.stringify(faqJsonLd.value) },
+    { key: 'ld-beheerly-webpage', type: 'application/ld+json', innerHTML: JSON.stringify(webPageJsonLd.value) },
+    { key: 'ld-beheerly-breadcrumb', type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbJsonLd.value) },
   ],
 }))
 </script>

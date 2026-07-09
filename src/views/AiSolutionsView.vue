@@ -158,31 +158,28 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/ai-projecten` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/ai-projecten` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/ai-projecten` },
   ],
   script: [
     // LocalBusiness/Organization-schema komt centraal uit App.vue.
     {
       key: 'ld-website',
       type: 'application/ld+json',
-      children: JSON.stringify(websiteSchema),
+      innerHTML: JSON.stringify(websiteSchema),
     },
     {
       key: 'ld-breadcrumb-ai',
       type: 'application/ld+json',
-      children: JSON.stringify(breadcrumbAiJsonLd.value),
+      innerHTML: JSON.stringify(breadcrumbAiJsonLd.value),
     },
     {
       key: 'ld-service-ai',
       type: 'application/ld+json',
-      children: JSON.stringify(serviceJsonLd.value),
+      innerHTML: JSON.stringify(serviceJsonLd.value),
     },
     {
       key: 'ld-faq-ai',
       type: 'application/ld+json',
-      children: JSON.stringify(faqJsonLd),
+      innerHTML: JSON.stringify(faqJsonLd),
     },
   ],
 }))

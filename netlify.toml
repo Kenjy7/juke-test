@@ -97,60 +97,197 @@
   status = 301
   force = true
 
-# Webdesign + lokale stadspagina's (dienst vervalt na rebrand) → homepage
+# Webdesign + lokale stadspagina's (dienst vervalt na rebrand). Deze URL's droegen
+# vóór de rebrand het grootste deel van de organische vertoningen (GSC: webdesign-*
+# en website-die-klanten-oplevert). Redirect naar de dichtstbijzijnde OVERLEVENDE
+# commerciële pagina (software/SaaS op maat) i.p.v. de generieke homepage, zodat
+# Google de intentie + link-equity doorgeeft i.p.v. het als soft-404 te lossen.
 [[redirects]]
   from = "/webdesign"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/webdesign-*"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/webdesign/*"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/webdesigner-*"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/website-laten-maken-*"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/en/webdesign"
-  to = "/en"
+  to = "/en/saas-development"
   status = 301
   force = true
 [[redirects]]
   from = "/en/webdesign-*"
-  to = "/en"
+  to = "/en/saas-development"
   status = 301
   force = true
 
-# Overige verwijderde pagina's → homepage
+# Overige verwijderde pagina's → dichtstbijzijnde relevante overlevende pagina
 [[redirects]]
   from = "/website-die-klanten-oplevert"
-  to = "/"
+  to = "/saas-development"
   status = 301
   force = true
+# /locaties stond op positie 2,7 (GSC): stuur naar contact (bevat werkgebied/Limburg),
+# relevanter dan de homepage.
 [[redirects]]
   from = "/locaties"
-  to = "/"
+  to = "/contact"
   status = 301
   force = true
 
-# Dan pas de SPA fallback
+# ── Route-aliassen → canonical (301) ──
+# Deze vanity-URL's zijn NIET geprerenderd (enkel canonical paths staan in
+# indexable-paths.js). Zonder deze 301's zouden ze via de SPA-fallback als 404
+# eindigen zodra die op status 404 staat. Als expliciete 301 serveren ze ook geen
+# duplicaat-200 meer. Houd in sync met de `alias`-lijsten in router/routes.js.
+[[redirects]]
+  from = "/ai"
+  to = "/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/ai-automatisatie"
+  to = "/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/ai-automation"
+  to = "/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/saas"
+  to = "/saas-development"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/vibe"
+  to = "/vibemind"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/syndicus"
+  to = "/beheerly"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/kennismaking"
+  to = "/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/afspraak"
+  to = "/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/cookiebeleid"
+  to = "/cookies"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/privacy-cookies"
+  to = "/cookies"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/privacy"
+  to = "/privacybeleid"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/privacy-policy"
+  to = "/privacybeleid"
+  status = 301
+  force = true
+# EN-varianten
+[[redirects]]
+  from = "/en/ai"
+  to = "/en/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/ai-automatisatie"
+  to = "/en/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/ai-automation"
+  to = "/en/ai-projecten"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/saas"
+  to = "/en/saas-development"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/vibe"
+  to = "/en/vibemind"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/syndicus"
+  to = "/en/beheerly"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/kennismaking"
+  to = "/en/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/afspraak"
+  to = "/en/contact"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/cookiebeleid"
+  to = "/en/cookies"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/privacy-cookies"
+  to = "/en/cookies"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/privacy"
+  to = "/en/privacybeleid"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/en/privacy-policy"
+  to = "/en/privacybeleid"
+  status = 301
+  force = true
+
+# Dan pas de SPA fallback. status=404: onbekende URL's krijgen een échte 404
+# (i.p.v. soft-404 met homepage-content op 200). Alle geldige pagina's zijn
+# geprerenderde statische bestanden en worden vóór deze regel geserveerd; enkel
+# echt-onbekende paden vallen hierop terug. Netlify rewrite't index.html met een
+# 404-statuscode → de SPA rendert client-side NotFoundView.
 [[redirects]]
   from = "/*"
   to = "/index.html"
-  status = 200
+  status = 404
 
 [build]
 command = "rm -rf node_modules package-lock.json && npm install && npm run build"

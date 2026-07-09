@@ -95,14 +95,11 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/blog` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/blog` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/blog` },
   ],
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'Blog',
         '@id': 'https://jukecoding.be/blog#blog',
@@ -139,7 +136,7 @@ useHead(() => ({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'BreadcrumbList',
         itemListElement: [
@@ -150,7 +147,7 @@ useHead(() => ({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ItemList',
         name: 'Blogposts over webdesign en AI',

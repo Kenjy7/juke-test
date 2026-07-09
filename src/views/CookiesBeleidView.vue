@@ -17,7 +17,7 @@ useHead({
       content:
         'Lees welke cookies Juke gebruikt, waarvoor ze dienen en hoe je je voorkeuren beheert, in overeenstemming met de GDPR.',
     },
-    { name: 'robots', content: 'index, follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/cookies' }],
 })

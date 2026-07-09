@@ -93,14 +93,11 @@ useHead(() => ({
   ],
   link: [
     { rel: 'canonical', href: pageUrl.value },
-    { rel: 'alternate', hreflang: 'nl-BE', href: `${SITE}/contact` },
-    { rel: 'alternate', hreflang: 'en', href: `${SITE}/en/contact` },
-    { rel: 'alternate', hreflang: 'x-default', href: `${SITE}/contact` },
   ],
   script: [
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'ContactPage',
         '@id': 'https://jukecoding.be/contact#webpage',
@@ -126,7 +123,7 @@ useHead(() => ({
     },
     {
       type: 'application/ld+json',
-      children: JSON.stringify({
+      innerHTML: JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
         '@id': 'https://jukecoding.be/contact#faq',

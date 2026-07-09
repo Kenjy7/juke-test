@@ -18,7 +18,7 @@ useHead({
       content:
         'Vraag je offerte aan voor AI-automatisering of webdesign. Binnen 24 uur een voorstel op maat voor je bedrijf.',
     },
-    { name: 'robots', content: 'index,follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
     { property: 'og:title', content: 'Offerte AI & Webdesign in 24u | Juke' },
     {
       property: 'og:description',

@@ -17,7 +17,7 @@ useHead({
       content:
         'Lees hoe Juke je persoonsgegevens verzamelt, gebruikt en beschermt, in overeenstemming met de GDPR.',
     },
-    { name: 'robots', content: 'index, follow' },
+    { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
   ],
   link: [{ rel: 'canonical', href: 'https://jukecoding.be/privacybeleid' }],
 })

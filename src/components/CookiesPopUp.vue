@@ -396,8 +396,8 @@ const handleSavePreferences = () => {
 }
 
 .btn-primary {
-  background: var(--color-primary);
-  color: var(--color-text-primary);
+  background: var(--color-accent);
+  color: var(--color-text-on-accent);
   box-shadow: var(--shadow-glow-primary);
 
   &:hover {

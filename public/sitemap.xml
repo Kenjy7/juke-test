@@ -4,7 +4,7 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://jukecoding.be/</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/"/>
@@ -17,7 +17,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/"/>
@@ -30,7 +30,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/ai-projecten</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/ai-projecten"/>
@@ -39,7 +39,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/ai-projecten</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/ai-projecten"/>
@@ -48,7 +48,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/saas-development</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/saas-development"/>
@@ -57,7 +57,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/saas-development</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/saas-development"/>
@@ -66,7 +66,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/vibemind</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/vibemind"/>
@@ -75,7 +75,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/vibemind</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/vibemind"/>
@@ -84,7 +84,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/beheerly</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/beheerly"/>
@@ -93,7 +93,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/beheerly</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/beheerly"/>
@@ -102,7 +102,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/blog</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog"/>
@@ -111,7 +111,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/blog</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog"/>
@@ -120,7 +120,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/contact</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/contact"/>
@@ -129,7 +129,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/contact</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/contact"/>
@@ -138,7 +138,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/cookies</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/cookies"/>
@@ -147,7 +147,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/cookies</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/cookies"/>
@@ -156,7 +156,7 @@
   </url>
   <url>
     <loc>https://jukecoding.be/privacybeleid</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/privacybeleid"/>
@@ -165,12 +165,116 @@
   </url>
   <url>
     <loc>https://jukecoding.be/en/privacybeleid</loc>
-    <lastmod>2026-07-09</lastmod>
+    <lastmod>2026-07-22</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
     <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/privacybeleid"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/privacybeleid"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/privacybeleid"/>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-saas.jpg</image:loc>
+      <image:title>Software op maat laten ontwikkelen: prijs, proces en valkuilen (2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/en/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces</loc>
+    <lastmod>2026-07-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/software-op-maat-laten-ontwikkelen-prijs-en-proces"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-saas.jpg</image:loc>
+      <image:title>Software op maat laten ontwikkelen: prijs, proces en valkuilen (2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-beheerly.jpg</image:loc>
+      <image:title>Je syndicuskantoor digitaliseren: van Excel naar VME-software</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/en/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software</loc>
+    <lastmod>2026-07-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/syndicuskantoor-digitaliseren-van-excel-naar-vme-software"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-beheerly.jpg</image:loc>
+      <image:title>Je syndicuskantoor digitaliseren: van Excel naar VME-software</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/blog/ai-kwaliteitscontrole-automatische-controle-met-ai</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-ai.jpg</image:loc>
+      <image:title>AI-kwaliteitscontrole: automatische kwaliteitscontrole met AI in de praktijk</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/en/blog/ai-kwaliteitscontrole-automatische-controle-met-ai</loc>
+    <lastmod>2026-07-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/ai-kwaliteitscontrole-automatische-controle-met-ai"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-ai.jpg</image:loc>
+      <image:title>AI-kwaliteitscontrole: automatische kwaliteitscontrole met AI in de praktijk</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/blog/ai-automatisering-voor-kmo-waar-begin-je</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-ai.jpg</image:loc>
+      <image:title>AI-automatisering voor KMO’s: waar begin je? (praktische gids 2026)</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://jukecoding.be/en/blog/ai-automatisering-voor-kmo-waar-begin-je</loc>
+    <lastmod>2026-07-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="nl-BE" href="https://jukecoding.be/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://jukecoding.be/en/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://jukecoding.be/blog/ai-automatisering-voor-kmo-waar-begin-je"/>
+    <image:image>
+      <image:loc>https://jukecoding.be/og-ai.jpg</image:loc>
+      <image:title>AI-automatisering voor KMO’s: waar begin je? (praktische gids 2026)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://jukecoding.be/blog/syndicussoftware-vergelijken-waar-let-je-op</loc>

@@ -7,6 +7,244 @@
 
 export const blogPosts = [
   {
+    slug: 'software-op-maat-laten-ontwikkelen-prijs-en-proces',
+    title: 'Software op maat laten ontwikkelen: prijs, proces en valkuilen (2026)',
+    metaTitle: 'Software op maat laten ontwikkelen: prijs & aanpak | Juke',
+    metaDescription:
+      'Software op maat laten ontwikkelen in België? Ontdek wat het kost, hoe het proces verloopt, wanneer maatwerk loont en waar je op moet letten. Gids 2026.',
+    excerpt:
+      'Wat kost software op maat en hoe verloopt zo’n traject? We leggen prijs, proces en de meestgemaakte fouten uit — zodat je weet waar je aan begint voor je software laat ontwikkelen.',
+    publishedAt: '2026-07-08',
+    published: true,
+    category: 'Software',
+    keywords: [
+      'software op maat',
+      'software op maat laten ontwikkelen',
+      'software ontwikkeling op maat',
+      'software laten ontwikkelen op maat',
+      'developer van software op maat inhuren',
+      'op maat gemaakte software',
+      'applicatie laten ontwikkelen',
+    ],
+    readingTime: 9,
+    ogImage: '/og-saas.jpg',
+    content: `
+<h2>Wanneer loont software op maat écht?</h2>
+<p>Standaardsoftware is fantastisch tot het moment waarop jouw proces niet meer in het vakje past. Dan begint het aanmodderen: drie tools aan elkaar plakken, gegevens handmatig overtypen, Excel-lijsten die niemand meer vertrouwt. Op dat punt gaan bedrijven <strong>software op maat laten ontwikkelen</strong> — niet omdat het hip is, maar omdat de standaardoplossing meer tijd kost dan ze bespaart.</p>
+<p>Maatwerk loont doorgaans in drie situaties:</p>
+<ul>
+  <li><strong>Je proces is je concurrentievoordeel.</strong> Als de manier waarop jij werkt jou onderscheidt, wil je die niet in het keurslijf van een standaardpakket wringen.</li>
+  <li><strong>Je betaalt je blauw aan licenties</strong> voor tien tools waarvan je er per stuk 20% gebruikt.</li>
+  <li><strong>Niets praat met niets.</strong> Je boekhouding, je CRM en je planning leven op eilanden en de brug ertussen ben jij, met kopiëren en plakken.</li>
+</ul>
+<p>Herken je dat? Dan is de vraag niet óf maatwerk loont, maar hoe je het slim aanpakt zonder je te verslikken in de kosten.</p>
+
+<h2>Wat kost software op maat laten ontwikkelen?</h2>
+<p>Het eerlijke antwoord: dat hangt af van de omvang. Maar "het hangt ervan af" helpt je niet, dus hier zijn realistische ordes van grootte voor de Belgische markt (2026):</p>
+<ul>
+  <li><strong>Een afgebakende tool of automatisering</strong> (één duidelijk probleem, één workflow): reken op enkele duizenden tot ~10.000 euro.</li>
+  <li><strong>Een MVP van een SaaS-platform of intern systeem</strong> (meerdere gebruikers, dashboards, koppelingen): grofweg 15.000 tot 40.000 euro.</li>
+  <li><strong>Een volwaardig platform</strong> met rollen, integraties, facturatie en schaalbaarheid: vanaf 40.000 euro, oplopend naarmate de scope groeit.</li>
+</ul>
+<p>Belangrijker dan het getal is wat de prijs bepaalt: het <strong>aantal schermen en gebruikersrollen</strong>, de <strong>integraties</strong> met bestaande systemen (boekhouding, betaalproviders, e-mail), de complexiteit van de <strong>logica</strong> achter de schermen, en of er <strong>bestaande data</strong> gemigreerd moet worden. Wie een developer van software op maat wil inhuren, vergelijkt dus niet dagprijzen maar aanpak: een team dat eerst durft te schrappen in de scope levert je vaak een goedkoper én beter product.</p>
+<p>Wil je een breder beeld van kostprijs en investering? Lees ook onze <a href="/blog/hoeveel-kost-een-website-op-maat-belgie">prijsgids voor software en websites op maat</a>.</p>
+
+<h2>Het proces: van idee tot werkend product</h2>
+<p>Goede software op maat ontwikkelen is geen kwestie van "de programmeur maakt wat jij vraagt". Een degelijk traject ziet er zo uit:</p>
+<h3>1. Ontdekking en afbakening</h3>
+<p>Eerst het probleem, dan pas de oplossing. In deze fase brengen we in kaart welk proces pijn doet, wie de gebruikers zijn en wat de kleinste versie is die al waarde levert. Dit is waar de meeste kosten worden bespaard — of verspild.</p>
+<h3>2. Ontwerp en prototype</h3>
+<p>Voor er één regel productiecode geschreven wordt, zie je hoe het eruit gaat zien. Klikbare schermen maken abstracte discussies concreet en vangen misverstanden op nu ze nog gratis zijn.</p>
+<h3>3. Bouwen in korte iteraties</h3>
+<p>Niet één jaar in stilte ontwikkelen en dan een verrassing opleveren. Wel om de paar weken iets tastbaars dat je kunt uitproberen, zodat je bijstuurt terwijl het nog kan.</p>
+<h3>4. Oplevering, opleiding en nazorg</h3>
+<p>Software is af als je team ermee werkt, niet als de code compileert. Migratie van data, opleiding en een duidelijke afspraak over onderhoud horen bij het traject.</p>
+<p>Zo werken we ook bij Juke aan <a href="/saas-development">custom SaaS-platformen en software op maat</a>: klein beginnen, snel iets werkends, en pas uitbouwen wat zich bewijst.</p>
+
+<h2>Maatwerk versus standaardpakket: hoe kies je?</h2>
+<p>Niet elk probleem verdient maatwerk. Een boekhoudpakket ga je niet zelf bouwen. De vuistregel: koop wat een oplosbaar, algemeen probleem is (boekhouding, e-mail, facturatie) en bouw wat jouw unieke werking of concurrentievoordeel raakt. Twijfel je tussen een kant-en-klaar systeem en zelf bouwen? Onze vergelijking <a href="/blog/custom-code-vs-wordpress-wat-kiest-een-kmo">custom code versus standaardplatform</a> gaat dieper in op die afweging.</p>
+
+<h2>De vijf duurste valkuilen</h2>
+<ul>
+  <li><strong>Te veel willen in versie één.</strong> Elke extra functie die "toch handig zou zijn" verdubbelt de tijd tot je iets nuttigs in handen hebt. Begin bij het scherpste probleem.</li>
+  <li><strong>Geen eigenaarschap over code en data.</strong> Zorg dat jij de code, de hosting en de data bezit. Anders zit je vast aan één leverancier.</li>
+  <li><strong>Vaag opgeleverd zonder documentatie.</strong> Zonder overdracht is elke toekomstige wijziging duurder dan nodig.</li>
+  <li><strong>Prijs boven aanpak kiezen.</strong> De goedkoopste offerte is zelden de goedkoopste eindfactuur.</li>
+  <li><strong>Onderhoud vergeten.</strong> Software leeft: browsers, integraties en beveiliging veranderen. Reken op een klein budget voor onderhoud.</li>
+</ul>
+
+<h2>Conclusie</h2>
+<p>Software op maat laten ontwikkelen is geen gok als je het goed aanpakt: begin bij een scherp afgebakend probleem, kies een team dat durft te schrappen, bouw in korte iteraties en zorg dat je zelf eigenaar blijft van code en data. Dan krijg je een product dat mee-groeit met je bedrijf in plaats van een kostenpost die stof vergaart.</p>
+<p>Benieuwd wat maatwerk voor jouw proces kan betekenen? <a href="/contact">Plan een vrijblijvende kennismaking</a> — we denken eerst mee over het probleem, niet meteen over de factuur.</p>
+    `,
+  },
+  {
+    slug: 'syndicuskantoor-digitaliseren-van-excel-naar-vme-software',
+    title: 'Je syndicuskantoor digitaliseren: van Excel naar VME-software',
+    metaTitle: 'Van Excel naar VME-software: syndicus digitaliseren | Juke',
+    metaDescription:
+      'Nog steeds Excel en losse mailboxen? Ontdek hoe je een syndicuskantoor digitaliseert met VME- en bestuurdersbeheersoftware, en wat het je oplevert.',
+    excerpt:
+      'Excel, losse mailboxen en post-its houden een syndicuskantoor niet lang recht. Zo stap je gestructureerd over naar VME-software en bestuurdersbeheersoftware — zonder chaos.',
+    publishedAt: '2026-07-15',
+    published: true,
+    category: 'Software',
+    keywords: [
+      'VME software',
+      'bestuurdersbeheersoftware',
+      'software beheer gebouwen',
+      'software voor syndicus',
+      'syndicus software',
+      'beheersoftware mede-eigendom',
+      'beheer platform',
+    ],
+    readingTime: 8,
+    ogImage: '/og-beheerly.jpg',
+    content: `
+<h2>Het punt waarop Excel je syndicuskantoor tegenhoudt</h2>
+<p>Elk syndicuskantoor begint met Excel. Eén tabblad per gebouw, een gedeelde mailbox, mappen op de server. Het werkt — tot je vijftien gebouwen beheert en elke melding, offerte en achterstand ergens anders leeft. Dan wordt het beheer een geheugenspel: wie heeft die aannemer al gebeld, is die offerte al goedgekeurd, welke eigenaar staat ook alweer achter?</p>
+<p>Op dat punt is de vraag niet of je moet digitaliseren, maar hoe je overstapt naar echte <strong>software voor syndicus</strong> zonder je bestaande dossiers in de knoop te draaien. Deze gids loodst je erdoor.</p>
+
+<h2>Wat digitaliseer je precies? De vier bouwstenen</h2>
+<p>"Digitaliseren" klinkt groot, maar in de praktijk gaat het om vier concrete blokken die elk kantoor herkent.</p>
+<h3>1. Meldingen en communicatie</h3>
+<p>De grootste tijdvreter. Een lek, een defecte lift, een klacht over lawaai — vandaag komt dat via telefoon, mail en soms een briefje binnen. Goede <strong>beheersoftware voor mede-eigendom</strong> maakt van elke melding automatisch een ticket met status, prioriteit en verantwoordelijke, zodat bewoners de status zelf zien in plaats van te blijven bellen.</p>
+<h3>2. Offertes en werfopvolging</h3>
+<p>Van offerte-aanvraag bij aannemers tot goedkeuring door de raad van mede-eigendom en opvolging van de werf: dat hoort in één dossier te zitten, niet verspreid over je mailbox.</p>
+<h3>3. Achterstanden en bestuurdersbeheer</h3>
+<p>Hier komt <strong>bestuurdersbeheersoftware</strong> van pas: per gebouw en per eigenaar zien wie achterstaat, automatisch herinneringen versturen en een historiek bijhouden voor als het tot een procedure komt. Dat is precies het werk dat in Excel altijd blijft liggen tot het te laat is.</p>
+<h3>4. Documenten en gebouwbeheer</h3>
+<p>Basisakte, reglementen, verslagen, plannen: <strong>software voor beheer van gebouwen</strong> houdt die vindbaar en gekoppeld aan het juiste dossier, in plaats van verspreid over mappenstructuren die alleen jij begrijpt.</p>
+
+<h2>De overstap in vier stappen — zonder chaos</h2>
+<ul>
+  <li><strong>Stap 1 — Inventariseer.</strong> Zet op een rij welke gebouwen, eigenaars en lopende dossiers je hebt. Dit is meteen een goede opkuis van verouderde gegevens.</li>
+  <li><strong>Stap 2 — Migreer in golven.</strong> Zet niet alles in één weekend over. Begin met één of twee gebouwen, leer het systeem kennen, en rol dan pas verder uit.</li>
+  <li><strong>Stap 3 — Neem je team mee.</strong> De beste software faalt als niemand ze gebruikt. Een korte opleiding en duidelijke afspraken over "vanaf nu doen we het zo" zijn cruciaal.</li>
+  <li><strong>Stap 4 — Betrek de mede-eigenaars.</strong> Een bewonersportaal werkt pas als bewoners weten dat het bestaat. Communiceer de overstap actief.</li>
+</ul>
+
+<h2>Waarom AI het verschil maakt in 2026</h2>
+<p>De klassieke pakketten automatiseren administratie. De nieuwe generatie <strong>syndicussoftware</strong> gebruikt AI om ook het denkwerk te versnellen: een binnenkomende melding automatisch categoriseren en aan het juiste gebouw koppelen, lange e-mailconversaties in enkele zinnen samenvatten, en vragen kunnen stellen aan je basisakte of verslagen met meteen het juiste antwoord. Dat scheelt uren per week die je vandaag aan opzoekwerk verliest.</p>
+<p>Wil je pakketten objectief tegen elkaar afwegen voor je kiest? Onze <a href="/blog/syndicussoftware-vergelijken-waar-let-je-op">checklist om syndicussoftware te vergelijken</a> zet de criteria op een rij.</p>
+
+<h2>Een Belgisch systeem voor Belgisch werk</h2>
+<p>Syndicuswerk is Belgisch werk: de wet op de mede-eigendom, de verplichte verslagen, de rol van de raad van mede-eigendom. Buitenlandse property-management-tools missen die context. Kies daarom een <strong>beheerplatform</strong> dat rond de Belgische VME-praktijk is gebouwd en je data GDPR-conform in de EU host. Zo bouwden we <a href="/beheerly">Beheerly</a>: één systeem voor meldingen, offertes, werfopvolging en achterstanden, met AI voor triage en samenvattingen.</p>
+
+<h2>Conclusie</h2>
+<p>Van Excel naar VME-software stap je niet in één big bang, maar in golven: inventariseren, in kleine stappen migreren, je team meenemen en de bewoners betrekken. Doe je dat, dan ruil je het geheugenspel in voor overzicht — en win je de uren terug die vandaag in mailboxen en spreadsheets verdwijnen.</p>
+<p>Benieuwd hoe dat er voor jouw kantoor uitziet? <a href="/contact">Boek een vrijblijvende demo van Beheerly</a> en we bekijken samen waar je het snelst tijd wint.</p>
+    `,
+  },
+  {
+    slug: 'ai-kwaliteitscontrole-automatische-controle-met-ai',
+    title: 'AI-kwaliteitscontrole: automatische kwaliteitscontrole met AI in de praktijk',
+    metaTitle: 'AI-kwaliteitscontrole: automatische controle met AI | Juke',
+    metaDescription:
+      'Hoe werkt AI-kwaliteitscontrole? Ontdek waar automatische kwaliteitscontrole met AI vandaag al waarde levert voor KMO’s — met concrete voorbeelden.',
+    excerpt:
+      'Kwaliteitscontrole met AI is geen sciencefiction meer. We tonen waar automatische controle vandaag al fouten vangt die mensen missen — en hoe je er als KMO mee begint.',
+    publishedAt: '2026-07-18',
+    published: true,
+    category: 'AI',
+    keywords: [
+      'kwaliteitscontrole ai',
+      'ai kwaliteitscontrole',
+      'automatische kwaliteitscontrole',
+      'kwaliteitscontrole automatiseren',
+      'ai automatisering',
+      'ai toepassingen',
+    ],
+    readingTime: 7,
+    ogImage: '/og-ai.jpg',
+    content: `
+<h2>Wat is AI-kwaliteitscontrole?</h2>
+<p><strong>AI-kwaliteitscontrole</strong> is het inzetten van kunstmatige intelligentie om werk automatisch te controleren op fouten, afwijkingen of onvolledigheden — sneller en consistenter dan een mens dat volhoudt. Waar klassieke controle steekproefsgewijs en vermoeidheidsgevoelig is, kijkt AI naar élk item, elke keer, met dezelfde aandacht.</p>
+<p>Het gaat niet om het vervangen van mensen, maar om het wegnemen van het geestdodende speurwerk, zodat je team zich op de uitzonderingen kan richten in plaats van op het afvinken.</p>
+
+<h2>Waar levert het vandaag al waarde?</h2>
+<p>Automatische kwaliteitscontrole met AI is allang geen fabriekstechnologie meer. Enkele concrete toepassingen voor dienstverleners en KMO’s:</p>
+<ul>
+  <li><strong>Documenten en offertes:</strong> AI controleert of alle verplichte velden ingevuld zijn, of bedragen kloppen en of de juiste voorwaarden erin staan — vóór het naar de klant gaat.</li>
+  <li><strong>Data-invoer:</strong> afwijkende of onlogische waarden in je systemen worden gemarkeerd voor iemand ze doorverwerkt, in plaats van erna.</li>
+  <li><strong>Tekst en communicatie:</strong> uitgaande berichten worden gescreend op toon, volledigheid en fouten.</li>
+  <li><strong>Beeld en visuele inspectie:</strong> foto’s van producten, werven of installaties worden vergeleken met de norm om afwijkingen te detecteren.</li>
+  <li><strong>Naleving en dossiers:</strong> AI signaleert ontbrekende stukken in een dossier voor het een probleem wordt.</li>
+</ul>
+
+<h2>Hoe werkt het onder de motorkap?</h2>
+<p>In de praktijk combineert een goede oplossing drie lagen: <strong>regels</strong> voor wat objectief fout is (een leeg verplicht veld), <strong>modellen</strong> die patronen herkennen die je moeilijk in regels vangt (een offerte die "raar" oogt vergeleken met duizend eerdere), en een <strong>mens in de lus</strong> die de gemarkeerde uitzonderingen beoordeelt. Die laatste laag is geen zwakte maar juist de kracht: de AI filtert het volume weg zodat de mens enkel de twijfelgevallen ziet.</p>
+
+<h2>Zo begin je als KMO — klein en meetbaar</h2>
+<ul>
+  <li><strong>Kies één controle die pijn doet.</strong> Waar kost een fout je het meest — een verkeerde offerte, een ontbrekend document, een foute levering? Begin daar.</li>
+  <li><strong>Meet de nulmeting.</strong> Hoeveel fouten glippen er nu door en wat kosten ze? Zonder dat cijfer kun je de winst niet aantonen.</li>
+  <li><strong>Start met suggesties, niet met blokkades.</strong> Laat de AI eerst markeren en aanbevelen; automatiseer pas verder als je het vertrouwt.</li>
+  <li><strong>Bouw voort op je eigen data.</strong> Hoe beter de AI jouw normen en historiek kent, hoe scherper ze controleert.</li>
+</ul>
+<p>Deze aanpak past in een bredere beweging: repetitief, foutgevoelig werk laten overnemen door slimme workflows. Lees hoe dat breder werkt in onze gids over <a href="/blog/ai-automatisering-voor-kmo-waar-begin-je">AI-automatisering voor KMO’s</a>.</p>
+
+<h2>Conclusie</h2>
+<p>AI-kwaliteitscontrole is geen toekomstmuziek meer: ze vangt vandaag al fouten die mensen door vermoeidheid of volume missen, en ze doet dat consistent. De sleutel is klein beginnen — één pijnlijke controle, een duidelijke nulmeting, de mens in de lus — en pas uitbreiden wat zich bewijst.</p>
+<p>Benieuwd welke controle in jouw bedrijf zich het snelst terugbetaalt? Bekijk onze aanpak voor <a href="/ai-projecten">AI-automatisering en kwaliteitscontrole</a> of <a href="/contact">plan een vrijblijvend gesprek</a>.</p>
+    `,
+  },
+  {
+    slug: 'ai-automatisering-voor-kmo-waar-begin-je',
+    title: 'AI-automatisering voor KMO’s: waar begin je? (praktische gids 2026)',
+    metaTitle: 'AI-automatisering voor KMO: waar begin je? | Juke',
+    metaDescription:
+      'AI-automatisering voor KMO’s: welke processen automatiseer je eerst, wat levert het op en hoe vermijd je dure fouten? Praktisch stappenplan voor 2026.',
+    excerpt:
+      'AI-automatisering klinkt groot, maar begint klein. We tonen welke processen een KMO als eerste automatiseert, wat het oplevert en hoe je dure omwegen vermijdt.',
+    publishedAt: '2026-07-22',
+    published: true,
+    category: 'Automatisering',
+    keywords: [
+      'ai automatisering',
+      'advies automatisatie',
+      'workflow automatisering',
+      'ai automatisering bedrijf',
+      'adviesbureau automatisatie',
+      'bedrijfsprocessen automatiseren',
+      'ai toepassingen hasselt',
+    ],
+    readingTime: 8,
+    ogImage: '/og-ai.jpg',
+    content: `
+<h2>AI-automatisering: groot woord, kleine start</h2>
+<p>Voor veel zaakvoerders klinkt <strong>AI-automatisering</strong> als een project van maanden met een prijskaartje om van te schrikken. In de praktijk begint het bij één irritant, repetitief proces dat elke week tijd opslokt. Automatiseer dat goed, meet de winst, en bouw pas uit wat werkt. Deze gids toont waar je als KMO best begint.</p>
+
+<h2>Welke processen automatiseer je eerst?</h2>
+<p>Niet elk proces is een goede eerste kandidaat. De beste startpunten delen drie kenmerken: het gebeurt <strong>vaak</strong>, het volgt <strong>regels</strong>, en fouten zijn <strong>duur of vervelend</strong>. Concreet zien we bij Belgische KMO’s deze klassiekers:</p>
+<ul>
+  <li><strong>Offertes en opvolging:</strong> automatisch opstellen, versturen en herinneren zonder dat jij het handmatig najaagt.</li>
+  <li><strong>Inkomende vragen:</strong> e-mails en berichten die automatisch gecategoriseerd en beantwoord of doorgestuurd worden.</li>
+  <li><strong>Rapportage:</strong> cijfers uit verschillende systemen die zichzelf elke maand tot een rapport samenvoegen.</li>
+  <li><strong>Data overtypen tussen systemen:</strong> de klassieke kopieer-en-plak tussen webshop, boekhouding en CRM.</li>
+  <li><strong>Kwaliteitscontrole:</strong> automatisch nakijken of dossiers, offertes of leveringen kloppen — meer daarover in onze gids over <a href="/blog/ai-kwaliteitscontrole-automatische-controle-met-ai">AI-kwaliteitscontrole</a>.</li>
+</ul>
+
+<h2>Wat levert het op?</h2>
+<p>De opbrengst van automatisering zit in drie hoeken. <strong>Tijd</strong>: uren repetitief werk die terugvloeien naar werk dat er echt toe doet. <strong>Minder fouten</strong>: een machine wordt niet moe en vergeet geen stap. En <strong>schaalbaarheid</strong>: je kunt meer klanten of dossiers aan zonder evenredig meer mensen. De valkuil is denken dat AI het hele proces overneemt — de winst zit meestal in de 80% routine, terwijl de mens de 20% uitzonderingen behandelt.</p>
+
+<h2>Een stappenplan dat werkt</h2>
+<ul>
+  <li><strong>1. Breng je tijd in kaart.</strong> Waar gaat de week naartoe? De grootste tijdvreter is je beste kandidaat, niet de meest spannende toepassing.</li>
+  <li><strong>2. Begin met één proces.</strong> Eén workflow, van begin tot eind geautomatiseerd, is meer waard dan tien half-af experimenten.</li>
+  <li><strong>3. Houd de mens in de lus.</strong> Laat de automatisering voorstellen doen en laat een mens goedkeuren, zeker in het begin.</li>
+  <li><strong>4. Meet en breid uit.</strong> Toon de gewonnen uren aan en gebruik dat momentum om het volgende proces aan te pakken.</li>
+</ul>
+
+<h2>Automatisering, maatwerk of standaardtool?</h2>
+<p>Soms lost een bestaande tool je probleem al op. Soms heb je een koppeling of een stukje logica nodig dat niet bestaat — dan kom je bij <a href="/saas-development">software op maat</a> uit. Goed advies over automatisatie begint dan ook niet bij de technologie, maar bij je proces: wat kost het meest, en wat is de eenvoudigste manier om dat weg te nemen? Zo pakken we het aan bij <a href="/ai-projecten">AI-automatisering voor KMO’s</a> — actief vanuit Hasselt, in heel Limburg en Vlaanderen.</p>
+
+<h2>Conclusie</h2>
+<p>AI-automatisering voor KMO’s is geen alles-of-niets-project. Begin bij je grootste tijdvreter, automatiseer één proces volledig, houd een mens in de lus en breid uit op basis van bewezen winst. Zo wordt AI geen dure belofte, maar een stille collega die het saaie werk overneemt.</p>
+<p>Wil je weten welk proces zich in jouw bedrijf het snelst terugbetaalt? <a href="/contact">Plan een vrijblijvend gesprek</a> — we kijken eerst naar je proces, niet naar de technologie.</p>
+    `,
+  },
+  {
     slug: 'syndicussoftware-vergelijken-waar-let-je-op',
     title: 'Syndicussoftware vergelijken in 2026: waar let je op als syndicus?',
     metaTitle: 'Syndicussoftware vergelijken (2026): waar op letten? | Juke',

@@ -9,6 +9,12 @@
       <AiEssentials />
 
       <FaqListAI :faqs="aiFaqs" />
+      <RelatedResources
+        :slugs="[
+          'ai-kwaliteitscontrole-automatische-controle-met-ai',
+          'ai-automatisering-voor-kmo-waar-begin-je',
+        ]"
+      />
       <AiClosingCta />
     </BackgroundWeb>
   </div>
@@ -28,6 +34,7 @@ import AiApproach from '@/components/AiApproach.vue'
 import AiEssentials from '@/components/AiEssentials.vue'
 import FaqListAI from '@/components/FaqListAI.vue'
 import AiClosingCta from '@/components/AiClosingCta.vue'
+import RelatedResources from '@/components/RelatedResources.vue'
 
 import { faqsAI } from '@/data/faqs.ai'
 

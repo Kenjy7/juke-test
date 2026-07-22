@@ -42,6 +42,14 @@
     <SaasEngagement />
     <SaasFaq :faqs="saasFaqs" />
 
+    <RelatedResources
+      :slugs="[
+        'software-op-maat-laten-ontwikkelen-prijs-en-proces',
+        'custom-code-vs-wordpress-wat-kiest-een-kmo',
+        'hoeveel-kost-een-website-op-maat-belgie',
+      ]"
+    />
+
     <!-- ──────── Closing CTA ──────── -->
     <section class="saas-cta" ref="ctaRef">
       <div class="container">
@@ -86,6 +94,7 @@ import SaasIntegrations from '@/components/SaasIntegrations.vue'
 import SaasProcess from '@/components/SaasProcess.vue'
 import SaasEngagement from '@/components/SaasEngagement.vue'
 import SaasFaq from '@/components/SaasFaq.vue'
+import RelatedResources from '@/components/RelatedResources.vue'
 import { faqsSaas } from '@/data/faqs.saas'
 
 // Page hero + closing CTA copy lives in the generated global messages

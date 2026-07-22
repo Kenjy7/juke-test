@@ -274,6 +274,13 @@
       </div>
     </section>
 
+    <RelatedResources
+      :slugs="[
+        'syndicussoftware-vergelijken-waar-let-je-op',
+        'syndicuskantoor-digitaliseren-van-excel-naar-vme-software',
+      ]"
+    />
+
     <!-- ───────────── CTA ───────────── -->
     <section class="bh-cta">
       <div class="container">
@@ -342,6 +349,7 @@ import {
 } from 'lucide-vue-next'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
 import FaqItem from '@/components/FaqItem.vue'
+import RelatedResources from '@/components/RelatedResources.vue'
 
 const { t, locale } = useI18n()
 

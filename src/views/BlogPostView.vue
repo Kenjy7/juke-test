@@ -33,6 +33,26 @@
       <!-- Content -->
       <div class="blog-post__content" v-html="safeContent"></div>
 
+      <!-- Gerelateerde artikels -->
+      <aside
+        v-if="relatedPosts.length"
+        class="blog-post__related"
+        :aria-label="locale === 'en' ? 'Related articles' : 'Gerelateerde artikels'"
+      >
+        <h2 class="blog-post__related-title">
+          {{ locale === 'en' ? 'Read more' : 'Verder lezen' }}
+        </h2>
+        <ul class="blog-post__related-list">
+          <li v-for="rp in relatedPosts" :key="rp.slug">
+            <RouterLink :to="`/blog/${rp.slug}`" class="blog-post__related-card">
+              <span class="blog-post__related-category">{{ rp.category }}</span>
+              <span class="blog-post__related-heading">{{ rp.title }}</span>
+              <span class="blog-post__related-excerpt">{{ rp.excerpt }}</span>
+            </RouterLink>
+          </li>
+        </ul>
+      </aside>
+
       <!-- CTA onderaan -->
       <div class="blog-post__cta-block">
         <h3>{{ t('blogPostView.cta.title') }}</h3>
@@ -64,6 +84,19 @@ const post = computed(() => blogPosts.find((p) => p.slug === slug.value && p.pub
 
 // Sanitise blog HTML before v-html — see src/utils/sanitizeHtml.js.
 const safeContent = computed(() => sanitizeBlogContent(post.value?.content))
+
+// Gerelateerde artikels: zelfde categorie eerst (topical cluster), aangevuld
+// met de meest recente andere posts. Bouwt automatisch interne links tussen
+// verwante posts — goed voor SEO en om bezoekers op de site te houden.
+const relatedPosts = computed(() => {
+  if (!post.value) return []
+  const others = blogPosts
+    .filter((p) => p.published && p.slug !== post.value.slug)
+    .sort((a, b) => new Date(b.publishedAt) - new Date(a.publishedAt))
+  const sameCategory = others.filter((p) => p.category === post.value.category)
+  const rest = others.filter((p) => p.category !== post.value.category)
+  return [...sameCategory, ...rest].slice(0, 3)
+})
 
 function formatDate(dateStr) {
   return new Date(dateStr).toLocaleDateString('nl-BE', {
@@ -367,6 +400,68 @@ useHead(() => {
   padding: 16px 20px;
   margin: 0 0 20px;
   color: var(--color-text-secondary);
+}
+
+/* Gerelateerde artikels */
+.blog-post__related {
+  margin: 64px 0 0;
+  padding-top: 40px;
+  border-top: 1px solid var(--color-border);
+}
+
+.blog-post__related-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-primary);
+  margin: 0 0 24px;
+}
+
+.blog-post__related-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+
+.blog-post__related-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-bg-sunken);
+  text-decoration: none;
+  transition:
+    border-color var(--duration-base) var(--ease-smooth),
+    transform var(--duration-base) var(--ease-smooth);
+}
+
+.blog-post__related-card:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}
+
+.blog-post__related-category {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-accent);
+}
+
+.blog-post__related-heading {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  line-height: 1.35;
+}
+
+.blog-post__related-excerpt {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.6;
 }
 
 /* CTA block */

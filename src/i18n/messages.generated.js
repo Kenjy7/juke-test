@@ -953,7 +953,8 @@ export default {
         "title": "Wie is verantwoordelijk",
         "text": "Juke is de verwerkingsverantwoordelijke voor de gegevens die via deze website worden verzameld.",
         "name": "Juke",
-        "address": "3500 Hasselt, België"
+        "address": "3500 Hasselt, België",
+        "vat": "BTW: BE 0876.478.439 (starterslabo)"
       },
       "data": {
         "title": "Welke gegevens we verzamelen",
@@ -2381,7 +2382,8 @@ export default {
         "title": "Who is responsible",
         "text": "Juke is the data controller for the data collected through this website.",
         "name": "Juke",
-        "address": "3500 Hasselt, Belgium"
+        "address": "3500 Hasselt, Belgium",
+        "vat": "VAT: BE 0876.478.439 (starterslabo)"
       },
       "data": {
         "title": "What data we collect",

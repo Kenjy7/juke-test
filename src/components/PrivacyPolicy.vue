@@ -18,6 +18,7 @@
           <div class="ident">
             <span class="ident__name">{{ t('privacyPolicy.controller.name') }}</span>
             <span>{{ t('privacyPolicy.controller.address') }}</span>
+            <span>{{ t('privacyPolicy.controller.vat') }}</span>
             <a href="mailto:contact@jukecoding.be">contact@jukecoding.be</a>
           </div>
         </section>

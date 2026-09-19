@@ -493,7 +493,12 @@ export default {
       "cta": {
         "title": "Klaar om te starten?",
         "text": "Ontdek wat Juke voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.",
-        "button": "Gratis offerte aanvragen →"
+        "button": "Gratis offerte aanvragen →",
+        "service": {
+          "webdesign": "Bekijk onze webdesign-aanpak",
+          "saas": "Bekijk software op maat",
+          "ai": "Bekijk AI-automatisering"
+        }
       },
       "allPosts": "← Alle blogposts"
     },
@@ -522,7 +527,7 @@ export default {
       "header": {
         "eyebrow": "Contact",
         "title": "Stuur ons een bericht",
-        "lead": "Heb je een idee of een vraag over SaaS, apps of AI? Laat van je horen, we reageren doorgaans binnen 1 werkdag."
+        "lead": "Heb je een idee of een vraag over een website, software op maat of AI? Laat van je horen, we reageren doorgaans binnen 1 werkdag."
       },
       "modal": {
         "close": "Sluiten",
@@ -545,6 +550,7 @@ export default {
         "serviceLabel": "Waar ben je in geïnteresseerd?",
         "serviceSaas": "SaaS & apps",
         "serviceAi": "AI-automatisering",
+        "serviceWebdesign": "Webdesign",
         "serviceOther": "Iets anders",
         "firstNameLabel": "Voornaam",
         "lastNameLabel": "Achternaam",
@@ -565,7 +571,8 @@ export default {
         "aria": "Gerelateerde pagina’s",
         "label": "Ook interessant:",
         "saas": "SaaS & apps",
-        "ai": "AI Automatisatie"
+        "ai": "AI-automatisering",
+        "webdesign": "Webdesign"
       },
       "validation": {
         "service": "Kies waar je in geïnteresseerd bent.",
@@ -577,7 +584,8 @@ export default {
       "prefill": {
         "beheerly": "Interesse in Beheerly",
         "saas": "Interesse in SaaS & apps",
-        "ai": "Interesse in AI-automatisering"
+        "ai": "Interesse in AI-automatisering",
+        "webdesign": "Interesse in webdesign"
       }
     },
     "cookiesPolicy": {
@@ -1435,6 +1443,21 @@ export default {
         "subtitle": "We bekijken je doelen en geven eerlijk advies over wat je website nodig heeft om meer aanvragen op te leveren.",
         "cta": "Gratis kennismaking"
       }
+    },
+    "webdesignView": {
+      "hero": {
+        "titleLead": "Websites die snel laden,",
+        "titleHighlight": "scoren en converteren.",
+        "subtitle": "Snelle, conversiegerichte websites op maat die bezoekers omzetten in klanten. Van strategie en design tot livegang, met technische SEO als fundament.",
+        "ctaPrimary": "Start je project",
+        "ctaSecondary": "Neem contact op",
+        "ctaFaq": "Veelgestelde vragen"
+      },
+      "cta": {
+        "heading": "Klaar voor een website die wel werkt?",
+        "body": "Vertel ons over je bedrijf en je doelen. In een vrijblijvend gesprek bekijken we samen wat jouw nieuwe website nodig heeft om klanten op te leveren.",
+        "button": "Start je project"
+      }
     }
   },
   "en": {
@@ -1929,7 +1952,12 @@ export default {
       "cta": {
         "title": "Ready to get started?",
         "text": "Discover what Juke can do for your business. Request a free quote.",
-        "button": "Request a free quote →"
+        "button": "Request a free quote →",
+        "service": {
+          "webdesign": "See our web design approach",
+          "saas": "See custom software",
+          "ai": "See AI automation"
+        }
       },
       "allPosts": "← All blog posts"
     },
@@ -1958,7 +1986,7 @@ export default {
       "header": {
         "eyebrow": "Contact",
         "title": "Send us a message",
-        "lead": "Have an idea or a question about SaaS, apps or AI? Get in touch, we usually reply within one business day."
+        "lead": "Have an idea or a question about a website, custom software or AI? Get in touch, we usually reply within one business day."
       },
       "modal": {
         "close": "Close",
@@ -1981,6 +2009,7 @@ export default {
         "serviceLabel": "What are you interested in?",
         "serviceSaas": "SaaS & apps",
         "serviceAi": "AI automation",
+        "serviceWebdesign": "Web design",
         "serviceOther": "Something else",
         "firstNameLabel": "First name",
         "lastNameLabel": "Last name",
@@ -2001,7 +2030,8 @@ export default {
         "aria": "Related pages",
         "label": "Also interesting:",
         "saas": "SaaS & apps",
-        "ai": "AI Automation"
+        "ai": "AI Automation",
+        "webdesign": "Web design"
       },
       "validation": {
         "service": "Choose what you are interested in.",
@@ -2013,7 +2043,8 @@ export default {
       "prefill": {
         "beheerly": "Interested in Beheerly",
         "saas": "Interested in SaaS & apps",
-        "ai": "Interested in AI automation"
+        "ai": "Interested in AI automation",
+        "webdesign": "Interested in web design"
       }
     },
     "cookiesPolicy": {
@@ -2870,6 +2901,21 @@ export default {
         "title": "Schedule a free intro call",
         "subtitle": "We'll look at your goals and give honest advice on what your website needs to bring in more enquiries.",
         "cta": "Free intro call"
+      }
+    },
+    "webdesignView": {
+      "hero": {
+        "titleLead": "Websites that load fast,",
+        "titleHighlight": "rank and convert.",
+        "subtitle": "Fast, conversion-focused custom websites that turn visitors into customers. From strategy and design to launch, with technical SEO as the foundation.",
+        "ctaPrimary": "Start your project",
+        "ctaSecondary": "Get in touch",
+        "ctaFaq": "Frequently asked questions"
+      },
+      "cta": {
+        "heading": "Ready for a website that actually works?",
+        "body": "Tell us about your business and your goals. In a no-obligation chat we map out what your new website needs to start bringing in customers.",
+        "button": "Start your project"
       }
     }
   }

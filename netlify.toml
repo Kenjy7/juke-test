@@ -101,53 +101,50 @@
   status = 301
   force = true
 
-# Webdesign + lokale stadspagina's (dienst vervalt na rebrand). Deze URL's droegen
-# vóór de rebrand het grootste deel van de organische vertoningen (GSC: webdesign-*
-# en website-die-klanten-oplevert). Redirect naar de dichtstbijzijnde OVERLEVENDE
-# commerciële pagina (software/SaaS op maat) i.p.v. de generieke homepage, zodat
-# Google de intentie + link-equity doorgeeft i.p.v. het als soft-404 te lossen.
-[[redirects]]
-  from = "/webdesign"
-  to = "/saas-development"
-  status = 301
-  force = true
+# Webdesign + lokale stadspagina's. Deze URL's droegen vóór de rebrand het grootste
+# deel van de organische vertoningen (GSC: webdesign-* en website-die-klanten-oplevert).
+# Webdesign is sinds september 2026 terug een kerndienst met een eigen pagina
+# (/webdesign), dus alle oude varianten gaan daar weer naartoe.
+# LET OP: geen regel voor /webdesign zelf, dat is nu de echte pagina. Ook geen
+# /webdesign/*: een splat kan /webdesign mee matchen en dan een redirect-lus geven.
 [[redirects]]
   from = "/webdesign-*"
-  to = "/saas-development"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/webdesign/*"
-  to = "/saas-development"
+  to = "/webdesign"
   status = 301
   force = true
 [[redirects]]
   from = "/webdesigner-*"
-  to = "/saas-development"
+  to = "/webdesign"
   status = 301
   force = true
 [[redirects]]
   from = "/website-laten-maken-*"
-  to = "/saas-development"
-  status = 301
-  force = true
-[[redirects]]
-  from = "/en/webdesign"
-  to = "/en/saas-development"
+  to = "/webdesign"
   status = 301
   force = true
 [[redirects]]
   from = "/en/webdesign-*"
-  to = "/en/saas-development"
+  to = "/en/webdesign"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/website-die-klanten-oplevert"
+  to = "/webdesign"
+  status = 301
+  force = true
+# Oude aliassen van de vroegere webdesign-/pakkettenpagina
+[[redirects]]
+  from = "/aanbod"
+  to = "/webdesign"
+  status = 301
+  force = true
+[[redirects]]
+  from = "/pakketten"
+  to = "/webdesign"
   status = 301
   force = true
 
 # Overige verwijderde pagina's → dichtstbijzijnde relevante overlevende pagina
-[[redirects]]
-  from = "/website-die-klanten-oplevert"
-  to = "/saas-development"
-  status = 301
-  force = true
 # /locaties stond op positie 2,7 (GSC): stuur naar contact (bevat werkgebied/Limburg),
 # relevanter dan de homepage.
 [[redirects]]

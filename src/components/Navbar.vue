@@ -131,8 +131,10 @@ const { t } = useI18n()
 const navLinks = [
   { to: '/saas-development', labelKey: 'nav.saas' },
   { to: '/ai-projecten', labelKey: 'nav.ai' },
+  { to: '/webdesign', labelKey: 'nav.webdesign' },
   { to: '/vibemind', labelKey: 'nav.vibemind' },
-  { to: '/beheerly', labelKey: 'nav.beheerly' },
+  // Beheerly is on hold (focus on the core services); it stays reachable via
+  // the footer's "Products" column.
   { to: '/blog', labelKey: 'nav.blog' },
   { to: '/contact', labelKey: 'nav.contact' },
 ]

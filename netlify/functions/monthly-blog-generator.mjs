@@ -17,20 +17,23 @@
  * ─────────────────────────────────────────────────────────────────────
  */
 
-// Geplande zoekwoorden per maand (pas aan naar keuze)
+// Geplande zoekwoorden per maand, in rotatie over de drie kerndiensten:
+// webdesign → software op maat (SaaS) → automatisering. Gekozen op koopintentie
+// (iemand die dit zoekt, overweegt een project) en zonder overlap met bestaande
+// posts in src/data/blogs/index.js. Pas aan naar keuze.
 const MONTHLY_KEYWORDS = [
-  'website laten maken tips voor KMO',          // Januari
-  'bedrijfsprocessen automatiseren met AI',     // Februari
-  'wat is lokale SEO en waarom is het belangrijk', // Maart
-  'hoeveel kost een website op maat in België', // April
-  'AI chatbot voor bedrijf laten bouwen',       // Mei
-  'webdesign trends voor KMO',                  // Juni
-  'hoe scoort mijn website beter in Google',    // Juli
-  'procesautomatisering voorbeelden kleine bedrijven', // Augustus
-  'website zonder wordpress voordelen',         // September
-  'lead generatie via website voor KMO',        // Oktober
-  'custom website vs template verschil',        // November
-  'digitale groei strategie voor KMO 2026',     // December
+  'website laten maken voor KMO: stappenplan',               // Januari   · webdesign
+  'klantportaal laten bouwen: kosten en aanpak',             // Februari  · software
+  'administratie automatiseren met AI voor KMO',             // Maart     · automatisering
+  'website laten maken in Limburg: waar let je op',          // April     · webdesign
+  'maatwerk software of standaardpakket voor je KMO',        // Mei       · software
+  'offertes en facturen automatiseren',                      // Juni      · automatisering
+  'website die leads oplevert: wat maakt het verschil',      // Juli      · webdesign
+  'planningstool op maat laten ontwikkelen',                 // Augustus  · software
+  'AI-chatbot voor klantenservice: kosten en voorbeelden',   // September · automatisering
+  'bestaande website vernieuwen: wanneer is het tijd',       // Oktober   · webdesign
+  'Excel vervangen door software op maat',                   // November  · software
+  'repetitieve taken automatiseren: voorbeelden voor KMO',   // December  · automatisering
 ]
 
 function toSlug(text) {
@@ -53,10 +56,11 @@ async function generateWithClaude(topic, apiKey) {
   const { default: Anthropic } = await import('@anthropic-ai/sdk')
   const client = new Anthropic({ apiKey })
 
-  const systemPrompt = `Je bent een SEO-copywriter voor JukeCoding, een Belgisch webbureau dat custom websites bouwt en bedrijfsprocessen automatiseert voor KMO's.
+  const systemPrompt = `Je bent een SEO-copywriter voor JukeCoding, een Belgische development studio die websites, software op maat en AI-automatisering bouwt voor KMO's.
 
 JukeCoding profiel:
 - Bouwt custom code websites (geen WordPress, geen page builders)
+- Bouwt software op maat: klantportalen, dashboards en SaaS-platformen
 - Automatiseert bedrijfsprocessen met AI
 - Doelgroep: groeiende KMO's (5-50 medewerkers), sector-onafhankelijk
 - Tone of voice: professioneel maar ook wat speels
@@ -68,7 +72,7 @@ Schrijfregels:
 - Gebruik jij/je-vorm om de lezer direct aan te spreken
 - Wees concreet — geen vage marketing-taal
 - Gebruik de primaire zoekterm in H1, eerste alinea, en minstens 2x in de tekst
-- Voeg interne links toe naar /webdesign, /ai-automatisatie of /offerte-aanvraag waar relevant
+- Voeg interne links toe naar /webdesign, /saas-development, /ai-projecten of /contact waar relevant
 - Schrijf minimaal 600 woorden content
 - Gebruik H2 en H3 voor structuur`
 
@@ -80,7 +84,7 @@ Geef je antwoord UITSLUITEND als een geldig JSON-object:
   "metaTitle": "SEO title (max 60 tekens, eindigt met | JukeCoding)",
   "metaDescription": "SEO meta beschrijving (max 160 tekens, met call-to-action)",
   "excerpt": "korte samenvatting voor de bloglijst (max 200 tekens)",
-  "category": "Webdesign | Automatisering | SEO | AI",
+  "category": "Webdesign | Software | Automatisering | AI",
   "keywords": ["zoekwoord 1", "zoekwoord 2", "zoekwoord 3"],
   "readingTime": 6,
   "content": "<h2>...</h2><p>...</p>... (volledige HTML content)"

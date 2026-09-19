@@ -3,7 +3,7 @@
     "header": {
       "eyebrow": "Contact",
       "title": "Stuur ons een bericht",
-      "lead": "Heb je een idee of een vraag over SaaS, apps of AI? Laat van je horen, we reageren doorgaans binnen 1 werkdag."
+      "lead": "Heb je een idee of een vraag over een website, software op maat of AI? Laat van je horen, we reageren doorgaans binnen 1 werkdag."
     },
     "modal": {
       "close": "Sluiten",
@@ -26,6 +26,7 @@
       "serviceLabel": "Waar ben je in geïnteresseerd?",
       "serviceSaas": "SaaS & apps",
       "serviceAi": "AI-automatisering",
+      "serviceWebdesign": "Webdesign",
       "serviceOther": "Iets anders",
       "firstNameLabel": "Voornaam",
       "lastNameLabel": "Achternaam",
@@ -46,7 +47,8 @@
       "aria": "Gerelateerde pagina’s",
       "label": "Ook interessant:",
       "saas": "SaaS & apps",
-      "ai": "AI Automatisatie"
+      "ai": "AI-automatisering",
+      "webdesign": "Webdesign"
     },
     "validation": {
       "service": "Kies waar je in geïnteresseerd bent.",
@@ -58,14 +60,15 @@
     "prefill": {
       "beheerly": "Interesse in Beheerly",
       "saas": "Interesse in SaaS & apps",
-      "ai": "Interesse in AI-automatisering"
+      "ai": "Interesse in AI-automatisering",
+      "webdesign": "Interesse in webdesign"
     }
   },
   "en": {
     "header": {
       "eyebrow": "Contact",
       "title": "Send us a message",
-      "lead": "Have an idea or a question about SaaS, apps or AI? Get in touch, we usually reply within one business day."
+      "lead": "Have an idea or a question about a website, custom software or AI? Get in touch, we usually reply within one business day."
     },
     "modal": {
       "close": "Close",
@@ -88,6 +91,7 @@
       "serviceLabel": "What are you interested in?",
       "serviceSaas": "SaaS & apps",
       "serviceAi": "AI automation",
+      "serviceWebdesign": "Web design",
       "serviceOther": "Something else",
       "firstNameLabel": "First name",
       "lastNameLabel": "Last name",
@@ -108,7 +112,8 @@
       "aria": "Related pages",
       "label": "Also interesting:",
       "saas": "SaaS & apps",
-      "ai": "AI Automation"
+      "ai": "AI Automation",
+      "webdesign": "Web design"
     },
     "validation": {
       "service": "Choose what you are interested in.",
@@ -120,7 +125,8 @@
     "prefill": {
       "beheerly": "Interested in Beheerly",
       "saas": "Interested in SaaS & apps",
-      "ai": "Interested in AI automation"
+      "ai": "Interested in AI automation",
+      "webdesign": "Interested in web design"
     }
   }
 }

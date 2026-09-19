@@ -177,6 +177,33 @@
                   </div>
                 </label>
 
+                <label class="service-option" :class="{ active: formData.service === 'webdesign' }">
+                  <input
+                    type="radio"
+                    name="service"
+                    value="webdesign"
+                    v-model="formData.service"
+                    @change="clearError('service')"
+                  />
+                  <div class="option-content">
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    >
+                      <rect x="2" y="3" width="20" height="14" rx="2" />
+                      <path d="M8 21h8" />
+                      <path d="M12 17v4" />
+                    </svg>
+                    <span>{{ t('contactFormulier.form.serviceWebdesign') }}</span>
+                  </div>
+                </label>
+
                 <label class="service-option" :class="{ active: formData.service === 'other' }">
                   <input
                     type="radio"
@@ -347,8 +374,21 @@
                   </svg>
                 </RouterLink>
 
-                <RouterLink to="/ai-automatisatie" class="form-link secondary">
+                <RouterLink to="/ai-projecten" class="form-link secondary">
                   {{ t('contactFormulier.backlinks.ai') }}
+                  <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+                    <path
+                      d="M7.5 15L12.5 10L7.5 5"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </RouterLink>
+
+                <RouterLink to="/webdesign" class="form-link secondary">
+                  {{ t('contactFormulier.backlinks.webdesign') }}
                   <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
                     <path
                       d="M7.5 15L12.5 10L7.5 5"
@@ -416,6 +456,7 @@ export default {
     const prefillService = {
       saas: 'saas',
       ai: 'ai-automatisation',
+      webdesign: 'webdesign',
       beheerly: 'other',
     }
     onMounted(() => {
@@ -734,7 +775,9 @@ a.method:hover {
 }
 .service-options {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Four services (SaaS, AI, webdesign, other): 2×2 keeps the labels on one line
+     in the narrow form column. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--space-3);
 }
 

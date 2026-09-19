@@ -1,19 +1,19 @@
 <template>
   <BackgroundWeb>
-    <section class="saas-hero">
+    <section class="wd-hero">
       <div class="container hero-grid">
         <div class="hero-copy">
           <h1>
-            {{ tg('saasDevelopmentView.hero.titleLead') }}
-            <span class="highlight">{{ tg('saasDevelopmentView.hero.titleHighlight') }}</span>
+            {{ tg('webdesignView.hero.titleLead') }}
+            <span class="highlight">{{ tg('webdesignView.hero.titleHighlight') }}</span>
           </h1>
-          <p class="hero-lead">{{ tg('saasDevelopmentView.hero.subtitle') }}</p>
+          <p class="hero-lead">{{ tg('webdesignView.hero.subtitle') }}</p>
           <div class="cta-group">
             <router-link
-              :to="{ path: '/contact', query: { interesse: 'saas' } }"
+              :to="{ path: '/contact', query: { interesse: 'webdesign' } }"
               class="btn btn--accent btn--lg"
             >
-              {{ tg('saasDevelopmentView.hero.ctaPrimary') }}
+              {{ tg('webdesignView.hero.ctaPrimary') }}
               <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
                   d="M4 12L12 4M12 4H5M12 4V11"
@@ -24,43 +24,42 @@
                 />
               </svg>
             </router-link>
-            <a href="#saas-faq" class="btn btn--secondary btn--lg">
-              {{ tg('saasDevelopmentView.hero.ctaFaq') }}
+            <a href="#webdesign-faq" class="btn btn--secondary btn--lg">
+              {{ tg('webdesignView.hero.ctaFaq') }}
             </a>
           </div>
         </div>
         <div class="hero-visual">
-          <SaasConsoleMock />
+          <WebdesignBrowserMock />
         </div>
       </div>
     </section>
 
-    <SaasScope />
-    <SaasShowcase />
-    <SaasIntegrations />
-    <SaasProcess />
-    <SaasEngagement />
-    <SaasFaq :faqs="saasFaqs" />
+    <WebdesignKnowledge />
+    <WebdesignSeoFacts />
+    <WebdesignProcess />
+    <SaasFaq :faqs="webdesignFaqs" anchor-id="webdesign-faq" />
 
     <RelatedResources
       :slugs="[
-        'software-op-maat-laten-ontwikkelen-prijs-en-proces',
+        'hoeveel-kost-een-website-op-maat-belgie',
         'custom-code-vs-wordpress-wat-kiest-een-kmo',
+        'waarom-is-een-website-belangrijk-in-je-onderneming-7-redenen-die-je-niet-mag-negeren',
       ]"
     />
 
     <!-- ──────── Closing CTA ──────── -->
-    <section class="saas-cta" ref="ctaRef">
+    <section class="wd-cta" ref="ctaRef">
       <div class="container">
-        <div class="saas-cta__panel band--dark reveal">
-          <h2>{{ tg('saasDevelopmentView.cta.heading') }}</h2>
-          <p>{{ tg('saasDevelopmentView.cta.body') }}</p>
+        <div class="wd-cta__panel band--dark reveal">
+          <h2>{{ tg('webdesignView.cta.heading') }}</h2>
+          <p>{{ tg('webdesignView.cta.body') }}</p>
           <div class="cta-group">
             <router-link
-              :to="{ path: '/contact', query: { interesse: 'saas' } }"
+              :to="{ path: '/contact', query: { interesse: 'webdesign' } }"
               class="btn btn--accent btn--lg"
             >
-              {{ tg('saasDevelopmentView.cta.button') }}
+              {{ tg('webdesignView.cta.button') }}
               <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path
                   d="M4 12L12 4M12 4H5M12 4V11"
@@ -72,7 +71,7 @@
               </svg>
             </router-link>
             <router-link to="/contact" class="btn btn--secondary btn--lg">
-              {{ tg('saasDevelopmentView.hero.ctaSecondary') }}
+              {{ tg('webdesignView.hero.ctaSecondary') }}
             </router-link>
           </div>
         </div>
@@ -86,22 +85,20 @@ import { ref, computed, onMounted } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useHead } from '@unhead/vue'
 import BackgroundWeb from '@/components/BackgroundWeb.vue'
-import SaasConsoleMock from '@/components/SaasConsoleMock.vue'
-import SaasScope from '@/components/SaasScope.vue'
-import SaasShowcase from '@/components/SaasShowcase.vue'
-import SaasIntegrations from '@/components/SaasIntegrations.vue'
-import SaasProcess from '@/components/SaasProcess.vue'
-import SaasEngagement from '@/components/SaasEngagement.vue'
+import WebdesignBrowserMock from '@/components/WebdesignBrowserMock.vue'
+import WebdesignKnowledge from '@/components/WebdesignKnowledge.vue'
+import WebdesignSeoFacts from '@/components/WebdesignSeoFacts.vue'
+import WebdesignProcess from '@/components/WebdesignProcess.vue'
 import SaasFaq from '@/components/SaasFaq.vue'
 import RelatedResources from '@/components/RelatedResources.vue'
-import { faqsSaas } from '@/data/faqs.saas'
+import { faqsWebdesign } from '@/data/faqs.webdesign'
 
 // Page hero + closing CTA copy lives in the generated global messages
-// (src/i18n/generated/saasDevelopmentView.json); the showcase and the other
-// sections ship their own component-local strings.
+// (src/i18n/generated/webdesignView.json); the sections ship their own
+// component-local strings. Layout mirrors SaasDevelopmentView.
 const { t: tg, locale } = useI18n({ useScope: 'global' })
 
-const saasFaqs = computed(() => faqsSaas[locale.value] ?? faqsSaas.nl)
+const webdesignFaqs = computed(() => faqsWebdesign[locale.value] ?? faqsWebdesign.nl)
 
 const ctaRef = ref(null)
 onMounted(() => {
@@ -113,40 +110,40 @@ onMounted(() => {
 
 const SITE = 'https://jukecoding.be'
 const url = computed(() =>
-  locale.value === 'en' ? `${SITE}/en/saas-development` : `${SITE}/saas-development`,
+  locale.value === 'en' ? `${SITE}/en/webdesign` : `${SITE}/webdesign`,
 )
 
 // JSON-LD entity-IDs blijven op de canonieke nl-URL, ook op /en.
-const NL_URL = `${SITE}/saas-development`
+const NL_URL = `${SITE}/webdesign`
 
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   '@id': `${NL_URL}#service`,
-  name: 'Software op maat — SaaS- & app-development',
+  name: 'Webdesign & website op maat',
   serviceType: [
-    'Software op maat',
-    'Software ontwikkeling op maat',
-    'SaaS Development',
-    'Web Application Development',
-    'Custom Software Development',
+    'Webdesign',
+    'Website laten maken',
+    'Website op maat',
+    'Web Design',
+    'Website Development',
   ],
   description:
-    'Custom SaaS-platformen, dashboards, klantportalen en bedrijfssoftware op maat. Van concept en MVP tot een schaalbaar product dat je zelf bezit en beheert.',
+    'Snelle, conversiegerichte websites op maat voor KMO’s en zelfstandigen. Van strategie en design tot livegang, met technische SEO als fundament.',
   areaServed: { '@type': 'Country', name: 'Belgium' },
   url: NL_URL,
   provider: { '@type': 'Organization', '@id': 'https://jukecoding.be/#organization' },
   offers: {
     '@type': 'Offer',
     availability: 'https://schema.org/InStock',
-    description: 'SaaS-development op maat, prijs op aanvraag na vrijblijvende kennismaking',
+    description: 'Website op maat, prijs op aanvraag na vrijblijvende kennismaking',
   },
 }
 
 const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqsSaas.nl.map((faq) => ({
+  mainEntity: faqsWebdesign.nl.map((faq) => ({
     '@type': 'Question',
     name: faq.question,
     acceptedAnswer: { '@type': 'Answer', text: faq.answer },
@@ -158,44 +155,44 @@ const breadcrumbJsonLd = {
   '@type': 'BreadcrumbList',
   itemListElement: [
     { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://jukecoding.be/' },
-    { '@type': 'ListItem', position: 2, name: 'SaaS-development', item: NL_URL },
+    { '@type': 'ListItem', position: 2, name: 'Webdesign', item: NL_URL },
   ],
 }
 
 useHead(() => ({
-  title: 'Software op maat & SaaS-development | Juke',
+  title: 'Webdesign & website op maat laten maken | Juke',
   meta: [
     {
       name: 'description',
       content:
-        'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit. Development studio in Hasselt, België.',
+        'Website laten maken? Juke bouwt snelle, conversiegerichte websites op maat met technische SEO als fundament. Webdesign studio in Hasselt, België.',
     },
     { name: 'robots', content: 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1' },
-    { property: 'og:title', content: 'Software op maat & SaaS-development | Juke' },
+    { property: 'og:title', content: 'Webdesign & website op maat laten maken | Juke' },
     {
       property: 'og:description',
       content:
-        'Software op maat: custom SaaS-platformen, dashboards en klantportalen. Van concept tot schaalbaar product dat je zelf bezit.',
+        'Snelle, conversiegerichte websites op maat met technische SEO als fundament. Van strategie en design tot livegang.',
     },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: url.value },
-    { property: 'og:image', content: 'https://jukecoding.be/og-saas.jpg' },
+    { property: 'og:image', content: 'https://jukecoding.be/og-image.jpg' },
     { property: 'og:site_name', content: 'Juke' },
     { property: 'og:locale', content: locale.value === 'en' ? 'en_US' : 'nl_BE' },
     { name: 'twitter:card', content: 'summary_large_image' },
-    { name: 'twitter:title', content: 'Software op maat & SaaS-development | Juke' },
+    { name: 'twitter:title', content: 'Webdesign & website op maat laten maken | Juke' },
     {
       name: 'twitter:description',
-      content: 'Software op maat: custom SaaS-platformen, dashboards en klantportalen.',
+      content: 'Snelle, conversiegerichte websites op maat met technische SEO als fundament.',
     },
   ],
   link: [
     { rel: 'canonical', href: url.value },
   ],
   script: [
-    { key: 'ld-service-saas', type: 'application/ld+json', innerHTML: JSON.stringify(serviceJsonLd) },
-    { key: 'ld-faq-saas', type: 'application/ld+json', innerHTML: JSON.stringify(faqJsonLd) },
-    { key: 'ld-breadcrumb-saas', type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbJsonLd) },
+    { key: 'ld-service-webdesign', type: 'application/ld+json', innerHTML: JSON.stringify(serviceJsonLd) },
+    { key: 'ld-faq-webdesign', type: 'application/ld+json', innerHTML: JSON.stringify(faqJsonLd) },
+    { key: 'ld-breadcrumb-webdesign', type: 'application/ld+json', innerHTML: JSON.stringify(breadcrumbJsonLd) },
   ],
 }))
 </script>
@@ -203,11 +200,11 @@ useHead(() => ({
 <style scoped lang="scss">
 .container { max-width: var(--max-width); margin: 0 auto; }
 
-/* ── Page hero — split: copy left, live dashboard right ── */
-.saas-hero { padding: var(--hero-pad-top) var(--space-8) var(--hero-pad-bottom); min-height: var(--hero-min-height); display: flex; flex-direction: column; justify-content: center; }
-.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.82fr); gap: var(--space-10); align-items: center; width: 100%; }
+/* ── Page hero — split: copy left, client website right (as SaaS page) ── */
+.wd-hero { padding: var(--hero-pad-top) var(--space-8) var(--hero-pad-bottom); min-height: var(--hero-min-height); display: flex; flex-direction: column; justify-content: center; }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr); gap: var(--space-10); align-items: center; width: 100%; }
 .hero-copy { display: flex; flex-direction: column; align-items: flex-start; text-align: left; }
-.saas-hero h1 {
+.wd-hero h1 {
   font-size: var(--text-hero); font-weight: var(--weight-bold);
   line-height: var(--leading-tight); letter-spacing: var(--tracking-tight);
   color: var(--color-text-primary); margin: 0 0 var(--space-5);
@@ -218,20 +215,12 @@ useHead(() => ({
   font-size: var(--text-body-lg); line-height: var(--leading-relaxed);
   color: var(--color-text-secondary); max-width: 52ch; margin: 0 0 var(--space-8);
 }
-.eyebrow {
-  display: inline-flex; align-items: center; gap: 0.5rem;
-  font-size: var(--text-xs); font-weight: var(--weight-medium);
-  color: var(--color-text-secondary); letter-spacing: var(--tracking-wide);
-  text-transform: uppercase; margin-bottom: var(--space-5);
-}
-.eyebrow__dot { width: 5px; height: 5px; border-radius: 50%; background: var(--color-accent); }
 .hero-visual { width: 100%; min-width: 0; }
 .cta-group { display: flex; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
 .hero-copy .cta-group { justify-content: flex-start; }
 
-/* Staggered hero entrance — same fade-up reveal as the AI-automation page.
-   The eyebrow stays put; the rise cascade starts at the heading. */
-.saas-hero h1 { animation: fade-up 0.7s var(--ease-out-expo) 0.08s both; }
+/* Staggered hero entrance — same fade-up reveal as the SaaS page. */
+.wd-hero h1 { animation: fade-up 0.7s var(--ease-out-expo) 0.08s both; }
 .hero-lead { animation: fade-up 0.7s var(--ease-out-expo) 0.16s both; }
 .hero-copy .cta-group { animation: fade-up 0.7s var(--ease-out-expo) 0.24s both; }
 .hero-visual { animation: fade-up 0.7s var(--ease-out-expo) 0.2s both; }
@@ -241,20 +230,20 @@ useHead(() => ({
 }
 
 /* ── Closing CTA ── */
-.saas-cta { padding: var(--section-pad-y) var(--space-8) var(--space-24); }
-.saas-cta .container { max-width: var(--max-width-cta); }
-.saas-cta__panel {
+.wd-cta { padding: var(--section-pad-y) var(--space-8) var(--space-24); }
+.wd-cta .container { max-width: var(--max-width-cta); }
+.wd-cta__panel {
   border: 1px solid var(--color-border); border-radius: var(--radius-lg);
   padding: var(--space-20) var(--space-12); text-align: center;
   display: flex; flex-direction: column; align-items: center;
 }
-.saas-cta__panel h2 {
+.wd-cta__panel h2 {
   font-size: var(--text-h1); font-weight: var(--weight-semibold);
   color: var(--color-text-primary); line-height: var(--leading-snug);
   letter-spacing: var(--tracking-tight); margin: 0 0 var(--space-5);
   max-width: 22ch; text-wrap: balance;
 }
-.saas-cta__panel p {
+.wd-cta__panel p {
   font-size: var(--text-body-lg); color: var(--color-text-secondary);
   line-height: var(--leading-relaxed); margin: 0 0 var(--space-12); max-width: 52ch;
 }
@@ -264,17 +253,17 @@ useHead(() => ({
   .hero-grid { grid-template-columns: 1fr; gap: var(--space-10); }
   .hero-copy { align-items: center; text-align: center; }
   .hero-copy .cta-group { justify-content: center; }
-  .saas-hero h1 { max-width: 20ch; }
+  .wd-hero h1 { max-width: 20ch; }
   .hero-lead { max-width: 60ch; }
   .hero-visual { max-width: 560px; margin: 0 auto; }
 }
 @media (max-width: 768px) {
-  .saas-hero { padding: var(--hero-pad-top) var(--space-5) var(--hero-pad-bottom); }
-  .saas-hero h1 { font-size: var(--text-h1); }
+  .wd-hero { padding: var(--hero-pad-top) var(--space-5) var(--hero-pad-bottom); }
+  .wd-hero h1 { font-size: var(--text-h1); }
   .cta-group { flex-direction: column; width: 100%; max-width: 340px; }
   .cta-group .btn { width: 100%; }
-  .saas-cta { padding: var(--section-pad-y) var(--space-5) var(--space-16); }
-  .saas-cta__panel { padding: var(--space-12) var(--space-6); }
-  .saas-cta__panel h2 { font-size: var(--text-h2); }
+  .wd-cta { padding: var(--section-pad-y) var(--space-5) var(--space-16); }
+  .wd-cta__panel { padding: var(--space-12) var(--space-6); }
+  .wd-cta__panel h2 { font-size: var(--text-h2); }
 }
 </style>

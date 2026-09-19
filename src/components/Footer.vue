@@ -48,6 +48,9 @@
             <li>
               <router-link to="/ai-projecten">{{ t('nav.ai') }}</router-link>
             </li>
+            <li>
+              <router-link to="/webdesign">{{ t('nav.webdesign') }}</router-link>
+            </li>
           </ul>
         </nav>
 

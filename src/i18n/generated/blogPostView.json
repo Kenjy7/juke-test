@@ -13,7 +13,12 @@
     "cta": {
       "title": "Klaar om te starten?",
       "text": "Ontdek wat Juke voor jouw bedrijf kan betekenen. Vraag gratis een offerte aan.",
-      "button": "Gratis offerte aanvragen →"
+      "button": "Gratis offerte aanvragen →",
+      "service": {
+        "webdesign": "Bekijk onze webdesign-aanpak",
+        "saas": "Bekijk software op maat",
+        "ai": "Bekijk AI-automatisering"
+      }
     },
     "allPosts": "← Alle blogposts"
   },
@@ -31,7 +36,12 @@
     "cta": {
       "title": "Ready to get started?",
       "text": "Discover what Juke can do for your business. Request a free quote.",
-      "button": "Request a free quote →"
+      "button": "Request a free quote →",
+      "service": {
+        "webdesign": "See our web design approach",
+        "saas": "See custom software",
+        "ai": "See AI automation"
+      }
     },
     "allPosts": "← All blog posts"
   }

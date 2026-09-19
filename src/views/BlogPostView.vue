@@ -57,9 +57,14 @@
       <div class="blog-post__cta-block">
         <h3>{{ t('blogPostView.cta.title') }}</h3>
         <p>{{ t('blogPostView.cta.text') }}</p>
-        <RouterLink to="/contact" class="blog-post__cta-btn">
-          {{ t('blogPostView.cta.button') }}
-        </RouterLink>
+        <div class="blog-post__cta-actions">
+          <RouterLink to="/contact" class="blog-post__cta-btn">
+            {{ t('blogPostView.cta.button') }}
+          </RouterLink>
+          <RouterLink v-if="serviceLink" :to="serviceLink.to" class="blog-post__service-link">
+            {{ t(`blogPostView.cta.service.${serviceLink.key}`) }}&nbsp;→
+          </RouterLink>
+        </div>
       </div>
 
       <!-- Terug -->
@@ -84,6 +89,17 @@ const post = computed(() => blogPosts.find((p) => p.slug === slug.value && p.pub
 
 // Sanitise blog HTML before v-html — see src/utils/sanitizeHtml.js.
 const safeContent = computed(() => sanitizeBlogContent(post.value?.content))
+
+// Blog → dienstpagina: elke post linkt naar de money-page van zijn categorie
+// (de tegenrichting van RelatedResources op die pagina's). Nieuwe categorie?
+// Voeg ze hier toe, anders toont de post enkel de contactknop.
+const SERVICE_BY_CATEGORY = {
+  Webdesign: { to: '/webdesign', key: 'webdesign' },
+  Software: { to: '/saas-development', key: 'saas' },
+  AI: { to: '/ai-projecten', key: 'ai' },
+  Automatisering: { to: '/ai-projecten', key: 'ai' },
+}
+const serviceLink = computed(() => SERVICE_BY_CATEGORY[post.value?.category] ?? null)
 
 // Gerelateerde artikels: zelfde categorie eerst (topical cluster), aangevuld
 // met de meest recente andere posts. Bouwt automatisch interne links tussen
@@ -484,6 +500,25 @@ useHead(() => {
 .blog-post__cta-block p {
   color: var(--color-text-secondary);
   margin: 0 0 24px;
+}
+
+.blog-post__cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 12px 24px;
+}
+
+.blog-post__service-link {
+  color: var(--color-primary);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.blog-post__service-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
 .blog-post__cta-btn {

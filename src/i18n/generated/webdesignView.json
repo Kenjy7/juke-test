@@ -1,0 +1,32 @@
+{
+  "nl": {
+    "hero": {
+      "titleLead": "Websites die snel laden,",
+      "titleHighlight": "scoren en converteren.",
+      "subtitle": "Snelle, conversiegerichte websites op maat die bezoekers omzetten in klanten. Van strategie en design tot livegang, met technische SEO als fundament.",
+      "ctaPrimary": "Start je project",
+      "ctaSecondary": "Neem contact op",
+      "ctaFaq": "Veelgestelde vragen"
+    },
+    "cta": {
+      "heading": "Klaar voor een website die wel werkt?",
+      "body": "Vertel ons over je bedrijf en je doelen. In een vrijblijvend gesprek bekijken we samen wat jouw nieuwe website nodig heeft om klanten op te leveren.",
+      "button": "Start je project"
+    }
+  },
+  "en": {
+    "hero": {
+      "titleLead": "Websites that load fast,",
+      "titleHighlight": "rank and convert.",
+      "subtitle": "Fast, conversion-focused custom websites that turn visitors into customers. From strategy and design to launch, with technical SEO as the foundation.",
+      "ctaPrimary": "Start your project",
+      "ctaSecondary": "Get in touch",
+      "ctaFaq": "Frequently asked questions"
+    },
+    "cta": {
+      "heading": "Ready for a website that actually works?",
+      "body": "Tell us about your business and your goals. In a no-obligation chat we map out what your new website needs to start bringing in customers.",
+      "button": "Start your project"
+    }
+  }
+}

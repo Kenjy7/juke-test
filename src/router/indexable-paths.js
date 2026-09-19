@@ -24,6 +24,7 @@ export const staticPages = [
   },
   { path: '/ai-projecten', changefreq: 'weekly', priority: '0.8' },
   { path: '/saas-development', changefreq: 'weekly', priority: '0.8' },
+  { path: '/webdesign', changefreq: 'weekly', priority: '0.8' },
   { path: '/vibemind', changefreq: 'weekly', priority: '0.8' },
   { path: '/beheerly', changefreq: 'weekly', priority: '0.8' },
   { path: '/blog', changefreq: 'weekly', priority: '0.8' },

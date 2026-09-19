@@ -1,5 +1,5 @@
 <template>
-  <section ref="rootEl" id="saas-faq" class="faq-section">
+  <section ref="rootEl" :id="anchorId" class="faq-section">
     <div class="container">
       <header class="faq-header reveal">
         <h2>{{ t('title') }}</h2>
@@ -26,6 +26,8 @@ import FaqItem from './FaqItem.vue'
 
 defineProps({
   faqs: { type: Array, required: true, default: () => [] },
+  // Target of the hero's "FAQ" button on the page that renders this section.
+  anchorId: { type: String, default: 'saas-faq' },
 })
 
 const { t } = useI18n({

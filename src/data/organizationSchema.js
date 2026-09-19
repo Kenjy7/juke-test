@@ -31,7 +31,7 @@ export const organizationSchema = {
   },
   image: `${SITE_URL}/og-image.jpg`,
   description:
-    "SaaS-platformen en AI-oplossingen voor Belgische KMO's. Development studio in Hasselt (Limburg) — digitale oplossingen die tijd besparen en meer leads opleveren.",
+    "SaaS-platformen, AI-automatisering en websites op maat voor Belgische KMO's. Development studio in Hasselt (Limburg) — digitale oplossingen die tijd besparen en meer leads opleveren.",
   // Service-area business: geen streetAddress, adres verborgen. Enkel plaats/regio.
   address: {
     '@type': 'PostalAddress',
@@ -74,6 +74,7 @@ export const organizationSchema = {
     'AI Automatisering',
     'Chatbots',
     'Workflow Automatisatie',
+    'Webdesign',
     'SEO',
   ],
   sameAs: [
@@ -82,7 +83,7 @@ export const organizationSchema = {
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'SaaS & AI diensten',
+    name: 'SaaS, AI & webdesign',
     itemListElement: [
       {
         '@type': 'Offer',
@@ -100,6 +101,15 @@ export const organizationSchema = {
           '@type': 'Service',
           name: 'AI-projecten',
           description: 'AI-automatisering, chatbots en slimme workflows op maat',
+        },
+      },
+      {
+        '@type': 'Offer',
+        availability: 'https://schema.org/InStock',
+        itemOffered: {
+          '@type': 'Service',
+          name: 'Webdesign',
+          description: 'Snelle, conversiegerichte websites op maat met technische SEO',
         },
       },
     ],

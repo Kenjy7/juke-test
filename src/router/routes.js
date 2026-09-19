@@ -30,6 +30,11 @@ const baseRoutes = [
     alias: ['/saas'],
   },
   {
+    path: '/webdesign',
+    name: 'webdesign',
+    component: () => import('@/views/WebdesignView.vue'),
+  },
+  {
     path: '/vibemind',
     name: 'vibemind',
     component: () => import('@/views/VibemindView.vue'),

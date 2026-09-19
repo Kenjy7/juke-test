@@ -16,7 +16,7 @@ that fires them. Fired via `trackEvent(name, props)` from
 
 | Event | Fired when | Properties (enumerable) | File |
 |---|---|---|---|
-| `lead_submitted` | Contact form sent OK | `source_form: "contact"`, `service: "saas" \| "ai-automatisation" \| "other" \| "onbekend"` | `ContactFormulier.vue` |
+| `lead_submitted` | Contact form sent OK | `source_form: "contact"`, `service: "saas" \| "ai-automatisation" \| "webdesign" \| "other" \| "onbekend"` | `ContactFormulier.vue` |
 | `quote_requested` | Offerte form sent OK | `source_form: "offerte"`, `package: <slug> \| "geen"`, `budget_band: "" \| "500-1000" \| "1000-2500" \| "2500+" \| "niet_opgegeven"` | `OfferteFormulier.vue` |
 
 **North Star:** leads (`lead_submitted` + `quote_requested`).

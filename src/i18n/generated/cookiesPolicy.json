@@ -3,7 +3,7 @@
     "header": {
       "title": "Cookiebeleid",
       "subtitle": "Transparantie over hoe wij cookies gebruiken",
-      "lastUpdated": "Laatst bijgewerkt: December 2025"
+      "lastUpdated": "Laatst bijgewerkt: september 2026"
     },
     "intro": "Wij gebruiken cookies en vergelijkbare technologieën op onze website. Dit cookiebeleid legt uit wat cookies zijn, hoe we ze gebruiken, en hoe u uw voorkeuren kunt beheren.",
     "whatAreCookies": {
@@ -40,9 +40,16 @@
     "thirdParties": {
       "title": "Cookies van derde partijen",
       "text": "Sommige cookies worden geplaatst door diensten van derden die op onze pagina's verschijnen. Wij hebben geen controle over deze cookies. Raadpleeg de privacyverklaring van deze diensten voor meer informatie over hun cookies en hoe u deze kunt beheren.",
+      "googleTagManager": "Beheer van scripts van derden (plaatst zelf geen cookies)",
       "googleAnalytics": "Websiteanalyse en statistieken",
       "googleFonts": "Lettertype weergave",
       "socialMedia": "Social media integratie"
+    },
+    "tagManagement": {
+      "title": "Google Tag Manager en toestemmingsmodus",
+      "text": "Wij gebruiken Google Tag Manager om scripts van derden, zoals Google Analytics, centraal te beheren. Google Tag Manager plaatst zelf geen cookies en verzamelt zelf geen persoonsgegevens: het bepaalt enkel welke andere scripts geladen mogen worden en wanneer.",
+      "consentMode": "De container draait met Google Consent Mode v2. Elke categorie staat standaard op 'geweigerd'. Zolang u geen keuze heeft gemaakt, wordt er dus geen enkele analytische of marketingtag geactiveerd en worden er geen cookies van derden geplaatst. Pas wanneer u via de cookiebanner toestemming geeft, worden de bijbehorende tags vrijgegeven.",
+      "withdraw": "Trekt u uw toestemming later in via 'Cookievoorkeuren' onderaan elke pagina, dan zetten wij de toestemmingsmodus onmiddellijk terug naar 'geweigerd' en stoppen de betrokken tags met vuren."
     },
     "retention": {
       "title": "Bewaartermijn",
@@ -84,7 +91,7 @@
     "header": {
       "title": "Cookie Policy",
       "subtitle": "Transparency about how we use cookies",
-      "lastUpdated": "Last updated: December 2025"
+      "lastUpdated": "Last updated: September 2026"
     },
     "intro": "We use cookies and similar technologies on our website. This cookie policy explains what cookies are, how we use them, and how you can manage your preferences.",
     "whatAreCookies": {
@@ -121,9 +128,16 @@
     "thirdParties": {
       "title": "Third-party cookies",
       "text": "Some cookies are placed by third-party services that appear on our pages. We have no control over these cookies. Please consult the privacy policy of these services for more information about their cookies and how you can manage them.",
+      "googleTagManager": "Managing third-party scripts (sets no cookies itself)",
       "googleAnalytics": "Website analytics and statistics",
       "googleFonts": "Font display",
       "socialMedia": "Social media integration"
+    },
+    "tagManagement": {
+      "title": "Google Tag Manager and consent mode",
+      "text": "We use Google Tag Manager to manage third-party scripts, such as Google Analytics, from one place. Google Tag Manager does not set cookies or collect personal data itself: it only determines which other scripts may load, and when.",
+      "consentMode": "The container runs with Google Consent Mode v2. Every category defaults to 'denied'. As long as you have not made a choice, no analytical or marketing tag is activated and no third-party cookies are set. Only once you give consent through the cookie banner are the corresponding tags released.",
+      "withdraw": "If you later withdraw your consent via 'Cookie settings' at the bottom of every page, we immediately reset consent mode to 'denied' and the tags concerned stop firing."
     },
     "retention": {
       "title": "Retention period",

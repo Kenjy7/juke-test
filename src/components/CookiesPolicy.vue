@@ -55,6 +55,13 @@
         </section>
 
         <section class="section">
+          <h2>{{ t('cookiesPolicy.tagManagement.title') }}</h2>
+          <p>{{ t('cookiesPolicy.tagManagement.text') }}</p>
+          <p>{{ t('cookiesPolicy.tagManagement.consentMode') }}</p>
+          <p>{{ t('cookiesPolicy.tagManagement.withdraw') }}</p>
+        </section>
+
+        <section class="section">
           <h2>{{ t('cookiesPolicy.retention.title') }}</h2>
           <p>{{ t('cookiesPolicy.retention.intro') }}</p>
 
@@ -136,6 +143,10 @@ const cookieTypes = computed(() => [
 ])
 
 const thirdParties = computed(() => [
+  {
+    name: 'Google Tag Manager',
+    purpose: t('cookiesPolicy.thirdParties.googleTagManager'),
+  },
   {
     name: 'Google Analytics',
     purpose: t('cookiesPolicy.thirdParties.googleAnalytics'),

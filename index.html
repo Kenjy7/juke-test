@@ -1,11 +1,44 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
 <head>
-    <!-- Google Analytics is loaded consent-gated from src/composables/useCookieConsent.js
-         (analytics cookie category) — NOT here, so nothing tracks before consent and
-         the third-party script stays off the critical render path. -->
+    <!-- Google Analytics (gtag.js) wordt consent-gated geladen vanuit
+         src/composables/useCookieConsent.js (analytics-categorie) — NIET hier, zodat de
+         third-party-script van de kritieke render path blijft.
+         Google Tag Manager staat hieronder wél in de <head> (zoals GTM vereist), maar
+         draait achter Consent Mode v2 met alle defaults op 'denied': de container laadt,
+         maar geen enkele tag vuurt vóór toestemming. De 'update' volgt uit
+         useCookieConsent.js zodra de bezoeker kiest. -->
 
     <meta charset="UTF-8" />
+
+    <!-- Google Consent Mode v2 — MOET vóór de GTM-snippet staan.
+         Alles standaard geweigerd; security_storage is strikt noodzakelijk.
+         Let op: window.gtag wordt hier bewust NIET gezet — useAnalytics.js en main.js
+         gebruiken het bestaan van window.gtag als consent-check. -->
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        (function () {
+            function gtag() { window.dataLayer.push(arguments); }
+            gtag('consent', 'default', {
+                ad_storage: 'denied',
+                ad_user_data: 'denied',
+                ad_personalization: 'denied',
+                analytics_storage: 'denied',
+                functionality_storage: 'denied',
+                personalization_storage: 'denied',
+                security_storage: 'granted',
+                wait_for_update: 500
+            });
+        })();
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-W7D44H6H');</script>
+    <!-- End Google Tag Manager -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!-- SEO fallback (home) -->
@@ -90,6 +123,10 @@
 </head>
 
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7D44H6H"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 <div id="app"></div>
 <script type="module" src="/src/main.js"></script>
 </body>

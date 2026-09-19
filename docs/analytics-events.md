@@ -27,8 +27,7 @@ that fires them. Fired via `trackEvent(name, props)` from
 
 | Destination | Consent category | Notes |
 |---|---|---|
-| GA4 `G-MDEMFNGVWJ` | analytics | Loaded in code. Never add a GA4 tag in GTM (double counting). |
-| GTM dataLayer | per tag (Consent Mode) | `{ event: name, ...props }` for triggers in `GTM-W7D44H6H`. |
+| GA4 `G-MDEMFNGVWJ` | analytics | Loaded in code (`useCookieConsent.js`). |
 | LinkedIn Insight Tag | marketing | Only events mapped in `LINKEDIN_CONVERSIONS` (`useLinkedInInsight.js`). |
 
 ## Known limitation / follow-up

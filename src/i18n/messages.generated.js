@@ -621,17 +621,16 @@ export default {
       "thirdParties": {
         "title": "Cookies van derde partijen",
         "text": "Sommige cookies worden geplaatst door diensten van derden die op onze pagina's verschijnen. Wij hebben geen controle over deze cookies. Raadpleeg de privacyverklaring van deze diensten voor meer informatie over hun cookies en hoe u deze kunt beheren.",
-        "googleTagManager": "Beheer van scripts van derden (plaatst zelf geen cookies)",
         "googleAnalytics": "Websiteanalyse en statistieken",
         "googleFonts": "Lettertype weergave",
         "linkedinInsight": "Meten van advertentieresultaten en bezoekersinzichten op LinkedIn (alleen na toestemming voor marketingcookies)",
         "socialMedia": "Social media integratie"
       },
-      "tagManagement": {
-        "title": "Google Tag Manager en toestemmingsmodus",
-        "text": "Wij gebruiken Google Tag Manager om scripts van derden, zoals Google Analytics, centraal te beheren. Google Tag Manager plaatst zelf geen cookies en verzamelt zelf geen persoonsgegevens: het bepaalt enkel welke andere scripts geladen mogen worden en wanneer.",
-        "consentMode": "De container draait met Google Consent Mode v2. Elke categorie staat standaard op 'geweigerd'. Zolang u geen keuze heeft gemaakt, wordt er dus geen enkele analytische of marketingtag geactiveerd en worden er geen cookies van derden geplaatst. Pas wanneer u via de cookiebanner toestemming geeft, worden de bijbehorende tags vrijgegeven.",
-        "withdraw": "Trekt u uw toestemming later in via 'Cookievoorkeuren' onderaan elke pagina, dan zetten wij de toestemmingsmodus onmiddellijk terug naar 'geweigerd' en stoppen de betrokken tags met vuren."
+      "consent": {
+        "title": "Toestemming en Google Consent Mode",
+        "text": "Analytische en marketingscripts, zoals Google Analytics en de LinkedIn Insight Tag, worden pas geladen nadat u daarvoor toestemming geeft via de cookiebanner. Zolang u geen keuze heeft gemaakt, worden er geen cookies van derden geplaatst en worden er geen gegevens naar deze diensten verstuurd.",
+        "consentMode": "Daarnaast gebruiken wij Google Consent Mode v2. Elke categorie staat standaard op 'geweigerd', en Google Analytics houdt rekening met uw keuze: aanvaardt u bijvoorbeeld enkel analytische cookies, dan gebruikt Google Analytics geen advertentiesignalen.",
+        "withdraw": "Trekt u uw toestemming later in via 'Cookievoorkeuren' onderaan elke pagina, dan zetten wij de toestemmingsmodus onmiddellijk terug naar 'geweigerd'."
       },
       "retention": {
         "title": "Bewaartermijn",
@@ -2058,17 +2057,16 @@ export default {
       "thirdParties": {
         "title": "Third-party cookies",
         "text": "Some cookies are placed by third-party services that appear on our pages. We have no control over these cookies. Please consult the privacy policy of these services for more information about their cookies and how you can manage them.",
-        "googleTagManager": "Managing third-party scripts (sets no cookies itself)",
         "googleAnalytics": "Website analytics and statistics",
         "googleFonts": "Font display",
         "linkedinInsight": "Measuring ad performance and visitor insights on LinkedIn (only after consent to marketing cookies)",
         "socialMedia": "Social media integration"
       },
-      "tagManagement": {
-        "title": "Google Tag Manager and consent mode",
-        "text": "We use Google Tag Manager to manage third-party scripts, such as Google Analytics, from one place. Google Tag Manager does not set cookies or collect personal data itself: it only determines which other scripts may load, and when.",
-        "consentMode": "The container runs with Google Consent Mode v2. Every category defaults to 'denied'. As long as you have not made a choice, no analytical or marketing tag is activated and no third-party cookies are set. Only once you give consent through the cookie banner are the corresponding tags released.",
-        "withdraw": "If you later withdraw your consent via 'Cookie settings' at the bottom of every page, we immediately reset consent mode to 'denied' and the tags concerned stop firing."
+      "consent": {
+        "title": "Consent and Google Consent Mode",
+        "text": "Analytical and marketing scripts, such as Google Analytics and the LinkedIn Insight Tag, only load after you give consent through the cookie banner. As long as you have not made a choice, no third-party cookies are set and no data is sent to these services.",
+        "consentMode": "We also use Google Consent Mode v2. Every category defaults to 'denied', and Google Analytics respects your choice: if you accept analytical cookies only, for example, Google Analytics does not use advertising signals.",
+        "withdraw": "If you later withdraw your consent via 'Cookie settings' at the bottom of every page, we immediately reset consent mode to 'denied'."
       },
       "retention": {
         "title": "Retention period",

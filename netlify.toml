@@ -42,17 +42,17 @@
     # script-src has NO 'unsafe-inline': the prerendered HTML contains zero
     # executable inline scripts (JSON-LD blocks are inert data; GA4 loads from
     # googletagmanager.com via an external <script src>; Vue hydration runs from
-    # the 'self' module bundle; Consent Mode defaults + the GTM bootstrap live
-    # in /gtm-init.js, also 'self'). Third-party tags fired from GTM must have
-    # their domains listed here too, or they fail silently — currently the
-    # LinkedIn Insight Tag (snap.licdn.com + LinkedIn's documented pixel/analytics
-    # hosts, see linkedin.com/help/lms/answer/a425696). Dropping it means an injected inline <script> or
+    # the 'self' module bundle; Consent Mode defaults live in
+    # /consent-defaults.js, also 'self'). Every third-party script needs its
+    # domains listed here, or it fails silently — currently GA4 and the LinkedIn
+    # Insight Tag (snap.licdn.com + LinkedIn's documented pixel/analytics hosts,
+    # see linkedin.com/help/lms/answer/a425696). Dropping it means an injected inline <script> or
     # on*= handler is blocked by the browser even if it reaches the DOM — real
     # XSS containment, not just origin locking. style-src keeps 'unsafe-inline'
     # because Vue scoped styles + Vite's inlined critical CSS need it (inline
     # styles can't execute JS). If a future feature adds an inline bootstrap
     # script, give it a nonce rather than re-adding 'unsafe-inline'.
-    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; frame-src https://www.googletagmanager.com; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://snap.licdn.com https://cdn.linkedin.oribi.io; connect-src 'self' https://api.emailjs.com https://sjgrpqnohfbgevrqtqtp.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://px.ads.linkedin.com https://px4.ads.linkedin.com https://dc.ads.linkedin.com https://gw.linkedin.oribi.io https://p.adsymptotic.com https://sjs.bizographics.com https://www.linkedin.com; upgrade-insecure-requests"
+    Content-Security-Policy = "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; img-src 'self' data: https:; font-src 'self' https://fonts.gstatic.com data:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://snap.licdn.com https://cdn.linkedin.oribi.io; connect-src 'self' https://api.emailjs.com https://sjgrpqnohfbgevrqtqtp.supabase.co https://www.google-analytics.com https://*.google-analytics.com https://www.googletagmanager.com https://px.ads.linkedin.com https://px4.ads.linkedin.com https://dc.ads.linkedin.com https://gw.linkedin.oribi.io https://p.adsymptotic.com https://sjs.bizographics.com https://www.linkedin.com; upgrade-insecure-requests"
 
 [[redirects]]
   from = "/*"

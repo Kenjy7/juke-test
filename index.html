@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html lang="nl-BE">
 <head>
-    <!-- Google Analytics (gtag.js) wordt consent-gated geladen vanuit
-         src/composables/useCookieConsent.js (analytics-categorie) — NIET hier, zodat de
-         third-party-script van de kritieke render path blijft.
-         Google Tag Manager staat hieronder wél in de <head> (zoals GTM vereist), maar
-         draait achter Consent Mode v2 met alle defaults op 'denied': de container laadt,
-         maar geen enkele tag vuurt vóór toestemming. De 'update' volgt uit
-         useCookieConsent.js zodra de bezoeker kiest. -->
+    <!-- Google Analytics (gtag.js) en de LinkedIn Insight Tag worden consent-gated
+         geladen vanuit src/composables/useCookieConsent.js — NIET hier, zodat niets
+         trackt vóór toestemming en third-party-scripts van de kritieke render path
+         blijven. -->
 
     <meta charset="UTF-8" />
 
-    <!-- Google Consent Mode v2 defaults (alles 'denied') + Google Tag Manager.
-         Extern bestand (public/gtm-init.js), NIET inline: de CSP in netlify.toml
-         blokkeert inline scripts. Synchroon en als eerste script, zodat de
-         consent-defaults vóór GTM in de dataLayer staan. -->
-    <script src="/gtm-init.js"></script>
+    <!-- Google Consent Mode v2 defaults (alles 'denied'). Extern bestand
+         (public/consent-defaults.js), NIET inline: de CSP in netlify.toml blokkeert
+         inline scripts. Synchroon en als eerste script, zodat de defaults klaarstaan
+         vóór gtag.js laadt. -->
+    <script src="/consent-defaults.js"></script>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
@@ -101,10 +98,6 @@
 </head>
 
 <body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W7D44H6H"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 <div id="app"></div>
 <script type="module" src="/src/main.js"></script>
 </body>

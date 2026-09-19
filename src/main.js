@@ -80,14 +80,7 @@ export const createApp = ViteSSG(
       })
 
       router.afterEach((to) => {
-        // GA4 pageview — loaded in code, NOT from the GTM container. Never add a
-        // GA4 tag for G-MDEMFNGVWJ in GTM-W7D44H6H: it would double-count every view.
         if (window.gtag) window.gtag('config', 'G-MDEMFNGVWJ', { page_path: to.fullPath })
-
-        // GTM mirror for non-GA4 tags. A plain-object push is not a gtag command,
-        // so gtag.js ignores it and GA4 still sees exactly one pageview.
-        window.dataLayer = window.dataLayer || []
-        window.dataLayer.push({ event: 'spa_page_view', page_path: to.fullPath })
       })
     }
   },

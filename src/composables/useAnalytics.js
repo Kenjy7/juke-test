@@ -6,11 +6,6 @@
 // - Consent-gated for free: `window.gtag` only exists after the visitor accepts
 //   the `analytics` cookie category (see useCookieConsent.js → loadGoogleAnalytics).
 //   Before consent it's undefined, so nothing is sent — GDPR-safe by construction.
-// - GA4 is loaded IN CODE, never from Google Tag Manager. The GTM container must
-//   NOT contain a GA4 tag for G-MDEMFNGVWJ or every hit is counted twice.
-//   Each event is additionally mirrored into the dataLayer so GTM-side tags (Ads,
-//   LinkedIn, pixels) can trigger on it. That mirror is a plain-object push, not a
-//   gtag command, so gtag.js ignores it — it never reaches GA4.
 // - Event names follow `noun_verb`, past tense, lowercase. Keep new events in
 //   docs/analytics-events.md and reuse enumerable property values (no PII).
 //
@@ -28,7 +23,7 @@ export function trackEvent(name, props = {}) {
     if (value !== undefined && value !== null && value !== '') clean[key] = value
   }
 
-  // GA4 — the single source of truth for analytics. `window.gtag` only exists
+  // GA4 — `window.gtag` only exists
   // once the analytics category was accepted, so this stays consent-gated.
   if (typeof window.gtag === 'function') {
     try {
@@ -36,16 +31,6 @@ export function trackEvent(name, props = {}) {
     } catch {
       /* never let analytics break a user flow */
     }
-  }
-
-  // GTM mirror — lets marketing tags fire on the same funnel events even when
-  // only the marketing category was accepted. Consent Mode (defaults denied, set
-  // in index.html) decides whether any tag actually fires, so pushing is safe.
-  try {
-    window.dataLayer = window.dataLayer || []
-    window.dataLayer.push({ event: name, ...clean })
-  } catch {
-    /* never let analytics break a user flow */
   }
 
   // LinkedIn conversion — no-op unless marketing consent loaded the Insight Tag

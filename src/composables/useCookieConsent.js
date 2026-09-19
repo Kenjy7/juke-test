@@ -102,7 +102,7 @@ export const useCookieConsent = () => {
     // Clear non-necessary cookies
     clearNonNecessaryCookies()
 
-    // GTM terugzetten naar 'denied' — intrekken moet even effectief zijn als geven.
+    // Consent Mode terugzetten naar 'denied' — intrekken moet even effectief zijn als geven.
     pushConsentUpdate()
   }
 
@@ -147,9 +147,10 @@ export const useCookieConsent = () => {
   }
 
   // Push de Consent Mode v2 'update' naar de dataLayer. De defaults staan op 'denied'
-  // in index.html (vóór de GTM-snippet); deze update vertelt GTM welke tags mogen
-  // vuren. window.gtag wordt hier bewust niet gezet — useAnalytics.js en main.js
-  // gebruiken het bestaan daarvan als check of GA zelf geladen is.
+  // (public/consent-defaults.js); deze update vertelt gtag.js (GA4) welke opslag en
+  // advertentiesignalen mogen. window.gtag wordt hier bewust niet gezet —
+  // useAnalytics.js en main.js gebruiken het bestaan daarvan als check of GA4 zelf
+  // geladen is.
   const pushConsentUpdate = () => {
     if (typeof window === 'undefined') return
 
@@ -178,8 +179,8 @@ export const useCookieConsent = () => {
 
   // Initialize third-party scripts based on consent
   const initializeScripts = () => {
-    // Altijd eerst GTM informeren — ook bij weigeren, zodat de container niet
-    // 500ms blijft wachten op een update die nooit komt (wait_for_update).
+    // Altijd eerst de consent-update pushen — ook bij weigeren — zodat die klaarstaat
+    // vóór gtag.js laadt en de keuze expliciet in de dataLayer staat.
     pushConsentUpdate()
 
     if (isAllowed('analytics')) {
@@ -191,13 +192,7 @@ export const useCookieConsent = () => {
     }
   }
 
-  // Load Google Analytics.
-  //
-  // ⚠️ GA4 lives HERE, in code — it is deliberately not a tag in the Google Tag
-  // Manager container (GTM-W7D44H6H). Adding a GA4 tag for G-MDEMFNGVWJ over there
-  // would make every pageview and event count twice. GTM is for the other tags
-  // (Ads, LinkedIn, pixels); useAnalytics.js mirrors the funnel events into the
-  // dataLayer so those can still trigger on them.
+  // Load Google Analytics
   const loadGoogleAnalytics = () => {
     // Only load if not already loaded
     if (window.gtag) return
@@ -218,11 +213,12 @@ export const useCookieConsent = () => {
     gtag('js', new Date())
 
     // Consent Mode v2: de 'default' (alles denied, incl. ad_user_data en
-    // ad_personalization — verplicht sinds maart 2024) staat in index.html, en de
+    // ad_personalization — verplicht sinds maart 2024) staat in
+    // public/consent-defaults.js, en de
     // 'update' is hierboven al naar de gedeelde dataLayer gepusht door
     // pushConsentUpdate(), die de vier ad-signalen op 'granted' zet zodra de
     // marketing-categorie is geaccepteerd. Hier dus géén tweede 'default' pushen —
-    // die zou genegeerd worden en kan de GTM-container in de war sturen.
+    // die zou genegeerd worden.
 
     // ✅ GA configuratie
     gtag('config', GA_MEASUREMENT_ID, {

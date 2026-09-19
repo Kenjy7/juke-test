@@ -1,6 +1,6 @@
 // composables/useLinkedInInsight.js
 //
-// LinkedIn Insight Tag — loaded in code, not from Google Tag Manager.
+// LinkedIn Insight Tag.
 //
 // - Consent-gated: loadLinkedInInsight() is only called from
 //   useCookieConsent.js → loadMarketingScripts(), i.e. after the visitor accepts

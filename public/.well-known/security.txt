@@ -1,0 +1,6 @@
+# Security contact for jukecoding.be (RFC 9116).
+# Found a vulnerability? Please report it privately by email.
+Contact: mailto:contact@jukecoding.be
+Expires: 2027-09-19T00:00:00.000Z
+Preferred-Languages: nl, en
+Canonical: https://jukecoding.be/.well-known/security.txt

@@ -64,4 +64,3 @@ Allow: /
 
 # Sitemap locaties
 Sitemap: https://jukecoding.be/sitemap.xml
-Sitemap: https://www.jukecoding.be/sitemap.xml

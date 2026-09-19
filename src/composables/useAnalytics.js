@@ -18,6 +18,8 @@
 // For ad-blocker-resilient conversion counts, mirror these server-side via the
 // GA4 Measurement Protocol (needs a GA4 API secret + a server hop) — see the doc.
 
+import { trackLinkedInConversion } from './useLinkedInInsight'
+
 export function trackEvent(name, props = {}) {
   if (typeof window === 'undefined') return
 
@@ -45,4 +47,8 @@ export function trackEvent(name, props = {}) {
   } catch {
     /* never let analytics break a user flow */
   }
+
+  // LinkedIn conversion — no-op unless marketing consent loaded the Insight Tag
+  // and this event has a conversion ID in useLinkedInInsight.js.
+  trackLinkedInConversion(name)
 }

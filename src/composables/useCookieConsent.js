@@ -1,6 +1,7 @@
 // composables/useCookieConsent.js
 
 import { ref, computed } from 'vue'
+import { loadLinkedInInsight } from './useLinkedInInsight'
 
 const CONSENT_KEY = 'cookieConsent'
 const CONSENT_TIMESTAMP_KEY = 'cookieConsentTimestamp'
@@ -234,8 +235,8 @@ export const useCookieConsent = () => {
 
   // Load marketing scripts
   const loadMarketingScripts = () => {
-    // Add your marketing scripts here (Facebook Pixel, etc.)
-    console.log('Marketing scripts loaded')
+    // Each loader is idempotent and only runs after marketing consent.
+    loadLinkedInInsight()
   }
 
   // Reopen the consent dialog (called from the footer "Cookievoorkeuren" link).

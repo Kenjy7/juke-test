@@ -21,6 +21,16 @@ that fires them. Fired via `trackEvent(name, props)` from
 
 **North Star:** leads (`lead_submitted` + `quote_requested`).
 
+## Where events go
+
+`trackEvent()` (`src/composables/useAnalytics.js`) sends each event to:
+
+| Destination | Consent category | Notes |
+|---|---|---|
+| GA4 `G-MDEMFNGVWJ` | analytics | Loaded in code. Never add a GA4 tag in GTM (double counting). |
+| GTM dataLayer | per tag (Consent Mode) | `{ event: name, ...props }` for triggers in `GTM-W7D44H6H`. |
+| LinkedIn Insight Tag | marketing | Only events mapped in `LINKEDIN_CONVERSIONS` (`useLinkedInInsight.js`). |
+
 ## Known limitation / follow-up
 
 These are **client-side** events — ad-blockers + iOS ITP drop ~20-40%. For

@@ -156,6 +156,10 @@ const thirdParties = computed(() => [
     purpose: t('cookiesPolicy.thirdParties.googleFonts'),
   },
   {
+    name: 'LinkedIn Insight Tag',
+    purpose: t('cookiesPolicy.thirdParties.linkedinInsight'),
+  },
+  {
     name: 'Social Media Plugins',
     purpose: t('cookiesPolicy.thirdParties.socialMedia'),
   },

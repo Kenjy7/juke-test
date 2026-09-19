@@ -624,6 +624,7 @@ export default {
         "googleTagManager": "Beheer van scripts van derden (plaatst zelf geen cookies)",
         "googleAnalytics": "Websiteanalyse en statistieken",
         "googleFonts": "Lettertype weergave",
+        "linkedinInsight": "Meten van advertentieresultaten en bezoekersinzichten op LinkedIn (alleen na toestemming voor marketingcookies)",
         "socialMedia": "Social media integratie"
       },
       "tagManagement": {
@@ -2060,6 +2061,7 @@ export default {
         "googleTagManager": "Managing third-party scripts (sets no cookies itself)",
         "googleAnalytics": "Website analytics and statistics",
         "googleFonts": "Font display",
+        "linkedinInsight": "Measuring ad performance and visitor insights on LinkedIn (only after consent to marketing cookies)",
         "socialMedia": "Social media integration"
       },
       "tagManagement": {

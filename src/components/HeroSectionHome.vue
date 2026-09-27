@@ -168,7 +168,7 @@ const stats = computed(() => [
 const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT']
 
 const txs = computed(() => [
-  { ini: 'Qu', name: 'Quantaro', status: t('home.hero.demo.completed'), cls: 'done', icon: CircleCheck, pay: 'Mastercard', amount: '€125.674', dot: '#e2574c' },
+  { ini: 'Qu', name: 'Quantaro', status: t('home.hero.demo.completed'), cls: 'done', icon: CircleCheck, pay: 'Mastercard', amount: '€125.674', dot: '#c9392e' },
   { ini: 'Or', name: 'Orbipay', status: t('home.hero.demo.pending'), cls: 'pending', icon: Clock, pay: 'Visa card', amount: '€354.326', dot: 'var(--color-primary)' },
 ])
 

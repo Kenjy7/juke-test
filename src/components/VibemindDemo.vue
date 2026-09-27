@@ -327,7 +327,7 @@ onBeforeUnmount(() => timers.forEach(clearTimeout))
   --vm-line: #1f2733;
   --vm-text: #e6edf3;
   --vm-dim: #8b95a5;
-  --vm-muted: #5a6478;
+  --vm-muted: #7e889b;
   --vm-accent: #34d399;
   --vm-warn: #f59e0b;
   border: 1px solid var(--vm-line);

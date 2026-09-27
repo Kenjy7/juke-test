@@ -201,7 +201,7 @@ h1 {
   margin-left: var(--space-3);
   font-family: var(--font-mono);
   font-size: 11px;
-  color: #76847b;
+  color: #82918a;
 }
 
 .terminal__body {

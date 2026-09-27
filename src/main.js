@@ -11,6 +11,12 @@ import { localeFromPath, stripLocale } from './i18n/routing.js'
 import LocaleLink from './components/LocaleLink.vue'
 import { vScaleFit } from './directives/scaleFit.js'
 
+// Activate the non-render-blocking web-font stylesheet (see index.html).
+if (typeof document !== 'undefined') {
+  const fonts = document.getElementById('web-fonts')
+  if (fonts) fonts.media = 'all'
+}
+
 export const createApp = ViteSSG(
   App,
   { routes, base: import.meta.env.BASE_URL },

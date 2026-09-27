@@ -894,7 +894,7 @@ h1 {
   --bee-navy: #1f2d3d;
   --bee-ink: #16202c;
   --bee-line: #e7ebef;
-  --bee-muted: #6b7785;
+  --bee-muted: #636f7d;
   --bee-active: #eef1f4;
 }
 .appwin__bar {
@@ -1125,10 +1125,10 @@ h1 {
 }
 .badge--danger {
   color: #ffffff;
-  background: #d6452f;
+  background: #c63d28;
 }
 .badge--warn {
-  color: #97631a;
+  color: #8a5a14;
   background: #fbedd6;
 }
 .badge--normal {
@@ -1531,6 +1531,8 @@ h1 {
 }
 .faq-header .lead a {
   color: var(--color-accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 .faq-list {
   display: flex;

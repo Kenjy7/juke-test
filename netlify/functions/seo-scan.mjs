@@ -20,6 +20,12 @@ async function fetchPage(url) {
         'User-Agent': 'JukeCoding-SEO-Scanner/1.0 (+https://jukecoding.be)',
         Accept: 'text/html',
       },
+      // SSRF hardening: normaliseUrl()/isPublicHttpUrl() only validate the URL
+      // we were given. Following redirects would let a public URL 30x-hop to an
+      // internal / loopback / metadata target that never passed that check, and
+      // reflect its title/description/etc back in the response. Fail closed on
+      // any redirect — matches the workers' fetchPage (redirect: 'error').
+      redirect: 'error',
       signal: AbortSignal.timeout(10000),
     })
 

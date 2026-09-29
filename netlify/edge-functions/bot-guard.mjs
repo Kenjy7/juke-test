@@ -29,7 +29,10 @@ export default async (request, context) => {
   }
 
   const userAgent = getUserAgent(request.headers)
-  const clientIp = getClientIp(request.headers)
+  // context.ip is the real client IP the Deno edge runtime sees — unspoofable,
+  // unlike a client-supplied x-forwarded-for. Fall back to the header helper for
+  // local dev where context.ip may be absent.
+  const clientIp = context.ip || getClientIp(request.headers)
   const isFunctionRequest = pathname.startsWith('/.netlify/functions/')
 
   if (!isFunctionRequest && isTrustedBot(userAgent)) {

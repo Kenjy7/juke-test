@@ -29,6 +29,12 @@ describe('getClientIp', () => {
     expect(getClientIp(headers({ 'x-forwarded-for': '203.0.113.7, 70.41.3.18' }))).toBe('203.0.113.7')
   })
 
+  it('prefers the unspoofable x-nf-client-connection-ip over x-forwarded-for', () => {
+    expect(
+      getClientIp(headers({ 'x-nf-client-connection-ip': '198.51.100.9', 'x-forwarded-for': '1.2.3.4' })),
+    ).toBe('198.51.100.9')
+  })
+
   it('falls back to client-ip when x-forwarded-for is absent', () => {
     expect(getClientIp(headers({ 'client-ip': '198.51.100.4' }))).toBe('198.51.100.4')
   })

@@ -70,6 +70,14 @@ export function createRateLimitStore(name) {
 }
 
 export function getClientIp(headers) {
+  // Prefer the IP Netlify stamps from the real TCP peer: it cannot be forged by
+  // the client. The leftmost x-forwarded-for value IS client-controlled, so
+  // keying rate limits on it lets an attacker send a fresh XFF per request and
+  // rotate into an unlimited number of buckets — defeating the abuse controls.
+  // XFF/client-ip stay as a fallback for local dev / non-Netlify runtimes.
+  const trusted = headers.get('x-nf-client-connection-ip')
+  if (trusted) return trusted.trim()
+
   const forwardedFor = headers.get('x-forwarded-for') || headers.get('client-ip') || ''
   return forwardedFor.split(',')[0]?.trim() || 'unknown'
 }

@@ -44,10 +44,8 @@
     </nav>
 
     <!-- Full-screen mobile menu — teleported to <body> so its position:fixed
-         resolves against the viewport. Left inside the header, the navbar's
-         backdrop-filter (when scrolled) becomes the containing block and
-         collapses this overlay to the bar's height: the background appears to
-         go transparent and the bottom actions drift up into the page. -->
+         always resolves against the viewport, regardless of any filter or
+         transform on the header (which would become the containing block). -->
     <Teleport to="body">
       <transition name="menu-reveal">
         <div
@@ -258,9 +256,7 @@ onBeforeUnmount(() => {
 }
 
 .navbar-wrap.scrolled {
-  background: rgba(255, 255, 255, 0.97);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
+  background: var(--color-bg-elevated);
   border-bottom-color: var(--color-border);
 }
 
@@ -418,8 +414,8 @@ onBeforeUnmount(() => {
 
 /* ─── Full-screen mobile menu ───
    Teleported to <body>, so position:fixed resolves against the viewport even
-   when the navbar carries a backdrop-filter (which would otherwise become the
-   containing block and collapse this overlay to the bar's height). It sits
+   if the navbar ever carries a filter/transform (which would otherwise become
+   the containing block and collapse this overlay to the bar's height). It sits
    below the navbar (z 1000) so the brand + animated hamburger-X stay on top. */
 .mobile-menu {
   position: fixed;

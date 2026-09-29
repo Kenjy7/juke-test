@@ -219,7 +219,6 @@ const features = computed(() => [
 
 .features-list {
   background: var(--color-bg-card-inner);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
   padding: 2rem;

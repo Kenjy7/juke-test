@@ -859,7 +859,6 @@ export default {
 .offerte-form {
   position: relative;
   background: var(--color-bg-card-inner);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
   border-radius: 1.5rem;
   padding: 2rem;
@@ -876,7 +875,6 @@ export default {
   right: 0;
   bottom: 0;
   background: var(--color-bg-overlay);
-  backdrop-filter: blur(10px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1338,7 +1336,6 @@ export default {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.8);
-  backdrop-filter: blur(8px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1349,7 +1346,6 @@ export default {
 
 .modal-content {
   background: var(--color-bg-surface);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
   border-radius: 1.5rem;
   padding: 2rem;

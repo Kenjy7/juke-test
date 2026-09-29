@@ -194,7 +194,6 @@ const handleSavePreferences = () => {
     left: 0;
     padding: 1rem;
     background: linear-gradient(to top, rgb(43, 45, 48) 0%, transparent 100%);
-    backdrop-filter: blur(4px);
     animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
@@ -206,7 +205,6 @@ const handleSavePreferences = () => {
 .cookie-banner {
   max-width: 470px;
   background: var(--color-bg-card-inner);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--color-border);
   border-radius: 1.25rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);

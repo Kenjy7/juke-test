@@ -23,13 +23,33 @@
 
         <section class="section">
           <h2>{{ t('cookiesPolicy.whichCookies.title') }}</h2>
+          <p>{{ t('cookiesPolicy.whichCookies.intro') }}</p>
 
-          <div class="cookie-type" v-for="(type, index) in cookieTypes" :key="index">
-            <h3>{{ type.title }}</h3>
-            <p>
-              {{ type.text }}
-            </p>
-            <p class="examples">{{ type.examples }}</p>
+          <div class="cookie-type" v-for="group in cookieGroups" :key="group.key">
+            <h3>{{ t(`cookiesPolicy.whichCookies.${group.key}.title`) }}</h3>
+            <p>{{ t(`cookiesPolicy.whichCookies.${group.key}.text`) }}</p>
+            <div class="table-wrap">
+              <table class="cookie-table">
+                <thead>
+                  <tr>
+                    <th scope="col">{{ t('cookiesPolicy.whichCookies.table.name') }}</th>
+                    <th scope="col">{{ t('cookiesPolicy.whichCookies.table.provider') }}</th>
+                    <th scope="col">{{ t('cookiesPolicy.whichCookies.table.purpose') }}</th>
+                    <th scope="col">{{ t('cookiesPolicy.whichCookies.table.duration') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="cookie in group.cookies" :key="cookie.id">
+                    <th scope="row">
+                      <code>{{ cookie.name }}</code>
+                    </th>
+                    <td>{{ cookie.provider }}</td>
+                    <td>{{ t(`cookiesPolicy.whichCookies.cookies.${cookie.id}.purpose`) }}</td>
+                    <td>{{ t(`cookiesPolicy.whichCookies.cookies.${cookie.id}.duration`) }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </section>
 
@@ -59,18 +79,6 @@
           <p>{{ t('cookiesPolicy.consent.text') }}</p>
           <p>{{ t('cookiesPolicy.consent.consentMode') }}</p>
           <p>{{ t('cookiesPolicy.consent.withdraw') }}</p>
-        </section>
-
-        <section class="section">
-          <h2>{{ t('cookiesPolicy.retention.title') }}</h2>
-          <p>{{ t('cookiesPolicy.retention.intro') }}</p>
-
-          <div class="durations">
-            <div class="duration-item" v-for="(duration, index) in durations" :key="index">
-              <span class="duration-type">{{ duration.type }}</span>
-              <span class="duration-time">{{ duration.time }}</span>
-            </div>
-          </div>
         </section>
 
         <section class="section">
@@ -119,28 +127,40 @@ import { useI18n } from 'vue-i18n'
 
 const { t } = useI18n()
 
-const cookieTypes = computed(() => [
+// Every cookie / localStorage key the site actually sets. Keep in sync with
+// useCookieConsent.js, LocaleSwitcher.vue and the loaded third-party tags.
+const OWN = 'jukecoding.be'
+const cookieGroups = [
   {
-    title: t('cookiesPolicy.whichCookies.necessary.title'),
-    text: t('cookiesPolicy.whichCookies.necessary.text'),
-    examples: t('cookiesPolicy.whichCookies.necessary.examples'),
+    key: 'necessary',
+    cookies: [
+      {
+        id: 'consent',
+        name: 'cookieConsent, cookieConsentTimestamp, cookieConsentVersion',
+        provider: OWN,
+      },
+      { id: 'locale', name: 'locale', provider: OWN },
+    ],
   },
   {
-    title: t('cookiesPolicy.whichCookies.functional.title'),
-    text: t('cookiesPolicy.whichCookies.functional.text'),
-    examples: t('cookiesPolicy.whichCookies.functional.examples'),
+    key: 'analytical',
+    cookies: [
+      { id: 'ga', name: '_ga', provider: 'Google' },
+      { id: 'gaId', name: '_ga_<ID>', provider: 'Google' },
+    ],
   },
   {
-    title: t('cookiesPolicy.whichCookies.analytical.title'),
-    text: t('cookiesPolicy.whichCookies.analytical.text'),
-    examples: t('cookiesPolicy.whichCookies.analytical.examples'),
+    key: 'marketing',
+    cookies: [
+      { id: 'bcookie', name: 'bcookie', provider: 'LinkedIn' },
+      { id: 'lidc', name: 'lidc', provider: 'LinkedIn' },
+      { id: 'liGc', name: 'li_gc', provider: 'LinkedIn' },
+      { id: 'liSugr', name: 'li_sugr', provider: 'LinkedIn' },
+      { id: 'userMatch', name: 'UserMatchHistory', provider: 'LinkedIn' },
+      { id: 'analyticsSync', name: 'AnalyticsSyncHistory', provider: 'LinkedIn' },
+    ],
   },
-  {
-    title: t('cookiesPolicy.whichCookies.marketing.title'),
-    text: t('cookiesPolicy.whichCookies.marketing.text'),
-    examples: t('cookiesPolicy.whichCookies.marketing.examples'),
-  },
-])
+]
 
 const thirdParties = computed(() => [
   {
@@ -148,31 +168,8 @@ const thirdParties = computed(() => [
     purpose: t('cookiesPolicy.thirdParties.googleAnalytics'),
   },
   {
-    name: 'Google Fonts',
-    purpose: t('cookiesPolicy.thirdParties.googleFonts'),
-  },
-  {
     name: 'LinkedIn Insight Tag',
     purpose: t('cookiesPolicy.thirdParties.linkedinInsight'),
-  },
-  {
-    name: 'Social Media Plugins',
-    purpose: t('cookiesPolicy.thirdParties.socialMedia'),
-  },
-])
-
-const durations = computed(() => [
-  {
-    type: t('cookiesPolicy.retention.session.type'),
-    time: t('cookiesPolicy.retention.session.time'),
-  },
-  {
-    type: t('cookiesPolicy.retention.permanent.type'),
-    time: t('cookiesPolicy.retention.permanent.time'),
-  },
-  {
-    type: t('cookiesPolicy.retention.analytical.type'),
-    time: t('cookiesPolicy.retention.analytical.time'),
   },
 ])
 
@@ -305,26 +302,40 @@ h1 {
   }
 }
 
-.durations {
-  margin-top: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
 }
 
-.duration-item {
-  display: flex;
-  flex-direction: column;
-  gap: 0.25rem;
+.cookie-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
 
-  .duration-type {
+  th,
+  td {
+    padding: 0.625rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--color-border);
+    color: var(--color-text-secondary);
+  }
+
+  thead th {
     font-weight: 600;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+  }
+
+  tbody th {
+    font-weight: 500;
     color: var(--color-text-primary);
   }
 
-  .duration-time {
-    font-size: 0.9375rem;
-    color: var(--color-text-secondary);
+  code {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
   }
 }
 

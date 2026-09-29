@@ -3,7 +3,7 @@
     "header": {
       "title": "Cookiebeleid",
       "subtitle": "Transparantie over hoe wij cookies gebruiken",
-      "lastUpdated": "Laatst bijgewerkt: september 2026"
+      "lastUpdated": "Laatst bijgewerkt: 29 september 2026"
     },
     "intro": "Wij gebruiken cookies en vergelijkbare technologieën op onze website. Dit cookiebeleid legt uit wat cookies zijn, hoe we ze gebruiken, en hoe u uw voorkeuren kunt beheren.",
     "whatAreCookies": {
@@ -12,60 +12,84 @@
     },
     "whichCookies": {
       "title": "Welke cookies gebruiken wij?",
-      "necessary": {
-        "title": "Noodzakelijke cookies",
-        "text": "Deze cookies zijn essentieel voor het functioneren van de website. Zonder deze cookies kunnen bepaalde delen van de website niet werken.",
-        "examples": "Voorbeelden: Sessie-cookies, beveiligingscookies, cookie-voorkeuren"
+      "intro": "Hieronder staan alle cookies en vergelijkbare opslag (localStorage) die onze website gebruikt. Analytische en marketingcookies worden alleen geplaatst als u daarvoor toestemming geeft. De looptijden van cookies van derden zijn zoals opgegeven door de aanbieder en kunnen door hen gewijzigd worden.",
+      "table": {
+        "name": "Naam",
+        "provider": "Aanbieder",
+        "purpose": "Doel",
+        "duration": "Looptijd",
+        "ownSite": "jukecoding.be"
       },
-      "functional": {
-        "title": "Functionele cookies",
-        "text": "Deze cookies onthouden uw voorkeuren en keuzes om uw ervaring te verbeteren.",
-        "examples": "Voorbeelden: Taalvoorkeur, regio-instellingen, voorkeursinstellingen"
+      "necessary": {
+        "title": "Noodzakelijk",
+        "text": "Nodig om de website te laten werken en uw keuzes te onthouden. Hiervoor is geen toestemming nodig. Deze gegevens blijven op uw apparaat en worden niet naar ons of derden verstuurd."
       },
       "analytical": {
-        "title": "Analytische cookies",
-        "text": "Deze cookies helpen ons begrijpen hoe bezoekers omgaan met de website door informatie anoniem te verzamelen en te rapporteren.",
-        "examples": "Voorbeelden: Google Analytics, bezoekersstatistieken, pagina-interacties"
+        "title": "Analytisch",
+        "text": "Helpen ons begrijpen hoe bezoekers de website gebruiken, bijvoorbeeld welke pagina's bezocht worden. De gegevens worden verwerkt door Google. Alleen na uw toestemming."
       },
       "marketing": {
-        "title": "Marketing cookies",
-        "text": "Deze cookies worden gebruikt om bezoekers te volgen op websites. De bedoeling is om advertenties te tonen die relevant en aantrekkelijk zijn voor de individuele gebruiker.",
-        "examples": "Voorbeelden: Social media cookies, advertentiecookies, tracking pixels"
+        "title": "Marketing",
+        "text": "Meten de resultaten van onze LinkedIn-advertenties en laten LinkedIn toe u op LinkedIn relevante advertenties te tonen. Alleen na uw toestemming."
+      },
+      "cookies": {
+        "consent": {
+          "purpose": "Onthoudt uw cookiekeuze, wanneer u die maakte en voor welke versie van dit beleid",
+          "duration": "Tot u ze wist (localStorage)"
+        },
+        "locale": {
+          "purpose": "Onthoudt de taal die u koos",
+          "duration": "Tot u ze wist (localStorage)"
+        },
+        "ga": {
+          "purpose": "Onderscheidt unieke bezoekers voor statistieken",
+          "duration": "2 jaar"
+        },
+        "gaId": {
+          "purpose": "Houdt de sessiestatus bij voor statistieken",
+          "duration": "2 jaar"
+        },
+        "bcookie": {
+          "purpose": "Herkent de browser voor LinkedIn-diensten",
+          "duration": "1 jaar"
+        },
+        "lidc": {
+          "purpose": "Routering en load balancing",
+          "duration": "24 uur"
+        },
+        "liGc": {
+          "purpose": "Bewaart de toestemming voor LinkedIn-cookies",
+          "duration": "6 maanden"
+        },
+        "liSugr": {
+          "purpose": "Browser-identificatie voor advertentiemeting",
+          "duration": "3 maanden"
+        },
+        "userMatch": {
+          "purpose": "Koppelt bezoekers aan LinkedIn voor advertentiedoelgroepen",
+          "duration": "30 dagen"
+        },
+        "analyticsSync": {
+          "purpose": "Synchroniseert met UserMatchHistory",
+          "duration": "30 dagen"
+        }
       }
     },
     "manage": {
       "title": "Cookies beheren",
-      "text": "U kunt uw cookie-instellingen op elk moment wijzigen via uw browserinstellingen. Houd er rekening mee dat het uitschakelen van bepaalde cookies de functionaliteit van onze website kan beïnvloeden. De meeste browsers accepteren cookies automatisch, maar u kunt uw browserinstellingen meestal aanpassen om cookies te weigeren als u dat wenst."
+      "text": "U kunt uw keuze op elk moment wijzigen of intrekken via 'Cookievoorkeuren' onderaan elke pagina. Trekt u analytische of marketingcookies in, dan verwijderen wij de betreffende cookies. U kunt cookies ook altijd zelf wissen of blokkeren via uw browserinstellingen."
     },
     "thirdParties": {
       "title": "Cookies van derde partijen",
-      "text": "Sommige cookies worden geplaatst door diensten van derden die op onze pagina's verschijnen. Wij hebben geen controle over deze cookies. Raadpleeg de privacyverklaring van deze diensten voor meer informatie over hun cookies en hoe u deze kunt beheren.",
-      "googleAnalytics": "Websiteanalyse en statistieken",
-      "googleFonts": "Lettertype weergave",
-      "linkedinInsight": "Meten van advertentieresultaten en bezoekersinzichten op LinkedIn (alleen na toestemming voor marketingcookies)",
-      "socialMedia": "Social media integratie"
+      "text": "Analytische en marketingcookies worden geplaatst door de diensten hieronder. Zij verwerken die gegevens ook volgens hun eigen privacyverklaring.",
+      "googleAnalytics": "Websitestatistieken (Google Ireland Ltd.)",
+      "linkedinInsight": "Advertentiemeting en bezoekersinzichten (LinkedIn Ireland Unlimited Company), alleen na toestemming voor marketingcookies"
     },
     "consent": {
       "title": "Toestemming en Google Consent Mode",
       "text": "Analytische en marketingscripts, zoals Google Analytics en de LinkedIn Insight Tag, worden pas geladen nadat u daarvoor toestemming geeft via de cookiebanner. Zolang u geen keuze heeft gemaakt, worden er geen cookies van derden geplaatst en worden er geen gegevens naar deze diensten verstuurd.",
       "consentMode": "Daarnaast gebruiken wij Google Consent Mode v2. Elke categorie staat standaard op 'geweigerd', en Google Analytics houdt rekening met uw keuze: aanvaardt u bijvoorbeeld enkel analytische cookies, dan gebruikt Google Analytics geen advertentiesignalen.",
       "withdraw": "Trekt u uw toestemming later in via 'Cookievoorkeuren' onderaan elke pagina, dan zetten wij de toestemmingsmodus onmiddellijk terug naar 'geweigerd'."
-    },
-    "retention": {
-      "title": "Bewaartermijn",
-      "intro": "De bewaartermijn van cookies verschilt per type:",
-      "session": {
-        "type": "Sessiecookies",
-        "time": "Worden verwijderd na het sluiten van uw browser"
-      },
-      "permanent": {
-        "type": "Permanente cookies",
-        "time": "Blijven 1 maand tot 2 jaar bewaard"
-      },
-      "analytical": {
-        "type": "Analytische cookies",
-        "time": "Worden na 26 maanden automatisch verwijderd"
-      }
     },
     "rights": {
       "title": "Uw rechten",
@@ -91,7 +115,7 @@
     "header": {
       "title": "Cookie Policy",
       "subtitle": "Transparency about how we use cookies",
-      "lastUpdated": "Last updated: September 2026"
+      "lastUpdated": "Last updated: 29 September 2026"
     },
     "intro": "We use cookies and similar technologies on our website. This cookie policy explains what cookies are, how we use them, and how you can manage your preferences.",
     "whatAreCookies": {
@@ -100,60 +124,84 @@
     },
     "whichCookies": {
       "title": "Which cookies do we use?",
-      "necessary": {
-        "title": "Necessary cookies",
-        "text": "These cookies are essential for the website to function. Without these cookies, certain parts of the website cannot work.",
-        "examples": "Examples: Session cookies, security cookies, cookie preferences"
+      "intro": "Below are all cookies and similar storage (localStorage) our website uses. Analytical and marketing cookies are only set if you consent to them. Durations of third-party cookies are as stated by the provider and may be changed by them.",
+      "table": {
+        "name": "Name",
+        "provider": "Provider",
+        "purpose": "Purpose",
+        "duration": "Duration",
+        "ownSite": "jukecoding.be"
       },
-      "functional": {
-        "title": "Functional cookies",
-        "text": "These cookies remember your preferences and choices to improve your experience.",
-        "examples": "Examples: Language preference, region settings, preference settings"
+      "necessary": {
+        "title": "Necessary",
+        "text": "Required for the website to work and to remember your choices. No consent is needed. This data stays on your device and is not sent to us or third parties."
       },
       "analytical": {
-        "title": "Analytical cookies",
-        "text": "These cookies help us understand how visitors interact with the website by collecting and reporting information anonymously.",
-        "examples": "Examples: Google Analytics, visitor statistics, page interactions"
+        "title": "Analytical",
+        "text": "Help us understand how visitors use the website, for example which pages are visited. The data is processed by Google. Only with your consent."
       },
       "marketing": {
-        "title": "Marketing cookies",
-        "text": "These cookies are used to track visitors across websites. The aim is to display advertisements that are relevant and appealing to the individual user.",
-        "examples": "Examples: Social media cookies, advertising cookies, tracking pixels"
+        "title": "Marketing",
+        "text": "Measure the results of our LinkedIn ads and allow LinkedIn to show you relevant ads on LinkedIn. Only with your consent."
+      },
+      "cookies": {
+        "consent": {
+          "purpose": "Remembers your cookie choice, when you made it and for which version of this policy",
+          "duration": "Until you clear it (localStorage)"
+        },
+        "locale": {
+          "purpose": "Remembers the language you chose",
+          "duration": "Until you clear it (localStorage)"
+        },
+        "ga": {
+          "purpose": "Distinguishes unique visitors for statistics",
+          "duration": "2 years"
+        },
+        "gaId": {
+          "purpose": "Keeps session state for statistics",
+          "duration": "2 years"
+        },
+        "bcookie": {
+          "purpose": "Recognises the browser for LinkedIn services",
+          "duration": "1 year"
+        },
+        "lidc": {
+          "purpose": "Routing and load balancing",
+          "duration": "24 hours"
+        },
+        "liGc": {
+          "purpose": "Stores consent for LinkedIn cookies",
+          "duration": "6 months"
+        },
+        "liSugr": {
+          "purpose": "Browser identification for ad measurement",
+          "duration": "3 months"
+        },
+        "userMatch": {
+          "purpose": "Matches visitors to LinkedIn for ad audiences",
+          "duration": "30 days"
+        },
+        "analyticsSync": {
+          "purpose": "Syncs with UserMatchHistory",
+          "duration": "30 days"
+        }
       }
     },
     "manage": {
       "title": "Managing cookies",
-      "text": "You can change your cookie settings at any time through your browser settings. Please note that disabling certain cookies may affect the functionality of our website. Most browsers accept cookies automatically, but you can usually adjust your browser settings to refuse cookies if you prefer."
+      "text": "You can change or withdraw your choice at any time via 'Cookie settings' at the bottom of every page. If you withdraw analytical or marketing cookies, we delete those cookies. You can also always clear or block cookies yourself in your browser settings."
     },
     "thirdParties": {
       "title": "Third-party cookies",
-      "text": "Some cookies are placed by third-party services that appear on our pages. We have no control over these cookies. Please consult the privacy policy of these services for more information about their cookies and how you can manage them.",
-      "googleAnalytics": "Website analytics and statistics",
-      "googleFonts": "Font display",
-      "linkedinInsight": "Measuring ad performance and visitor insights on LinkedIn (only after consent to marketing cookies)",
-      "socialMedia": "Social media integration"
+      "text": "Analytical and marketing cookies are set by the services below. They also process that data under their own privacy policies.",
+      "googleAnalytics": "Website statistics (Google Ireland Ltd.)",
+      "linkedinInsight": "Ad measurement and visitor insights (LinkedIn Ireland Unlimited Company), only after consent to marketing cookies"
     },
     "consent": {
       "title": "Consent and Google Consent Mode",
       "text": "Analytical and marketing scripts, such as Google Analytics and the LinkedIn Insight Tag, only load after you give consent through the cookie banner. As long as you have not made a choice, no third-party cookies are set and no data is sent to these services.",
       "consentMode": "We also use Google Consent Mode v2. Every category defaults to 'denied', and Google Analytics respects your choice: if you accept analytical cookies only, for example, Google Analytics does not use advertising signals.",
       "withdraw": "If you later withdraw your consent via 'Cookie settings' at the bottom of every page, we immediately reset consent mode to 'denied'."
-    },
-    "retention": {
-      "title": "Retention period",
-      "intro": "The retention period of cookies varies by type:",
-      "session": {
-        "type": "Session cookies",
-        "time": "Are deleted after you close your browser"
-      },
-      "permanent": {
-        "type": "Permanent cookies",
-        "time": "Remain stored for 1 month to 2 years"
-      },
-      "analytical": {
-        "type": "Analytical cookies",
-        "time": "Are automatically deleted after 26 months"
-      }
     },
     "rights": {
       "title": "Your rights",

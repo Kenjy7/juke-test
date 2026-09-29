@@ -28,20 +28,6 @@
               <div class="option-header">
                 <input
                   type="checkbox"
-                  id="functional"
-                  v-model="preferences.functional"
-                  class="cookie-checkbox"
-                />
-                <label for="functional">
-                  <span class="option-title">{{ t('cookiesPopUp.options.functional') }}</span>
-                </label>
-              </div>
-            </div>
-
-            <div class="cookie-option">
-              <div class="option-header">
-                <input
-                  type="checkbox"
                   id="analytics"
                   v-model="preferences.analytics"
                   class="cookie-checkbox"

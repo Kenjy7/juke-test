@@ -182,16 +182,22 @@
           <figure class="spot__visual">
             <div class="shot__frame">
               <div class="shot__bar"><span></span><span></span><span></span></div>
-              <img
+              <button
                 v-if="!broken[s.key]"
-                :src="s.src"
-                :alt="s.alt"
-                loading="lazy"
-                decoding="async"
-                class="shot__img"
-                @click="openLightbox(s)"
-                @error="broken[s.key] = true"
-              />
+                type="button"
+                class="shot__zoom"
+                :aria-label="t('a11y.enlargeImage', { alt: s.alt })"
+                @click="openLightbox(s, $event)"
+              >
+                <img
+                  :src="s.src"
+                  :alt="s.alt"
+                  loading="lazy"
+                  decoding="async"
+                  class="shot__img"
+                  @error="broken[s.key] = true"
+                />
+              </button>
               <div v-else class="shot__placeholder">
                 <svg
                   viewBox="0 0 24 24"
@@ -314,10 +320,16 @@
         class="lightbox"
         role="dialog"
         aria-modal="true"
-        aria-label="Vergrote schermafbeelding"
+        :aria-label="t('a11y.enlargedImage')"
         @click="closeLightbox"
       >
-        <button class="lightbox__close" type="button" aria-label="Sluiten" @click="closeLightbox">
+        <button
+          ref="lightboxCloseEl"
+          class="lightbox__close"
+          type="button"
+          :aria-label="t('a11y.close')"
+          @click="closeLightbox"
+        >
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
             <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round" />
           </svg>
@@ -468,19 +480,33 @@ const steps = computed(() => [
 const broken = reactive({})
 
 // Click a screenshot to view it enlarged in a lightbox.
+// Focus moves to the close button on open and back to the screenshot on close;
+// the close button is the only focusable element, so Tab stays inside.
 const lightbox = reactive({ src: '', alt: '' })
-function openLightbox(s) {
+const lightboxCloseEl = ref(null)
+let lightboxOpener = null
+function openLightbox(s, e) {
+  lightboxOpener = e?.currentTarget ?? null
   lightbox.src = s.src
   lightbox.alt = s.alt
   document.body.style.overflow = 'hidden'
+  nextTick(() => lightboxCloseEl.value?.focus())
 }
 function closeLightbox() {
+  if (!lightbox.src) return
   lightbox.src = ''
   lightbox.alt = ''
   document.body.style.overflow = ''
+  lightboxOpener?.focus()
+  lightboxOpener = null
 }
 function onLightboxKey(e) {
+  if (!lightbox.src) return
   if (e.key === 'Escape') closeLightbox()
+  if (e.key === 'Tab') {
+    e.preventDefault()
+    lightboxCloseEl.value?.focus()
+  }
 }
 
 // ── Keep the hero dashboard mock fully visible on every screen ──
@@ -1329,6 +1355,18 @@ h1 {
     border-radius: 50%;
     background: var(--color-border-hover);
   }
+}
+.shot__zoom {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+.shot__zoom:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
 }
 .shot__img {
   display: block;

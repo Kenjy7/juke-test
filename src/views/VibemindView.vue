@@ -1294,7 +1294,7 @@ h1 {
     font-size: var(--text-body);
     color: var(--color-text-primary);
     background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-input);
     border-radius: var(--radius-md);
     padding: 0.7rem 0.9rem;
     transition: border-color var(--transition-fast);
@@ -1302,8 +1302,9 @@ h1 {
       color: var(--color-text-tertiary);
     }
     &:focus {
-      outline: none;
-      border-color: var(--color-border-active);
+      outline: 2px solid var(--color-primary);
+      outline-offset: 1px;
+      border-color: var(--color-primary);
     }
   }
   textarea {

@@ -18,8 +18,8 @@
 
         <!-- Action buttons -->
         <div class="error-actions">
-          <button class="btn-primary" @click="goHome">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+          <router-link to="/" class="btn-primary">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M3 10L10 3L17 10M10 3V17"
                 stroke="currentColor"
@@ -29,10 +29,10 @@
               />
             </svg>
             <span>{{ t('notFound.backHome') }}</span>
-          </button>
+          </router-link>
 
           <button class="btn-secondary" @click="goBack">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none">
               <path
                 d="M12.5 5L7.5 10L12.5 15"
                 stroke="currentColor"
@@ -56,10 +56,6 @@ import { useI18n } from 'vue-i18n'
 const { t } = useI18n()
 
 const router = useRouter()
-
-const goHome = () => {
-  router.push('/')
-}
 
 const goBack = () => {
   router.back()
@@ -172,6 +168,7 @@ const goBack = () => {
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border: none;
+  text-decoration: none;
   position: relative;
   overflow: hidden;
 

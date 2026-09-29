@@ -110,11 +110,16 @@
             </div>
             <!-- Service Selection -->
             <div class="form-group">
-              <label
+              <label id="service-label"
                 >{{ t('contactFormulier.form.serviceLabel') }}
                 <span class="required">*</span></label
               >
-              <div class="service-options">
+              <div
+                class="service-options"
+                role="radiogroup"
+                aria-labelledby="service-label"
+                :aria-describedby="errors.service ? 'service-error' : undefined"
+              >
                 <label class="service-option" :class="{ active: formData.service === 'saas' }">
                   <input
                     type="radio"
@@ -125,6 +130,7 @@
                   />
                   <div class="option-content">
                     <svg
+                      aria-hidden="true"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -155,6 +161,7 @@
                   />
                   <div class="option-content">
                     <svg
+                      aria-hidden="true"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -187,6 +194,7 @@
                   />
                   <div class="option-content">
                     <svg
+                      aria-hidden="true"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -214,6 +222,7 @@
                   />
                   <div class="option-content">
                     <svg
+                      aria-hidden="true"
                       width="24"
                       height="24"
                       viewBox="0 0 24 24"
@@ -229,7 +238,7 @@
                   </div>
                 </label>
               </div>
-              <span v-if="errors.service" class="field-error">{{ errors.service }}</span>
+              <span v-if="errors.service" id="service-error" class="field-error" role="alert">{{ errors.service }}</span>
             </div>
 
             <div class="form-row">
@@ -242,11 +251,14 @@
                   type="text"
                   id="name"
                   v-model="formData.name"
+                  autocomplete="given-name"
                   :class="{ 'has-error': errors.name }"
+                  :aria-invalid="errors.name ? 'true' : undefined"
+                  :aria-describedby="errors.name ? 'name-error' : undefined"
                   @input="clearError('name')"
                   placeholder="John"
                 />
-                <span v-if="errors.name" class="field-error">{{ errors.name }}</span>
+                <span v-if="errors.name" id="name-error" class="field-error" role="alert">{{ errors.name }}</span>
               </div>
 
               <div class="form-group">
@@ -258,11 +270,14 @@
                   type="text"
                   id="lastname"
                   v-model="formData.lastname"
+                  autocomplete="family-name"
                   :class="{ 'has-error': errors.lastname }"
+                  :aria-invalid="errors.lastname ? 'true' : undefined"
+                  :aria-describedby="errors.lastname ? 'lastname-error' : undefined"
                   @input="clearError('lastname')"
                   placeholder="Doe"
                 />
-                <span v-if="errors.lastname" class="field-error">{{ errors.lastname }}</span>
+                <span v-if="errors.lastname" id="lastname-error" class="field-error" role="alert">{{ errors.lastname }}</span>
               </div>
             </div>
 
@@ -276,11 +291,14 @@
                   type="email"
                   id="email"
                   v-model="formData.email"
+                  autocomplete="email"
                   :class="{ 'has-error': errors.email }"
+                  :aria-invalid="errors.email ? 'true' : undefined"
+                  :aria-describedby="errors.email ? 'email-error' : undefined"
                   @input="clearError('email')"
                   placeholder="john@example.com"
                 />
-                <span v-if="errors.email" class="field-error">{{ errors.email }}</span>
+                <span v-if="errors.email" id="email-error" class="field-error" role="alert">{{ errors.email }}</span>
               </div>
 
               <div class="form-group">
@@ -289,6 +307,7 @@
                   type="tel"
                   id="phone"
                   v-model="formData.phone"
+                  autocomplete="tel"
                   placeholder="+32 470 12 34 56"
                 />
               </div>
@@ -403,7 +422,7 @@
             </div>
             </form>
 
-            <div v-else key="sent" class="form-sent">
+            <div v-else key="sent" class="form-sent" role="status">
               <span class="form-sent__icon" aria-hidden="true">
                 <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
                   <path
@@ -431,7 +450,7 @@
 <script>
 import emailjs from '@emailjs/browser'
 import { trackEvent } from '@/composables/useAnalytics'
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, nextTick } from 'vue'
 import { useRoute } from 'vue-router'
 import { useI18n } from 'vue-i18n'
 
@@ -525,7 +544,19 @@ export default {
       }
 
       // Validate before showing any loading state — invalid fields surface inline.
-      if (!validateForm()) return
+      if (!validateForm()) {
+        // Breng de focus naar het eerste foute veld, zodat toetsenbord- en
+        // schermlezergebruikers meteen zien wat er mis is.
+        nextTick(() => {
+          const first = Object.keys(errors.value)[0]
+          const el =
+            first === 'service'
+              ? document.querySelector('input[name="service"]')
+              : document.getElementById(first)
+          el?.focus()
+        })
+        return
+      }
 
       submitError.value = false
       isLoading.value = true
@@ -791,6 +822,11 @@ a.method:hover {
     pointer-events: none;
   }
 
+  input[type='radio']:focus-visible + .option-content {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
   .option-content {
     display: flex;
     flex-direction: column;
@@ -862,7 +898,7 @@ a.method:hover {
   textarea {
     padding: 0.875rem 1rem;
     background: var(--color-bg-surface);
-    border: 1px solid var(--color-border);
+    border: 1px solid var(--color-border-input);
     border-radius: var(--radius-md);
     color: var(--color-text-primary);
     font-size: var(--text-body);
@@ -876,9 +912,9 @@ a.method:hover {
     }
 
     &:focus {
-      outline: none;
+      outline: 2px solid var(--color-primary);
+      outline-offset: 1px;
       border-color: var(--color-primary);
-      box-shadow: 0 0 0 3px var(--color-primary-subtle);
     }
 
     &.has-error {

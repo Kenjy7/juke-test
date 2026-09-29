@@ -4,8 +4,15 @@
 
     <div class="faq-question">
       <h3>{{ question }}</h3>
-      <button class="toggle-button" :class="{ rotated: isOpen }" aria-label="Toggle answer">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+      <button
+        type="button"
+        class="toggle-button"
+        :class="{ rotated: isOpen }"
+        :aria-label="question"
+        :aria-expanded="isOpen"
+        :aria-controls="answerId"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
           <path
             d="M5 7.5L10 12.5L15 7.5"
             stroke="currentColor"
@@ -18,7 +25,7 @@
     </div>
 
     <transition name="expand">
-      <div v-if="isOpen" class="faq-answer">
+      <div v-if="isOpen" :id="answerId" class="faq-answer">
         <p>{{ answer }}</p>
       </div>
     </transition>
@@ -26,7 +33,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, useId } from 'vue'
 
 defineProps({
   question: {
@@ -44,6 +51,7 @@ defineProps({
 })
 
 const isOpen = ref(false)
+const answerId = useId()
 
 const toggleFaq = () => {
   isOpen.value = !isOpen.value

@@ -10,6 +10,10 @@ export default {
     menu: 'Menu',
     mainMenu: 'Main menu',
     switchLanguage: 'Switch to {lang}',
+    close: 'Close',
+    // {alt} is the screenshot's description
+    enlargeImage: 'Enlarge: {alt}',
+    enlargedImage: 'Enlarged screenshot',
   },
 
   locale: {

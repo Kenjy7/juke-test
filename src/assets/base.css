@@ -207,8 +207,13 @@ p { text-wrap: pretty; }
   --color-text-on-accent: #06140d;
   --color-border: #233830;
   --color-border-hover: #30473d;
+  --color-border-input: #6a8577;
   --color-primary: #34c98e;
   --color-accent: #34c98e;
+  --color-primary-hover: #5fd9a7;
+  --color-accent-hover: #5fd9a7;
+  --color-success: #34c98e;
+  --color-error: #ff8a7a;
   --color-primary-subtle: rgba(52, 201, 142, 0.16);
   --color-primary-border: rgba(52, 201, 142, 0.32);
 }

@@ -37,6 +37,7 @@
   /* ---- Borders (cool hairlines) ---- */
   --color-border: #e5eae7;
   --color-border-hover: #d2dbd6;
+  --color-border-input: #7d8a83;     /* form fields: ≥3:1 (WCAG 1.4.11) */
   --color-border-active: #0c6b50;
 
   /* ---- Semantic (tuned to the clean palette) ---- */

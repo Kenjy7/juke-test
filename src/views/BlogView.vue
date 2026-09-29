@@ -22,7 +22,13 @@
           <RouterLink :to="`/blog/${post.slug}`">{{ post.title }}</RouterLink>
         </h2>
         <p class="blog-card__excerpt">{{ post.excerpt }}</p>
-        <RouterLink :to="`/blog/${post.slug}`" class="blog-card__cta">
+        <!-- Same target as the title link: hidden from AT and Tab order to avoid a vague duplicate "Lees meer" -->
+        <RouterLink
+          :to="`/blog/${post.slug}`"
+          class="blog-card__cta"
+          tabindex="-1"
+          aria-hidden="true"
+        >
           {{ t('blogView.card.readMore') }}
         </RouterLink>
       </article>

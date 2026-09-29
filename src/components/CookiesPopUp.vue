@@ -1,10 +1,10 @@
 <template>
   <transition name="fade">
     <div v-if="bannerVisible" class="cookie-banner-overlay">
-      <div class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+      <div ref="bannerRef" class="cookie-banner" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
         <div class="cookie-content">
           <div class="cookie-header">
-            <div class="cookie-icon">🍪</div>
+            <div class="cookie-icon" aria-hidden="true">🍪</div>
             <h3 id="cookie-title">{{ t('cookiesPopUp.title') }}</h3>
           </div>
 
@@ -77,7 +77,7 @@
               {{ t('cookiesPopUp.actions.save') }}
             </button>
 
-            <button v-if="!showDetails" @click="handleRejectAll" class="btn btn-tertiary">
+            <button @click="handleRejectAll" class="btn btn-primary">
               {{ t('cookiesPopUp.actions.reject') }}
             </button>
 
@@ -90,7 +90,7 @@
 
           <router-link to="/cookies" class="cookie-policy-link">
             {{ t('cookiesPopUp.policyLink') }}
-            <svg width="16" height="16" viewBox="0 0 20 20" fill="none">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" aria-hidden="true">
               <path
                 d="M7.5 15L12.5 10L7.5 5"
                 stroke="currentColor"
@@ -107,28 +107,69 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, nextTick } from 'vue'
+import { ref, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { useCookieConsent } from '../composables/useCookieConsent'
 
 const { t } = useI18n()
 
 // Gebruik de composable
-const { initializeConsent, saveConsent, acceptAll, acceptNecessary, bannerVisible } =
-  useCookieConsent()
+const {
+  initializeConsent,
+  saveConsent,
+  acceptAll,
+  acceptNecessary,
+  bannerVisible,
+  consentPreferences,
+} = useCookieConsent()
 
 const showDetails = ref(false)
 const primaryBtnRef = ref(null)
+const bannerRef = ref(null)
+let opener = null
 
+// Niets vooraf aangevinkt (GDPR/ePrivacy): toestemming moet een actieve keuze zijn.
 const preferences = ref({
-  functional: true,
-  analytics: true,
+  functional: false,
+  analytics: false,
   marketing: false,
 })
 
+// Bij heropenen via de footer de opgeslagen keuze tonen, niet de standaardwaarden.
+// Focus in bij openen, terug naar waar de gebruiker was bij sluiten.
+watch(bannerVisible, (visible) => {
+  if (!visible) {
+    opener?.focus?.()
+    opener = null
+    return
+  }
+  const { functional, analytics, marketing } = consentPreferences.value
+  preferences.value = { functional, analytics, marketing }
+  opener = document.activeElement
+  nextTick(() => primaryBtnRef.value?.focus())
+})
+
 const handleKeyDown = (e) => {
-  if (e.key === 'Escape' && bannerVisible.value) {
+  if (!bannerVisible.value) return
+  if (e.key === 'Escape') {
     handleRejectAll()
+    return
+  }
+  // aria-modal: Tab blijft binnen de banner.
+  if (e.key === 'Tab' && bannerRef.value) {
+    const focusables = bannerRef.value.querySelectorAll(
+      'button, a[href], input:not([disabled])',
+    )
+    if (!focusables.length) return
+    const first = focusables[0]
+    const last = focusables[focusables.length - 1]
+    if (e.shiftKey && document.activeElement === first) {
+      e.preventDefault()
+      last.focus()
+    } else if (!e.shiftKey && document.activeElement === last) {
+      e.preventDefault()
+      first.focus()
+    }
   }
 }
 
@@ -139,10 +180,7 @@ onMounted(() => {
   if (!hasExistingConsent) {
     // Geen bestaande voorkeuren, toon banner
     setTimeout(() => {
-      bannerVisible.value = true
-      nextTick(() => {
-        primaryBtnRef.value?.focus()
-      })
+      bannerVisible.value = true // de watcher hierboven zet de focus
     }, 1000)
   } else {
     // Gebruiker heeft al gekozen, banner blijft weg
@@ -414,16 +452,6 @@ const handleSavePreferences = () => {
   }
 }
 
-.btn-tertiary {
-  background: transparent;
-  color: var(--color-text-secondary);
-  border: 1px solid var(--color-border);
-
-  &:hover {
-    color: var(--color-text-primary);
-    background: var(--color-bg-surface);
-  }
-}
 
 .cookie-policy-link {
   display: inline-flex;

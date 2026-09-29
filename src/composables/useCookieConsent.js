@@ -53,6 +53,11 @@ export const useCookieConsent = () => {
 
   // Save consent preferences
   const saveConsent = (preferences) => {
+    // Wie analytics of marketing intrekt, mag geen tracking-cookies meer houden.
+    const withdrawn = ['analytics', 'marketing'].some(
+      (type) => consentPreferences.value[type] && !preferences[type],
+    )
+
     consentPreferences.value = {
       necessary: true,
       ...preferences,
@@ -62,6 +67,8 @@ export const useCookieConsent = () => {
     localStorage.setItem(CONSENT_KEY, JSON.stringify(consentPreferences.value))
     localStorage.setItem(CONSENT_TIMESTAMP_KEY, Date.now().toString())
     localStorage.setItem('cookieConsentVersion', CONSENT_VERSION)
+
+    if (withdrawn) clearNonNecessaryCookies()
 
     // Initialize scripts based on consent
     initializeScripts()

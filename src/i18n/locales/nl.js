@@ -10,6 +10,10 @@ export default {
     mainMenu: 'Hoofdmenu',
     // {lang} is the human name of the target language, e.g. "Engels"
     switchLanguage: 'Schakel over naar {lang}',
+    close: 'Sluiten',
+    // {alt} is the screenshot's description
+    enlargeImage: 'Vergroot: {alt}',
+    enlargedImage: 'Vergrote schermafbeelding',
   },
 
   // Language switcher

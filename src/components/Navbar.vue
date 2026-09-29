@@ -17,7 +17,7 @@
 
       <router-link to="/contact" class="cta-btn">
         {{ t('cta.startProject') }}
-        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="cta-arrow">
+        <svg width="14" height="14" viewBox="0 0 16 16" fill="none" class="cta-arrow" aria-hidden="true">
           <path
             d="M4 12L12 4M12 4H6M12 4V10"
             stroke="currentColor"

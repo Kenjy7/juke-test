@@ -55,35 +55,6 @@
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?v=2" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2" />
 
-    <!-- Preconnect (vóór de font-requests, anders komen ze te laat) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <!-- Fonts: Geist (body) + Bricolage Grotesque 600 (juke wordmark) — loaded
-         non-render-blocking: preload + media="print", daarna door src/main.js op
-         media="all" gezet (een inline onload-handler wordt door de CSP geblokkeerd).
-         display=swap avoids FOIT -->
-    <link
-        rel="preload"
-        as="style"
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Geist:wght@400;500;600;700&display=swap"
-        crossorigin="anonymous"
-    />
-    <link
-        id="web-fonts"
-        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Geist:wght@400;500;600;700&display=swap"
-        rel="stylesheet"
-        media="print"
-        crossorigin="anonymous"
-    />
-    <noscript>
-        <link
-                href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Geist:wght@400;500;600;700&display=swap"
-                rel="stylesheet"
-                crossorigin="anonymous"
-        />
-    </noscript>
-
     <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
     <!-- LocalBusiness/Organization-schema komt centraal uit App.vue

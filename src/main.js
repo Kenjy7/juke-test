@@ -11,11 +11,13 @@ import { localeFromPath, stripLocale } from './i18n/routing.js'
 import LocaleLink from './components/LocaleLink.vue'
 import { vScaleFit } from './directives/scaleFit.js'
 
-// Activate the non-render-blocking web-font stylesheet (see index.html).
-if (typeof document !== 'undefined') {
-  const fonts = document.getElementById('web-fonts')
-  if (fonts) fonts.media = 'all'
-}
+// Self-hosted web fonts (latin subset, font-display: swap). Not loaded from
+// Google Fonts: that would send every visitor's IP to Google before consent.
+import '@fontsource/geist/latin-400.css'
+import '@fontsource/geist/latin-500.css'
+import '@fontsource/geist/latin-600.css'
+import '@fontsource/geist/latin-700.css'
+import '@fontsource/bricolage-grotesque/latin-600.css'
 
 export const createApp = ViteSSG(
   App,

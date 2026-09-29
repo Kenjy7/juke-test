@@ -243,9 +243,6 @@ useHead({
 
     // DNS Prefetch & Preconnect voor performance
     { rel: 'dns-prefetch', href: 'https://www.google-analytics.com' },
-    { rel: 'dns-prefetch', href: 'https://fonts.googleapis.com' },
-    { rel: 'preconnect', href: 'https://fonts.googleapis.com', crossorigin: '' },
-    { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
 
     // Preload critical resources
     { rel: 'preload', href: ogImage, as: 'image' },
